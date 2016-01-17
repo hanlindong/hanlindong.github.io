@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://henrydong.com/2015/12/17/OS-X-El-Capitan-更新速度慢的解决方法/index.html">
 <meta property="og:site_name" content="Henry Blog">
 <meta property="og:description" content="OS X El Capitan 更新速度慢的解决方法基本原理抓取苹果官方下载链接，用第三方下载工具下载 .pkg 文件。搭建本地 server ,将苹果的下载地址解析到本地的服务器,从而实现快速下载安装。(适用于 El Capitan 更新慢的用户，有百兆光纤的用户可忽略)第一步、抓取苹果官方下载链接（为了安全性最好自己抓包获取此下载地址，后面的 hostname、 path 和自己抓取的链接对应">
-<meta property="og:updated_time" content="2016-01-17T02:06:14.000Z">
+<meta property="og:updated_time" content="2016-01-17T02:08:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OS X El Capitan 更新速度慢的解决方法">
 <meta name="twitter:description" content="OS X El Capitan 更新速度慢的解决方法基本原理抓取苹果官方下载链接，用第三方下载工具下载 .pkg 文件。搭建本地 server ,将苹果的下载地址解析到本地的服务器,从而实现快速下载安装。(适用于 El Capitan 更新慢的用户，有百兆光纤的用户可忽略)第一步、抓取苹果官方下载链接（为了安全性最好自己抓包获取此下载地址，后面的 hostname、 path 和自己抓取的链接对应">
@@ -218,7 +218,7 @@
 <p>在这里我们只需要找到 hostname 和 path<br>hostname : osxapps.itunes.apple.com</p>
 <p>path : /apple-assets-us-std-000001/Purple3/v4/74/d2/82/74d28291-9db9-7ae2-305d-9b8b3f5fd463/</p>
 <p>3.2 将域名指向本地 通过修改 hosts 文件 将域名指向 127.0.0.1，通过如下命令打开 hosts 文件<br>sudo vim /etc/hosts</p>
-<p>修改部分如下<br><a href="https://camo.githubusercontent.com/ed6c3b5ce5be0d9f9de2b67f5e275aa430f43a21/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f616436393562613967773165776c766b79763930326a32307963306338646b322e6a7067" target="_blank" rel="external">https://camo.githubusercontent.com/ed6c3b5ce5be0d9f9de2b67f5e275aa430f43a21/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f616436393562613967773165776c766b79763930326a32307963306338646b322e6a7067</a></p>
+<p>修改部分如下</p>
 <p>这样 DNS 就会将 osxapps.itunes.apple.com 解析到本地</p>
 <p>3.3 搭建 SimpleHTTPServer 首先创建根目录(路径可自己修改)，本人放在桌面<br>cd Desktop mkdir elCapitanRoot</p>
 <p>根据抓包得到的 path 创建相关路径,在 elCapitanRoot 目录下<br>cd elCapitanRootsudo mkdir -p ./apple-assets-us-std-000001/Purple3/v4/74/d2/82/74d28291-9db9-7ae2-305d-9b8b3f5fd463/</p>
