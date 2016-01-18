@@ -4,19 +4,22 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>guestbook | Henry Blog</title>
+  <title>iBeacons技术 | Henry Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
-  <meta name="description" content="请在此处留言！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="guestbook">
-<meta property="og:url" content="http://henrydong.com/guestbook/index.html">
+  <meta name="description" content="These are a new feature of Bluetooth LE which allows proximity-based notifications and ranging.（蓝牙的新特性,允许附近通知和测距。）
+Tthe seeker device displays updates of estimated range to it.（iBeacon可显示装置更新的估计范围。）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iBeacons技术">
+<meta property="og:url" content="http://henrydong.com/2015/01/18/iBeacon技术/index.html">
 <meta property="og:site_name" content="Henry Blog">
-<meta property="og:description" content="请在此处留言！">
-<meta property="og:updated_time" content="2016-01-17T00:23:25.000Z">
+<meta property="og:description" content="These are a new feature of Bluetooth LE which allows proximity-based notifications and ranging.（蓝牙的新特性,允许附近通知和测距。）
+Tthe seeker device displays updates of estimated range to it.（iBeacon可显示装置更新的估计范围。）">
+<meta property="og:updated_time" content="2016-01-18T01:29:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="guestbook">
-<meta name="twitter:description" content="请在此处留言！">
+<meta name="twitter:title" content="iBeacons技术">
+<meta name="twitter:description" content="These are a new feature of Bluetooth LE which allows proximity-based notifications and ranging.（蓝牙的新特性,允许附近通知和测距。）
+Tthe seeker device displays updates of estimated range to it.（iBeacon可显示装置更新的估计范围。）">
   
     <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
   
@@ -181,11 +184,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iBeacon技术" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/guestbook/index.html" class="article-date">
-  	<time datetime="2016-01-17T00:21:25.000Z" itemprop="datePublished">2016-01-17</time>
+      <a href="/2015/01/18/iBeacon技术/" class="article-date">
+  	<time datetime="2015-01-18T11:10:51.000Z" itemprop="datePublished">2015-01-18</time>
 </a>
     </div>
   
@@ -198,7 +201,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      guestbook
+      iBeacons技术
     </h1>
   
 
@@ -206,6 +209,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -214,13 +221,114 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="u8BF7_u5728_u6B64_u5904_u7559_u8A00_uFF01"><a href="#u8BF7_u5728_u6B64_u5904_u7559_u8A00_uFF01" class="headerlink" title="请在此处留言！"></a>请在此处留言！</h3>
+        <blockquote>
+<p>These are a new feature of Bluetooth LE which allows proximity-based notifications and ranging.（蓝牙的新特性,允许附近通知和测距。）</p>
+<p>Tthe seeker device displays updates of estimated range to it.（iBeacon可显示装置更新的估计范围。）</p>
+</blockquote>
+<pre><code>// 遵守并实现 CBPeripheralManagerDelegate, CLLocationManagerDelegate.
+
+@interface SCViewController () &lt;CBPeripheralManagerDelegate, CLLocationManagerDelegate&gt; {
+
+// CBPeripheralManager - 如果你的应用程序没有指定bluetooth-peripheral背景模式,其服务的内容处于暂停状态,任何远程中央试图访问服务的特征值或特征描述符接收到一个错误。
+// NSUUID - 唯一地标识类型的字符串,接口
+// CLBeaconRegion - 基于设备的接近蓝牙信号强度,而不是地理位置
+// CLLocationManager - 位置管理者
+
+CBPeripheralManager *_cbPeripheralManager;
+NSUUID *_beaconUUID;
+CLBeaconRegion *_rangedRegion;
+CLLocationManager *_clLocationManager;
+}
+</code></pre><p>包含 CoreLocation and CoreBluetooth：</p>
+<pre><code>@import CoreBluetooth;
+@import CoreLocation;
+</code></pre><p>为了使应用程序出现,我们创建一个“CLBeaconRegion”对象,我们需要指定id。</p>
+<p>1、CoreBluetooth peripheral 管理者:</p>
+<pre><code>_cbPeripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
+                                                               queue:dispatch_get_main_queue()];
+</code></pre><p>2、The UUID:</p>
+<pre><code>_beaconUUID = [[NSUUID alloc] initWithUUIDString:@&quot;3B2DCB64-A300-4F62-8A11-F6E7A06E4BC0&quot;];
+</code></pre><p>3、在我们的例子中我们只设置UUID:</p>
+<pre><code>_rangedRegion = [[CLBeaconRegion alloc] initWithProximityUUID:_beaconUUID
+                                                   identifier:@&quot;com.shinobicontrols.HotOrCold&quot;];
+</code></pre><p><strong><code>CBPeripheralManager</code> 有一个协议方法，并没有什么卵用，但是需要强制实现:</strong></p>
+<pre><code>#pragma mark - CBPeripheralManager delegate methods
+- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
+{
+    // We don&apos;t really care...
+}
+</code></pre><p>现在,当我们想要开始广播，作为iBeacon，那么我们得到一个词典设置从“CLBeaconRegion”并将其传递到“CBPeripheralManager”开始广播:</p>
+<pre><code>- (IBAction)handleHidingButtonPressed:(id)sender {
+
+    //蓝牙启用情况
+    if(_cbPeripheralManager.state &lt; CBPeripheralManagerStatePoweredOn) {
+        NSLog(@&quot;Bluetooth must be enabled in order to act as an iBeacon&quot;);
+        return;
+    }
+
+    // 构造 CLBeaconRegion, measuredPower指信号强度
+    NSDictionary *toBroadcast = [_rangedRegion peripheralDataWithMeasuredPower:@-60];
+
+    [_cbPeripheralManager startAdvertising:toBroadcast];
+}
+</code></pre><p>实现以下 CLLocationManagerDelegate 协议方法:</p>
+<pre><code>#pragma mark - CLLocationManagerDelegate methods
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
+{
+    if([region isEqual:_rangedRegion]) {
+
+    // Let&apos;s just take the first beacon
+    CLBeacon *beacon = [beacons firstObject];
+
+    self.statusLabel.textColor = [UIColor whiteColor];
+    self.signalStrengthLabel.textColor = [UIColor whiteColor];
+    self.signalStrengthLabel.text = [NSString stringWithFormat:@&quot;%ddB&quot;, beacon.rssi];
+
+    // 邻近的设备。
+    switch (beacon.proximity) {
+        case CLProximityUnknown:
+            self.view.backgroundColor = [UIColor blueColor];
+            break;
+
+        case CLProximityFar:
+            self.view.backgroundColor = [UIColor blueColor];
+            break;
+
+        case CLProximityImmediate:
+            self.view.backgroundColor = [UIColor purpleColor];
+            break;
+
+        case CLProximityNear:
+            self.view.backgroundColor = [UIColor redColor];
+            break;
+
+        default:
+            break;
+        }
+    }
+}
+</code></pre><h4 id="u6CA1_u6709_u611F_u5E94_u5230_u57FA_u7AD9_u6216_u8DDD_u79BB_u5F88_u8FDC_uFF0C_u5C4F_u5E55_u4E3A_u84DD_u8272_u3002"><a href="#u6CA1_u6709_u611F_u5E94_u5230_u57FA_u7AD9_u6216_u8DDD_u79BB_u5F88_u8FDC_uFF0C_u5C4F_u5E55_u4E3A_u84DD_u8272_u3002" class="headerlink" title="没有感应到基站或距离很远，屏幕为蓝色。"></a>没有感应到基站或距离很远，屏幕为蓝色。</h4><h4 id="u8DDD_u79BB_u9002_u4E2D_uFF0C_u4E3A_u7D2B_u8272_u3002"><a href="#u8DDD_u79BB_u9002_u4E2D_uFF0C_u4E3A_u7D2B_u8272_u3002" class="headerlink" title="距离适中，为紫色。"></a>距离适中，为紫色。</h4><h4 id="u8DDD_u79BB_u5F88_u8FD1_uFF0C_u4E3A_u7EA2_u8272_u3002"><a href="#u8DDD_u79BB_u5F88_u8FD1_uFF0C_u4E3A_u7EA2_u8272_u3002" class="headerlink" title="距离很近，为红色。"></a>距离很近，为红色。</h4><hr>
+<h4 id="u4EE5_u4E0A"><a href="#u4EE5_u4E0A" class="headerlink" title="以上"></a>以上</h4>
       
     </div>
     
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2015/12/17/OS-X-El-Capitan-更新速度慢的解决方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          OS X El Capitan 更新速度慢的解决方法
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 
@@ -250,7 +358,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="guestbook" data-url="http://henrydong.com/guestbook/index.html"></div>
+	<div class="ds-thread" data-thread-key="iBeacon技术" data-title="iBeacons技术" data-url="http://henrydong.com/2015/01/18/iBeacon技术/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -294,7 +402,7 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
