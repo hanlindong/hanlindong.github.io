@@ -4,47 +4,29 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>运用UIKit Dynamics实现小球碰撞效果 | Henry Blog</title>
+  <title>提取酵母DNA | Henry Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
-  <meta name="description" content="先来看一下效果
-
-我们先来分析一下需要哪些行为。
-
-首先要创建五个小球，为各个小球添加手势。
-
-然后初始化UIDynamicBehavior，设置锚点(蓝色小方块即为锚点)、重力、碰撞行为、碰撞参数等。 
-
-为小球添加UIDynamicBehavior。">
+  <meta name="description" content="师兄这几天把上次的DNA用完了，这次我又重新提取了酵母的DNA。
+还是用的试剂盒，在毕业报告里记录一下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="运用UIKit Dynamics实现小球碰撞效果">
-<meta property="og:url" content="http://henrydong.com/2016/01/18/运用UIKit-Dynamics实现小球碰撞效果/index.html">
+<meta property="og:title" content="提取酵母DNA">
+<meta property="og:url" content="http://henrydong.com/2016/01/18/提取酵母DNA/index.html">
 <meta property="og:site_name" content="Henry Blog">
-<meta property="og:description" content="先来看一下效果
-
-我们先来分析一下需要哪些行为。
-
-首先要创建五个小球，为各个小球添加手势。
-
-然后初始化UIDynamicBehavior，设置锚点(蓝色小方块即为锚点)、重力、碰撞行为、碰撞参数等。 
-
-为小球添加UIDynamicBehavior。">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/1.gif">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic1.png">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic2.png">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic3.png">
-<meta property="og:updated_time" content="2016-01-18T00:40:05.000Z">
+<meta property="og:description" content="师兄这几天把上次的DNA用完了，这次我又重新提取了酵母的DNA。
+还是用的试剂盒，在毕业报告里记录一下：">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/lib1.7.JPG">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/lib1.1.JPG">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/lib1.2.JPG">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/lib1.5.JPG">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/lib1.4.JPG">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/lib1.6.JPG">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/lib1.3.JPG">
+<meta property="og:updated_time" content="2016-01-18T14:53:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="运用UIKit Dynamics实现小球碰撞效果">
-<meta name="twitter:description" content="先来看一下效果
-
-我们先来分析一下需要哪些行为。
-
-首先要创建五个小球，为各个小球添加手势。
-
-然后初始化UIDynamicBehavior，设置锚点(蓝色小方块即为锚点)、重力、碰撞行为、碰撞参数等。 
-
-为小球添加UIDynamicBehavior。">
+<meta name="twitter:title" content="提取酵母DNA">
+<meta name="twitter:description" content="师兄这几天把上次的DNA用完了，这次我又重新提取了酵母的DNA。
+还是用的试剂盒，在毕业报告里记录一下：">
   
     <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
   
@@ -209,11 +191,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-运用UIKit-Dynamics实现小球碰撞效果" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-提取酵母DNA" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/18/运用UIKit-Dynamics实现小球碰撞效果/" class="article-date">
-  	<time datetime="2016-01-18T00:22:30.000Z" itemprop="datePublished">2016-01-18</time>
+      <a href="/2016/01/18/提取酵母DNA/" class="article-date">
+  	<time datetime="2016-01-18T14:11:47.000Z" itemprop="datePublished">2016-01-18</time>
 </a>
     </div>
   
@@ -226,7 +208,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      运用UIKit Dynamics实现小球碰撞效果
+      提取酵母DNA
     </h1>
   
 
@@ -235,7 +217,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/生物/">生物</a></li></ul>
 	</div>
 
         
@@ -246,22 +228,64 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="u5148_u6765_u770B_u4E00_u4E0B_u6548_u679C"><a href="#u5148_u6765_u770B_u4E00_u4E0B_u6548_u679C" class="headerlink" title="先来看一下效果"></a>先来看一下效果</h3><p><img src="http://7xq720.com1.z0.glb.clouddn.com/1.gif" alt=""></p>
+        <blockquote>
+<p>师兄这几天把上次的DNA用完了，这次我又重新提取了酵母的DNA。</p>
+<p>还是用的试剂盒，在毕业报告里记录一下：</p>
+</blockquote>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/lib1.7.JPG" alt=""></p>
+<a id="more"></a>
+<h3 id="u914D_u5236Sorbitol_buffer"><a href="#u914D_u5236Sorbitol_buffer" class="headerlink" title="配制Sorbitol buffer"></a>配制Sorbitol buffer</h3><p>这一步比较简单，计算一下 10mL 去离子水需要多少山梨醇，需要多少Na2EDTA即可。</p>
+<p>计算结果：1.82g 山梨醇，0.374g Na2EDTA。</p>
+<p>加入后将其超声溶解。</p>
+<p>最后加入 10μL 巯基乙醇，用去离子水补至 10mL 即可。</p>
+<h3 id="u63D0_u53D6_u9175_u6BCDDNA"><a href="#u63D0_u53D6_u9175_u6BCDDNA" class="headerlink" title="提取酵母DNA"></a>提取酵母DNA</h3><ul>
+<li>先讲培养箱中的酵母培养物（早对数生长期，不超过 10^7cells）在超净台中，取4支离心管，各提取1mL。</li>
+</ul>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/lib1.1.JPG" alt=""></p>
 <ul>
-<li><p>我们先来分析一下需要哪些行为。</p>
+<li>吸取100μL Sorbitol buffer ，吹打充分重悬细胞，加入 5μL Lyticase，颠倒均匀，37°C 温育 30min 消化细胞壁，中间颠倒数次帮助消化。</li>
+</ul>
+<blockquote>
+<p>若破壁效果不好，可以加大 Lyticase 用量。</p>
+<p>还可以延长消化时间来提高效果， 不适台 Lyticase 消化的酵母可选用 Zymolase 等。</p>
+</blockquote>
+<ul>
+<li>13000 rpm 离心 1 分钟 尽可能吸弃上清 加 180μL 缓冲液YB 充分重悬细胞团。</li>
+</ul>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/lib1.2.JPG" alt=""></p>
+<ul>
+<li>加入 20μL 的蛋白酶K溶液(20mg/mL)立刻涡旋振荡充分混匀。</li>
+</ul>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/lib1.5.JPG" alt=""></p>
+<ul>
+<li><p>将混合物放置在 55°C 水浴消化直到消化完全, 期间轻柔振荡几次帮助裂解。</p>
 </li>
-<li><p>首先要创建五个小球，为各个小球添加手势。</p>
-</li>
-<li><p>然后初始化UIDynamicBehavior，设置锚点(蓝色小方块即为锚点)、重力、碰撞行为、碰撞参数等。 </p>
-</li>
-<li><p>为小球添加UIDynamicBehavior。</p>
+<li><p>所需消化时间一般15分钟即可, 但是如果方便的话消化过夜也无不良影响。</p>
 </li>
 </ul>
-<a id="more"></a>
-<h3 id="u521B_u5EFA_u4E94_u4E2A_u5C0F_u7403_uFF0C_u4F4D_u7F6E_u7B49_u7701_u7565_u6389_u3002"><a href="#u521B_u5EFA_u4E94_u4E2A_u5C0F_u7403_uFF0C_u4F4D_u7F6E_u7B49_u7701_u7565_u6389_u3002" class="headerlink" title="创建五个小球，位置等省略掉。"></a>创建五个小球，位置等省略掉。</h3><h4 id="u6DFB_u52A0_u624B_u52BF"><a href="#u6DFB_u52A0_u624B_u52BF" class="headerlink" title="添加手势"></a>添加手势</h4><p><code>UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleBallBearingPan:)];</code>       </p>
-<p><img src="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic1.png" alt=""></p>
-<h4 id="u521B_u5EFA_u884C_u4E3A"><a href="#u521B_u5EFA_u884C_u4E3A" class="headerlink" title="创建行为"></a>创建行为</h4><p><img src="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic2.png" alt=""></p>
-<h4 id="u884C_u4E3A_u65B9_u6CD5"><a href="#u884C_u4E3A_u65B9_u6CD5" class="headerlink" title="行为方法"></a>行为方法</h4><p><img src="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic3.png" alt=""></p>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/lib1.4.JPG" alt=""></p>
+<ul>
+<li><p>加入 200μL 结合液CB， 立刻涡旋振荡充分混匀，70°C放置10分钟。</p>
+</li>
+<li><p>冷却后加入 100μL 异丙醇，立刻涡旋振荡充分混匀，此时可能会出现絮状沉淀。</p>
+</li>
+<li><p>将上一步混合物 (包括可能有的沉淀) 加入一个吸附柱 AC 中，(吸附柱放入收集<br>管中)，13000rpm 离心 30-60秒， 倒掉收集管中的废液。</p>
+</li>
+<li><p>加入500μL 抑制物去除液IR, 12000rpm 离心30秒，弃废液。</p>
+</li>
+<li><p>加入 500μL 漂洗液WB，12000rpm 离心 30秒，弃掉废液。</p>
+</li>
+<li><p>加入 500μL 漂洗液WB 12000rpm 离心 30秒 弃掉废液。<br>将吸附柱 AC 放回空收集管中，13000rpm 离心2分钟，尽量除去漂洗液，以免漂洗液中残留乙醇抑制下游反应。</p>
+</li>
+</ul>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/lib1.6.JPG" alt=""></p>
+<ul>
+<li><p>取出吸附柱AC，放入一个干净的离心管中，在吸附膜的中间部位加 100μL 洗脱缓冲液EB（洗脱缓冲液事先在 65-70°C 水浴中预热效果吏好)，室温放置3-5分钟，12000rpm 离心1分钟。将得到的溶液重新加入离心吸附柱中， 室温放置2分钟，12000rpm 离心1分钟。</p>
+</li>
+<li><p>DNA可以存放在 2-8°C, 如果要长时间存放，可以放置在 -20°C。</p>
+</li>
+</ul>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/lib1.3.JPG" alt=""></p>
 <hr>
 <h3 id="u4EE5_u4E0A"><a href="#u4EE5_u4E0A" class="headerlink" title="以上"></a>以上</h3>
       
@@ -272,18 +296,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/18/提取酵母DNA/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          提取酵母DNA
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/17/OS-X-Automator与快捷键配合实现高效工作流/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">OS X Automator与快捷键配合实现高效工作流</div>
+    <a href="/2016/01/18/运用UIKit-Dynamics实现小球碰撞效果/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">运用UIKit Dynamics实现小球碰撞效果</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -318,7 +333,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="运用UIKit-Dynamics实现小球碰撞效果" data-title="运用UIKit Dynamics实现小球碰撞效果" data-url="http://henrydong.com/2016/01/18/运用UIKit-Dynamics实现小球碰撞效果/"></div>
+	<div class="ds-thread" data-thread-key="提取酵母DNA" data-title="提取酵母DNA" data-url="http://henrydong.com/2016/01/18/提取酵母DNA/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
