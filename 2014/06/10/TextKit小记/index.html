@@ -4,26 +4,22 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Custom UIViewController Transitions | Henry Blog</title>
+  <title>TextKit小记 | Henry Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
-  <meta name="description" content="Navigation Controller Delegate：它有4个方法，本文只涉及其中之一：：
-- (id&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;)navigationController:
-                                  animationControllerForOperation:">
+  <meta name="description" content="TextKit介绍
+iOS7 introduced a new high-level text-rendering framework called TextKit. TextKit is based on the extremely powerful CoreText rendering engine, and all the Apple-provided text-based controls">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Custom UIViewController Transitions">
-<meta property="og:url" content="http://henrydong.com/2014/05/19/Custom-UIViewController-Transitions/index.html">
+<meta property="og:title" content="TextKit小记">
+<meta property="og:url" content="http://henrydong.com/2014/06/10/TextKit小记/index.html">
 <meta property="og:site_name" content="Henry Blog">
-<meta property="og:description" content="Navigation Controller Delegate：它有4个方法，本文只涉及其中之一：：
-- (id&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;)navigationController:
-                                  animationControllerForOperation:">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/Custom%20UIViewController%20Transitions.gif">
-<meta property="og:updated_time" content="2016-01-19T04:49:39.000Z">
+<meta property="og:description" content="TextKit介绍
+iOS7 introduced a new high-level text-rendering framework called TextKit. TextKit is based on the extremely powerful CoreText rendering engine, and all the Apple-provided text-based controls">
+<meta property="og:updated_time" content="2016-01-19T15:02:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Custom UIViewController Transitions">
-<meta name="twitter:description" content="Navigation Controller Delegate：它有4个方法，本文只涉及其中之一：：
-- (id&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;)navigationController:
-                                  animationControllerForOperation:">
+<meta name="twitter:title" content="TextKit小记">
+<meta name="twitter:description" content="TextKit介绍
+iOS7 introduced a new high-level text-rendering framework called TextKit. TextKit is based on the extremely powerful CoreText rendering engine, and all the Apple-provided text-based controls">
   
     <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
   
@@ -188,11 +184,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Custom-UIViewController-Transitions" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-TextKit小记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/05/19/Custom-UIViewController-Transitions/" class="article-date">
-  	<time datetime="2014-05-19T04:20:16.000Z" itemprop="datePublished">2014-05-19</time>
+      <a href="/2014/06/10/TextKit小记/" class="article-date">
+  	<time datetime="2014-06-10T14:38:25.000Z" itemprop="datePublished">2014-06-10</time>
 </a>
     </div>
   
@@ -205,7 +201,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Custom UIViewController Transitions
+      TextKit小记
     </h1>
   
 
@@ -225,77 +221,54 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Navigation_Controller_Delegate_uFF1A"><a href="#Navigation_Controller_Delegate_uFF1A" class="headerlink" title="Navigation Controller Delegate："></a>Navigation Controller Delegate：</h3><p>它有4个方法，本文只涉及其中之一：：</p>
-<pre><code>- (id&lt;UIViewControllerAnimatedTransitioning&gt;)navigationController:
-                                  animationControllerForOperation:
-                                               fromViewController:
-                                                 toViewController:
-</code></pre><p>最终效果如图：</p>
-<p><img src="http://7xq720.com1.z0.glb.clouddn.com/Custom%20UIViewController%20Transitions.gif" alt=""></p>
-<a id="more"></a>
-<p>这个方法在每次导航控制器之间过渡时被调用。所以在这一点上我们可以决定什么样的过渡,我们需要一个return。</p>
-<p>我们创建一个类,将作为导航控制器代理:</p>
-<p>实现方法：</p>
-<pre><code>@interface SCNavControllerDelegate : NSObject     &lt;UINavigationControllerDelegate&gt;
-@end
+        <h3 id="TextKit_u4ECB_u7ECD"><a href="#TextKit_u4ECB_u7ECD" class="headerlink" title="TextKit介绍"></a>TextKit介绍</h3><blockquote>
+<p>iOS7 introduced a new high-level text-rendering framework called TextKit. TextKit is based on the extremely powerful CoreText rendering engine, and all the Apple-provided text-based controls have been updated to use the TextKit engine. </p>
+</blockquote>
+<h3 id="1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B"><a href="#1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B" class="headerlink" title="1. Dynamic Type - 动态类型"></a>1. Dynamic Type - 动态类型</h3><p>动态类型并不是简单地改变字体大小的能力,也改变其他类型的属性：如字体和行间距。确保了文本是可读的。</p>
+<pre><code>self.subHeadingLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+</code></pre><p>iOS7有如下样式：</p>
+<ul>
+<li>UIFontTextStyleHeadline</li>
+<li>UIFontTextStyleBody</li>
+<li>UIFontTextStyleSubheadline</li>
+<li>UIFontTextStyleFootnote</li>
+<li>UIFontTextStyleCaption1</li>
+<li>UIFontTextStyleCaption2</li>
+</ul>
+<p>（2015.10.07 补充，iOS9 增加的样式）：</p>
+<ul>
+<li>UIFontTextStyleTitle1</li>
+<li>UIFontTextStyleTitle1</li>
+<li>UIFontTextStyleTitle1</li>
+</ul>
+<h3 id="2-_Font_Descriptors_-__u5B57_u4F53_u63CF_u8FF0"><a href="#2-_Font_Descriptors_-__u5B57_u4F53_u63CF_u8FF0" class="headerlink" title="2. Font Descriptors - 字体描述"></a>2. Font Descriptors - 字体描述</h3><p>1、用来修改字体,而不是完全指定一个新的字体，比如用    <code>fontWithName:size:</code>，然后加粗等。</p>
+<pre><code>// 拿到字体描述 UIFontTextStyleBody -&gt; UIFontDescriptorTraitBold 将字体描述加粗
+// fontDescriptorWithSymbolicTraits: 返回新的字体描述
 
-@implementation SCNavControllerDelegate
-- (id&lt;UIViewControllerAnimatedTransitioning&gt;)navigationController:(UINavigationController *)navigationController
-                                  animationControllerForOperation:(UINavigationControllerOperation)operation
-                                               fromViewController:(UIViewController *)fromVC
-                                                 toViewController:(UIViewController *)toVC
-{
-    return [SCFadeTransition new];
-}
-@end
-</code></pre><p>UINavigationControllerDelegate：</p>
-<pre><code>- (id)initWithCoder:(NSCoder *)aDecoder
-{
-self = [super initWithCoder:aDecoder];
-if(self) {
-    _navDelegate = [SCNavControllerDelegate new];
-    self.delegate = _navDelegate;
-}
-return self;
-}
-</code></pre><p>创建过渡动画：</p>
-<pre><code>// 动画持续时间
-- (NSTimeInterval)transitionDuration:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext
-{
-return 2.0;
-}
+UIFontDescriptor *bodyFontDesciptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
+UIFontDescriptor *boldBodyFontDescriptor = [bodyFontDesciptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
+self.boldBodyTextLabel.font = [UIFont fontWithDescriptor:boldBodyFontDescriptor size:0.0];
+</code></pre><p>这个例子是使用字体的加粗,其他的例子如下:</p>
+<ul>
+<li>UIFontDescriptorTraitItalic</li>
+<li>UIFontDescriptorTraitExpanded</li>
+<li>UIFontDescriptorTraitCondensed</li>
+</ul>
+<p>2、 创建一个字典的,然后找到匹配要求的字体描述。</p>
+<pre><code>// 创建字体描述
+UIFontDescriptor *scriptFontDescriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:
+                                                      @{UIFontDescriptorFamilyAttribute: @&quot;Zapfino&quot;,
+                                                        UIFontDescriptorSizeAttribute: @15.0}
+                                          ];
+self.scriptTextLabel.font = [UIFont fontWithDescriptor:scriptFontDescriptor size:0.0];
+</code></pre><p>在这里指定字体和大小的属性，也可以使用其他属性，包括:</p>
+<ul>
+<li>UIFontDescriptorNameAttribute</li>
+<li>UIFontDescriptorTextStyleAttribute</li>
+<li>UIFontDescriptorVisbileNameAttribute</li>
+<li>UIFontDescriptorMatrixAttribute</li>
+</ul>
 
-- (void)animateTransition:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext
-{
-
-    // 通过viewControllerForKey:我们可以得到这两个视图控制器
-    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-
-    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-
-    // 转换动画的容器视图
-    UIView *containerView = [transitionContext containerView];
-
-    [containerView addSubview:fromVC.view];
-    [containerView addSubview:toVC.view];
-    toVC.view.alpha = 0.0;
-
-    // 动画
-    [UIView animateWithDuration:[self transitionDuration:transitionContext]
-                      delay:0
-                    options:0
-                 animations:^{
-                     toVC.view.alpha = 1.f;
-                 }
-                 completion:^(BOOL finished) {
-                     // Let&apos;s get rid of the old VC view
-                     [fromVC.view removeFromSuperview];
-                     // And then we need to tell the context that we&apos;re done
-                     [transitionContext completeTransition:YES];
-                 }];
-
-}
-</code></pre>
       
     </div>
     
@@ -304,15 +277,20 @@ return 2.0;
     
 <nav id="article-nav">
   
-    <a href="/2014/06/10/TextKit小记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/01/18/iBeacon技术/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          TextKit小记
+          iBeacons技术
         
       </div>
     </a>
   
+  
+    <a href="/2014/05/19/Custom-UIViewController-Transitions/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Custom UIViewController Transitions</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -345,7 +323,7 @@ return 2.0;
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Custom-UIViewController-Transitions" data-title="Custom UIViewController Transitions" data-url="http://henrydong.com/2014/05/19/Custom-UIViewController-Transitions/"></div>
+	<div class="ds-thread" data-thread-key="TextKit小记" data-title="TextKit小记" data-url="http://henrydong.com/2014/06/10/TextKit小记/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
