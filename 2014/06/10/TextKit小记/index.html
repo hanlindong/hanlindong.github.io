@@ -15,7 +15,12 @@ iOS7 introduced a new high-level text-rendering framework called TextKit. TextKi
 <meta property="og:site_name" content="Henry Blog">
 <meta property="og:description" content="TextKit介绍
 iOS7 introduced a new high-level text-rendering framework called TextKit. TextKit is based on the extremely powerful CoreText rendering engine, and all the Apple-provided text-based controls">
-<meta property="og:updated_time" content="2016-01-20T00:23:45.000Z">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit1.png">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit2.png">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit3.png">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit4.png">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit5.png">
+<meta property="og:updated_time" content="2016-01-20T01:07:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TextKit小记">
 <meta name="twitter:description" content="TextKit介绍
@@ -224,10 +229,11 @@ iOS7 introduced a new high-level text-rendering framework called TextKit. TextKi
         <h3 id="TextKit_u4ECB_u7ECD"><a href="#TextKit_u4ECB_u7ECD" class="headerlink" title="TextKit介绍"></a>TextKit介绍</h3><blockquote>
 <p>iOS7 introduced a new high-level text-rendering framework called TextKit. TextKit is based on the extremely powerful CoreText rendering engine, and all the Apple-provided text-based controls have been updated to use the TextKit engine. </p>
 </blockquote>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit1.png" alt=""></p>
 <h3 id="1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B"><a href="#1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B" class="headerlink" title="1. Dynamic Type - 动态类型"></a>1. Dynamic Type - 动态类型</h3><p>动态类型并不是简单地改变字体大小的能力,也改变其他类型的属性：如字体和行间距。确保了文本是可读的。</p>
-<pre><code>self.subHeadingLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
-</code></pre><a id="more"></a>
-<p>iOS7有如下样式：</p>
+<a id="more"></a>
+<h4 id="u57FA_u672C_u6837_u5F0F_uFF1A"><a href="#u57FA_u672C_u6837_u5F0F_uFF1A" class="headerlink" title="基本样式："></a>基本样式：</h4><pre><code>self.subHeadingLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+</code></pre><p>iOS7有如下样式：</p>
 <ul>
 <li>UIFontTextStyleHeadline</li>
 <li>UIFontTextStyleBody</li>
@@ -242,7 +248,70 @@ iOS7 introduced a new high-level text-rendering framework called TextKit. TextKi
 <li>UIFontTextStyleTitle1</li>
 <li>UIFontTextStyleTitle1</li>
 </ul>
-<h3 id="2-_Font_Descriptors_-__u5B57_u4F53_u63CF_u8FF0"><a href="#2-_Font_Descriptors_-__u5B57_u4F53_u63CF_u8FF0" class="headerlink" title="2. Font Descriptors - 字体描述"></a>2. Font Descriptors - 字体描述</h3><p>1、用来修改字体,而不是完全指定一个新的字体，比如用    <code>fontWithName:size:</code>，然后加粗等。</p>
+<h4 id="u54CD_u5E94_u6587_u672C_u66F4_u65B0_uFF1A"><a href="#u54CD_u5E94_u6587_u672C_u66F4_u65B0_uFF1A" class="headerlink" title="响应文本更新："></a>响应文本更新：</h4><p>添加通知</p>
+<pre><code>[[NSNotificationCenter defaultCenter]
+                          addObserver:self
+                             selector:@selector(preferredContentSizeChanged:)
+                                 name:UIContentSizeCategoryDidChangeNotification
+                               object:nil];                                                                      
+</code></pre><p>调用 preferredContentSizeChanged: 方法：</p>
+<pre><code>- (void)preferredContentSizeChanged:(NSNotification *)notification {
+    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+}
+</code></pre><p>刷新表格：</p>
+<pre><code>- (void)preferredContentSizeChanged:(NSNotification *)notification {
+[self.tableView reloadData];
+}
+</code></pre><p>####凸版效果<br><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit2.png" alt=""></p>
+<blockquote>
+<p>添加微妙的阴影和高光的文本给它的深度感 - 就像文本已略有压入画面。</p>
+</blockquote>
+<p>在tableView:cellForRowAtIndexPath: 中添加：</p>
+<pre><code>static NSString *CellIdentifier = @&quot;Cell&quot;;
+UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier 
+                                                    forIndexPath:indexPath];
+
+Note* note = [self notes][indexPath.row];
+
+UIFont* font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+
+UIColor* textColor = [UIColor colorWithRed:0.175f green:0.458f blue:0.831f alpha:1.0f];
+NSDictionary *attrs = @{ NSForegroundColorAttributeName : textColor,
+                                NSFontAttributeName : font,
+                          NSTextEffectAttributeName : NSTextEffectLetterpressStyle};
+
+NSAttributedString* attrString = [[NSAttributedString alloc]
+                                   initWithString:note.title
+                                       attributes:attrs];
+
+cell.textLabel.attributedText = attrString;
+
+return cell;
+</code></pre><h3 id="2-_Exclusion_paths_-__u6587_u672C_u73AF_u7ED5"><a href="#2-_Exclusion_paths_-__u6587_u672C_u73AF_u7ED5" class="headerlink" title="2. Exclusion paths - 文本环绕"></a>2. Exclusion paths - 文本环绕</h3><h4 id="u6587_u672C_u5B9A_u4F4D_uFF1A"><a href="#u6587_u672C_u5B9A_u4F4D_uFF1A" class="headerlink" title="文本定位："></a>文本定位：</h4><p>在 viewDidView 中：</p>
+<pre><code>_timeView = [[TimeIndicatorView alloc] initWithDate:_note.timestamp];
+[self.view addSubview:_timeView];
+</code></pre><p>定位 _timeView 在右上角：</p>
+<pre><code>- (void)viewDidLayoutSubviews {
+    [self updateTimeIndicatorFrame];
+}
+
+- (void)updateTimeIndicatorFrame {
+       [_timeView updateSize];
+    _timeView.frame = CGRectOffset(_timeView.frame,
+                      self.view.frame.size.width - _timeView.frame.size.width, 0.0);
+}
+
+- (void)preferredContentSizeChanged:(NSNotification *)n {
+    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    [self updateTimeIndicatorFrame];
+}
+</code></pre><p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit3.png" alt=""></p>
+<h4 id="Exclusion_paths_uFF1A"><a href="#Exclusion_paths_uFF1A" class="headerlink" title="Exclusion paths："></a>Exclusion paths：</h4><pre><code>- (UIBezierPath *)curvePathWithOrigin:(CGPoint)origin;
+</code></pre><p>定义路径：</p>
+<pre><code>UIBezierPath* exclusionPath = [_timeView curvePathWithOrigin:_timeView.center];
+_textView.textContainer.exclusionPaths  = @[exclusionPath];
+</code></pre><p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit4.png" alt=""></p>
+<h3 id="3-_Font_Descriptors_-__u5B57_u4F53_u63CF_u8FF0"><a href="#3-_Font_Descriptors_-__u5B57_u4F53_u63CF_u8FF0" class="headerlink" title="3. Font Descriptors - 字体描述"></a>3. Font Descriptors - 字体描述</h3><p>1、用来修改字体,而不是完全指定一个新的字体，比如用    <code>fontWithName:size:</code>，然后加粗等。</p>
 <pre><code>// 拿到字体描述 UIFontTextStyleBody -&gt; UIFontDescriptorTraitBold 将字体描述加粗
 // fontDescriptorWithSymbolicTraits: 返回新的字体描述
 
@@ -269,7 +338,13 @@ self.scriptTextLabel.font = [UIFont fontWithDescriptor:scriptFontDescriptor size
 <li>UIFontDescriptorVisbileNameAttribute</li>
 <li>UIFontDescriptorMatrixAttribute</li>
 </ul>
-<h3 id="3-_NSTextStorage_2C_NSLayoutManager_2C_NSTextContainer_2C_UITextView_3A"><a href="#3-_NSTextStorage_2C_NSLayoutManager_2C_NSTextContainer_2C_UITextView_3A" class="headerlink" title="3. NSTextStorage, NSLayoutManager, NSTextContainer, UITextView:"></a>3. NSTextStorage, NSLayoutManager, NSTextContainer, UITextView:</h3><pre><code>@interface SCViewController () {
+<h3 id="3-_NSTextStorage_2C_NSLayoutManager_2C_NSTextContainer_2C_UITextView_3A"><a href="#3-_NSTextStorage_2C_NSLayoutManager_2C_NSTextContainer_2C_UITextView_3A" class="headerlink" title="3. NSTextStorage, NSLayoutManager, NSTextContainer, UITextView:"></a>3. NSTextStorage, NSLayoutManager, NSTextContainer, UITextView:</h3><blockquote>
+<p>NSTextStorage 存储要呈现为归因串的文本和通知任何改变文本的内容的 layoutManager。</p>
+<p>NSLayoutManager 取得所存储的文本布局，它可以作为程序布局引擎。</p>
+<p>NSTextContainer 描述了文本呈现的屏幕的区域的几何形状。每个文本容器通常与相关联的 UITextView ，渲染文本。</p>
+</blockquote>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit5.png" alt=""></p>
+<pre><code>@interface SCViewController () {
        NSLayoutManager *_layoutManager;
     NSTextStorage *_textStorage;
 }
