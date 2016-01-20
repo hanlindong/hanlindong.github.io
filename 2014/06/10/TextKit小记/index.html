@@ -15,7 +15,7 @@ iOS7 introduced a new high-level text-rendering framework called TextKit. TextKi
 <meta property="og:site_name" content="Henry Blog">
 <meta property="og:description" content="TextKit介绍
 iOS7 introduced a new high-level text-rendering framework called TextKit. TextKit is based on the extremely powerful CoreText rendering engine, and all the Apple-provided text-based controls">
-<meta property="og:updated_time" content="2016-01-19T15:02:27.000Z">
+<meta property="og:updated_time" content="2016-01-20T00:23:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TextKit小记">
 <meta name="twitter:description" content="TextKit介绍
@@ -226,7 +226,8 @@ iOS7 introduced a new high-level text-rendering framework called TextKit. TextKi
 </blockquote>
 <h3 id="1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B"><a href="#1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B" class="headerlink" title="1. Dynamic Type - 动态类型"></a>1. Dynamic Type - 动态类型</h3><p>动态类型并不是简单地改变字体大小的能力,也改变其他类型的属性：如字体和行间距。确保了文本是可读的。</p>
 <pre><code>self.subHeadingLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
-</code></pre><p>iOS7有如下样式：</p>
+</code></pre><a id="more"></a>
+<p>iOS7有如下样式：</p>
 <ul>
 <li>UIFontTextStyleHeadline</li>
 <li>UIFontTextStyleBody</li>
@@ -268,7 +269,39 @@ self.scriptTextLabel.font = [UIFont fontWithDescriptor:scriptFontDescriptor size
 <li>UIFontDescriptorVisbileNameAttribute</li>
 <li>UIFontDescriptorMatrixAttribute</li>
 </ul>
+<h3 id="3-_NSTextStorage_2C_NSLayoutManager_2C_NSTextContainer_2C_UITextView_3A"><a href="#3-_NSTextStorage_2C_NSLayoutManager_2C_NSTextContainer_2C_UITextView_3A" class="headerlink" title="3. NSTextStorage, NSLayoutManager, NSTextContainer, UITextView:"></a>3. NSTextStorage, NSLayoutManager, NSTextContainer, UITextView:</h3><pre><code>@interface SCViewController () {
+       NSLayoutManager *_layoutManager;
+    NSTextStorage *_textStorage;
+}
+@end
+</code></pre><p>NSTextStorage 继承自 NSMutableAttributedString，管理NSLayoutManager对象，通知他们所有变化的特征或属性，这样他们就可以传递并根据需要重新显示文本。</p>
+<pre><code>// Import the content into a text storage object
+NSURL *contentURL = [[NSBundle mainBundle] URLForResource:@&quot;content&quot; withExtension:@&quot;txt&quot;];
+_textStorage = [[NSTextStorage alloc] initWithFileURL:contentURL
+                                          options:nil
+                               documentAttributes:NULL
+                                            error:NULL];
 
+// 创建layout manager
+_layoutManager = [[NSLayoutManager alloc] init];
+[_textStorage addLayoutManager:_layoutManager];
+
+// 布局容器
+[self layoutTextContainers];
+</code></pre><p>创建 NSTextContainer 区域大小，并添加 text container 的 layout manager :</p>
+<pre><code>NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:columnSize];
+[_layoutManager addTextContainer:textContainer];
+</code></pre><p>创建 UITextView 展示：</p>
+<pre><code>// And a text view to render it
+UITextView *textView = [[UITextView alloc] initWithFrame:textViewFrame
+                                       textContainer:textContainer];
+textView.scrollEnabled = NO;
+[self.scrollView addSubview:textView];
+</code></pre><p>总体来说就是： NSTextStorage add NSLayoutManager</p>
+<p>NSLayoutManager add NSTextContainer</p>
+<p>UITextView initWith NSTextContainer 。</p>
+<hr>
+<h3 id="u4EE5_u4E0A"><a href="#u4EE5_u4E0A" class="headerlink" title="以上"></a>以上</h3>
       
     </div>
     
