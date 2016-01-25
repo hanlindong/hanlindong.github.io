@@ -4,18 +4,29 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Henry Blog</title>
+  <title>Xcode引入.c头文件 | Henry Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
-  <meta name="description" content="北京化工大学12级生物工程在读。此为博客一枚。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Henry Blog">
-<meta property="og:url" content="http://henrydong.com/page/2/index.html">
+  <meta name="description" content="今天引用C库出现了一些小问题，通过 Google + Stack Overflow 查阅文档基本已解决，记录一下出现的问题：
+
+1. xcode引入.c头文件在工程里新建一个.c文件 ，取名为 text.c 。
+在 .mm 工程中 import 的时候，发现出现了 runtime 22个报错:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode引入.c头文件">
+<meta property="og:url" content="http://henrydong.com/2016/01/25/Xcode引入-c头文件/index.html">
 <meta property="og:site_name" content="Henry Blog">
-<meta property="og:description" content="北京化工大学12级生物工程在读。此为博客一枚。">
+<meta property="og:description" content="今天引用C库出现了一些小问题，通过 Google + Stack Overflow 查阅文档基本已解决，记录一下出现的问题：
+
+1. xcode引入.c头文件在工程里新建一个.c文件 ，取名为 text.c 。
+在 .mm 工程中 import 的时候，发现出现了 runtime 22个报错:">
+<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/c%E6%96%87%E4%BB%B61.png">
+<meta property="og:updated_time" content="2016-01-25T15:29:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Henry Blog">
-<meta name="twitter:description" content="北京化工大学12级生物工程在读。此为博客一枚。">
+<meta name="twitter:title" content="Xcode引入.c头文件">
+<meta name="twitter:description" content="今天引用C库出现了一些小问题，通过 Google + Stack Overflow 查阅文档基本已解决，记录一下出现的问题：
+
+1. xcode引入.c头文件在工程里新建一个.c文件 ，取名为 text.c 。
+在 .mm 工程中 import 的时候，发现出现了 runtime 22个报错:">
   
     <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
   
@@ -180,13 +191,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-TextKit小记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Xcode引入-c头文件" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/06/10/TextKit小记/" class="article-date">
-  	<time datetime="2014-06-10T14:38:25.000Z" itemprop="datePublished">2014-06-10</time>
+      <a href="/2016/01/25/Xcode引入-c头文件/" class="article-date">
+  	<time datetime="2016-01-25T15:02:30.000Z" itemprop="datePublished">2016-01-25</time>
 </a>
     </div>
   
@@ -198,125 +207,120 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/10/TextKit小记/">TextKit小记</a>
+    <h1 class="article-title" itemprop="name">
+      Xcode引入.c头文件
     </h1>
   
 
       </header>
       
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="TextKit_u4ECB_u7ECD"><a href="#TextKit_u4ECB_u7ECD" class="headerlink" title="TextKit介绍"></a>TextKit介绍</h3><blockquote>
-<p>iOS7 introduced a new high-level text-rendering framework called TextKit. TextKit is based on the extremely powerful CoreText rendering engine, and all the Apple-provided text-based controls have been updated to use the TextKit engine. </p>
+        <blockquote>
+<p>今天引用C库出现了一些小问题，通过 Google + Stack Overflow 查阅文档基本已解决，记录一下出现的问题：</p>
 </blockquote>
-<p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit1.png" alt=""></p>
-<h3 id="1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B"><a href="#1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B" class="headerlink" title="1. Dynamic Type - 动态类型"></a>1. Dynamic Type - 动态类型</h3><p>动态类型并不是简单地改变字体大小的能力,也改变其他类型的属性：如字体和行间距。确保了文本是可读的。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
+<h3 id="1-_xcode_u5F15_u5165-c_u5934_u6587_u4EF6"><a href="#1-_xcode_u5F15_u5165-c_u5934_u6587_u4EF6" class="headerlink" title="1. xcode引入.c头文件"></a>1. xcode引入.c头文件</h3><p>在工程里新建一个.c文件 ，取名为 text.c 。</p>
+<p>在 .mm 工程中 import 的时候，发现出现了 runtime 22个报错:</p>
+<a id="more"></a>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/c%E6%96%87%E4%BB%B61.png" alt="image"><br>通过查询资料，发现是预编译的问题。</p>
+<h4 id="u89E3_u51B3_u65B9_u6CD5_u662F_uFF1A"><a href="#u89E3_u51B3_u65B9_u6CD5_u662F_uFF1A" class="headerlink" title="解决方法是："></a>解决方法是：</h4><p>将 Supporting files 中的 Prefix.pch 文件里的OC头文件放入</p>
+<pre><code>#ifdef __OBJC__
 
-      
+#endif
+</code></pre><p>之间，原因是为了避免将其认为是C文件。</p>
+<h3 id="2-_include_u95EE_u9898"><a href="#2-_include_u95EE_u9898" class="headerlink" title="2. include问题"></a>2. include问题</h3><p>当我满心欢喜的 Command + B 的时候，突然报出了这个错误：</p>
+<p> <code>linker command failed with exit code 1 (use -v to see invocation)</code> </p>
+<p>仔细定位一下，重复引用：</p>
+<pre><code>duplicate symbol _createCubeMap in:
+/Users/hanlin/Library/Developer/Xcode/DerivedData/HLHumor-bmruzetmfqjtpgbgdoiumsdpcwyt/Build/Intermediates/HLHumor.build/Debug-iphonesimulator/HLHumor.build/Objects-normal/x86_64/HLLandscapeController.o
+/Users/hanlin/Library/Developer/Xcode/DerivedData/HLHumor-bmruzetmfqjtpgbgdoiumsdpcwyt/Build/Intermediates/HLHumor.build/Debug-iphonesimulator/HLHumor.build/Objects-normal/x86_64/text.o
 
+duplicate symbol _rgbToHSV in:
+/Users/hanlin/Library/Developer/Xcode/DerivedData/HLHumor-bmruzetmfqjtpgbgdoiumsdpcwyt/Build/Intermediates/HLHumor.build/Debug-iphonesimulator/HLHumor.build/Objects-normal/x86_64/HLLandscapeController.o
+/Users/hanlin/Library/Developer/Xcode/DerivedData/HLHumor-bmruzetmfqjtpgbgdoiumsdpcwyt/Build/Intermediates/HLHumor.build/Debug-iphonesimulator/HLHumor.build/Objects-normal/x86_64/text.o
+
+ld: 2 duplicate symbols for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+</code></pre><p>把 <code>#import &quot;text.c&quot;</code> 改为 <code>#include &quot;text.c&quot;</code></p>
+<hr>
+<h3 id="u4EE5_u4E0A"><a href="#u4EE5_u4E0A" class="headerlink" title="以上"></a>以上</h3>
       
-        <p class="article-more-link">
-          <a  href="/2014/06/10/TextKit小记/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/22/实用性强的Chrome插件分享/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">实用性强的Chrome插件分享</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-Custom-UIViewController-Transitions" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/05/19/Custom-UIViewController-Transitions/" class="article-date">
-  	<time datetime="2014-05-19T04:20:16.000Z" itemprop="datePublished">2014-05-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/05/19/Custom-UIViewController-Transitions/">Custom UIViewController Transitions</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Navigation_Controller_Delegate_uFF1A"><a href="#Navigation_Controller_Delegate_uFF1A" class="headerlink" title="Navigation Controller Delegate："></a>Navigation Controller Delegate：</h3><p>它有4个方法，本文只涉及其中之一：：</p>
-<pre><code>- (id&lt;UIViewControllerAnimatedTransitioning&gt;)navigationController:
-                                  animationControllerForOperation:
-                                               fromViewController:
-                                                 toViewController:
-</code></pre><p>最终效果如图：</p>
-<p><img src="http://7xq720.com1.z0.glb.clouddn.com/Custom%20UIViewController%20Transitions.gif" alt=""></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/05/19/Custom-UIViewController-Transitions/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Xcode引入-c头文件" data-title="Xcode引入.c头文件" data-url="http://henrydong.com/2016/01/25/Xcode引入-c头文件/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"henrydong"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -340,8 +344,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
