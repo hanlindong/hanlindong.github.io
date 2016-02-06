@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/color5.png">
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/color6.jpg">
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/color7.png">
-<meta property="og:updated_time" content="2016-01-26T13:38:10.000Z">
+<meta property="og:updated_time" content="2016-02-06T11:34:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="颜色(二)：HSV模型">
 <meta name="twitter:description" content="HSV(Hue, Saturation, Value)是根据颜色的直观特性由A. R. Smith在1978年创建的一种颜色空间, 也称六角锥体模型(Hexcone Model)。
@@ -248,35 +248,10 @@
 <p>V表示色彩的明亮程度，范围从0到1。有一点要注意：它和光强度之间并没有直接的联系。</p>
 <p><img src="http://7xq720.com1.z0.glb.clouddn.com/color6.jpg" alt=""></p>
 <h3 id="RGB_u4E0EHSV_u7684_u8054_u7CFB"><a href="#RGB_u4E0EHSV_u7684_u8054_u7CFB" class="headerlink" title="RGB与HSV的联系"></a>RGB与HSV的联系</h3><p>RGB转化到HSV的算法:</p>
-<pre><code>max = max(R,G,B)；
-min = min(R,G,B)；
-V = max(R,G,B)/255；
-S = (max-min)/max；
-
-if (R = max) H =(G-B)/(max-min)* 60；
-if (G = max) H = 120+(B-R)/(max-min)* 60；
-if (B = max) H = 240 +(R-G)/(max-min)* 60；
-if (H &lt; 0) H = H+ 360；
-</code></pre><p>HSV转化到RGB的算法:</p>
-<pre><code>if (s = 0)
-R=G=B=V;
-
-else
-H /= 60;
-i = INTEGER(H);
-f = H - i;
-a = V * ( 1 - s );
-b = V * ( 1 - s * f );
-c = V * ( 1 - s * (1 - f ) );
-
-switch(i)
-case 0: R = V; G = c; B = a;
-case 1: R = b; G = v; B = a;
-case 2: R = a; G = v; B = c;
-case 3: R = a; G = b; B = v;
-case 4: R = c; G = a; B = v;
-case 5: R = v; G = a; B = b;
-</code></pre><p>HSV对用户来说是一种直观的颜色模型。我们可以从一种纯色彩开始，即指定色彩角H，并让V=S=1，然后我们可以通过向其中加入黑色和白色来得到我们需要的颜色。增加黑色可以减小V而S不变，同样增加白色可以减小S而V不变。</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">max</span> = <span class="built_in">max</span>(R,G,B)；</span><br><span class="line"><span class="built_in">min</span> = <span class="built_in">min</span>(R,G,B)；</span><br><span class="line">V = <span class="built_in">max</span>(R,G,B)/<span class="number">255</span>；</span><br><span class="line">S = (<span class="built_in">max</span>-<span class="built_in">min</span>)/<span class="built_in">max</span>；</span><br><span class="line">	</span><br><span class="line"><span class="keyword">if</span> (R = <span class="built_in">max</span>) H =(G-B)/(<span class="built_in">max</span>-<span class="built_in">min</span>)* <span class="number">60</span>；</span><br><span class="line"><span class="keyword">if</span> (G = <span class="built_in">max</span>) H = <span class="number">120</span>+(B-R)/(<span class="built_in">max</span>-<span class="built_in">min</span>)* <span class="number">60</span>；</span><br><span class="line"><span class="keyword">if</span> (B = <span class="built_in">max</span>) H = <span class="number">240</span> +(R-G)/(<span class="built_in">max</span>-<span class="built_in">min</span>)* <span class="number">60</span>；</span><br><span class="line"><span class="keyword">if</span> (H &lt; <span class="number">0</span>) H = H+ <span class="number">360</span>；</span><br></pre></td></tr></table></figure>
+<p>HSV转化到RGB的算法:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (s = <span class="number">0</span>)</span><br><span class="line">R=G=B=V;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">H /= <span class="number">60</span>;</span><br><span class="line">i = INTEGER(H);</span><br><span class="line">f = H - i;</span><br><span class="line">a = V * ( <span class="number">1</span> - s );</span><br><span class="line">b = V * ( <span class="number">1</span> - s * f );</span><br><span class="line">c = V * ( <span class="number">1</span> - s * (<span class="number">1</span> - f ) );</span><br><span class="line">	</span><br><span class="line"><span class="keyword">switch</span>(i)</span><br><span class="line"><span class="keyword">case</span> <span class="number">0</span>: R = V; G = c; B = a;</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>: R = b; G = v; B = a;</span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>: R = a; G = v; B = c;</span><br><span class="line"><span class="keyword">case</span> <span class="number">3</span>: R = a; G = b; B = v;</span><br><span class="line"><span class="keyword">case</span> <span class="number">4</span>: R = c; G = a; B = v;</span><br><span class="line"><span class="keyword">case</span> <span class="number">5</span>: R = v; G = a; B = b;</span><br></pre></td></tr></table></figure>
+<p>HSV对用户来说是一种直观的颜色模型。我们可以从一种纯色彩开始，即指定色彩角H，并让V=S=1，然后我们可以通过向其中加入黑色和白色来得到我们需要的颜色。增加黑色可以减小V而S不变，同样增加白色可以减小S而V不变。</p>
 <p><strong>例如，要得到深蓝色，V=0.4 S=1 H=240度。要得到淡蓝色，V=1 S=0.4 H=240度。</strong></p>
 <p>一般说来，人眼最大能区分128种不同的色彩，130种色饱和度，23种明暗度。如果我们用16Bit表示HSV的话，可以用7位存放H，4位存放S，5位存放V，即745或者655就可以满足我们的需要了。</p>
 <p>由于HSV是一种比较直观的颜色模型，所以在许多图像编辑工具中应用比较广泛，如Photoshop（在Photoshop中叫HSB）等等，但这也决定了它不适合使用在光照模型中，许多光线混合运算、光强运算等都无法直接使用HSV来实现。</p>

@@ -20,7 +20,7 @@
 1. xcode引入.c头文件在工程里新建一个.c文件 ，取名为 text.c 。
 在 .mm 工程中 import 的时候，发现出现了 runtime 22个报错:">
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/c%E6%96%87%E4%BB%B61.png">
-<meta property="og:updated_time" content="2016-01-25T15:31:43.000Z">
+<meta property="og:updated_time" content="2016-02-06T11:25:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xcode引入.c头文件">
 <meta name="twitter:description" content="今天引用C库出现了一些小问题，通过 Google + Stack Overflow 查阅文档基本已解决，记录一下出现的问题：
@@ -236,13 +236,11 @@
 <a id="more"></a>
 <p><img src="http://7xq720.com1.z0.glb.clouddn.com/c%E6%96%87%E4%BB%B61.png" alt="image"><br>通过查询资料，发现是预编译的问题。</p>
 <h4 id="u89E3_u51B3_u65B9_u6CD5_uFF1A"><a href="#u89E3_u51B3_u65B9_u6CD5_uFF1A" class="headerlink" title="解决方法："></a>解决方法：</h4><p>将 Supporting files 中的 Prefix.pch 文件里的OC头文件放入</p>
-<pre><code>#ifdef __OBJC__
-
-#endif
-</code></pre><p>之间，原因是为了避免将其认为是C文件。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifdef</span> __OBJC__</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>之间，原因是为了避免将其认为是C文件。</p>
 <h3 id="2-_include_u95EE_u9898"><a href="#2-_include_u95EE_u9898" class="headerlink" title="2. include问题"></a>2. include问题</h3><p>当我满心欢喜的 Command + B 的时候，突然报出了这个错误：</p>
-<p> <code>linker command failed with exit code 1 (use -v to see invocation)</code> </p>
-<p>仔细定位一下，重复引用：</p>
+<pre><code>linker command failed with exit code 1 (use -v to see invocation)
+</code></pre><p>仔细定位一下，重复引用：</p>
 <pre><code>duplicate symbol _createCubeMap in:
 /Users/hanlin/Library/Developer/Xcode/DerivedData/HLHumor-bmruzetmfqjtpgbgdoiumsdpcwyt/Build/Intermediates/HLHumor.build/Debug-iphonesimulator/HLHumor.build/Objects-normal/x86_64/HLLandscapeController.o
 /Users/hanlin/Library/Developer/Xcode/DerivedData/HLHumor-bmruzetmfqjtpgbgdoiumsdpcwyt/Build/Intermediates/HLHumor.build/Debug-iphonesimulator/HLHumor.build/Objects-normal/x86_64/text.o

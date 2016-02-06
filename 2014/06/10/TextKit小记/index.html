@@ -20,7 +20,7 @@ iOS7 introduced a new high-level text-rendering framework called TextKit. TextKi
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit3.png">
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit4.png">
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit5.png">
-<meta property="og:updated_time" content="2016-01-20T01:07:00.000Z">
+<meta property="og:updated_time" content="2016-02-06T11:31:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TextKit小记">
 <meta name="twitter:description" content="TextKit介绍
@@ -232,8 +232,8 @@ iOS7 introduced a new high-level text-rendering framework called TextKit. TextKi
 <p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit1.png" alt=""></p>
 <h3 id="1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B"><a href="#1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B" class="headerlink" title="1. Dynamic Type - 动态类型"></a>1. Dynamic Type - 动态类型</h3><p>动态类型并不是简单地改变字体大小的能力,也改变其他类型的属性：如字体和行间距。确保了文本是可读的。</p>
 <a id="more"></a>
-<h4 id="u57FA_u672C_u6837_u5F0F_uFF1A"><a href="#u57FA_u672C_u6837_u5F0F_uFF1A" class="headerlink" title="基本样式："></a>基本样式：</h4><pre><code>self.subHeadingLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
-</code></pre><p>iOS7有如下样式：</p>
+<h4 id="u57FA_u672C_u6837_u5F0F_uFF1A"><a href="#u57FA_u672C_u6837_u5F0F_uFF1A" class="headerlink" title="基本样式："></a>基本样式：</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span><span class="variable">.subHeadingLabel</span><span class="variable">.font</span> = [<span class="built_in">UIFont</span> preferredFontForTextStyle:<span class="built_in">UIFontTextStyleSubheadline</span>];</span><br></pre></td></tr></table></figure>
+<p>iOS7有如下样式：</p>
 <ul>
 <li>UIFontTextStyleHeadline</li>
 <li>UIFontTextStyleBody</li>
@@ -248,90 +248,36 @@ iOS7 introduced a new high-level text-rendering framework called TextKit. TextKi
 <li>UIFontTextStyleTitle1</li>
 <li>UIFontTextStyleTitle1</li>
 </ul>
-<h4 id="u54CD_u5E94_u6587_u672C_u66F4_u65B0_uFF1A"><a href="#u54CD_u5E94_u6587_u672C_u66F4_u65B0_uFF1A" class="headerlink" title="响应文本更新："></a>响应文本更新：</h4><p>添加通知</p>
-<pre><code>[[NSNotificationCenter defaultCenter]
-                          addObserver:self
-                             selector:@selector(preferredContentSizeChanged:)
-                                 name:UIContentSizeCategoryDidChangeNotification
-                               object:nil];                                                                      
-</code></pre><p>调用 preferredContentSizeChanged: 方法：</p>
-<pre><code>- (void)preferredContentSizeChanged:(NSNotification *)notification {
-    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-}
-</code></pre><p>刷新表格：</p>
-<pre><code>- (void)preferredContentSizeChanged:(NSNotification *)notification {
-[self.tableView reloadData];
-}
-</code></pre><p>####凸版效果<br><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit2.png" alt=""></p>
+<h4 id="u54CD_u5E94_u6587_u672C_u66F4_u65B0_uFF1A"><a href="#u54CD_u5E94_u6587_u672C_u66F4_u65B0_uFF1A" class="headerlink" title="响应文本更新："></a>响应文本更新：</h4><p>添加通知<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr_selector">[[NSNotificationCenter defaultCenter]</span></span><br><span class="line">                              <span class="tag">addObserver</span><span class="pseudo">:self</span></span><br><span class="line">                                 <span class="tag">selector</span>:@<span class="tag">selector</span>(<span class="attribute">preferredContentSizeChanged</span>:)</span><br><span class="line">                                     <span class="tag">name</span><span class="pseudo">:UIContentSizeCategoryDidChangeNotification</span></span><br><span class="line">                                   <span class="tag">object</span><span class="pseudo">:nil</span>];</span><br></pre></td></tr></table></figure></p>
+<p>调用 preferredContentSizeChanged: 方法：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)preferredContentSizeChanged:(<span class="built_in">NSNotification</span> *)notification &#123;</span><br><span class="line">	<span class="keyword">self</span><span class="variable">.textView</span><span class="variable">.font</span> = [<span class="built_in">UIFont</span> preferredFontForTextStyle:<span class="built_in">UIFontTextStyleBody</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>刷新表格：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (void)<span class="tag">preferredContentSizeChanged</span>:(NSNotification *)<span class="tag">notification</span> &#123;</span><br><span class="line">	<span class="attr_selector">[self.tableView reloadData]</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####凸版效果<br><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit2.png" alt=""></p>
 <blockquote>
 <p>添加微妙的阴影和高光的文本给它的深度感 - 就像文本已略有压入画面。</p>
 </blockquote>
 <p>在tableView:cellForRowAtIndexPath: 中添加：</p>
-<pre><code>static NSString *CellIdentifier = @&quot;Cell&quot;;
-UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier 
-                                                    forIndexPath:indexPath];
-
-Note* note = [self notes][indexPath.row];
-
-UIFont* font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-
-UIColor* textColor = [UIColor colorWithRed:0.175f green:0.458f blue:0.831f alpha:1.0f];
-NSDictionary *attrs = @{ NSForegroundColorAttributeName : textColor,
-                                NSFontAttributeName : font,
-                          NSTextEffectAttributeName : NSTextEffectLetterpressStyle};
-
-NSAttributedString* attrString = [[NSAttributedString alloc]
-                                   initWithString:note.title
-                                       attributes:attrs];
-
-cell.textLabel.attributedText = attrString;
-
-return cell;
-</code></pre><h3 id="2-_Exclusion_paths_-__u6587_u672C_u73AF_u7ED5"><a href="#2-_Exclusion_paths_-__u6587_u672C_u73AF_u7ED5" class="headerlink" title="2. Exclusion paths - 文本环绕"></a>2. Exclusion paths - 文本环绕</h3><h4 id="u6587_u672C_u5B9A_u4F4D_uFF1A"><a href="#u6587_u672C_u5B9A_u4F4D_uFF1A" class="headerlink" title="文本定位："></a>文本定位：</h4><p>在 viewDidView 中：</p>
-<pre><code>_timeView = [[TimeIndicatorView alloc] initWithDate:_note.timestamp];
-[self.view addSubview:_timeView];
-</code></pre><p>定位 _timeView 在右上角：</p>
-<pre><code>- (void)viewDidLayoutSubviews {
-    [self updateTimeIndicatorFrame];
-}
-
-- (void)updateTimeIndicatorFrame {
-       [_timeView updateSize];
-    _timeView.frame = CGRectOffset(_timeView.frame,
-                      self.view.frame.size.width - _timeView.frame.size.width, 0.0);
-}
-
-- (void)preferredContentSizeChanged:(NSNotification *)n {
-    self.textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    [self updateTimeIndicatorFrame];
-}
-</code></pre><p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit3.png" alt=""></p>
-<h4 id="Exclusion_paths_uFF1A"><a href="#Exclusion_paths_uFF1A" class="headerlink" title="Exclusion paths："></a>Exclusion paths：</h4><pre><code>- (UIBezierPath *)curvePathWithOrigin:(CGPoint)origin;
-</code></pre><p>定义路径：</p>
-<pre><code>UIBezierPath* exclusionPath = [_timeView curvePathWithOrigin:_timeView.center];
-_textView.textContainer.exclusionPaths  = @[exclusionPath];
-</code></pre><p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit4.png" alt=""></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *CellIdentifier = <span class="string">@"Cell"</span>;</span><br><span class="line"><span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier </span><br><span class="line">                                                        forIndexPath:indexPath];</span><br><span class="line"> </span><br><span class="line">Note* note = [<span class="keyword">self</span> notes][indexPath<span class="variable">.row</span>];</span><br><span class="line"> </span><br><span class="line"><span class="built_in">UIFont</span>* font = [<span class="built_in">UIFont</span> preferredFontForTextStyle:<span class="built_in">UIFontTextStyleHeadline</span>];</span><br><span class="line"> </span><br><span class="line"><span class="built_in">UIColor</span>* textColor = [<span class="built_in">UIColor</span> colorWithRed:<span class="number">0.175</span>f green:<span class="number">0.458</span>f blue:<span class="number">0.831</span>f alpha:<span class="number">1.0</span>f];</span><br><span class="line">	<span class="built_in">NSDictionary</span> *attrs = @&#123; <span class="built_in">NSForegroundColorAttributeName</span> : textColor,</span><br><span class="line">                                    <span class="built_in">NSFontAttributeName</span> : font,</span><br><span class="line">                              <span class="built_in">NSTextEffectAttributeName</span> : <span class="built_in">NSTextEffectLetterpressStyle</span>&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">NSAttributedString</span>* attrString = [[<span class="built_in">NSAttributedString</span> alloc]</span><br><span class="line">                                       initWithString:note<span class="variable">.title</span></span><br><span class="line">                                           attributes:attrs];</span><br><span class="line"> </span><br><span class="line">cell<span class="variable">.textLabel</span><span class="variable">.attributedText</span> = attrString;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">return</span> cell;</span><br></pre></td></tr></table></figure>
+<h3 id="2-_Exclusion_paths_-__u6587_u672C_u73AF_u7ED5"><a href="#2-_Exclusion_paths_-__u6587_u672C_u73AF_u7ED5" class="headerlink" title="2. Exclusion paths - 文本环绕"></a>2. Exclusion paths - 文本环绕</h3><h4 id="u6587_u672C_u5B9A_u4F4D_uFF1A"><a href="#u6587_u672C_u5B9A_u4F4D_uFF1A" class="headerlink" title="文本定位："></a>文本定位：</h4><p>在 viewDidView 中：</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_timeView = <span class="comment">[<span class="comment">[TimeIndicatorView alloc]</span> initWithDate:_note.timestamp]</span>;</span><br><span class="line"><span class="comment">[self.view addSubview:_timeView]</span>;</span><br></pre></td></tr></table></figure>
+<p>定位 _timeView 在右上角：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLayoutSubviews &#123;</span><br><span class="line">    [<span class="keyword">self</span> updateTimeIndicatorFrame];</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">- (<span class="keyword">void</span>)updateTimeIndicatorFrame &#123;</span><br><span class="line">   	[_timeView updateSize];</span><br><span class="line">    _timeView<span class="variable">.frame</span> = <span class="built_in">CGRectOffset</span>(_timeView<span class="variable">.frame</span>,</span><br><span class="line">                          <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span> - _timeView<span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="number">0.0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)preferredContentSizeChanged:(<span class="built_in">NSNotification</span> *)n &#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.textView</span><span class="variable">.font</span> = [<span class="built_in">UIFont</span> preferredFontForTextStyle:<span class="built_in">UIFontTextStyleBody</span>];</span><br><span class="line">    [<span class="keyword">self</span> updateTimeIndicatorFrame];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit3.png" alt=""></p>
+<h4 id="Exclusion_paths_uFF1A"><a href="#Exclusion_paths_uFF1A" class="headerlink" title="Exclusion paths："></a>Exclusion paths：</h4><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="pp">- <span class="params">(<span class="variable">UIBezierPath</span> *)</span>curvePathWithOrigin:<span class="params">(<span class="variable">CGPoint</span>)</span>origin;</span></span><br></pre></td></tr></table></figure>
+<p>定义路径：</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">UIBezierPath</span>* exclusionPath = [_timeView <span class="symbol">curvePathWithOrigin:</span>_timeView.center];</span><br><span class="line">	_textView.textContainer.exclusionPaths  = <span class="annotation">@[exclusionPath]</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit4.png" alt=""></p>
 <h3 id="3-_Font_Descriptors_-__u5B57_u4F53_u63CF_u8FF0"><a href="#3-_Font_Descriptors_-__u5B57_u4F53_u63CF_u8FF0" class="headerlink" title="3. Font Descriptors - 字体描述"></a>3. Font Descriptors - 字体描述</h3><p>1、用来修改字体,而不是完全指定一个新的字体，比如用    <code>fontWithName:size:</code>，然后加粗等。</p>
-<pre><code>// 拿到字体描述 UIFontTextStyleBody -&gt; UIFontDescriptorTraitBold 将字体描述加粗
-// fontDescriptorWithSymbolicTraits: 返回新的字体描述
-
-UIFontDescriptor *bodyFontDesciptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
-UIFontDescriptor *boldBodyFontDescriptor = [bodyFontDesciptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold];
-self.boldBodyTextLabel.font = [UIFont fontWithDescriptor:boldBodyFontDescriptor size:0.0];
-</code></pre><p>这个例子是使用字体的加粗,其他的例子如下:</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拿到字体描述 UIFontTextStyleBody -&gt; UIFontDescriptorTraitBold 将字体描述加粗</span></span><br><span class="line"><span class="comment">// fontDescriptorWithSymbolicTraits: 返回新的字体描述</span></span><br><span class="line">	</span><br><span class="line"><span class="built_in">UIFontDescriptor</span> *bodyFontDesciptor = [<span class="built_in">UIFontDescriptor</span> preferredFontDescriptorWithTextStyle:<span class="built_in">UIFontTextStyleBody</span>];</span><br><span class="line"><span class="built_in">UIFontDescriptor</span> *boldBodyFontDescriptor = [bodyFontDesciptor fontDescriptorWithSymbolicTraits:<span class="built_in">UIFontDescriptorTraitBold</span>];</span><br><span class="line"><span class="keyword">self</span><span class="variable">.boldBodyTextLabel</span><span class="variable">.font</span> = [<span class="built_in">UIFont</span> fontWithDescriptor:boldBodyFontDescriptor size:<span class="number">0.0</span>];</span><br></pre></td></tr></table></figure>
+<p>这个例子是使用字体的加粗,其他的例子如下:</p>
 <ul>
 <li>UIFontDescriptorTraitItalic</li>
 <li>UIFontDescriptorTraitExpanded</li>
 <li>UIFontDescriptorTraitCondensed</li>
 </ul>
-<p>2、 创建一个字典的,然后找到匹配要求的字体描述。</p>
-<pre><code>// 创建字体描述
-UIFontDescriptor *scriptFontDescriptor = [UIFontDescriptor fontDescriptorWithFontAttributes:
-                                                      @{UIFontDescriptorFamilyAttribute: @&quot;Zapfino&quot;,
-                                                        UIFontDescriptorSizeAttribute: @15.0}
-                                          ];
-self.scriptTextLabel.font = [UIFont fontWithDescriptor:scriptFontDescriptor size:0.0];
-</code></pre><p>在这里指定字体和大小的属性，也可以使用其他属性，包括:</p>
+<p>2、 创建一个字典的,然后找到匹配要求的字体描述。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建字体描述</span></span><br><span class="line"><span class="built_in">UIFontDescriptor</span> *scriptFontDescriptor = [<span class="built_in">UIFontDescriptor</span> fontDescriptorWithFontAttributes:</span><br><span class="line">                                                          @&#123;<span class="built_in">UIFontDescriptorFamilyAttribute</span>: <span class="string">@"Zapfino"</span>,</span><br><span class="line">                                                            <span class="built_in">UIFontDescriptorSizeAttribute</span>: @<span class="number">15.0</span>&#125;</span><br><span class="line">                                              ];</span><br><span class="line"><span class="keyword">self</span><span class="variable">.scriptTextLabel</span><span class="variable">.font</span> = [<span class="built_in">UIFont</span> fontWithDescriptor:scriptFontDescriptor size:<span class="number">0.0</span>];</span><br></pre></td></tr></table></figure></p>
+<p>在这里指定字体和大小的属性，也可以使用其他属性，包括:</p>
 <ul>
 <li>UIFontDescriptorNameAttribute</li>
 <li>UIFontDescriptorTextStyleAttribute</li>
@@ -344,35 +290,13 @@ self.scriptTextLabel.font = [UIFont fontWithDescriptor:scriptFontDescriptor size
 <p>NSTextContainer 描述了文本呈现的屏幕的区域的几何形状。每个文本容器通常与相关联的 UITextView ，渲染文本。</p>
 </blockquote>
 <p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit5.png" alt=""></p>
-<pre><code>@interface SCViewController () {
-       NSLayoutManager *_layoutManager;
-    NSTextStorage *_textStorage;
-}
-@end
-</code></pre><p>NSTextStorage 继承自 NSMutableAttributedString，管理NSLayoutManager对象，通知他们所有变化的特征或属性，这样他们就可以传递并根据需要重新显示文本。</p>
-<pre><code>// Import the content into a text storage object
-NSURL *contentURL = [[NSBundle mainBundle] URLForResource:@&quot;content&quot; withExtension:@&quot;txt&quot;];
-_textStorage = [[NSTextStorage alloc] initWithFileURL:contentURL
-                                          options:nil
-                               documentAttributes:NULL
-                                            error:NULL];
-
-// 创建layout manager
-_layoutManager = [[NSLayoutManager alloc] init];
-[_textStorage addLayoutManager:_layoutManager];
-
-// 布局容器
-[self layoutTextContainers];
-</code></pre><p>创建 NSTextContainer 区域大小，并添加 text container 的 layout manager :</p>
-<pre><code>NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:columnSize];
-[_layoutManager addTextContainer:textContainer];
-</code></pre><p>创建 UITextView 展示：</p>
-<pre><code>// And a text view to render it
-UITextView *textView = [[UITextView alloc] initWithFrame:textViewFrame
-                                       textContainer:textContainer];
-textView.scrollEnabled = NO;
-[self.scrollView addSubview:textView];
-</code></pre><p>总体来说就是： NSTextStorage add NSLayoutManager</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SCViewController</span> () </span>&#123;</span><br><span class="line">   	<span class="built_in">NSLayoutManager</span> *_layoutManager;</span><br><span class="line">    	<span class="built_in">NSTextStorage</span> *_textStorage;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>NSTextStorage 继承自 NSMutableAttributedString，管理NSLayoutManager对象，通知他们所有变化的特征或属性，这样他们就可以传递并根据需要重新显示文本。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Import the content into a text storage object</span></span><br><span class="line"><span class="built_in">NSURL</span> *contentURL = [[<span class="built_in">NSBundle</span> mainBundle] URLForResource:<span class="string">@"content"</span> withExtension:<span class="string">@"txt"</span>];</span><br><span class="line">_textStorage = [[<span class="built_in">NSTextStorage</span> alloc] initWithFileURL:contentURL</span><br><span class="line">                                              options:<span class="literal">nil</span></span><br><span class="line">                                   documentAttributes:<span class="literal">NULL</span></span><br><span class="line">                                                error:<span class="literal">NULL</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建layout manager</span></span><br><span class="line">_layoutManager = [[<span class="built_in">NSLayoutManager</span> alloc] init];</span><br><span class="line">[_textStorage addLayoutManager:_layoutManager];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 布局容器</span></span><br><span class="line">[<span class="keyword">self</span> layoutTextContainers];</span><br></pre></td></tr></table></figure>
+<p>创建 NSTextContainer 区域大小，并添加 text container 的 layout manager :</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSTextContainer *textContainer = <span class="comment">[<span class="comment">[NSTextContainer alloc]</span> initWithSize:columnSize]</span>;</span><br><span class="line"><span class="comment">[_layoutManager addTextContainer:textContainer]</span>;</span><br></pre></td></tr></table></figure>
+<p>创建 UITextView 展示：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// And a text view to render it</span></span><br><span class="line"><span class="built_in">UITextView</span> *textView = [[<span class="built_in">UITextView</span> alloc] initWithFrame:textViewFrame</span><br><span class="line">                                           textContainer:textContainer];</span><br><span class="line">textView<span class="variable">.scrollEnabled</span> = <span class="literal">NO</span>;</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.scrollView</span> addSubview:textView];</span><br></pre></td></tr></table></figure></p>
+<p>总体来说就是： NSTextStorage add NSLayoutManager</p>
 <p>NSLayoutManager add NSTextContainer</p>
 <p>UITextView initWith NSTextContainer 。</p>
 <hr>

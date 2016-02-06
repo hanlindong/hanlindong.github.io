@@ -8,22 +8,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
   <meta name="description" content="Navigation Controller Delegate：它有4个方法，本文只涉及其中之一：：
-- (id&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;)navigationController:
-                                  animationControllerForOperation:">
+1234- (id&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;)navigationController:                                      animationControllerForOperation:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Custom UIViewController Transitions">
 <meta property="og:url" content="http://henrydong.com/2014/05/19/Custom-UIViewController-Transitions/index.html">
 <meta property="og:site_name" content="Henry Blog">
 <meta property="og:description" content="Navigation Controller Delegate：它有4个方法，本文只涉及其中之一：：
-- (id&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;)navigationController:
-                                  animationControllerForOperation:">
+1234- (id&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;)navigationController:                                      animationControllerForOperation:">
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/Custom%20UIViewController%20Transitions.gif">
-<meta property="og:updated_time" content="2016-01-19T15:06:31.000Z">
+<meta property="og:updated_time" content="2016-02-06T11:35:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Custom UIViewController Transitions">
 <meta name="twitter:description" content="Navigation Controller Delegate：它有4个方法，本文只涉及其中之一：：
-- (id&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;)navigationController:
-                                  animationControllerForOperation:">
+1234- (id&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;)navigationController:                                      animationControllerForOperation:">
   
     <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
   
@@ -226,11 +223,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="Navigation_Controller_Delegate_uFF1A"><a href="#Navigation_Controller_Delegate_uFF1A" class="headerlink" title="Navigation Controller Delegate："></a>Navigation Controller Delegate：</h3><p>它有4个方法，本文只涉及其中之一：：</p>
-<pre><code>- (id&lt;UIViewControllerAnimatedTransitioning&gt;)navigationController:
-                                  animationControllerForOperation:
-                                               fromViewController:
-                                                 toViewController:
-</code></pre><p>最终效果如图：</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (id<span class="variable">&lt;UIViewControllerAnimatedTransitioning&gt;</span>)navigationController:</span><br><span class="line">                                      animationControllerForOperation:</span><br><span class="line">                                                   <span class="keyword">from</span>ViewController:</span><br><span class="line">                                                     <span class="keyword">to</span>ViewController:</span><br></pre></td></tr></table></figure>
+<p>最终效果如图：</p>
 <p><img src="http://7xq720.com1.z0.glb.clouddn.com/Custom%20UIViewController%20Transitions.gif" alt=""></p>
 <a id="more"></a>
 <p>这个方法在每次导航控制器之间过渡时被调用。所以在这一点上我们可以决定什么样的过渡,我们需要一个return。</p>
