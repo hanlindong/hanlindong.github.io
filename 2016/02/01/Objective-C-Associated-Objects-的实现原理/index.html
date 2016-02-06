@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Objective-C Associated Objects (一)：简介 | Henry Blog</title>
+  <title>有关 Objective-C Associated Objects | Henry Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
   <meta name="description" content="在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。
 #import &amp;lt;objc/runtim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Objective-C Associated Objects (一)：简介">
+<meta property="og:title" content="有关 Objective-C Associated Objects">
 <meta property="og:url" content="http://henrydong.com/2016/02/01/Objective-C-Associated-Objects-的实现原理/index.html">
 <meta property="og:site_name" content="Henry Blog">
 <meta property="og:description" content="在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。
 #import &amp;lt;objc/runtim">
-<meta property="og:updated_time" content="2016-02-06T09:33:22.000Z">
+<meta property="og:updated_time" content="2016-02-06T10:19:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Objective-C Associated Objects (一)：简介">
+<meta name="twitter:title" content="有关 Objective-C Associated Objects">
 <meta name="twitter:description" content="在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。
 #import &amp;lt;objc/runtim">
   
@@ -201,7 +201,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Objective-C Associated Objects (一)：简介
+      有关 Objective-C Associated Objects
     </h1>
   
 
@@ -226,19 +226,18 @@
 <p>我们在遇到 runtime 相关的一些东西时，一般都会很谨慎。因为所有的代码都运行在其之上，弄乱 Objective-C 运行时可能会改变整个实现结构，</p>
 <p>一方面：<objc runtime.h=""> 中的函数可以给应用或者框架增加强大的新特性。但另一方面：它会改变代码的正常运行逻辑和所有与之交互的东西（通常伴随着可怕的副作用）。<br><a id="more"></a></objc></p>
 <h3 id="Associated_Objects"><a href="#Associated_Objects" class="headerlink" title="Associated Objects"></a>Associated Objects</h3><p>Associated Objects（关联对象）或者叫作关联引用（Associative References），是作为Objective-C 2.0 运行时功能被引入到 Mac OS X 10.6 Snow Leopard（及iOS4）系统。与它相关在<objc runtime.h="">中有3个C函数，它们可以让对象在运行时关联任何值：</objc></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">objc_setAssociatedObject</span>(<span class="params">id <span class="keyword">object</span>, <span class="keyword">const</span> <span class="keyword">void</span> *key, id <span class="keyword">value</span>, objc_AssociationPolicy policy</span>)</span>;</span><br><span class="line"><span class="function">id <span class="title">objc_getAssociatedObject</span>(<span class="params">id <span class="keyword">object</span>, <span class="keyword">const</span> <span class="keyword">void</span> *key</span>)</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">objc_removeAssociatedObjects</span>(<span class="params">id <span class="keyword">object</span></span>)</span>;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>objc_setAssociatedObject</code></li>
-<li><code>objc_getAssociatedObject</code></li>
-<li><code>objc_removeAssociatedObjects</code></li>
+<li><code>objc_setAssociatedObject</code> 用于给对象添加关联对象，传入 nil 则可以移除已有的关联对象；</li>
+<li><code>objc_getAssociatedObject</code> 用于获取关联对象；</li>
+<li><code>objc_removeAssociatedObjects</code> 用于移除一个对象的所有关联对象。</li>
 </ul>
+<blockquote>
+<p>用<code>objc_removeAssociatedObjects()</code>函数来移除关联对象，然而，根据苹果文档描述，我们一般用不上：</p>
+<p>这个函数的主要目的是很容易的让对象恢复成它“原始状态”，你不应该使用它来移除关联的对象，因为它也会移除掉包括其他地方加入的全部的关联对象。所以一般你只需要通过调用<code>objc_setAssociatedObject</code>并传入<code>nil</code>值来清除关联值。</p>
+</blockquote>
 <p>它允许开发者<strong>对已经存在的 Category 添加自定义的属性</strong>，这几乎弥补了Objective-C最大的缺点。</p>
-<p>NSObject+AssociatedObject.h</p>
-<pre><code>@interface NSObject (AssociatedObject)
-@property (nonatomic, strong) id associatedObject;
-@end
-</code></pre><p>NSObject+AssociatedObject.m</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">AssociatedObject</span>)</span></span><br><span class="line"><span class="keyword">@dynamic</span> associatedObject;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setAssociatedObject:(<span class="keyword">id</span>)object &#123;</span><br><span class="line">	objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(associatedObject), object, OBJC_ASSO<span class="built_in">CIATION_RETAIN_NONATOMIC</span>);`</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)associatedObject &#123;`</span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(associatedObject));`</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通常推荐 key 使用 static char 类型 – 使用指针或许更好，key值是一个唯一的常量，并只在getters和setters方法内部使用：</p>
+<h3 id="key__u503C"><a href="#key__u503C" class="headerlink" title="key 值"></a>key 值</h3><p>通常推荐 key 使用 static char 类型 – 使用指针或许更好，key值是一个唯一的常量，并只在getters和setters方法内部使用：</p>
 <pre><code>static char kAssociatedObjectKey;`
 
 objc_getAssociatedObject(self, &amp;kAssociatedObjectKey);`
@@ -246,7 +245,7 @@ objc_getAssociatedObject(self, &amp;kAssociatedObjectKey);`
 <blockquote>
 <p>因为SEL生成的时候就是一个唯一的常量，你可以使用 _cmd 作为objc_setAssociatedObject()的key。<br>—— Bill Bumgarner(@bbum) August28, 2009</p>
 </blockquote>
-<h3 id="u5173_u8054_u5BF9_u8C61_u7684_u884C_u4E3A"><a href="#u5173_u8054_u5BF9_u8C61_u7684_u884C_u4E3A" class="headerlink" title="关联对象的行为"></a>关联对象的行为</h3><p>被关联到对象的值根据使用的objc_AssociationPolicy类型不同表现出不同的特性：<br>Behavior 对应的 @property 类型描述:</p>
+<h3 id="u5173_u8054_u7B56_u7565"><a href="#u5173_u8054_u7B56_u7565" class="headerlink" title="关联策略"></a>关联策略</h3><p>被关联到对象的值根据使用的objc_AssociationPolicy类型不同表现出不同的特性：<br>Behavior 对应的 @property 类型描述:</p>
 <table>
 <thead>
 <tr>
@@ -283,17 +282,14 @@ objc_getAssociatedObject(self, &amp;kAssociatedObjectKey);`
 </tr>
 </tbody>
 </table>
+<p>其中，第 <code>2</code> 种与第 <code>4</code> 种、第 <code>3</code> 种与第 <code>5</code> 种关联策略的唯一差别就在于操作是否具有原子性。由于操作的原子性不在本文的讨论范围内，所以下面的实验和讨论就以前三种以例进行展开。</p>
 <p>通过<code>OBJC_ASSOCIATION_ASSIGN</code>分配的弱关联对象并不是完全和<code>weak</code>修饰符引用一样（对象初始化与释放时被置空），反而更像是<code>unsafe_unretained</code>，所以你需要在访问弱关联对象时稍微注意一下。</p>
-<h3 id="u79FB_u9664_u5173_u8054_u5BF9_u8C61"><a href="#u79FB_u9664_u5173_u8054_u5BF9_u8C61" class="headerlink" title="移除关联对象"></a>移除关联对象</h3><p>一个的方法是试图在某个时刻调用<code>objc_removeAssociatedObjects()</code>函数来移除关联对象，然而，根据苹果文档描述，你不大可能有需求要自己去调用：</p>
-<blockquote>
-<p>这个函数的主要目的是很容易的让对象恢复成它“原始状态”，你不应该使用它来移除关联的对象，因为它也会移除掉包括其他地方加入的全部的关联对象。所以一般你只需要通过调用<code>objc_setAssociatedObject</code>并传入<code>nil</code>值来清除关联值。</p>
-</blockquote>
 <h3 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h3><ul>
-<li><p>添加私有变量来帮助实现细节 。当拓展一个内置类时，可能有必要跟踪一些额外的状态，这是关联对象最普遍的应用场景。例如：AFNetworking中在<code>UIImageView</code>的分类中使用关联对象来存储一个请求操作对象（operation object），用于异步的从远程获取图片。</p>
+<li><p><strong>添加私有变量来帮助实现细节：</strong>当拓展一个内置类时，可能有必要跟踪一些额外的状态，这是关联对象最普遍的应用场景。例如：AFNetworking中在<code>UIImageView</code>的分类中使用关联对象来存储一个请求操作对象（operation object），用于异步的从远程获取图片。</p>
 </li>
-<li><p>添加公共属性来设置分类的特性 。有时候，通过添加一个属性让一个分类更加灵活，而不是作为函数参数。这种情况下，使用关联对象作为一个公开的属性是可接受的解决方案。还是拿前面AFNetworking的例子来说，<code>UIImageView</code>的分类中<code>imageResponseSerializer</code>属性允许图片视图随意的使用一个过滤器，或者在图片请求并缓存之前就可以修改它的渲染。</p>
+<li><p><strong>为现有的类添加公有属性：</strong>有时候，通过添加一个属性让一个分类更加灵活，而不是作为函数参数。这种情况下，使用关联对象作为一个公开的属性是可接受的解决方案。还是拿前面AFNetworking的例子来说，<code>UIImageView</code>的分类中<code>imageResponseSerializer</code>属性允许图片视图随意的使用一个过滤器，或者在图片请求并缓存之前就可以修改它的渲染。</p>
 </li>
-<li><p>为KVO创建一个关联的观察者（observer）。当在一个分类中使用KVO的时候，推荐使用一个自定义的关联对象作为观察者，而不是对象自己观察自己。</p>
+<li><p><strong>为KVO创建一个关联的观察者（observer）：</strong>当在一个分类中使用KVO的时候，推荐使用一个自定义的关联对象作为观察者，而不是对象自己观察自己。</p>
 </li>
 </ul>
 <h3 id="u53CD_u4F8B"><a href="#u53CD_u4F8B" class="headerlink" title="反例"></a>反例</h3><ul>
@@ -311,8 +307,17 @@ objc_getAssociatedObject(self, &amp;kAssociatedObjectKey);`
 </ul>
 </li>
 </ul>
-<h4 id="u5173_u8054_u5BF9_u8C61_u5E94_u8BE5_u88AB_u5F53_u505A_u6700_u540E_u7684_u624B_u6BB5_u6765_u4F7F_u7528_uFF08_u4E0D_u5F97_u4E0D_u7528_u65F6_u624D_u7528_uFF09_uFF0C_u800C_u4E0D_u662F_u4E3A_u4E86_u5BFB_u6C42_u4E00_u4E2A_u89E3_u51B3_u65B9_u6848_u5C31_u884C_uFF08_u4E8B_u5B9E_u4E0A_uFF0C_u5206_u7C7B_u672C_u8EAB_u5C31_u4E0D_u5E94_u8BE5_u662F_u89E3_u51B3_u95EE_u9898_u4F18_u5148_u9009_u62E9_u7684_u5DE5_u5177_uFF09_u3002"><a href="#u5173_u8054_u5BF9_u8C61_u5E94_u8BE5_u88AB_u5F53_u505A_u6700_u540E_u7684_u624B_u6BB5_u6765_u4F7F_u7528_uFF08_u4E0D_u5F97_u4E0D_u7528_u65F6_u624D_u7528_uFF09_uFF0C_u800C_u4E0D_u662F_u4E3A_u4E86_u5BFB_u6C42_u4E00_u4E2A_u89E3_u51B3_u65B9_u6848_u5C31_u884C_uFF08_u4E8B_u5B9E_u4E0A_uFF0C_u5206_u7C7B_u672C_u8EAB_u5C31_u4E0D_u5E94_u8BE5_u662F_u89E3_u51B3_u95EE_u9898_u4F18_u5148_u9009_u62E9_u7684_u5DE5_u5177_uFF09_u3002" class="headerlink" title="关联对象应该被当做最后的手段来使用（不得不用时才用），而不是为了寻求一个解决方案就行（事实上，分类本身就不应该是解决问题优先选择的工具）。"></a>关联对象应该被当做最后的手段来使用（不得不用时才用），而不是为了寻求一个解决方案就行（事实上，分类本身就不应该是解决问题优先选择的工具）。</h4><h3 id="u53C2_u8003_u94FE_u63A5"><a href="#u53C2_u8003_u94FE_u63A5" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<h4 id="u5173_u8054_u5BF9_u8C61_u5E94_u8BE5_u88AB_u5F53_u505A_u6700_u540E_u7684_u624B_u6BB5_u6765_u4F7F_u7528_uFF08_u4E0D_u5F97_u4E0D_u7528_u65F6_u624D_u7528_uFF09_uFF0C_u800C_u4E0D_u662F_u4E3A_u4E86_u5BFB_u6C42_u4E00_u4E2A_u89E3_u51B3_u65B9_u6848_u5C31_u884C_uFF08_u4E8B_u5B9E_u4E0A_uFF0C_u5206_u7C7B_u672C_u8EAB_u5C31_u4E0D_u5E94_u8BE5_u662F_u89E3_u51B3_u95EE_u9898_u4F18_u5148_u9009_u62E9_u7684_u5DE5_u5177_uFF09_u3002"><a href="#u5173_u8054_u5BF9_u8C61_u5E94_u8BE5_u88AB_u5F53_u505A_u6700_u540E_u7684_u624B_u6BB5_u6765_u4F7F_u7528_uFF08_u4E0D_u5F97_u4E0D_u7528_u65F6_u624D_u7528_uFF09_uFF0C_u800C_u4E0D_u662F_u4E3A_u4E86_u5BFB_u6C42_u4E00_u4E2A_u89E3_u51B3_u65B9_u6848_u5C31_u884C_uFF08_u4E8B_u5B9E_u4E0A_uFF0C_u5206_u7C7B_u672C_u8EAB_u5C31_u4E0D_u5E94_u8BE5_u662F_u89E3_u51B3_u95EE_u9898_u4F18_u5148_u9009_u62E9_u7684_u5DE5_u5177_uFF09_u3002" class="headerlink" title="关联对象应该被当做最后的手段来使用（不得不用时才用），而不是为了寻求一个解决方案就行（事实上，分类本身就不应该是解决问题优先选择的工具）。"></a>关联对象应该被当做最后的手段来使用（不得不用时才用），而不是为了寻求一个解决方案就行（事实上，分类本身就不应该是解决问题优先选择的工具）。</h4><h3 id="u5B9E_u73B0_u539F_u7406"><a href="#u5B9E_u73B0_u539F_u7406" class="headerlink" title="实现原理"></a>实现原理</h3><p>在探究 Associated Objects 的实现原理前，我们还是先来动手做一个小实验，研究一下关联对象什么时候会被释放。本实验主要涉及 <code>ViewController</code> 类和它的分类 <code>ViewController+AssociatedObjects</code>。注：本实验的完整代码可以在这里 <a href="https://github.com/leichunfeng/AssociatedObjects" target="_blank" rel="external">AssociatedObjects</a> 找到，其中关键代码如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> (<span class="title">AssociatedObjects</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *associatedObject_assign;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *associatedObject_retain;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>,   <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *associatedObject_copy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span> (<span class="title">AssociatedObjects</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)associatedObject_assign &#123;</span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, _cmd);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setAssociatedObject_assign:(<span class="built_in">NSString</span> *)associatedObject_assign &#123;</span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(associatedObject_assign), associatedObject_assign, OBJC_ASSO<span class="built_in">CIATION_ASSIGN</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)associatedObject_retain &#123;</span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, _cmd);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setAssociatedObject_retain:(<span class="built_in">NSString</span> *)associatedObject_retain &#123;</span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(associatedObject_retain), associatedObject_retain, OBJC_ASSO<span class="built_in">CIATION_RETAIN_NONATOMIC</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)associatedObject_copy &#123;</span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, _cmd);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setAssociatedObject_copy:(<span class="built_in">NSString</span> *)associatedObject_copy &#123;</span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(associatedObject_copy), associatedObject_copy, OBJC_ASSO<span class="built_in">CIATION_COPY_NONATOMIC</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>在 <strong>ViewController+AssociatedObjects.h</strong> 中声明了三个属性，限定符分别为 <code>assign, nonatomic</code> 、<code>strong, nonatomic</code> 和 <code>copy, nonatomic</code> ，而在 <code>ViewController+AssociatedObjects.m</code> 中相应的分别用 <code>OBJC_ASSOCIATION_ASSIGN</code> 、<code>OBJC_ASSOCIATION_RETAIN_NONATOMIC</code> 、<code>OBJC_ASSOCIATION_COPY_NONATOMIC</code> 三种关联策略为这三个属性添加“实例变量”。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> <span class="built_in">NSString</span> *string_weak_assign = <span class="literal">nil</span>;</span><br><span class="line">__<span class="keyword">weak</span> <span class="built_in">NSString</span> *string_weak_retain = <span class="literal">nil</span>;</span><br><span class="line">__<span class="keyword">weak</span> <span class="built_in">NSString</span> *string_weak_copy   = <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.associatedObject_assign</span> = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"leichunfeng1"</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.associatedObject_retain</span> = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"leichunfeng2"</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.associatedObject_copy</span>   = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"leichunfeng3"</span>];</span><br><span class="line"></span><br><span class="line">    string_weak_assign = <span class="keyword">self</span><span class="variable">.associatedObject_assign</span>;</span><br><span class="line">    string_weak_retain = <span class="keyword">self</span><span class="variable">.associatedObject_retain</span>;</span><br><span class="line">    string_weak_copy   = <span class="keyword">self</span><span class="variable">.associatedObject_copy</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event &#123;</span><br><span class="line"><span class="comment">//    NSLog(@"self.associatedObject_assign: %@", self.associatedObject_assign); // Will Crash</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"self.associatedObject_retain: %@"</span>, <span class="keyword">self</span><span class="variable">.associatedObject_retain</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"self.associatedObject_copy:   %@"</span>, <span class="keyword">self</span><span class="variable">.associatedObject_copy</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>在 <code>ViewController</code> 的 <code>viewDidLoad</code> 方法中，我们对三个属性进行了赋值，并声明了三个全局的 <code>__weak</code> 变量来观察相应对象的释放时机。此外，我们重写了 <code>touchesBegan:withEvent:</code> 方法，在方法中分别打印了这三个属性的当前值。</p>
+<p>在继续阅读下面章节前，建议读者先自行思考一下 <code>self.associatedObject_assign</code> 、<code>self.associatedObject_retain</code> 和 <code>self.associatedObject_copy</code> 指向的对象分别会在什么时候被释放，以加深理解。</p>
+<h3 id="u5B9E_u9A8C"><a href="#u5B9E_u9A8C" class="headerlink" title="实验"></a>实验</h3><p>我们先在 <code>viewDidLoad</code> 方法的第 <code>28</code> 行打上断点，然后运行程序，点击导航栏右上角的按钮 <code>Push</code> 到 <code>ViewController</code> 界面，程序将停在断点处。接着，我们使用 <code>lldb</code> 的 <code>watchpoint</code> 命令来设置观察点，观察全局变量 <code>string_weak_assign</code> 、<code>string_weak_retain</code> 和 <code>string_weak_copy</code> 的值的变化。正确设置好观察点后，将会在 <code>console</code> 中看到如下的类似输出：</p>
+<h3 id="u53C2_u8003_u94FE_u63A5"><a href="#u53C2_u8003_u94FE_u63A5" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
 <li><a href="http://nshipster.com/associated-objects/" target="_blank" rel="external">Associated Objects - NSHipster</a></li>
+<li><a href="http://kingscocoa.com/tutorials/associated-objects/" target="_blank" rel="external">Objective-C Associated Objects</a></li>
+<li><a href="http://blog.leichunfeng.com/blog/2015/06/26/objective-c-associated-objects-implementation-principle/" target="_blank" rel="external">Objective-C Associated Objects 的实现原理</a></li>
 </ul>
 <hr>
 <h3 id="u4EE5_u4E0A"><a href="#u4EE5_u4E0A" class="headerlink" title="以上"></a>以上</h3>
@@ -370,7 +375,7 @@ objc_getAssociatedObject(self, &amp;kAssociatedObjectKey);`
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Objective-C-Associated-Objects-的实现原理" data-title="Objective-C Associated Objects (一)：简介" data-url="http://henrydong.com/2016/02/01/Objective-C-Associated-Objects-的实现原理/"></div>
+	<div class="ds-thread" data-thread-key="Objective-C-Associated-Objects-的实现原理" data-title="有关 Objective-C Associated Objects" data-url="http://henrydong.com/2016/02/01/Objective-C-Associated-Objects-的实现原理/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

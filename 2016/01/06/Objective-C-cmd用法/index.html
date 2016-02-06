@@ -4,18 +4,34 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Henry Blog</title>
+  <title>Objective-C _cmd用法 | Henry Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
-  <meta name="description" content="北京化工大学12级生物工程在读。此为博客一枚。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Henry Blog">
-<meta property="og:url" content="http://henrydong.com/page/2/index.html">
+  <meta name="description" content="_cmd 是隐藏的参数，代表当前方法的 selector，它和 self 一样都是每个方法调用时都会传入的参数，动态运行时会提及如何传的这两个参数。
+比如这样一个语句：
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSLog(@&amp;quot;Current method: %@ %@&amp;quot;,    [self class],NSStri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C _cmd用法">
+<meta property="og:url" content="http://henrydong.com/2016/01/06/Objective-C-cmd用法/index.html">
 <meta property="og:site_name" content="Henry Blog">
-<meta property="og:description" content="北京化工大学12级生物工程在读。此为博客一枚。">
+<meta property="og:description" content="_cmd 是隐藏的参数，代表当前方法的 selector，它和 self 一样都是每个方法调用时都会传入的参数，动态运行时会提及如何传的这两个参数。
+比如这样一个语句：
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSLog(@&amp;quot;Current method: %@ %@&amp;quot;,    [self class],NSStri">
+<meta property="og:updated_time" content="2016-02-06T11:03:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Henry Blog">
-<meta name="twitter:description" content="北京化工大学12级生物工程在读。此为博客一枚。">
+<meta name="twitter:title" content="Objective-C _cmd用法">
+<meta name="twitter:description" content="_cmd 是隐藏的参数，代表当前方法的 selector，它和 self 一样都是每个方法调用时都会传入的参数，动态运行时会提及如何传的这两个参数。
+比如这样一个语句：
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSLog(@&amp;quot;Current method: %@ %@&amp;quot;,    [self class],NSStri">
   
     <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
   
@@ -180,69 +196,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-一些知名App用到的第三方库汇总" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/17/一些知名App用到的第三方库汇总/" class="article-date">
-  	<time datetime="2016-01-16T23:51:48.000Z" itemprop="datePublished">2016-01-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/17/一些知名App用到的第三方库汇总/">一些知名App用到的第三方库汇总</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>看到几个喜欢的App里面都有一个专门的页面列出了App中用到的相关的第三方开源库，以此来表示对开源社区和作者的敬意，同时也可以让对该App实现方式感兴趣的同学可以学下到相应地实现方法。于是顺手就整合了下按照App把开源库列了出来，方便日后查看，同时也向这几个App的作者表达下敬意。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/17/一些知名App用到的第三方库汇总/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Objective-C-cmd用法" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Objective-C-cmd用法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/01/06/Objective-C-cmd用法/" class="article-date">
@@ -258,12 +212,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/06/Objective-C-cmd用法/">Objective-C _cmd用法</a>
+    <h1 class="article-title" itemprop="name">
+      Objective-C _cmd用法
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -293,356 +258,77 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-OS-X-El-Capitan-更新速度慢的解决方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/17/OS-X-El-Capitan-更新速度慢的解决方法/" class="article-date">
-  	<time datetime="2015-10-17T02:04:37.000Z" itemprop="datePublished">2015-10-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+<nav id="article-nav">
+  
+    <a href="/2016/01/17/一些知名App用到的第三方库汇总/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/17/OS-X-El-Capitan-更新速度慢的解决方法/">OS X El Capitan 更新速度慢的解决方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="u57FA_u672C_u539F_u7406"><a href="#u57FA_u672C_u539F_u7406" class="headerlink" title="基本原理"></a>基本原理</h3><blockquote>
-<p>抓取苹果官方下载链接，用第三方下载工具下载 .pkg 文件。搭建本地 server ,将苹果的下载地址解析到本地的服务器,从而实现快速下载安装。</p>
-<p>适用于 El Capitan 更新慢的用户，有百兆光纤的用户可忽略)</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技巧/">技巧</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/17/OS-X-El-Capitan-更新速度慢的解决方法/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iBeacon技术" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/18/iBeacon技术/" class="article-date">
-  	<time datetime="2015-01-18T11:10:51.000Z" itemprop="datePublished">2015-01-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          一些知名App用到的第三方库汇总
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/18/iBeacon技术/">iBeacons技术</a>
-    </h1>
   
+    <a href="/2015/10/17/OS-X-El-Capitan-更新速度慢的解决方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OS X El Capitan 更新速度慢的解决方法</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>iBeacon：是苹果公司2013年9月发布的移动设备用OS（iOS7）上配备的新功能。</p>
-<p>其工作方式是，配备有 低功耗蓝牙（BLE）通信功能的设备使用BLE技术向周围发送自己特有的ID，接收到该ID的应用软件会根据该ID采取一些行动。比如，在店铺里设置iBeacon通信模块的话，便可让iPhone和iPad上运行一资讯告知服务器，或者由服务器向顾客发送折扣券及进店积分。此外，还可以在家电发生故障或停止工作时使用iBeacon向应用软件发送资讯。</p>
-<p>苹果 WWDC 14 之后，对 iBeacon 加大了技术支持和对其用于室内地图的应用有个更明确的规划。苹果公司公布了 iBeacon for Developers 和 Maps for Developers 等专题页面。</p>
-</blockquote>
-<p>These are a new feature of Bluetooth LE which allows proximity-based notifications and ranging.（蓝牙的新特性,允许附近通知和测距。）</p>
-<p>The seeker device displays updates of estimated range to it.（iBeacon可显示装置更新的估计范围。）</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/01/18/iBeacon技术/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-运用TextKit实现Markdown语法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/06/12/运用TextKit实现Markdown语法/" class="article-date">
-  	<time datetime="2014-06-12T01:09:23.000Z" itemprop="datePublished">2014-06-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/12/运用TextKit实现Markdown语法/">运用TextKit实现Markdown语法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="u5148_u8BE6_u7EC6_u8BF4_u4E00_u4E0B__u52A0_u7C97__u7684_u5B9E_u73B0_uFF1A"><a href="#u5148_u8BE6_u7EC6_u8BF4_u4E00_u4E0B__u52A0_u7C97__u7684_u5B9E_u73B0_uFF1A" class="headerlink" title="先详细说一下 加粗 的实现："></a>先详细说一下 <strong>加粗</strong> 的实现：</h3><p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit6.png" alt=""></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/06/12/运用TextKit实现Markdown语法/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
 
 
 
-
-
-
-  
-    <article id="post-TextKit小记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/06/10/TextKit小记/" class="article-date">
-  	<time datetime="2014-06-10T14:38:25.000Z" itemprop="datePublished">2014-06-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/10/TextKit小记/">TextKit小记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="TextKit_u4ECB_u7ECD"><a href="#TextKit_u4ECB_u7ECD" class="headerlink" title="TextKit介绍"></a>TextKit介绍</h3><blockquote>
-<p>iOS7 introduced a new high-level text-rendering framework called TextKit. TextKit is based on the extremely powerful CoreText rendering engine, and all the Apple-provided text-based controls have been updated to use the TextKit engine. </p>
-</blockquote>
-<p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit1.png" alt=""></p>
-<h3 id="1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B"><a href="#1-_Dynamic_Type_-__u52A8_u6001_u7C7B_u578B" class="headerlink" title="1. Dynamic Type - 动态类型"></a>1. Dynamic Type - 动态类型</h3><p>动态类型并不是简单地改变字体大小的能力,也改变其他类型的属性：如字体和行间距。确保了文本是可读的。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/06/10/TextKit小记/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Objective-C-cmd用法" data-title="Objective-C _cmd用法" data-url="http://henrydong.com/2016/01/06/Objective-C-cmd用法/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"henrydong"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-
-
-
-
-  
-    <article id="post-Custom-UIViewController-Transitions" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/05/19/Custom-UIViewController-Transitions/" class="article-date">
-  	<time datetime="2014-05-19T04:20:16.000Z" itemprop="datePublished">2014-05-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/05/19/Custom-UIViewController-Transitions/">Custom UIViewController Transitions</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Navigation_Controller_Delegate_uFF1A"><a href="#Navigation_Controller_Delegate_uFF1A" class="headerlink" title="Navigation Controller Delegate："></a>Navigation Controller Delegate：</h3><p>它有4个方法，本文只涉及其中之一：：</p>
-<pre><code>- (id&lt;UIViewControllerAnimatedTransitioning&gt;)navigationController:
-                                  animationControllerForOperation:
-                                               fromViewController:
-                                                 toViewController:
-</code></pre><p>最终效果如图：</p>
-<p><img src="http://7xq720.com1.z0.glb.clouddn.com/Custom%20UIViewController%20Transitions.gif" alt=""></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/05/19/Custom-UIViewController-Transitions/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -666,8 +352,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
