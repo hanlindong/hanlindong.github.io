@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Objective-C Associated Objects (一)：简介 | Henry Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
+  <meta name="description" content="在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。
+#import &amp;lt;objc/runtim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective-C Associated Objects (一)：简介">
+<meta property="og:url" content="http://henrydong.com/2016/02/01/Objective-C-Associated-Objects-的实现原理/index.html">
+<meta property="og:site_name" content="Henry Blog">
+<meta property="og:description" content="在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。
+#import &amp;lt;objc/runtim">
+<meta property="og:updated_time" content="2016-02-06T09:33:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Objective-C Associated Objects (一)：简介">
+<meta name="twitter:description" content="在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。
+#import &amp;lt;objc/runtim">
+  
+    <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xq720.com1.z0.glb.clouddn.com/0762093864174.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Henry Dong</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">唇红齿白丧心病狂的瀚林同学</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/guestbook">留言板</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hanlindong" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/dong-han-lin-68" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/henrydong.chn@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/OSX/" style="font-size: 13.33px;">OSX</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/技巧/" style="font-size: 16.67px;">技巧</a> <a href="/tags/效率/" style="font-size: 10px;">效率</a> <a href="/tags/生物/" style="font-size: 10px;">生物</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">北京化工大学12级生物工程在读。此为博客一枚。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Henry Dong</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xq720.com1.z0.glb.clouddn.com/0762093864174.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Henry Dong</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">唇红齿白丧心病狂的瀚林同学</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/guestbook">留言板</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/hanlindong" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/dong-han-lin-68" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/henrydong.chn@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Objective-C-Associated-Objects-的实现原理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/01/Objective-C-Associated-Objects-的实现原理/" class="article-date">
+  	<time datetime="2016-02-01T08:51:22.000Z" itemprop="datePublished">2016-02-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Objective-C Associated Objects (一)：简介
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。</p>
+<p><code>#import &lt;objc/runtime.h&gt;</code></p>
+<p>我们在遇到 runtime 相关的一些东西时，一般都会很谨慎。因为所有的代码都运行在其之上，弄乱 Objective-C 运行时可能会改变整个实现结构，</p>
+<p>一方面：<objc runtime.h=""> 中的函数可以给应用或者框架增加强大的新特性。但另一方面：它会改变代码的正常运行逻辑和所有与之交互的东西（通常伴随着可怕的副作用）。<br><a id="more"></a></objc></p>
+<h3 id="Associated_Objects"><a href="#Associated_Objects" class="headerlink" title="Associated Objects"></a>Associated Objects</h3><p>Associated Objects（关联对象）或者叫作关联引用（Associative References），是作为Objective-C 2.0 运行时功能被引入到 Mac OS X 10.6 Snow Leopard（及iOS4）系统。与它相关在<objc runtime.h="">中有3个C函数，它们可以让对象在运行时关联任何值：</objc></p>
+<ul>
+<li><code>objc_setAssociatedObject</code></li>
+<li><code>objc_getAssociatedObject</code></li>
+<li><code>objc_removeAssociatedObjects</code></li>
+</ul>
+<p>它允许开发者<strong>对已经存在的 Category 添加自定义的属性</strong>，这几乎弥补了Objective-C最大的缺点。</p>
+<p>NSObject+AssociatedObject.h</p>
+<pre><code>@interface NSObject (AssociatedObject)
+@property (nonatomic, strong) id associatedObject;
+@end
+</code></pre><p>NSObject+AssociatedObject.m</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">AssociatedObject</span>)</span></span><br><span class="line"><span class="keyword">@dynamic</span> associatedObject;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setAssociatedObject:(<span class="keyword">id</span>)object &#123;</span><br><span class="line">	objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(associatedObject), object, OBJC_ASSO<span class="built_in">CIATION_RETAIN_NONATOMIC</span>);`</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)associatedObject &#123;`</span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(associatedObject));`</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通常推荐 key 使用 static char 类型 – 使用指针或许更好，key值是一个唯一的常量，并只在getters和setters方法内部使用：</p>
+<pre><code>static char kAssociatedObjectKey;`
+
+objc_getAssociatedObject(self, &amp;kAssociatedObjectKey);`
+</code></pre><p>然而，一个更简单的方案是：直接使用选择器（selector）。</p>
+<blockquote>
+<p>因为SEL生成的时候就是一个唯一的常量，你可以使用 _cmd 作为objc_setAssociatedObject()的key。<br>—— Bill Bumgarner(@bbum) August28, 2009</p>
+</blockquote>
+<h3 id="u5173_u8054_u5BF9_u8C61_u7684_u884C_u4E3A"><a href="#u5173_u8054_u5BF9_u8C61_u7684_u884C_u4E3A" class="headerlink" title="关联对象的行为"></a>关联对象的行为</h3><p>被关联到对象的值根据使用的objc_AssociationPolicy类型不同表现出不同的特性：<br>Behavior 对应的 @property 类型描述:</p>
+<table>
+<thead>
+<tr>
+<th>First Header</th>
+<th>Second Header</th>
+<th>Third Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OBJC_ASSOCIATION_ASSIGN</td>
+<td>@property (assign) 或 @property(unsafe_unretained)</td>
+<td>给关联对象指定若引用</td>
+</tr>
+<tr>
+<td>OBJC_ASSOCIATION_RETAIN_NONATOMIC</td>
+<td>@property (nonatomic, strong)</td>
+<td>给关联对象指定非原子的强引用</td>
+</tr>
+<tr>
+<td>OBJC_ASSOCIATION_COPY_NONATOMIC</td>
+<td>@property (nonatomic, copy)</td>
+<td>给关联对象指定非原子的copy特性</td>
+</tr>
+<tr>
+<td>OBJC_ASSOCIATION_RETAIN</td>
+<td>@property (atomic, strong)</td>
+<td>给关联对象指定原子的强引用</td>
+</tr>
+<tr>
+<td>OBJC_ASSOCIATION_COPY</td>
+<td>@property (atomic, copy)</td>
+<td>给关联对象指定原子copy特性</td>
+</tr>
+</tbody>
+</table>
+<p>通过<code>OBJC_ASSOCIATION_ASSIGN</code>分配的弱关联对象并不是完全和<code>weak</code>修饰符引用一样（对象初始化与释放时被置空），反而更像是<code>unsafe_unretained</code>，所以你需要在访问弱关联对象时稍微注意一下。</p>
+<h3 id="u79FB_u9664_u5173_u8054_u5BF9_u8C61"><a href="#u79FB_u9664_u5173_u8054_u5BF9_u8C61" class="headerlink" title="移除关联对象"></a>移除关联对象</h3><p>一个的方法是试图在某个时刻调用<code>objc_removeAssociatedObjects()</code>函数来移除关联对象，然而，根据苹果文档描述，你不大可能有需求要自己去调用：</p>
+<blockquote>
+<p>这个函数的主要目的是很容易的让对象恢复成它“原始状态”，你不应该使用它来移除关联的对象，因为它也会移除掉包括其他地方加入的全部的关联对象。所以一般你只需要通过调用<code>objc_setAssociatedObject</code>并传入<code>nil</code>值来清除关联值。</p>
+</blockquote>
+<h3 id="u793A_u4F8B"><a href="#u793A_u4F8B" class="headerlink" title="示例"></a>示例</h3><ul>
+<li><p>添加私有变量来帮助实现细节 。当拓展一个内置类时，可能有必要跟踪一些额外的状态，这是关联对象最普遍的应用场景。例如：AFNetworking中在<code>UIImageView</code>的分类中使用关联对象来存储一个请求操作对象（operation object），用于异步的从远程获取图片。</p>
+</li>
+<li><p>添加公共属性来设置分类的特性 。有时候，通过添加一个属性让一个分类更加灵活，而不是作为函数参数。这种情况下，使用关联对象作为一个公开的属性是可接受的解决方案。还是拿前面AFNetworking的例子来说，<code>UIImageView</code>的分类中<code>imageResponseSerializer</code>属性允许图片视图随意的使用一个过滤器，或者在图片请求并缓存之前就可以修改它的渲染。</p>
+</li>
+<li><p>为KVO创建一个关联的观察者（observer）。当在一个分类中使用KVO的时候，推荐使用一个自定义的关联对象作为观察者，而不是对象自己观察自己。</p>
+</li>
+</ul>
+<h3 id="u53CD_u4F8B"><a href="#u53CD_u4F8B" class="headerlink" title="反例"></a>反例</h3><ul>
+<li><p>在不必要的时候使用关联对象。使用视图时一个常见的情况是通过数据模型或一些复合的值来创建一个便利的方法设置填充字段或属性。如果这些值在后面不会再被使用到，最好就不要使用关联对象了。</p>
+</li>
+<li><p>使用关联对象来保存一个可以被推算出来的值。例如，有人可能想通过关联对象存储<code>UITableViewCell</code>上一个自定义<code>accessoryView</code>的引用，使用<code>tableView:accessoryButtonTappedForRowWithIndexPath:</code>和 <code>cellForRowAtIndexPath:</code>即可以达到要求。</p>
+</li>
+<li><p>使用关联对象来代替X。其中X代表下面的一些项：</p>
+<ul>
+<li>子类化，当使用继承比使用组合更合适的时候。</li>
+<li>Target-Action给响应者添加交互事件。</li>
+<li>手势识别，当target-action模式不够用的时候。</li>
+<li>代理，当事件可以委托给其他对象。</li>
+<li>消息 &amp; 消息中心使用低耦合的方式来广播消息。</li>
+</ul>
+</li>
+</ul>
+<h4 id="u5173_u8054_u5BF9_u8C61_u5E94_u8BE5_u88AB_u5F53_u505A_u6700_u540E_u7684_u624B_u6BB5_u6765_u4F7F_u7528_uFF08_u4E0D_u5F97_u4E0D_u7528_u65F6_u624D_u7528_uFF09_uFF0C_u800C_u4E0D_u662F_u4E3A_u4E86_u5BFB_u6C42_u4E00_u4E2A_u89E3_u51B3_u65B9_u6848_u5C31_u884C_uFF08_u4E8B_u5B9E_u4E0A_uFF0C_u5206_u7C7B_u672C_u8EAB_u5C31_u4E0D_u5E94_u8BE5_u662F_u89E3_u51B3_u95EE_u9898_u4F18_u5148_u9009_u62E9_u7684_u5DE5_u5177_uFF09_u3002"><a href="#u5173_u8054_u5BF9_u8C61_u5E94_u8BE5_u88AB_u5F53_u505A_u6700_u540E_u7684_u624B_u6BB5_u6765_u4F7F_u7528_uFF08_u4E0D_u5F97_u4E0D_u7528_u65F6_u624D_u7528_uFF09_uFF0C_u800C_u4E0D_u662F_u4E3A_u4E86_u5BFB_u6C42_u4E00_u4E2A_u89E3_u51B3_u65B9_u6848_u5C31_u884C_uFF08_u4E8B_u5B9E_u4E0A_uFF0C_u5206_u7C7B_u672C_u8EAB_u5C31_u4E0D_u5E94_u8BE5_u662F_u89E3_u51B3_u95EE_u9898_u4F18_u5148_u9009_u62E9_u7684_u5DE5_u5177_uFF09_u3002" class="headerlink" title="关联对象应该被当做最后的手段来使用（不得不用时才用），而不是为了寻求一个解决方案就行（事实上，分类本身就不应该是解决问题优先选择的工具）。"></a>关联对象应该被当做最后的手段来使用（不得不用时才用），而不是为了寻求一个解决方案就行（事实上，分类本身就不应该是解决问题优先选择的工具）。</h4><h3 id="u53C2_u8003_u94FE_u63A5"><a href="#u53C2_u8003_u94FE_u63A5" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="http://nshipster.com/associated-objects/" target="_blank" rel="external">Associated Objects - NSHipster</a></li>
+</ul>
+<hr>
+<h3 id="u4EE5_u4E0A"><a href="#u4EE5_u4E0A" class="headerlink" title="以上"></a>以上</h3>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/06/有关BTT/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          有关BTT
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/26/HSV模型/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">颜色(二)：HSV模型</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Objective-C-Associated-Objects-的实现原理" data-title="Objective-C Associated Objects (一)：简介" data-url="http://henrydong.com/2016/02/01/Objective-C-Associated-Objects-的实现原理/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"henrydong"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Henry Dong
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Henry
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
