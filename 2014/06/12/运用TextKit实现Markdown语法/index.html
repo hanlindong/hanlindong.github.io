@@ -15,7 +15,7 @@
 <meta property="og:description" content="先详细说一下 加粗 的实现：">
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit6.png">
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit7.png">
-<meta property="og:updated_time" content="2016-02-07T01:17:42.000Z">
+<meta property="og:updated_time" content="2016-02-07T01:23:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="运用TextKit实现Markdown语法">
 <meta name="twitter:description" content="先详细说一下 加粗 的实现：">
@@ -245,52 +245,47 @@
 <li><code>\s</code> -一个空格结束。</li>
 </ul>
 <p>调用createHighlightPatterns:</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">	- (<span class="keyword">id</span>)init</span><br><span class="line">	&#123;</span><br><span class="line">    	<span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">        	_backingStore = [<span class="built_in">NSMutableAttributedString</span> new];</span><br><span class="line">	        [<span class="keyword">self</span> createHighlightPatterns];</span><br><span class="line">    &#125;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">   	&#125;</span><br><span class="line">```   	</span><br><span class="line">   	</span><br><span class="line">下面的方法适用于所提供的字体样式的正文字体。它提供了一个零大小fontWithDescriptor：size：迫使<span class="built_in">UIFont</span>返回的尺寸相匹配的用户的当前字体大小偏好。</span><br></pre></td></tr></table></figure>
-<pre><code>- (NSDictionary*)createAttributesForFontStyle:(NSString*)style
-                                withTrait:(uint32_t)trait {
-    UIFontDescriptor *fontDescriptor = [UIFontDescriptor
-                           preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)init</span><br><span class="line">&#123;</span><br><span class="line">   	<span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">       	_backingStore = [<span class="built_in">NSMutableAttributedString</span> new];</span><br><span class="line">       [<span class="keyword">self</span> createHighlightPatterns];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line">```   	</span><br><span class="line">   	</span><br><span class="line">下面的方法适用于所提供的字体样式的正文字体。它提供了一个零大小fontWithDescriptor：size：迫使<span class="built_in">UIFont</span>返回的尺寸相匹配的用户的当前字体大小偏好。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>(NSDictionary<em>)createAttributesForFontStyle:(NSString</em>)style</p>
+<pre><code>withTrait:(uint32_t)trait {
+</code></pre><p>  UIFontDescriptor *fontDescriptor = [UIFontDescriptor</p>
+<pre><code>preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
+</code></pre><p>  UIFontDescriptor *descriptorWithTrait = [fontDescriptor</p>
+<pre><code>fontDescriptorWithSymbolicTraits:trait];
+</code></pre><p>  UIFont* font =  [UIFont fontWithDescriptor:descriptorWithTrait size: 0.0];<br>  return @{ NSFontAttributeName : font };<br>}</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">替换现有applyStylesToRange方法：</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>(void)applyStylesToRange:(NSRange)searchRange<br>{<br>  NSDictionary* normalAttrs = @{NSFontAttributeName:</p>
+<pre><code>[UIFont preferredFontForTextStyle:UIFontTextStyleBody]};
+</code></pre><p>  // 迭代每次更换</p>
+<pre><code>for (NSString* key in _replacements) {
+ NSRegularExpression *regex = [NSRegularExpression 
+                                     regularExpressionWithPattern:key
+                                                          options:0
+                                                            error:nil];
 
-    UIFontDescriptor *descriptorWithTrait = [fontDescriptor
-                                fontDescriptorWithSymbolicTraits:trait];
+ NSDictionary* attributes = _replacements[key];
 
-    UIFont* font =  [UIFont fontWithDescriptor:descriptorWithTrait size: 0.0];
-    return @{ NSFontAttributeName : font };
-}
-</code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">替换现有applyStylesToRange方法：</span><br></pre></td></tr></table></figure>
-<pre><code>- (void)applyStylesToRange:(NSRange)searchRange
-{
-    NSDictionary* normalAttrs = @{NSFontAttributeName:
-                  [UIFont preferredFontForTextStyle:UIFontTextStyleBody]};
+    [regex enumerateMatchesInString:[_backingStore string]
+                   options:0
+                     range:searchRange
+                usingBlock:^(NSTextCheckingResult *match,
+                             NSMatchingFlags flags,
+                             BOOL *stop){
+        // 样式
+        NSRange matchRange = [match rangeAtIndex:1];
+     [self addAttributes:attributes range:matchRange];
 
-    // 迭代每次更换
-    for (NSString* key in _replacements) {
-        NSRegularExpression *regex = [NSRegularExpression 
-                                        regularExpressionWithPattern:key
-                                                             options:0
-                                                               error:nil];
-
-        NSDictionary* attributes = _replacements[key];
-
-        [regex enumerateMatchesInString:[_backingStore string]
-                      options:0
-                        range:searchRange
-                   usingBlock:^(NSTextCheckingResult *match,
-                                NSMatchingFlags flags,
-                                BOOL *stop){
-            // 样式
-            NSRange matchRange = [match rangeAtIndex:1];
-            [self addAttributes:attributes range:matchRange];
-
-            // 重新设置到最初的样式
-            if (NSMaxRange(matchRange)+1 &lt; self.length) {
-                [self addAttributes:normalAttrs
-                          range:NSMakeRange(NSMaxRange(matchRange)+1, 1)];
-            }
-        }];
-    }
-}
-</code></pre><p>```</p>
+        // 重新设置到最初的样式
+     if (NSMaxRange(matchRange)+1 &lt; self.length) {
+          [self addAttributes:normalAttrs
+                       range:NSMakeRange(NSMaxRange(matchRange)+1, 1)];
+     }
+ }];
+</code></pre><p>  }<br>}<br>```</p>
+</li>
+</ul>
 <p>展示效果如下图：</p>
 <p><img src="http://7xq720.com1.z0.glb.clouddn.com/TextKit7.png" alt=""></p>
 <hr>
