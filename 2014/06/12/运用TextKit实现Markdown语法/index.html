@@ -15,7 +15,7 @@
 <meta property="og:description" content="先详细说一下 加粗 的实现：">
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit6.png">
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/TextKit7.png">
-<meta property="og:updated_time" content="2016-02-07T01:23:11.000Z">
+<meta property="og:updated_time" content="2016-02-07T01:26:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="运用TextKit实现Markdown语法">
 <meta name="twitter:description" content="先详细说一下 加粗 的实现：">
@@ -245,7 +245,7 @@
 <li><code>\s</code> -一个空格结束。</li>
 </ul>
 <p>调用createHighlightPatterns:</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)init</span><br><span class="line">&#123;</span><br><span class="line">   	<span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">       	_backingStore = [<span class="built_in">NSMutableAttributedString</span> new];</span><br><span class="line">       [<span class="keyword">self</span> createHighlightPatterns];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line">```   	</span><br><span class="line">   	</span><br><span class="line">下面的方法适用于所提供的字体样式的正文字体。它提供了一个零大小fontWithDescriptor：size：迫使<span class="built_in">UIFont</span>返回的尺寸相匹配的用户的当前字体大小偏好。</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)init</span><br><span class="line">&#123;</span><br><span class="line">   	<span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">       	_backingStore = [<span class="built_in">NSMutableAttributedString</span> new];</span><br><span class="line">       [<span class="keyword">self</span> createHighlightPatterns];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line">```   	</span><br><span class="line"></span><br><span class="line">下面的方法适用于所提供的字体样式的正文字体。它提供了一个零大小fontWithDescriptor：size：迫使<span class="built_in">UIFont</span>返回的尺寸相匹配的用户的当前字体大小偏好。</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>(NSDictionary<em>)createAttributesForFontStyle:(NSString</em>)style</p>
 <pre><code>withTrait:(uint32_t)trait {
