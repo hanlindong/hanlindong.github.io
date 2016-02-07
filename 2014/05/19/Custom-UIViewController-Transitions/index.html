@@ -16,7 +16,7 @@
 <meta property="og:description" content="Navigation Controller Delegate：它有4个方法，本文只涉及其中之一：：
 1234- (id&amp;lt;UIViewControllerAnimatedTransitioning&amp;gt;)navigationController:                                      animationControllerForOperation:">
 <meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/Custom%20UIViewController%20Transitions.gif">
-<meta property="og:updated_time" content="2016-02-06T11:35:16.000Z">
+<meta property="og:updated_time" content="2016-02-07T01:16:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Custom UIViewController Transitions">
 <meta name="twitter:description" content="Navigation Controller Delegate：它有4个方法，本文只涉及其中之一：：
@@ -230,66 +230,12 @@
 <p>这个方法在每次导航控制器之间过渡时被调用。所以在这一点上我们可以决定什么样的过渡,我们需要一个return。</p>
 <p>我们创建一个类,将作为导航控制器代理:</p>
 <p>实现方法：</p>
-<pre><code>@interface SCNavControllerDelegate : NSObject     &lt;UINavigationControllerDelegate&gt;
-@end
-
-@implementation SCNavControllerDelegate
-- (id&lt;UIViewControllerAnimatedTransitioning&gt;)navigationController:(UINavigationController *)navigationController
-                                  animationControllerForOperation:(UINavigationControllerOperation)operation
-                                               fromViewController:(UIViewController *)fromVC
-                                                 toViewController:(UIViewController *)toVC
-{
-    return [SCFadeTransition new];
-}
-@end
-</code></pre><p>UINavigationControllerDelegate：</p>
-<pre><code>- (id)initWithCoder:(NSCoder *)aDecoder
-{
-self = [super initWithCoder:aDecoder];
-if(self) {
-    _navDelegate = [SCNavControllerDelegate new];
-    self.delegate = _navDelegate;
-}
-return self;
-}
-</code></pre><p>创建过渡动画：</p>
-<pre><code>// 动画持续时间
-- (NSTimeInterval)transitionDuration:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext
-{
-return 2.0;
-}
-
-- (void)animateTransition:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext
-{
-
-    // 通过viewControllerForKey:我们可以得到这两个视图控制器
-    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-
-    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-
-    // 转换动画的容器视图
-    UIView *containerView = [transitionContext containerView];
-
-    [containerView addSubview:fromVC.view];
-    [containerView addSubview:toVC.view];
-    toVC.view.alpha = 0.0;
-
-    // 动画
-    [UIView animateWithDuration:[self transitionDuration:transitionContext]
-                      delay:0
-                    options:0
-                 animations:^{
-                     toVC.view.alpha = 1.f;
-                 }
-                 completion:^(BOOL finished) {
-                     // Let&apos;s get rid of the old VC view
-                     [fromVC.view removeFromSuperview];
-                     // And then we need to tell the context that we&apos;re done
-                     [transitionContext completeTransition:YES];
-                 }];
-
-}
-</code></pre><hr>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SCNavControllerDelegate</span> : <span class="title">NSObject</span> 	&lt;<span class="title">UINavigationControllerDelegate</span>&gt;</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line">	</span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SCNavControllerDelegate</span></span></span><br><span class="line">- (<span class="keyword">id</span>&lt;<span class="built_in">UIViewControllerAnimatedTransitioning</span>&gt;)navigationController:(<span class="built_in">UINavigationController</span> *)navigationController</span><br><span class="line">                                      animationControllerForOperation:(<span class="built_in">UINavigationControllerOperation</span>)operation</span><br><span class="line">                                                   fromViewController:(<span class="built_in">UIViewController</span> *)fromVC</span><br><span class="line">                                                     toViewController:(<span class="built_in">UIViewController</span> *)toVC</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> [S<span class="built_in">CFadeTransition</span> new];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>UINavigationControllerDelegate：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:aDecoder];</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">self</span>) &#123;</span><br><span class="line">        _navDelegate = [SCNavControllerDelegate new];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.delegate</span> = _navDelegate;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>创建过渡动画：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 动画持续时间</span></span><br><span class="line">- (<span class="built_in">NSTimeInterval</span>)transitionDuration:(<span class="keyword">id</span>&lt;<span class="built_in">UIViewControllerContextTransitioning</span>&gt;)transitionContext</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2.0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)animateTransition:(<span class="keyword">id</span>&lt;<span class="built_in">UIViewControllerContextTransitioning</span>&gt;)transitionContext</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">   	<span class="comment">// 通过viewControllerForKey:我们可以得到这两个视图控制器</span></span><br><span class="line">	<span class="built_in">UIViewController</span> *fromVC = [transitionContext viewControllerForKey:<span class="built_in">UITransitionContextFromViewControllerKey</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIViewController</span> *toVC = [transitionContext viewControllerForKey:<span class="built_in">UITransitionContextToViewControllerKey</span>];</span><br><span class="line">    	</span><br><span class="line">    <span class="comment">// 转换动画的容器视图</span></span><br><span class="line">	<span class="built_in">UIView</span> *containerView = [transitionContext containerView];</span><br><span class="line">    </span><br><span class="line">    [containerView addSubview:fromVC<span class="variable">.view</span>];</span><br><span class="line">	[]containerView addSubview:toVC<span class="variable">.view</span>];</span><br><span class="line">   	toVC<span class="variable">.view</span><span class="variable">.alpha</span> = <span class="number">0.0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 动画</span></span><br><span class="line">	[<span class="built_in">UIView</span> animateWithDuration:[<span class="keyword">self</span> transitionDuration:transitionContext]</span><br><span class="line">                          delay:<span class="number">0</span></span><br><span class="line">                        options:<span class="number">0</span></span><br><span class="line">                     animations:^&#123;</span><br><span class="line">                         toVC<span class="variable">.view</span><span class="variable">.alpha</span> = <span class="number">1.</span>f;</span><br><span class="line">                     &#125;</span><br><span class="line">                     completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">                         <span class="comment">// Let's get rid of the old VC view</span></span><br><span class="line">                         [fromVC<span class="variable">.view</span> removeFromSuperview];</span><br><span class="line">                         <span class="comment">// And then we need to tell the context that we're done</span></span><br><span class="line">                         [transitionContext completeTransition:<span class="literal">YES</span>];</span><br><span class="line">                     &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
 <h3 id="u4EE5_u4E0A"><a href="#u4EE5_u4E0A" class="headerlink" title="以上"></a>以上</h3>
       
     </div>
