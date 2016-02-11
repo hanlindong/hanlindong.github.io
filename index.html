@@ -410,7 +410,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。</p>
-<p><code>#import &lt;objc/runtime.h&gt;</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;objc/runtime.h&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>我们在遇到 runtime 相关的一些东西时，一般都会很谨慎。因为所有的代码都运行在其之上，弄乱 Objective-C 运行时可能会改变整个实现结构，</p>
 <p>一方面：<objc/runtime.h> 中的函数可以给应用或者框架增加强大的新特性。但另一方面：它会改变代码的正常运行逻辑和所有与之交互的东西（通常伴随着可怕的副作用）。<br>
       

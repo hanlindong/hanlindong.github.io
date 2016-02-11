@@ -8,19 +8,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
   <meta name="description" content="在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。
-#import &amp;lt;objc/runtim">
+1#import &amp;lt;objc/runti">
 <meta property="og:type" content="article">
 <meta property="og:title" content="有关 Objective-C Associated Objects">
 <meta property="og:url" content="http://henrydong.com/2016/02/01/Objective-C-Associated-Objects-的实现原理/index.html">
 <meta property="og:site_name" content="Henry Blog">
 <meta property="og:description" content="在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。
-#import &amp;lt;objc/runtim">
+1#import &amp;lt;objc/runti">
 <meta property="og:image" content="http://kingscocoa.com/assets/associated-objects/ao_confirmation.png">
-<meta property="og:updated_time" content="2016-02-07T02:08:11.000Z">
+<meta property="og:updated_time" content="2016-02-11T11:17:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有关 Objective-C Associated Objects">
 <meta name="twitter:description" content="在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。
-#import &amp;lt;objc/runtim">
+1#import &amp;lt;objc/runti">
   
     <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
   
@@ -223,7 +223,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在 Objective-C 中，我们可以通过 Category 给一个现有的类添加属性，但不能添加实例变量，这似乎成为了 Objective-C 的一个明显短板。但我们可以通过 Associated Objects 来弥补这一不足。本文将结合 runtime 源码深入探究 Objective-C 中 Associated Objects 的实现原理。</p>
-<p><code>#import &lt;objc/runtime.h&gt;</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;objc/runtime.h&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>我们在遇到 runtime 相关的一些东西时，一般都会很谨慎。因为所有的代码都运行在其之上，弄乱 Objective-C 运行时可能会改变整个实现结构，</p>
 <p>一方面：<objc runtime.h=""> 中的函数可以给应用或者框架增加强大的新特性。但另一方面：它会改变代码的正常运行逻辑和所有与之交互的东西（通常伴随着可怕的副作用）。<br><a id="more"></a></objc></p>
 <h3 id="Associated_Objects"><a href="#Associated_Objects" class="headerlink" title="Associated Objects"></a>Associated Objects</h3><p>Associated Objects（关联对象）或者叫作关联引用（Associative References），是作为Objective-C 2.0 运行时功能被引入到 Mac OS X 10.6 Snow Leopard（及iOS4）系统。与它相关在<objc runtime.h="">中有3个C函数，它们可以让对象在运行时关联任何值：</objc></p>
