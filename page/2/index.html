@@ -112,7 +112,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/OSX/" style="font-size: 15px;">OSX</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/技巧/" style="font-size: 17.5px;">技巧</a> <a href="/tags/效率/" style="font-size: 12.5px;">效率</a> <a href="/tags/生物/" style="font-size: 10px;">生物</a> <a href="/tags/福利/" style="font-size: 10px;">福利</a> <a href="/tags/闲谈/" style="font-size: 10px;">闲谈</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/OSX/" style="font-size: 15px;">OSX</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/技巧/" style="font-size: 17.5px;">技巧</a> <a href="/tags/效率/" style="font-size: 12.5px;">效率</a> <a href="/tags/生物/" style="font-size: 10px;">生物</a> <a href="/tags/福利/" style="font-size: 10px;">福利</a> <a href="/tags/闲谈/" style="font-size: 10px;">闲谈</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
 					</div>
 				</section>
 				
@@ -181,6 +181,76 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-运用UIKit-Dynamics实现小球碰撞效果" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/18/运用UIKit-Dynamics实现小球碰撞效果/" class="article-date">
+  	<time datetime="2016-01-18T00:22:30.000Z" itemprop="datePublished">2016-01-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/18/运用UIKit-Dynamics实现小球碰撞效果/">运用UIKit Dynamics实现小球碰撞效果</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="u5148_u6765_u770B_u4E00_u4E0B_u6548_u679C"><a href="#u5148_u6765_u770B_u4E00_u4E0B_u6548_u679C" class="headerlink" title="先来看一下效果"></a>先来看一下效果</h3><p><img src="http://7xq720.com1.z0.glb.clouddn.com/1.gif" alt=""></p>
+<ul>
+<li><p>我们先来分析一下需要哪些行为。</p>
+</li>
+<li><p>首先要创建五个小球，为各个小球添加手势。</p>
+</li>
+<li><p>然后初始化UIDynamicBehavior，设置锚点(蓝色小方块即为锚点)、重力、碰撞行为、碰撞参数等。 </p>
+</li>
+<li><p>为小球添加UIDynamicBehavior。</p>
+</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/18/运用UIKit-Dynamics实现小球碰撞效果/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-OS-X-Automator与快捷键配合实现高效工作流" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -762,72 +832,9 @@
 
 
   
-    <article id="post-Custom-UIViewController-Transitions" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/05/19/Custom-UIViewController-Transitions/" class="article-date">
-  	<time datetime="2014-05-19T04:20:16.000Z" itemprop="datePublished">2014-05-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/05/19/Custom-UIViewController-Transitions/">Custom UIViewController Transitions</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Navigation_Controller_Delegate_uFF1A"><a href="#Navigation_Controller_Delegate_uFF1A" class="headerlink" title="Navigation Controller Delegate："></a>Navigation Controller Delegate：</h3><p>它有4个方法，本文只涉及其中之一：：</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (id<span class="variable">&lt;UIViewControllerAnimatedTransitioning&gt;</span>)navigationController:</span><br><span class="line">                                      animationControllerForOperation:</span><br><span class="line">                                                   <span class="keyword">from</span>ViewController:</span><br><span class="line">                                                     <span class="keyword">to</span>ViewController:</span><br></pre></td></tr></table></figure>
-<p>最终效果如图：</p>
-<p><img src="http://7xq720.com1.z0.glb.clouddn.com/Custom%20UIViewController%20Transitions.gif" alt=""></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/05/19/Custom-UIViewController-Transitions/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
