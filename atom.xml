@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://henrydong.com/"/>
-  <updated>2016-02-20T13:01:26.000Z</updated>
+  <updated>2016-02-20T13:05:54.000Z</updated>
   <id>http://henrydong.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://henrydong.com/2016/02/20/Surge-%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/"/>
     <id>http://henrydong.com/2016/02/20/Surge-高级用法/</id>
     <published>2016-02-20T12:50:52.000Z</published>
-    <updated>2016-02-20T13:01:26.000Z</updated>
+    <updated>2016-02-20T13:05:54.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;高级用法1：多线路规则&quot;&gt;&lt;a href=&quot;#高级用法1：多线路规则&quot; class=&quot;headerlink&quot; title=&quot;高级用法1：多线路规则&quot;&gt;&lt;/a&gt;高级用法1：多线路规则&lt;/h3&gt;&lt;p&gt;特点：多条线路使用同一规则，免配置，自由切换&lt;/p&gt;
 &lt;p&gt;思路：&lt;/p&gt;
@@ -41,11 +41,11 @@
 &lt;blockquote&gt;
 &lt;p&gt;举例：&lt;br&gt; 有两条线路香港、日本，并且我想让香港线路使用全能版规则，日本线路使用精简版规则，可以这样配置：&lt;br&gt;上下为一组对应的配置&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt; &lt;img src=&quot;http://qjblog.oss-cn-beijing.aliyuncs.com/2016/01/31/202112846169179.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt; &lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/surge1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;下载规则：Surge规则分享，完成后点击线路开启即可，如规则有更新，则覆盖。&lt;/p&gt;
 &lt;p&gt; 安装等配置步骤结束后，我们就可以选择自己线路使用了。&lt;/p&gt;
-&lt;p&gt; &lt;img src=&quot;http://qjblog.oss-cn-beijing.aliyuncs.com/2016/01/24/29331451497715.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt; &lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/surge2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&quot;高级用法2：线路负载&quot;&gt;&lt;a href=&quot;#高级用法2：线路负载&quot; class=&quot;headerlink&quot; title=&quot;高级用法2：线路负载&quot;&gt;&lt;/a&gt;高级用法2：线路负载&lt;/h3&gt;&lt;p&gt;特点：一条规则覆盖多条线路，适合上网环境有地区要求的朋友。&lt;/p&gt;
