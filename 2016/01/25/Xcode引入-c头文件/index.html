@@ -53,7 +53,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">唇红齿白丧心病狂的瀚林同学</p>
+		<p class="header-subtitle">唇红齿白，丧心病狂。</p>
 		
 
 		
@@ -81,10 +81,10 @@
 					<div class="tips-arrow"></div>
 					<ul class="tips-inner">
 						<li>菜单</li>
-						<li>标签</li>
+						<li>標籤</li>
 						
 						
-						<li>关于我</li>
+						<li>關於</li>
 						
 					</ul>
 				</div>
@@ -112,9 +112,9 @@
 							
 								<a class="github" target="_blank" href="https://github.com/hanlindong" title="github">github</a>
 					        
-								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/dong-han-lin-68" title="zhihu">zhihu</a>
+					        
+								<a class="douban" target="_blank" href="http://www.douban.com/people/101126607/" title="douban">douban</a>
 					        
 								<a class="mail" target="_blank" href="mailto:henrydong.chn@gmail.com" title="mail">mail</a>
 					        
@@ -162,7 +162,7 @@
 			  <h1 class="header-author">Henry Dong</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">唇红齿白丧心病狂的瀚林同学</p>
+			<p class="header-subtitle">唇红齿白，丧心病狂。</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -183,9 +183,9 @@
 					
 						<a class="github" target="_blank" href="https://github.com/hanlindong" title="github">github</a>
 			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/dong-han-lin-68" title="zhihu">zhihu</a>
+			        
+						<a class="douban" target="_blank" href="http://www.douban.com/people/101126607/" title="douban">douban</a>
 			        
 						<a class="mail" target="_blank" href="mailto:henrydong.chn@gmail.com" title="mail">mail</a>
 			        
@@ -235,14 +235,14 @@
         <blockquote>
 <p>今天引用C库出现了一些小问题，通过 Google + Stack Overflow 查阅文档基本已解决，记录一下出现的问题：</p>
 </blockquote>
-<h3 id="1-_xcode_u5F15_u5165-c_u5934_u6587_u4EF6"><a href="#1-_xcode_u5F15_u5165-c_u5934_u6587_u4EF6" class="headerlink" title="1. xcode引入.c头文件"></a>1. xcode引入.c头文件</h3><p>在工程里新建一个.c文件 ，取名为 text.c 。</p>
+<h3 id="1-xcode引入-c头文件"><a href="#1-xcode引入-c头文件" class="headerlink" title="1. xcode引入.c头文件"></a>1. xcode引入.c头文件</h3><p>在工程里新建一个.c文件 ，取名为 text.c 。</p>
 <p>在 .mm 工程中 import 的时候，发现出现了 runtime 22个报错:</p>
 <a id="more"></a>
 <p><img src="http://7xq720.com1.z0.glb.clouddn.com/c%E6%96%87%E4%BB%B61.png" alt="image"><br>通过查询资料，发现是预编译的问题。</p>
-<h4 id="u89E3_u51B3_u65B9_u6CD5_uFF1A"><a href="#u89E3_u51B3_u65B9_u6CD5_uFF1A" class="headerlink" title="解决方法："></a>解决方法：</h4><p>将 Supporting files 中的 Prefix.pch 文件里的OC头文件放入</p>
+<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>将 Supporting files 中的 Prefix.pch 文件里的OC头文件放入</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">ifdef</span> __OBJC__</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 <p>之间，原因是为了避免将其认为是C文件。</p>
-<h3 id="2-_include_u95EE_u9898"><a href="#2-_include_u95EE_u9898" class="headerlink" title="2. include问题"></a>2. include问题</h3><p>当我满心欢喜的 Command + B 的时候，突然报出了这个错误：</p>
+<h3 id="2-include问题"><a href="#2-include问题" class="headerlink" title="2. include问题"></a>2. include问题</h3><p>当我满心欢喜的 Command + B 的时候，突然报出了这个错误：</p>
 <pre><code>linker command failed with exit code 1 (use -v to see invocation)
 </code></pre><p>仔细定位一下，重复引用：</p>
 <pre><code>duplicate symbol _createCubeMap in:
@@ -255,9 +255,9 @@ duplicate symbol _rgbToHSV in:
 
 ld: 2 duplicate symbols for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
-</code></pre><h4 id="u89E3_u51B3_u65B9_u6CD5"><a href="#u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="解决方法"></a>解决方法</h4><p>把 <code>#import &quot;text.c&quot;</code> 改为 <code>#include &quot;text.c&quot;</code> 即可。</p>
+</code></pre><h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>把 <code>#import &quot;text.c&quot;</code> 改为 <code>#include &quot;text.c&quot;</code> 即可。</p>
 <hr>
-<h3 id="u4EE5_u4E0A"><a href="#u4EE5_u4E0A" class="headerlink" title="以上"></a>以上</h3>
+<h3 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h3>
       
     </div>
     

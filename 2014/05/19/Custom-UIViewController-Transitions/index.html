@@ -47,7 +47,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">唇红齿白丧心病狂的瀚林同学</p>
+		<p class="header-subtitle">唇红齿白，丧心病狂。</p>
 		
 
 		
@@ -75,10 +75,10 @@
 					<div class="tips-arrow"></div>
 					<ul class="tips-inner">
 						<li>菜单</li>
-						<li>标签</li>
+						<li>標籤</li>
 						
 						
-						<li>关于我</li>
+						<li>關於</li>
 						
 					</ul>
 				</div>
@@ -106,9 +106,9 @@
 							
 								<a class="github" target="_blank" href="https://github.com/hanlindong" title="github">github</a>
 					        
-								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/dong-han-lin-68" title="zhihu">zhihu</a>
+					        
+								<a class="douban" target="_blank" href="http://www.douban.com/people/101126607/" title="douban">douban</a>
 					        
 								<a class="mail" target="_blank" href="mailto:henrydong.chn@gmail.com" title="mail">mail</a>
 					        
@@ -156,7 +156,7 @@
 			  <h1 class="header-author">Henry Dong</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">唇红齿白丧心病狂的瀚林同学</p>
+			<p class="header-subtitle">唇红齿白，丧心病狂。</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -177,9 +177,9 @@
 					
 						<a class="github" target="_blank" href="https://github.com/hanlindong" title="github">github</a>
 			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/dong-han-lin-68" title="zhihu">zhihu</a>
+			        
+						<a class="douban" target="_blank" href="http://www.douban.com/people/101126607/" title="douban">douban</a>
 			        
 						<a class="mail" target="_blank" href="mailto:henrydong.chn@gmail.com" title="mail">mail</a>
 			        
@@ -226,7 +226,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Navigation_Controller_Delegate_uFF1A"><a href="#Navigation_Controller_Delegate_uFF1A" class="headerlink" title="Navigation Controller Delegate："></a>Navigation Controller Delegate：</h3><p>它有4个方法，本文只涉及其中之一：：</p>
+        <h3 id="Navigation-Controller-Delegate："><a href="#Navigation-Controller-Delegate：" class="headerlink" title="Navigation Controller Delegate："></a>Navigation Controller Delegate：</h3><p>它有4个方法，本文只涉及其中之一：：</p>
 <figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (id<span class="variable">&lt;UIViewControllerAnimatedTransitioning&gt;</span>)navigationController:</span><br><span class="line">                                      animationControllerForOperation:</span><br><span class="line">                                                   <span class="keyword">from</span>ViewController:</span><br><span class="line">                                                     <span class="keyword">to</span>ViewController:</span><br></pre></td></tr></table></figure>
 <p>最终效果如图：</p>
 <p><img src="http://7xq720.com1.z0.glb.clouddn.com/Custom%20UIViewController%20Transitions.gif" alt=""></p>
@@ -240,7 +240,7 @@
 <p>创建过渡动画：</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 动画持续时间</span></span><br><span class="line">- (<span class="built_in">NSTimeInterval</span>)transitionDuration:(<span class="keyword">id</span>&lt;<span class="built_in">UIViewControllerContextTransitioning</span>&gt;)transitionContext</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2.0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)animateTransition:(<span class="keyword">id</span>&lt;<span class="built_in">UIViewControllerContextTransitioning</span>&gt;)transitionContext</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">   	<span class="comment">// 通过viewControllerForKey:我们可以得到这两个视图控制器</span></span><br><span class="line">	<span class="built_in">UIViewController</span> *fromVC = [transitionContext viewControllerForKey:<span class="built_in">UITransitionContextFromViewControllerKey</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIViewController</span> *toVC = [transitionContext viewControllerForKey:<span class="built_in">UITransitionContextToViewControllerKey</span>];</span><br><span class="line">    	</span><br><span class="line">    <span class="comment">// 转换动画的容器视图</span></span><br><span class="line">	<span class="built_in">UIView</span> *containerView = [transitionContext containerView];</span><br><span class="line">    </span><br><span class="line">    [containerView addSubview:fromVC<span class="variable">.view</span>];</span><br><span class="line">	[]containerView addSubview:toVC<span class="variable">.view</span>];</span><br><span class="line">   	toVC<span class="variable">.view</span><span class="variable">.alpha</span> = <span class="number">0.0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 动画</span></span><br><span class="line">	[<span class="built_in">UIView</span> animateWithDuration:[<span class="keyword">self</span> transitionDuration:transitionContext]</span><br><span class="line">                          delay:<span class="number">0</span></span><br><span class="line">                        options:<span class="number">0</span></span><br><span class="line">                     animations:^&#123;</span><br><span class="line">                         toVC<span class="variable">.view</span><span class="variable">.alpha</span> = <span class="number">1.</span>f;</span><br><span class="line">                     &#125;</span><br><span class="line">                     completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">                         <span class="comment">// Let's get rid of the old VC view</span></span><br><span class="line">                         [fromVC<span class="variable">.view</span> removeFromSuperview];</span><br><span class="line">                         <span class="comment">// And then we need to tell the context that we're done</span></span><br><span class="line">                         [transitionContext completeTransition:<span class="literal">YES</span>];</span><br><span class="line">                     &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="u4EE5_u4E0A"><a href="#u4EE5_u4E0A" class="headerlink" title="以上"></a>以上</h3>
+<h3 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h3>
       
     </div>
     
