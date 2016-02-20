@@ -4,31 +4,25 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>橘色 | Henry Blog</title>
+  <title>Surge 技巧(一)：bypass-tun调试 | Henry Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
-  <meta name="description" content="在今年圣丹斯电影节上大放异彩的电影《橘色》（Tangerine）于7月10日登陆美国院线。《橘色》在圣丹斯电影节的一众劲敌中强力突围，堪称黑马。影片讲述了在好莱坞不那么光鲜的角落里工作的变性工作者的生活，人物性格冷酷、有趣、不愿受制于人。
-
-
-关注这部电影主要是因为它全程用 iPhone5s 拍摄而成，因为我本身也很喜欢摄影，而且并没有什么闲钱去买高端的摄影器械，而且以往也都是用 iPhone 或">
+  <meta name="description" content="Surge 是基于 iOS 9 的新特性 Network Extension 开发的一款网络调试工具，工作原理是使用 Packet Tunnel Provider 给系统套上一个代理，Surge 有两个主要组件：Surge 代理服务器和 Surge TUN 接口。程序运行之后，Surge 会将自身设置为默认的 HTTP/HTTPS 代理服务器来处理所有的 HTTP/HTTPS 流量。针对一些不服从">
 <meta property="og:type" content="article">
-<meta property="og:title" content="橘色">
-<meta property="og:url" content="http://henrydong.com/2015/12/20/橘色/index.html">
+<meta property="og:title" content="Surge 技巧(一)：bypass-tun调试">
+<meta property="og:url" content="http://henrydong.com/2015/12/20/Surge-bypass-tun调试/index.html">
 <meta property="og:site_name" content="Henry Blog">
-<meta property="og:description" content="在今年圣丹斯电影节上大放异彩的电影《橘色》（Tangerine）于7月10日登陆美国院线。《橘色》在圣丹斯电影节的一众劲敌中强力突围，堪称黑马。影片讲述了在好莱坞不那么光鲜的角落里工作的变性工作者的生活，人物性格冷酷、有趣、不愿受制于人。
-
-
-关注这部电影主要是因为它全程用 iPhone5s 拍摄而成，因为我本身也很喜欢摄影，而且并没有什么闲钱去买高端的摄影器械，而且以往也都是用 iPhone 或">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/juse1.jpg">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/juse3.png">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/juse2.png">
-<meta property="og:updated_time" content="2016-02-11T04:36:36.000Z">
+<meta property="og:description" content="Surge 是基于 iOS 9 的新特性 Network Extension 开发的一款网络调试工具，工作原理是使用 Packet Tunnel Provider 给系统套上一个代理，Surge 有两个主要组件：Surge 代理服务器和 Surge TUN 接口。程序运行之后，Surge 会将自身设置为默认的 HTTP/HTTPS 代理服务器来处理所有的 HTTP/HTTPS 流量。针对一些不服从">
+<meta property="og:image" content="https://qingjie.me/usr/uploads/2015/12/2668007067.png">
+<meta property="og:image" content="https://qingjie.me/usr/uploads/2015/12/3225590711.png">
+<meta property="og:image" content="https://qingjie.me/usr/uploads/2015/12/3624994205.png">
+<meta property="og:image" content="https://qingjie.me/usr/uploads/2015/12/2518071017.png">
+<meta property="og:image" content="https://qingjie.me/usr/uploads/2015/12/525560741.png">
+<meta property="og:image" content="https://qingjie.me/usr/uploads/2015/12/3024616734.png">
+<meta property="og:updated_time" content="2016-02-20T12:49:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="橘色">
-<meta name="twitter:description" content="在今年圣丹斯电影节上大放异彩的电影《橘色》（Tangerine）于7月10日登陆美国院线。《橘色》在圣丹斯电影节的一众劲敌中强力突围，堪称黑马。影片讲述了在好莱坞不那么光鲜的角落里工作的变性工作者的生活，人物性格冷酷、有趣、不愿受制于人。
-
-
-关注这部电影主要是因为它全程用 iPhone5s 拍摄而成，因为我本身也很喜欢摄影，而且并没有什么闲钱去买高端的摄影器械，而且以往也都是用 iPhone 或">
+<meta name="twitter:title" content="Surge 技巧(一)：bypass-tun调试">
+<meta name="twitter:description" content="Surge 是基于 iOS 9 的新特性 Network Extension 开发的一款网络调试工具，工作原理是使用 Packet Tunnel Provider 给系统套上一个代理，Surge 有两个主要组件：Surge 代理服务器和 Surge TUN 接口。程序运行之后，Surge 会将自身设置为默认的 HTTP/HTTPS 代理服务器来处理所有的 HTTP/HTTPS 流量。针对一些不服从">
   
     <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
   
@@ -197,11 +191,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-橘色" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Surge-bypass-tun调试" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/20/橘色/" class="article-date">
-  	<time datetime="2015-12-20T04:16:39.000Z" itemprop="datePublished">2015-12-20</time>
+      <a href="/2015/12/20/Surge-bypass-tun调试/" class="article-date">
+  	<time datetime="2015-12-20T12:40:27.000Z" itemprop="datePublished">2015-12-20</time>
 </a>
     </div>
   
@@ -214,7 +208,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      橘色
+      Surge 技巧(一)：bypass-tun调试
     </h1>
   
 
@@ -223,7 +217,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闲谈/">闲谈</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技巧/">技巧</a></li></ul>
 	</div>
 
         
@@ -235,38 +229,32 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>在今年圣丹斯电影节上大放异彩的电影《橘色》（Tangerine）于7月10日登陆美国院线。《橘色》在圣丹斯电影节的一众劲敌中强力突围，堪称黑马。影片讲述了在好莱坞不那么光鲜的角落里工作的变性工作者的生活，人物性格冷酷、有趣、不愿受制于人。</p>
+<p>Surge 是基于 iOS 9 的新特性 Network Extension 开发的一款网络调试工具，工作原理是使用 Packet Tunnel Provider 给系统套上一个代理，Surge 有两个主要组件：Surge 代理服务器和 Surge TUN 接口。程序运行之后，Surge 会将自身设置为默认的 HTTP/HTTPS 代理服务器来处理所有的 HTTP/HTTPS 流量。针对一些不服从系统代理设置（如 Mail.app ）的应用程序 ，将由 Surge 的 TUN 接口来进行处理。</p>
+<p>Surge 会接管全局的（几乎）所有通信，所以所有网络方面的电量消耗都会被算在 Surge 头上，实际上 Surge 的运行功耗很少，使用中也不会感到 Surge 对电量有明显影响。</p>
 </blockquote>
-<p><img src="http://7xq720.com1.z0.glb.clouddn.com/juse1.jpg" alt=""></p>
-<p>关注这部电影主要是因为它全程用 iPhone5s 拍摄而成，因为我本身也很喜欢摄影，而且并没有什么闲钱去买高端的摄影器械，而且以往也都是用 iPhone 或是单反相机来拍摄(废机器请不要学我)，所以想来学习一下导演的低成本拍摄方法，运用软件来优化，后期制作等。</p>
-<a id="more"></a>
-<p>拍摄器械与细节在此网站可查阅：<br><a href="http://www.theverge.com/2015/1/28/7925023/sundance-film-festival-2015-tangerine-iphone-5s" target="_blank" rel="external">How one of the best films at Sundance was shot using an iPhone 5S</a></p>
-<p>懒得翻译我就挑重点，有兴趣可以自己戳开看。</p>
-<p>设备：</p>
-<ol>
-<li>iPhone 5s（拍摄时一共三只手机，即3机位）</li>
-<li><p>Steadicam（稳定器 － 最便宜的amazon上搜索结果71.99美刀）</p>
-<blockquote>
-<p>“手机太轻、太小了，所以无论你的手有多么稳，都难免会晃动，这可不好。”贝克说，“所以需要一台摄影机稳定器来稳定画面。”</p>
-</blockquote>
+<h4 id="详细介绍可参见-Surge-新手使用指南。"><a href="#详细介绍可参见-Surge-新手使用指南。" class="headerlink" title="详细介绍可参见 Surge 新手使用指南。"></a>详细介绍可参见 <a href="https://medium.com/@scomper/surge-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-a1533c10e80b#.67ktys44j" target="_blank" rel="external">Surge 新手使用指南</a>。</h4><h3 id="本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。"><a href="#本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。" class="headerlink" title="本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。"></a>本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。</h3><ol>
+<li><p>下载我所提供的 <a href="https://qingjie.me/surge/debug.conf" target="_blank" rel="external">配置文件</a>，仅供调试。</p>
+<p> 说明此文件仅供调试，只具备REJECT规则；</p>
+<p> <img src="https://qingjie.me/usr/uploads/2015/12/2668007067.png" alt=""></p>
 </li>
-<li><p>Moondog Lab变形适配器镜头（膨胀为宽屏再后期缩放）现在已有6和6s的镜头。这些镜头只是原型产品，由Moondog Labs开发。</p>
-<blockquote>
-<p>贝克表示，正是得益于这些镜头，才最终呈现出了电影银幕上的效果。“说实话，如果没有这些镜头，这部影片根本拍不成。”他说，“有了它，才真正有了电影的效果。”</p>
-</blockquote>
+<li><p>开启爱奇艺，随便选择视频进入，只需广告出来，当然如果广告很好看你可以选择看完。</p>
+<p> <img src="https://qingjie.me/usr/uploads/2015/12/3225590711.png" alt=""></p>
+</li>
+<li><p>切换至Surge分析选项，选择第一个“最近请求”。</p>
+<p> <img src="https://qingjie.me/usr/uploads/2015/12/3624994205.png" alt=""></p>
+</li>
+<li><p>找出ip</p>
+<p> <img src="https://qingjie.me/usr/uploads/2015/12/2518071017.png" alt=""></p>
+</li>
+<li><p>处理方式选择 REJECT</p>
+<p> <img src="https://qingjie.me/usr/uploads/2015/12/525560741.png" alt=""></p>
+</li>
+<li><p>进入爱奇艺，此时广告已经过滤。</p>
+<p> <img src="https://qingjie.me/usr/uploads/2015/12/3024616734.png" alt=""></p>
 </li>
 </ol>
-<p>使用应用：Filmic Pro（文章内写8美刀，现在已经涨到人民币68元），这是一款专为iPhone摄影打造的程序。它能提供 4 倍缩放与完整控制功能、焦距与曝光、帧率与白平衡。 此外，FiLMiC Pro还有各种专业工具，例如音频仪、光暗分布图与长宽比叠加。</p>
-<p><img src="http://7xq720.com1.z0.glb.clouddn.com/juse3.png" alt=""></p>
-<p>宽屏设置为：2:35:1。</p>
-<h3 id="电影的灵感来源"><a href="#电影的灵感来源" class="headerlink" title="电影的灵感来源"></a>电影的灵感来源</h3><p>《橘色》幕后那不同寻常的创作流程并不仅限于它的镜头。贝克家住圣塔莫妮卡林荫大道附近的一个破败的街区，那里的名声向来不好。但不远处的一家甜甜圈店却令他格外着迷。“那是一处喧嚣的所在，吃甜甜圈时总会出点事情。”他说，“所以我希望拍摄一部有关‘甜甜圈时刻’的影片。”</p>
-<p>于是，他与创作搭档克里斯·柏格奇(Chris Bergoch)一起来到了附近的LGBT（同性恋、双性恋及变性人）中心，他们在那里见到了米亚·泰勒(Mya Taylor)。米亚是个很有抱负的歌手兼演员，她又把贝克和柏格奇介绍给了自己的室友奇奇·吉塔妠·罗德里格斯(Kiki Kitana Rodriguez)。</p>
-<p><img src="http://7xq720.com1.z0.glb.clouddn.com/juse2.png" alt=""></p>
-<p>这两位女性开始讲述这个街区周围的各种故事。“大家都喜欢打听戏剧性的故事，尤其是电影人。”泰勒说。期间，她们恰好提到了附近的一件事情：一位变性女听说自己的男朋友与另一个女孩（在《橘色》中，他们将天生就是女性的人称作“真鱼”）有染后怒不可遏，决定报复那个女孩。于是，贝克和柏格奇找到了灵感，最终一同创作出了《橘色》的剧本。</p>
-<p>这部用iPhone拍摄的圣丹斯参展影片就这样诞生了：它的出现完全出人意料，它为我们展现了一个不为人知的世界，而它所呈现的故事则是传统大型制片公司根本不会触碰的角落。</p>
-<p>当然，《橘色》并不能称得上完美。它最后三分之一的内容推进得过于缓慢，而在“甜甜圈时刻”掀起的高潮也远没有达到预想的效果。</p>
-<p>但在这样一个充满成熟的故事片和坦率的纪录片的电影节上，它的确算得上是一个小小的奇迹：只用一部550美元的手机，就在大银幕上呈现出一部宽屏电影。</p>
-
+<hr>
+<h3 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h3>
       
     </div>
     
@@ -275,18 +263,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/20/Surge-bypass-tun调试/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/06/Objective-C-cmd用法/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Surge 技巧(一)：bypass-tun调试
+          Objective-C _cmd用法
         
       </div>
     </a>
   
   
-    <a href="/2015/10/17/OS-X-El-Capitan-更新速度慢的解决方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">OS X El Capitan 更新速度慢的解决方法</div>
+    <a href="/2015/12/20/橘色/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">橘色</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -321,7 +309,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="橘色" data-title="橘色" data-url="http://henrydong.com/2015/12/20/橘色/"></div>
+	<div class="ds-thread" data-thread-key="Surge-bypass-tun调试" data-title="Surge 技巧(一)：bypass-tun调试" data-url="http://henrydong.com/2015/12/20/Surge-bypass-tun调试/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
