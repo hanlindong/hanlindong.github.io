@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://henrydong.com/"/>
-  <updated>2016-02-20T13:00:02.000Z</updated>
+  <updated>2016-02-20T13:01:26.000Z</updated>
   <id>http://henrydong.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://henrydong.com/2016/02/20/Surge-%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/"/>
     <id>http://henrydong.com/2016/02/20/Surge-高级用法/</id>
     <published>2016-02-20T12:50:52.000Z</published>
-    <updated>2016-02-20T13:00:02.000Z</updated>
+    <updated>2016-02-20T13:01:26.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;高级用法1：多线路规则&quot;&gt;&lt;a href=&quot;#高级用法1：多线路规则&quot; class=&quot;headerlink&quot; title=&quot;高级用法1：多线路规则&quot;&gt;&lt;/a&gt;高级用法1：多线路规则&lt;/h3&gt;&lt;p&gt;特点：多条线路使用同一规则，免配置，自由切换&lt;/p&gt;
 &lt;p&gt;思路：&lt;/p&gt;
@@ -28,7 +28,10 @@
 &lt;p&gt;Proxy2| … + Rule&lt;/p&gt;
 &lt;p&gt;Proxy3|&lt;/p&gt;
 &lt;p&gt;上面Proxy每一个序号都代表了一条线路，也就是说如果有多条线路，只需要一个规则即可完成瞬间切换，后期也不需要更新规则后再次配置线路信息。&lt;/p&gt;
-&lt;h4 id=&quot;优点：&quot;&gt;&lt;a href=&quot;#优点：&quot; class=&quot;headerlink&quot; title=&quot;优点：&quot;&gt;&lt;/a&gt;优点：&lt;/h4&gt;&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1.&lt;/span&gt;下载规则免配置;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;2.&lt;/span&gt;毫秒级切换线路;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;优点：&quot;&gt;&lt;a href=&quot;#优点：&quot; class=&quot;headerlink&quot; title=&quot;优点：&quot;&gt;&lt;/a&gt;优点：&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;1.下载规则免配置;&lt;br&gt;2.毫秒级切换线路;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;下载配置文件，分为配套的全能版及精简版，请各位下载时请注意：&lt;/p&gt;
  &lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;全能版线路配置文件：&lt;span class=&quot;string&quot;&gt;http:&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;//file.qingjie.me/surge/proxy_server.conf&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;精简版线路配置文件：&lt;span class=&quot;string&quot;&gt;http:&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;//file.qingjie.me/surge/proxy_server_s.conf&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -59,7 +62,14 @@
     <summary type="html">
     
       &lt;h3 id=&quot;高级用法1：多线路规则&quot;&gt;&lt;a href=&quot;#高级用法1：多线路规则&quot; class=&quot;headerlink&quot; title=&quot;高级用法1：多线路规则&quot;&gt;&lt;/a&gt;高级用法1：多线路规则&lt;/h3&gt;&lt;p&gt;特点：多条线路使用同一规则，免配置，自由切换&lt;/p&gt;
-&lt;p&gt;思路：&lt;
+&lt;p&gt;思路：&lt;/p&gt;
+&lt;p&gt;Proxy1|&lt;/p&gt;
+&lt;p&gt;Proxy2| … + Rule&lt;/p&gt;
+&lt;p&gt;Proxy3|&lt;/p&gt;
+&lt;p&gt;上面Proxy每一个序号都代表了一条线路，也就是说如果有多条线路，只需要一个规则即可完成瞬间切换，后期也不需要更新规则后再次配置线路信息。&lt;/p&gt;
+&lt;h4 id=&quot;优点：&quot;&gt;&lt;a href=&quot;#优点：&quot; class=&quot;headerlink&quot; title=&quot;优点：&quot;&gt;&lt;/a&gt;优点：&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;1.下载规则免配置;&lt;br&gt;2.毫秒级切换线路;&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -1320,13 +1330,14 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
     <link href="http://henrydong.com/2015/12/20/Surge-bypass-tun%E8%B0%83%E8%AF%95/"/>
     <id>http://henrydong.com/2015/12/20/Surge-bypass-tun调试/</id>
     <published>2015-12-20T12:40:27.000Z</published>
-    <updated>2016-02-20T12:49:59.000Z</updated>
+    <updated>2016-02-20T13:01:39.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Surge 是基于 iOS 9 的新特性 Network Extension 开发的一款网络调试工具，工作原理是使用 Packet Tunnel Provider 给系统套上一个代理，Surge 有两个主要组件：Surge 代理服务器和 Surge TUN 接口。程序运行之后，Surge 会将自身设置为默认的 HTTP/HTTPS 代理服务器来处理所有的 HTTP/HTTPS 流量。针对一些不服从系统代理设置（如 Mail.app ）的应用程序 ，将由 Surge 的 TUN 接口来进行处理。&lt;/p&gt;
 &lt;p&gt;Surge 会接管全局的（几乎）所有通信，所以所有网络方面的电量消耗都会被算在 Surge 头上，实际上 Surge 的运行功耗很少，使用中也不会感到 Surge 对电量有明显影响。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4 id=&quot;详细介绍可参见-Surge-新手使用指南。&quot;&gt;&lt;a href=&quot;#详细介绍可参见-Surge-新手使用指南。&quot; class=&quot;headerlink&quot; title=&quot;详细介绍可参见 Surge 新手使用指南。&quot;&gt;&lt;/a&gt;详细介绍可参见 &lt;a href=&quot;https://medium.com/@scomper/surge-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-a1533c10e80b#.67ktys44j&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Surge 新手使用指南&lt;/a&gt;。&lt;/h4&gt;&lt;h3 id=&quot;本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。&quot;&gt;&lt;a href=&quot;#本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。&quot; class=&quot;headerlink&quot; title=&quot;本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。&quot;&gt;&lt;/a&gt;本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。&lt;/h3&gt;&lt;ol&gt;
+&lt;h4 id=&quot;详细介绍可参见-Surge-新手使用指南。&quot;&gt;&lt;a href=&quot;#详细介绍可参见-Surge-新手使用指南。&quot; class=&quot;headerlink&quot; title=&quot;详细介绍可参见 Surge 新手使用指南。&quot;&gt;&lt;/a&gt;详细介绍可参见 &lt;a href=&quot;https://medium.com/@scomper/surge-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-a1533c10e80b#.67ktys44j&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Surge 新手使用指南&lt;/a&gt;。&lt;/h4&gt;&lt;h3 id=&quot;本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。&quot;&gt;&lt;a href=&quot;#本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。&quot; class=&quot;headerlink&quot; title=&quot;本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。&quot;&gt;&lt;/a&gt;本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。&lt;/h3&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;下载我所提供的 &lt;a href=&quot;https://qingjie.me/surge/debug.conf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;配置文件&lt;/a&gt;，仅供调试。&lt;/p&gt;
 &lt;p&gt; 说明此文件仅供调试，只具备REJECT规则；&lt;/p&gt;
 &lt;p&gt; &lt;img src=&quot;https://qingjie.me/usr/uploads/2015/12/2668007067.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -1353,7 +1364,10 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;Surge 是基于 iOS 9 的新特性 Network Extension 开发的一款网络调试工具，工作原理是使用 Packet Tunnel Provider 给系统套上一个代理，Surge 有两个主要组件：Surge 代理服务器和 Surge
+&lt;p&gt;Surge 是基于 iOS 9 的新特性 Network Extension 开发的一款网络调试工具，工作原理是使用 Packet Tunnel Provider 给系统套上一个代理，Surge 有两个主要组件：Surge 代理服务器和 Surge TUN 接口。程序运行之后，Surge 会将自身设置为默认的 HTTP/HTTPS 代理服务器来处理所有的 HTTP/HTTPS 流量。针对一些不服从系统代理设置（如 Mail.app ）的应用程序 ，将由 Surge 的 TUN 接口来进行处理。&lt;/p&gt;
+&lt;p&gt;Surge 会接管全局的（几乎）所有通信，所以所有网络方面的电量消耗都会被算在 Surge 头上，实际上 Surge 的运行功耗很少，使用中也不会感到 Surge 对电量有明显影响。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;详细介绍可参见-Surge-新手使用指南。&quot;&gt;&lt;a href=&quot;#详细介绍可参见-Surge-新手使用指南。&quot; class=&quot;headerlink&quot; title=&quot;详细介绍可参见 Surge 新手使用指南。&quot;&gt;&lt;/a&gt;详细介绍可参见 &lt;a href=&quot;https://medium.com/@scomper/surge-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-a1533c10e80b#.67ktys44j&quot;&gt;Surge 新手使用指南&lt;/a&gt;。&lt;/h4&gt;&lt;h3 id=&quot;本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。&quot;&gt;&lt;a href=&quot;#本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。&quot; class=&quot;headerlink&quot; title=&quot;本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。&quot;&gt;&lt;/a&gt;本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。&lt;/h3&gt;
     
     </summary>
     

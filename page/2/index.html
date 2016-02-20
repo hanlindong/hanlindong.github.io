@@ -613,29 +613,7 @@
 <p>Surge 是基于 iOS 9 的新特性 Network Extension 开发的一款网络调试工具，工作原理是使用 Packet Tunnel Provider 给系统套上一个代理，Surge 有两个主要组件：Surge 代理服务器和 Surge TUN 接口。程序运行之后，Surge 会将自身设置为默认的 HTTP/HTTPS 代理服务器来处理所有的 HTTP/HTTPS 流量。针对一些不服从系统代理设置（如 Mail.app ）的应用程序 ，将由 Surge 的 TUN 接口来进行处理。</p>
 <p>Surge 会接管全局的（几乎）所有通信，所以所有网络方面的电量消耗都会被算在 Surge 头上，实际上 Surge 的运行功耗很少，使用中也不会感到 Surge 对电量有明显影响。</p>
 </blockquote>
-<h4 id="详细介绍可参见-Surge-新手使用指南。"><a href="#详细介绍可参见-Surge-新手使用指南。" class="headerlink" title="详细介绍可参见 Surge 新手使用指南。"></a>详细介绍可参见 <a href="https://medium.com/@scomper/surge-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-a1533c10e80b#.67ktys44j" target="_blank" rel="external">Surge 新手使用指南</a>。</h4><h3 id="本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。"><a href="#本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。" class="headerlink" title="本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。"></a>本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。</h3><ol>
-<li><p>下载我所提供的 <a href="https://qingjie.me/surge/debug.conf" target="_blank" rel="external">配置文件</a>，仅供调试。</p>
-<p> 说明此文件仅供调试，只具备REJECT规则；</p>
-<p> <img src="https://qingjie.me/usr/uploads/2015/12/2668007067.png" alt=""></p>
-</li>
-<li><p>开启爱奇艺，随便选择视频进入，只需广告出来，当然如果广告很好看你可以选择看完。</p>
-<p> <img src="https://qingjie.me/usr/uploads/2015/12/3225590711.png" alt=""></p>
-</li>
-<li><p>切换至Surge分析选项，选择第一个“最近请求”。</p>
-<p> <img src="https://qingjie.me/usr/uploads/2015/12/3624994205.png" alt=""></p>
-</li>
-<li><p>找出ip</p>
-<p> <img src="https://qingjie.me/usr/uploads/2015/12/2518071017.png" alt=""></p>
-</li>
-<li><p>处理方式选择 REJECT</p>
-<p> <img src="https://qingjie.me/usr/uploads/2015/12/525560741.png" alt=""></p>
-</li>
-<li><p>进入爱奇艺，此时广告已经过滤。</p>
-<p> <img src="https://qingjie.me/usr/uploads/2015/12/3024616734.png" alt=""></p>
-</li>
-</ol>
-<hr>
-<h3 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h3>
+<h4 id="详细介绍可参见-Surge-新手使用指南。"><a href="#详细介绍可参见-Surge-新手使用指南。" class="headerlink" title="详细介绍可参见 Surge 新手使用指南。"></a>详细介绍可参见 <a href="https://medium.com/@scomper/surge-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-a1533c10e80b#.67ktys44j">Surge 新手使用指南</a>。</h4><h3 id="本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。"><a href="#本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。" class="headerlink" title="本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。"></a>本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。</h3>
       
     </div>
     
@@ -648,6 +626,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/20/Surge-bypass-tun调试/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

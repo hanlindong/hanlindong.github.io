@@ -218,33 +218,9 @@
 <p>Proxy2| … + Rule</p>
 <p>Proxy3|</p>
 <p>上面Proxy每一个序号都代表了一条线路，也就是说如果有多条线路，只需要一个规则即可完成瞬间切换，后期也不需要更新规则后再次配置线路信息。</p>
-<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>下载规则免配置;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>毫秒级切换线路;</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>下载配置文件，分为配套的全能版及精简版，请各位下载时请注意：</p>
- <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">全能版线路配置文件：<span class="string">http:</span><span class="comment">//file.qingjie.me/surge/proxy_server.conf</span></span><br><span class="line">精简版线路配置文件：<span class="string">http:</span><span class="comment">//file.qingjie.me/surge/proxy_server_s.conf</span></span><br></pre></td></tr></table></figure>
-<p> 注意：如果你对配置文件名称需要自定义，请先下载后更名后导入；</p>
-</li>
-<li><p>在配置文件中填写你的线路信息，格式请参照 <a href="http://qingjie.me/index.php/default/17.html" target="_blank" rel="external">Surge规则分享内说明</a>。</p>
-<blockquote>
-<p>举例：<br> 有两条线路香港、日本，并且我想让香港线路使用全能版规则，日本线路使用精简版规则，可以这样配置：<br>上下为一组对应的配置</p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><blockquote>
+<p>1.下载规则免配置;<br>2.毫秒级切换线路;</p>
 </blockquote>
-<p> <img src="http://qjblog.oss-cn-beijing.aliyuncs.com/2016/01/31/202112846169179.png" alt=""></p>
-</li>
-<li><p>下载规则：Surge规则分享，完成后点击线路开启即可，如规则有更新，则覆盖。</p>
-<p> 安装等配置步骤结束后，我们就可以选择自己线路使用了。</p>
-<p> <img src="http://qjblog.oss-cn-beijing.aliyuncs.com/2016/01/24/29331451497715.png" alt=""></p>
-</li>
-</ol>
-<h3 id="高级用法2：线路负载"><a href="#高级用法2：线路负载" class="headerlink" title="高级用法2：线路负载"></a>高级用法2：线路负载</h3><p>特点：一条规则覆盖多条线路，适合上网环境有地区要求的朋友。</p>
-<blockquote>
-<p>举例：</p>
-<p>有3条线路，分为JP/HK/US，并且我想让某些规则走我指定的线路：</p>
-<p>美亚走US，Twitter走HK，DMM走JP，其他国内走直连及RE。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[Proxy]</span><br><span class="line"><span class="preprocessor">#HK</span></span><br><span class="line">Proxy = https,<span class="number">1.2</span><span class="number">.3</span><span class="number">.4</span>,<span class="number">443</span>,username,password</span><br><span class="line"><span class="preprocessor">#JP</span></span><br><span class="line">Proxy1 = https,<span class="number">1.2</span><span class="number">.3</span><span class="number">.4</span>,<span class="number">443</span>,username,password</span><br><span class="line"><span class="preprocessor">#US</span></span><br><span class="line">Proxy2 = https,<span class="number">1.2</span><span class="number">.3</span><span class="number">.4</span>,<span class="number">443</span>,username,password</span><br><span class="line"></span><br><span class="line">[Rule]</span><br><span class="line"><span class="preprocessor">#阿里云国内走直连</span></span><br><span class="line">DOMAIN,acjs.aliyun.com,REJECT</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#对谷歌没有特殊要求，可以走HK</span></span><br><span class="line">DOMAIN-KEYWORD,google,Proxy</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#DMM必须走JP，才可以使用</span></span><br><span class="line">DOMAIN-SUFFIX,dmm.co.jp,Proxy1</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#美亚考虑到海淘等地域限制，也必须走US</span></span><br><span class="line">DOMAIN-SUFFIX,amazon.com,Proxy2</span><br></pre></td></tr></table></figure>
-<p>Surge 详细规则可参见：<a href="https://www.qingjie.me/index.php/default/17.html" target="_blank" rel="external">Surge 规则独家分享,长期更新</a>。</p>
-<hr>
-<h3 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h3>
       
     </div>
     
@@ -257,6 +233,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/20/Surge-高级用法/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
