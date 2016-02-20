@@ -4,31 +4,45 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>毕竟江湖梦一场 | Henry Blog</title>
+  <title>Surge 技巧(二)：高级用法 | Henry Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
-  <meta name="description" content="关于毕业其实在北京上学的我们有时候挺尴尬的。
-首先父母的期待非常高，毕竟进入首都，不管什么专业，只要学校是名牌大学，就可以出去吹嘘一番。
-直到我大四了，母亲大人依然见到朋友就说儿子是211工程大学的。
-而且我没考研让她十分不爽，否则她外出见到朋友时我的学历上又可以更上一层楼。
-其实仔细想想自己可以让她自豪的地方只有这个了。">
+  <meta name="description" content="高级用法1：多线路规则特点：多条线路使用同一规则，免配置，自由切换
+思路：
+Proxy1|
+Proxy2| … + Rule
+Proxy3|
+上面Proxy每一个序号都代表了一条线路，也就是说如果有多条线路，只需要一个规则即可完成瞬间切换，后期也不需要更新规则后再次配置线路信息。
+优点：1231.下载规则免配置;2.毫秒级切换线路;
+
+下载配置文件，分为配套的全能版及精简版，请各位下载时请注意：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="毕竟江湖梦一场">
-<meta property="og:url" content="http://henrydong.com/2016/02/20/毕竟江湖梦一场/index.html">
+<meta property="og:title" content="Surge 技巧(二)：高级用法">
+<meta property="og:url" content="http://henrydong.com/2016/02/20/Surge-高级用法/index.html">
 <meta property="og:site_name" content="Henry Blog">
-<meta property="og:description" content="关于毕业其实在北京上学的我们有时候挺尴尬的。
-首先父母的期待非常高，毕竟进入首都，不管什么专业，只要学校是名牌大学，就可以出去吹嘘一番。
-直到我大四了，母亲大人依然见到朋友就说儿子是211工程大学的。
-而且我没考研让她十分不爽，否则她外出见到朋友时我的学历上又可以更上一层楼。
-其实仔细想想自己可以让她自豪的地方只有这个了。">
-<meta property="og:updated_time" content="2016-02-20T06:06:54.000Z">
+<meta property="og:description" content="高级用法1：多线路规则特点：多条线路使用同一规则，免配置，自由切换
+思路：
+Proxy1|
+Proxy2| … + Rule
+Proxy3|
+上面Proxy每一个序号都代表了一条线路，也就是说如果有多条线路，只需要一个规则即可完成瞬间切换，后期也不需要更新规则后再次配置线路信息。
+优点：1231.下载规则免配置;2.毫秒级切换线路;
+
+下载配置文件，分为配套的全能版及精简版，请各位下载时请注意：">
+<meta property="og:image" content="http://qjblog.oss-cn-beijing.aliyuncs.com/2016/01/31/202112846169179.png">
+<meta property="og:image" content="http://qjblog.oss-cn-beijing.aliyuncs.com/2016/01/24/29331451497715.png">
+<meta property="og:updated_time" content="2016-02-20T13:00:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="毕竟江湖梦一场">
-<meta name="twitter:description" content="关于毕业其实在北京上学的我们有时候挺尴尬的。
-首先父母的期待非常高，毕竟进入首都，不管什么专业，只要学校是名牌大学，就可以出去吹嘘一番。
-直到我大四了，母亲大人依然见到朋友就说儿子是211工程大学的。
-而且我没考研让她十分不爽，否则她外出见到朋友时我的学历上又可以更上一层楼。
-其实仔细想想自己可以让她自豪的地方只有这个了。">
+<meta name="twitter:title" content="Surge 技巧(二)：高级用法">
+<meta name="twitter:description" content="高级用法1：多线路规则特点：多条线路使用同一规则，免配置，自由切换
+思路：
+Proxy1|
+Proxy2| … + Rule
+Proxy3|
+上面Proxy每一个序号都代表了一条线路，也就是说如果有多条线路，只需要一个规则即可完成瞬间切换，后期也不需要更新规则后再次配置线路信息。
+优点：1231.下载规则免配置;2.毫秒级切换线路;
+
+下载配置文件，分为配套的全能版及精简版，请各位下载时请注意：">
   
     <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
   
@@ -197,11 +211,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-毕竟江湖梦一场" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Surge-高级用法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/02/20/毕竟江湖梦一场/" class="article-date">
-  	<time datetime="2016-02-20T04:52:50.000Z" itemprop="datePublished">2016-02-20</time>
+      <a href="/2016/02/20/Surge-高级用法/" class="article-date">
+  	<time datetime="2016-02-20T12:50:52.000Z" itemprop="datePublished">2016-02-20</time>
 </a>
     </div>
   
@@ -214,7 +228,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      毕竟江湖梦一场
+      Surge 技巧(二)：高级用法
     </h1>
   
 
@@ -223,7 +237,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技巧/">技巧</a></li></ul>
 	</div>
 
         
@@ -234,31 +248,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="关于毕业"><a href="#关于毕业" class="headerlink" title="关于毕业"></a>关于毕业</h3><p>其实在北京上学的我们有时候挺尴尬的。</p>
-<p>首先父母的期待非常高，毕竟进入首都，不管什么专业，只要学校是名牌大学，就可以出去吹嘘一番。</p>
-<p>直到我大四了，母亲大人依然见到朋友就说儿子是211工程大学的。</p>
-<p>而且我没考研让她十分不爽，否则她外出见到朋友时我的学历上又可以更上一层楼。</p>
-<p>其实仔细想想自己可以让她自豪的地方只有这个了。</p>
-<a id="more"></a> 
-<p>不想考研的原因是因为已经二十好几了，不想再花家里钱了。</p>
-<p>而学校也营造了一个环境，让某些人有一种接着读书可以一辈子不进入社会的错觉。所以就不停地往下念，考不上研就再来一年直到考上为止。</p>
-<p>当然如果是潜心研究的人，我表示十分钦佩，因为我们需要更多的这种人来使国民科研能力提升至世界水平。抛开我对科学家素来的敬仰，我仍然觉得，他们才是人类的希望。</p>
-<p>但如果考研只为了多打几年 Dota 的话（说真的，我认识好几个），那我无话可说。</p>
-<p>想想本学期除了毕业设计就要找工作了，五味杂陈般，心里有点塞。</p>
-<p>毕竟在北京，如果在二线城市的话还好一些，北京的生活压力对我们应届毕业生的确有点大，这样就产生了一大堆的上完大学依然回家乡的人。</p>
-<p>东北人比较好面子，所以我就不回家乡了，最起码近几年不会回去了。</p>
-<p>因为在面对低谷之时，有的人向现实妥协放弃了自己的理想和追求；但有的人没有低头认输，而是不停审视自己的人生，分析自己的错误勇于面对，从而走出困境，继续追求自己的梦想。</p>
-<p>人若没有梦想，跟咸鱼有什么区别。</p>
-<h3 id="关于爱情"><a href="#关于爱情" class="headerlink" title="关于爱情"></a>关于爱情</h3><p>其实我这个年龄本没有什么资格谈论爱情。</p>
-<p>如果有一个女孩愿意跟你交朋友，那你就要给人家一个交代。</p>
-<p>都希望一段感情会有结果，谁都不希望美好的爱情最终 Say Goodbye。但是现在没有经济基础，如何决定上层建筑。无论是哪种情况，父母都希望自己的女儿婚后不要吃苦，生活快乐，没有一个家长会让自己的女儿跟一个什么都没有的人走，吃苦受累，还不一定还得起房贷。</p>
-<p>如果现在不能提供的话，至少要让他们看到希望。而所有这一切都是要做努力的，否则让对方父母改变看法都没有理由。因为坚持感情是容易的，可是生活中要改变自己才是最困难的。</p>
-<p>深的话要浅浅地说，长长的路要认真的走。</p>
-<h3 id="关于三观"><a href="#关于三观" class="headerlink" title="关于三观"></a>关于三观</h3><p>也忘记了第一次听到逼格是什么时候了。好像是跟罗永浩有关。</p>
-<p>毕竟谁都不可能一直陪你。你可以哭，但哭过后必须要振作起来，即使输掉了一切，也不能输掉逗比的气质。</p>
-<p>当然，三观不能变，还是那样：一个人的逼格不是取决于他消费了什么，而是看他生产了什么。</p>
-<p>那些有的没的装逼的故事再见，朋友圈再见。</p>
-<h3 id="是时候该长大了。"><a href="#是时候该长大了。" class="headerlink" title="是时候该长大了。"></a>是时候该长大了。</h3>
+        <h3 id="高级用法1：多线路规则"><a href="#高级用法1：多线路规则" class="headerlink" title="高级用法1：多线路规则"></a>高级用法1：多线路规则</h3><p>特点：多条线路使用同一规则，免配置，自由切换</p>
+<p>思路：</p>
+<p>Proxy1|</p>
+<p>Proxy2| … + Rule</p>
+<p>Proxy3|</p>
+<p>上面Proxy每一个序号都代表了一条线路，也就是说如果有多条线路，只需要一个规则即可完成瞬间切换，后期也不需要更新规则后再次配置线路信息。</p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>下载规则免配置;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>毫秒级切换线路;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>下载配置文件，分为配套的全能版及精简版，请各位下载时请注意：</p>
+ <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">全能版线路配置文件：<span class="string">http:</span><span class="comment">//file.qingjie.me/surge/proxy_server.conf</span></span><br><span class="line">精简版线路配置文件：<span class="string">http:</span><span class="comment">//file.qingjie.me/surge/proxy_server_s.conf</span></span><br></pre></td></tr></table></figure>
+<p> 注意：如果你对配置文件名称需要自定义，请先下载后更名后导入；</p>
+</li>
+<li><p>在配置文件中填写你的线路信息，格式请参照 <a href="http://qingjie.me/index.php/default/17.html" target="_blank" rel="external">Surge规则分享内说明</a>。</p>
+<blockquote>
+<p>举例：<br> 有两条线路香港、日本，并且我想让香港线路使用全能版规则，日本线路使用精简版规则，可以这样配置：<br>上下为一组对应的配置</p>
+</blockquote>
+<p> <img src="http://qjblog.oss-cn-beijing.aliyuncs.com/2016/01/31/202112846169179.png" alt=""></p>
+</li>
+<li><p>下载规则：Surge规则分享，完成后点击线路开启即可，如规则有更新，则覆盖。</p>
+<p> 安装等配置步骤结束后，我们就可以选择自己线路使用了。</p>
+<p> <img src="http://qjblog.oss-cn-beijing.aliyuncs.com/2016/01/24/29331451497715.png" alt=""></p>
+</li>
+</ol>
+<h3 id="高级用法2：线路负载"><a href="#高级用法2：线路负载" class="headerlink" title="高级用法2：线路负载"></a>高级用法2：线路负载</h3><p>特点：一条规则覆盖多条线路，适合上网环境有地区要求的朋友。</p>
+<blockquote>
+<p>举例：</p>
+<p>有3条线路，分为JP/HK/US，并且我想让某些规则走我指定的线路：</p>
+<p>美亚走US，Twitter走HK，DMM走JP，其他国内走直连及RE。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[Proxy]</span><br><span class="line"><span class="preprocessor">#HK</span></span><br><span class="line">Proxy = https,<span class="number">1.2</span><span class="number">.3</span><span class="number">.4</span>,<span class="number">443</span>,username,password</span><br><span class="line"><span class="preprocessor">#JP</span></span><br><span class="line">Proxy1 = https,<span class="number">1.2</span><span class="number">.3</span><span class="number">.4</span>,<span class="number">443</span>,username,password</span><br><span class="line"><span class="preprocessor">#US</span></span><br><span class="line">Proxy2 = https,<span class="number">1.2</span><span class="number">.3</span><span class="number">.4</span>,<span class="number">443</span>,username,password</span><br><span class="line"></span><br><span class="line">[Rule]</span><br><span class="line"><span class="preprocessor">#阿里云国内走直连</span></span><br><span class="line">DOMAIN,acjs.aliyun.com,REJECT</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#对谷歌没有特殊要求，可以走HK</span></span><br><span class="line">DOMAIN-KEYWORD,google,Proxy</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#DMM必须走JP，才可以使用</span></span><br><span class="line">DOMAIN-SUFFIX,dmm.co.jp,Proxy1</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#美亚考虑到海淘等地域限制，也必须走US</span></span><br><span class="line">DOMAIN-SUFFIX,amazon.com,Proxy2</span><br></pre></td></tr></table></figure>
+<p>Surge 详细规则可参见：<a href="https://www.qingjie.me/index.php/default/17.html" target="_blank" rel="external">Surge 规则独家分享,长期更新</a>。</p>
+<hr>
+<h3 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h3>
       
     </div>
     
@@ -267,18 +289,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/02/20/Surge-高级用法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Surge 技巧(二)：高级用法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/02/08/福利篇-授人以渔/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">福利篇-授人以渔</div>
+    <a href="/2016/02/20/毕竟江湖梦一场/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">毕竟江湖梦一场</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -313,7 +326,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="毕竟江湖梦一场" data-title="毕竟江湖梦一场" data-url="http://henrydong.com/2016/02/20/毕竟江湖梦一场/"></div>
+	<div class="ds-thread" data-thread-key="Surge-高级用法" data-title="Surge 技巧(二)：高级用法" data-url="http://henrydong.com/2016/02/20/Surge-高级用法/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
