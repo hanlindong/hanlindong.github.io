@@ -58,28 +58,6 @@
   </entry>
   
   <entry>
-    <title>DNS测试</title>
-    <link href="http://henrydong.com/2016/03/02/DNS%E6%B5%8B%E8%AF%95/"/>
-    <id>http://henrydong.com/2016/03/02/DNS测试/</id>
-    <published>2016-03-02T07:35:00.000Z</published>
-    <updated>2016-03-02T07:36:59.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;测试一下阿里云-DNS-更改后对-Github-Pages-的影响。&quot;&gt;&lt;a href=&quot;#测试一下阿里云-DNS-更改后对-Github-Pages-的影响。&quot; class=&quot;headerlink&quot; title=&quot;测试一下阿里云 DNS 更改后对 Github Pages 的影响。&quot;&gt;&lt;/a&gt;测试一下阿里云 DNS 更改后对 Github Pages 的影响。&lt;/h3&gt;&lt;p&gt;需要等待几个小时。&lt;/p&gt;
-&lt;p&gt;我需要重启域名邮箱。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;测试一下阿里云-DNS-更改后对-Github-Pages-的影响。&quot;&gt;&lt;a href=&quot;#测试一下阿里云-DNS-更改后对-Github-Pages-的影响。&quot; class=&quot;headerlink&quot; title=&quot;测试一下阿里云 DNS 更改后对 Github 
-    
-    </summary>
-    
-    
-      <category term="技巧" scheme="http://henrydong.com/tags/%E6%8A%80%E5%B7%A7/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Surge 技巧(二)：高级用法</title>
     <link href="http://henrydong.com/2016/02/20/Surge-%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/"/>
     <id>http://henrydong.com/2016/02/20/Surge-高级用法/</id>
@@ -1493,6 +1471,63 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
     
     
       <category term="闲谈" scheme="http://henrydong.com/tags/%E9%97%B2%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OS X El Capitan 更新速度慢的解决方法</title>
+    <link href="http://henrydong.com/2015/10/17/OS-X-El-Capitan-%E6%9B%B4%E6%96%B0%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>http://henrydong.com/2015/10/17/OS-X-El-Capitan-更新速度慢的解决方法/</id>
+    <published>2015-10-17T02:04:37.000Z</published>
+    <updated>2016-01-26T13:39:03.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;基本原理&quot;&gt;&lt;a href=&quot;#基本原理&quot; class=&quot;headerlink&quot; title=&quot;基本原理&quot;&gt;&lt;/a&gt;基本原理&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;抓取苹果官方下载链接，用第三方下载工具下载 .pkg 文件。搭建本地 server ,将苹果的下载地址解析到本地的服务器,从而实现快速下载安装。&lt;/p&gt;
+&lt;p&gt;适用于 El Capitan 更新慢的用户，有百兆光纤的用户可忽略)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;第一步、抓取苹果官方下载链接&quot;&gt;&lt;a href=&quot;#第一步、抓取苹果官方下载链接&quot; class=&quot;headerlink&quot; title=&quot;第一步、抓取苹果官方下载链接&quot;&gt;&lt;/a&gt;第一步、抓取苹果官方下载链接&lt;/h3&gt;&lt;p&gt;（为了安全性最好自己抓包获取此下载地址，后面的 hostname、 path 和自己抓取的链接对应）&lt;/p&gt;
+&lt;p&gt;由于前段时间的 Xcode Ghost 时间影响，当然不能再信任第三方的网盘，自己动手丰衣足食。&lt;/p&gt;
+&lt;p&gt;通过 Charles 抓取到的链接如下：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://osxapps.itunes.apple.com/apple-assets-us-std-000001/Purple3/v4/74/d2/82/74d28291-9db9-7ae2-305d-9b8b3f5fd463/ftk3252456602304584541.pkg&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://osxapps.itunes.apple.com/apple-assets-us-std-000001/Purple3/v4/74/d2/82/74d28291-9db9-7ae2-305d-9b8b3f5fd463/ftk3252456602304584541.pkg&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;第二步、下载-pkg文件&quot;&gt;&lt;a href=&quot;#第二步、下载-pkg文件&quot; class=&quot;headerlink&quot; title=&quot;第二步、下载 .pkg文件&quot;&gt;&lt;/a&gt;第二步、下载 .pkg文件&lt;/h3&gt;&lt;p&gt;抓取到苹果官方的下载链接后，我们可以通过第三方下载工具下载 .pkg 文件,下载工具自选。下载完成后文件是无法直接安装的，下面我们要做的就是搭建本地 server 用来替换苹果官方的 server。&lt;/p&gt;
+&lt;h3 id=&quot;第三步、搭建本地-server&quot;&gt;&lt;a href=&quot;#第三步、搭建本地-server&quot; class=&quot;headerlink&quot; title=&quot;第三步、搭建本地 server&quot;&gt;&lt;/a&gt;第三步、搭建本地 server&lt;/h3&gt;&lt;h4 id=&quot;3-1分析-URL-文件-一般的-URL-格式如下：&quot;&gt;&lt;a href=&quot;#3-1分析-URL-文件-一般的-URL-格式如下：&quot; class=&quot;headerlink&quot; title=&quot;3.1分析 URL 文件 一般的 URL 格式如下：&quot;&gt;&lt;/a&gt;3.1分析 URL 文件 一般的 URL 格式如下：&lt;/h4&gt;&lt;p&gt;protocol :// hostname[:port] / path / [;parameters][?query]#fragment&lt;/p&gt;
+&lt;p&gt;在这里我们只需要找到 hostname 和 path:&lt;/p&gt;
+&lt;p&gt;hostname : osxapps.itunes.apple.com&lt;/p&gt;
+&lt;p&gt;path : /apple-assets-us-std-000001/Purple3/v4/74/d2/82/74d28291-9db9-7ae2-305d-9b8b3f5fd463/&lt;/p&gt;
+&lt;h4 id=&quot;3-2-将域名指向本地-通过修改-hosts-文件-将域名指向-127-0-0-1，通过如下命令打开-hosts-文件&quot;&gt;&lt;a href=&quot;#3-2-将域名指向本地-通过修改-hosts-文件-将域名指向-127-0-0-1，通过如下命令打开-hosts-文件&quot; class=&quot;headerlink&quot; title=&quot;3.2 将域名指向本地 通过修改 hosts 文件 将域名指向 127.0.0.1，通过如下命令打开 hosts 文件&quot;&gt;&lt;/a&gt;3.2 将域名指向本地 通过修改 hosts 文件 将域名指向 127.0.0.1，通过如下命令打开 hosts 文件&lt;/h4&gt;&lt;p&gt;&lt;code&gt;sudo vim /etc/hosts&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;修改部分如下:&lt;br&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f616436393562613967773165776c766b79763930326a32307963306338646b322e6a7067.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这样 DNS 就会将 osxapps.itunes.apple.com 解析到本地&lt;/p&gt;
+&lt;h4 id=&quot;3-3-搭建-SimpleHTTPServer-首先创建根目录-路径可自己修改-，本人放在桌面&quot;&gt;&lt;a href=&quot;#3-3-搭建-SimpleHTTPServer-首先创建根目录-路径可自己修改-，本人放在桌面&quot; class=&quot;headerlink&quot; title=&quot;3.3 搭建 SimpleHTTPServer 首先创建根目录(路径可自己修改)，本人放在桌面&quot;&gt;&lt;/a&gt;3.3 搭建 SimpleHTTPServer 首先创建根目录(路径可自己修改)，本人放在桌面&lt;/h4&gt;&lt;p&gt;&lt;code&gt;cd Desktop mkdir elCapitanRoot&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;根据抓包得到的 path 创建相关路径,在 elCapitanRoot 目录下:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cd elCapitanRootsudo mkdir -p ./apple-assets-us-std-000001/Purple3/v4/74/d2/82/74d28291-9db9-7ae2-305d-9b8b3f5fd463/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;把下载的 .pkg 文件拷贝到路径下面，就是目录 74d28291-9db9-7ae2-305d-9b8b3f5fd463 下。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后再 elCapitanRoot 目录下，注意一定要再 elCapitanRoot 目录下，运行如下命令启动:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SimpleHTTPServer&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo python -m SimpleHTTPServer 80&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;运行成功会如下图显示&lt;br&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/2.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;此时你可以在浏览器中测试一下儿下载速度，在地址栏输入我们抓取的苹果官方的下载链接，如果一切配置都正确，你应该会看到百兆的下载速度&lt;br&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;最后一步&quot;&gt;&lt;a href=&quot;#最后一步&quot; class=&quot;headerlink&quot; title=&quot;最后一步&quot;&gt;&lt;/a&gt;最后一步&lt;/h3&gt;&lt;p&gt;打开 App Store 找到 OS X El Capitan 的更新按钮 ,点击更新按钮,稍等片刻，下载完成后就会弹出安装页面。安装过程需要一段时间,冲杯咖啡等待即可。&lt;/p&gt;
+&lt;h4 id=&quot;enjoy…&quot;&gt;&lt;a href=&quot;#enjoy…&quot; class=&quot;headerlink&quot; title=&quot;enjoy…&quot;&gt;&lt;/a&gt;enjoy…&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;注意：安装完成之后，请把 hosts 文件还原。&lt;/p&gt;
+&lt;p&gt;如果有 VPS 的话，也可以先下载到自己的 VPS 上，然后将苹果的下载地址解析到 VPS，原理相通。&lt;/p&gt;
+&lt;p&gt;检验你的 DNS&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;以上&quot;&gt;&lt;a href=&quot;#以上&quot; class=&quot;headerlink&quot; title=&quot;以上&quot;&gt;&lt;/a&gt;以上&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;基本原理&quot;&gt;&lt;a href=&quot;#基本原理&quot; class=&quot;headerlink&quot; title=&quot;基本原理&quot;&gt;&lt;/a&gt;基本原理&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;抓取苹果官方下载链接，用第三方下载工具下载 .pkg 文件。搭建本地 server ,将苹果的下载地址解析到本地的服务器,从而实现快速下载安装。&lt;/p&gt;
+&lt;p&gt;适用于 El Capitan 更新慢的用户，有百兆光纤的用户可忽略)&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="技巧" scheme="http://henrydong.com/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
