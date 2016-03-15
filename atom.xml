@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://henrydong.com/"/>
-  <updated>2016-03-15T13:50:22.000Z</updated>
+  <updated>2016-03-15T13:53:04.000Z</updated>
   <id>http://henrydong.com/</id>
   
   <author>
@@ -16,17 +16,18 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>iOS-App整理 - 多媒体类</title>
+    <title>iOS App 整理 - 多媒体类</title>
     <link href="http://henrydong.com/2016/03/15/iOS-App%E6%95%B4%E7%90%862/"/>
     <id>http://henrydong.com/2016/03/15/iOS-App整理2/</id>
     <published>2016-03-15T13:40:08.000Z</published>
-    <updated>2016-03-15T13:50:22.000Z</updated>
+    <updated>2016-03-15T13:53:04.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;笔记类&quot;&gt;&lt;a href=&quot;#笔记类&quot; class=&quot;headerlink&quot; title=&quot;笔记类&quot;&gt;&lt;/a&gt;笔记类&lt;/h1&gt;&lt;h2 id=&quot;笔记&quot;&gt;&lt;a href=&quot;#笔记&quot; class=&quot;headerlink&quot; title=&quot;笔记&quot;&gt;&lt;/a&gt;笔记&lt;/h2&gt;&lt;p&gt;OneNote - 15G空间，容量推荐，全平台通用&lt;/p&gt;
 &lt;p&gt;有道云笔记 - 3G左右，同步较快，全平台通用&lt;/p&gt;
-&lt;p&gt;印象笔记 - 普通版比较坑，全平台通用&lt;/p&gt;
+&lt;p&gt;印象笔记 - 普通版容量少，全平台通用&lt;/p&gt;
 &lt;p&gt;Matcha 3 - 笔记本+轻量级印象笔记客户端&lt;/p&gt;
 &lt;p&gt;Paper - 文献管理&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;手写笔记&quot;&gt;&lt;a href=&quot;#手写笔记&quot; class=&quot;headerlink&quot; title=&quot;手写笔记&quot;&gt;&lt;/a&gt;手写笔记&lt;/h2&gt;&lt;p&gt;Notability - 手写笔记&lt;/p&gt;
 &lt;p&gt;绘图笔记本&lt;/p&gt;
 &lt;h2 id=&quot;绘画&quot;&gt;&lt;a href=&quot;#绘画&quot; class=&quot;headerlink&quot; title=&quot;绘画&quot;&gt;&lt;/a&gt;绘画&lt;/h2&gt;&lt;p&gt;素描 Tayasui Sketches+&lt;/p&gt;
@@ -87,7 +88,11 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;笔记类&quot;&gt;&lt;a href=&quot;#笔记类&quot; class=&quot;headerlink&quot; title=&quot;笔记类&quot;&gt;&lt;/a&gt;笔记类&lt;/h1&gt;&lt;h2 id=&quot;笔记&quot;&gt;&lt;a href=&quot;#笔记&quot; class=&quot;headerlink&quot; title=&quot;笔记&quot;&gt;&lt;/a&gt;笔记&lt;/h2&gt;&lt;p
+      &lt;h1 id=&quot;笔记类&quot;&gt;&lt;a href=&quot;#笔记类&quot; class=&quot;headerlink&quot; title=&quot;笔记类&quot;&gt;&lt;/a&gt;笔记类&lt;/h1&gt;&lt;h2 id=&quot;笔记&quot;&gt;&lt;a href=&quot;#笔记&quot; class=&quot;headerlink&quot; title=&quot;笔记&quot;&gt;&lt;/a&gt;笔记&lt;/h2&gt;&lt;p&gt;OneNote - 15G空间，容量推荐，全平台通用&lt;/p&gt;
+&lt;p&gt;有道云笔记 - 3G左右，同步较快，全平台通用&lt;/p&gt;
+&lt;p&gt;印象笔记 - 普通版容量少，全平台通用&lt;/p&gt;
+&lt;p&gt;Matcha 3 - 笔记本+轻量级印象笔记客户端&lt;/p&gt;
+&lt;p&gt;Paper - 文献管理&lt;/p&gt;
     
     </summary>
     
@@ -97,11 +102,11 @@
   </entry>
   
   <entry>
-    <title>iOS App整理 - 效率类</title>
+    <title>iOS App 整理 - 效率类</title>
     <link href="http://henrydong.com/2016/03/15/iOS-App%E6%95%B4%E7%90%86/"/>
     <id>http://henrydong.com/2016/03/15/iOS-App整理/</id>
     <published>2016-03-15T13:31:42.000Z</published>
-    <updated>2016-03-15T13:46:31.000Z</updated>
+    <updated>2016-03-15T13:52:37.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;效率类&quot;&gt;&lt;a href=&quot;#效率类&quot; class=&quot;headerlink&quot; title=&quot;效率类&quot;&gt;&lt;/a&gt;效率类&lt;/h1&gt;&lt;h2 id=&quot;文件处理，稍后读&quot;&gt;&lt;a href=&quot;#文件处理，稍后读&quot; class=&quot;headerlink&quot; title=&quot;文件处理，稍后读&quot;&gt;&lt;/a&gt;文件处理，稍后读&lt;/h2&gt;&lt;p&gt;常用应用 - Office，Apple三件套，WPS&lt;/p&gt;
 &lt;p&gt;邮箱应用 - Spark，邮箱大师，Outlook，CloudMagic&lt;/p&gt;
