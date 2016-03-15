@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://henrydong.com/"/>
-  <updated>2016-03-15T13:38:49.000Z</updated>
+  <updated>2016-03-15T13:45:21.000Z</updated>
   <id>http://henrydong.com/</id>
   
   <author>
@@ -16,11 +16,91 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS-App整理 - 多媒体类</title>
+    <link href="http://henrydong.com/2016/03/15/iOS-App%E6%95%B4%E7%90%862/"/>
+    <id>http://henrydong.com/2016/03/15/iOS-App整理2/</id>
+    <published>2016-03-15T13:40:08.000Z</published>
+    <updated>2016-03-15T13:45:21.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;图片类&quot;&gt;&lt;a href=&quot;#图片类&quot; class=&quot;headerlink&quot; title=&quot;图片类&quot;&gt;&lt;/a&gt;图片类&lt;/h1&gt;&lt;h2 id=&quot;滤镜-美化&quot;&gt;&lt;a href=&quot;#滤镜-美化&quot; class=&quot;headerlink&quot; title=&quot;滤镜 美化&quot;&gt;&lt;/a&gt;滤镜 美化&lt;/h2&gt;&lt;p&gt;Relook - 美颜，原生态，最自然&lt;/p&gt;
+&lt;p&gt;AirBrush - 美颜，同上&lt;/p&gt;
+&lt;p&gt;VSCO /Afterlight - 滤镜&lt;/p&gt;
+&lt;p&gt;泼辣修图 - 滤镜，曲线&lt;/p&gt;
+&lt;p&gt;MasCurve - 最强大的曲线工具&lt;/p&gt;
+&lt;p&gt;Tadaa SLR - 背景虚化&lt;/p&gt;
+&lt;p&gt;Union - 图片遮罩，非常强大&lt;/p&gt;
+&lt;p&gt;VOUN - 照片加相框&lt;/p&gt;
+&lt;p&gt;Screenshot/小Q画笔 - 图片标注&lt;/p&gt;
+&lt;h2 id=&quot;拍摄&quot;&gt;&lt;a href=&quot;#拍摄&quot; class=&quot;headerlink&quot; title=&quot;拍摄&quot;&gt;&lt;/a&gt;拍摄&lt;/h2&gt;&lt;p&gt;Harmony - 黄金比例拍照&lt;/p&gt;
+&lt;p&gt;专业鱼眼相机 - 鱼眼&lt;/p&gt;
+&lt;p&gt;Reflection - 水中倒影&lt;/p&gt;
+&lt;p&gt;NightCap Pro - 夜拍，光轨，星轨&lt;/p&gt;
+&lt;p&gt;Fyuse - 3D照片&lt;/p&gt;
+&lt;p&gt;SKRWT - 照片变换&lt;/p&gt;
+&lt;p&gt;Living Planet - 小星球&lt;/p&gt;
+&lt;p&gt;9Cut - 把一张图片切成九张&lt;/p&gt;
+&lt;p&gt;HyperDroste - 照片扭曲旋转&lt;/p&gt;
+&lt;p&gt;DogeDoge - 人脸变Doge脸&lt;/p&gt;
+&lt;p&gt;CloneMagic - 克隆物体&lt;/p&gt;
+&lt;p&gt;做个截图 - 做截图&lt;/p&gt;
+&lt;h2 id=&quot;长图，拼接：&quot;&gt;&lt;a href=&quot;#长图，拼接：&quot; class=&quot;headerlink&quot; title=&quot;长图，拼接：&quot;&gt;&lt;/a&gt;长图，拼接：&lt;/h2&gt;&lt;p&gt;拼了个长图，longscreen&lt;/p&gt;
+&lt;p&gt;photophix /layout - 多张图片拼接成一张&lt;/p&gt;
+&lt;h2 id=&quot;打码&quot;&gt;&lt;a href=&quot;#打码&quot; class=&quot;headerlink&quot; title=&quot;打码&quot;&gt;&lt;/a&gt;打码&lt;/h2&gt;&lt;p&gt;Mapix - 中国风打码&lt;/p&gt;
+&lt;p&gt;Nudifier - 打码&lt;/p&gt;
+&lt;p&gt;OneShot - 剪纸式打码&lt;/p&gt;
+&lt;h2 id=&quot;其他&quot;&gt;&lt;a href=&quot;#其他&quot; class=&quot;headerlink&quot; title=&quot;其他&quot;&gt;&lt;/a&gt;其他&lt;/h2&gt;&lt;p&gt;Fanta - 文字图片贴纸&lt;/p&gt;
+&lt;p&gt;文字转图片 - 文字转图片&lt;/p&gt;
+&lt;p&gt;Cite - 英文转图片&lt;/p&gt;
+&lt;p&gt;Live Editor /intoLive - LivePhoto 转 Gif，视频&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;视频类&quot;&gt;&lt;a href=&quot;#视频类&quot; class=&quot;headerlink&quot; title=&quot;视频类&quot;&gt;&lt;/a&gt;视频类&lt;/h1&gt;&lt;h2 id=&quot;看视频&quot;&gt;&lt;a href=&quot;#看视频&quot; class=&quot;headerlink&quot; title=&quot;看视频&quot;&gt;&lt;/a&gt;看视频&lt;/h2&gt;&lt;p&gt;nPlayer&lt;br&gt;AVPlayer&lt;/p&gt;
+&lt;h2 id=&quot;录屏&quot;&gt;&lt;a href=&quot;#录屏&quot; class=&quot;headerlink&quot; title=&quot;录屏&quot;&gt;&lt;/a&gt;录屏&lt;/h2&gt;&lt;p&gt;vidyo&lt;/p&gt;
+&lt;h2 id=&quot;压缩&quot;&gt;&lt;a href=&quot;#压缩&quot; class=&quot;headerlink&quot; title=&quot;压缩&quot;&gt;&lt;/a&gt;压缩&lt;/h2&gt;&lt;p&gt;Shrink Your Video - 视频压缩&lt;/p&gt;
+&lt;p&gt;照片压缩 - 照片压缩&lt;/p&gt;
+&lt;h2 id=&quot;贴纸&quot;&gt;&lt;a href=&quot;#贴纸&quot; class=&quot;headerlink&quot; title=&quot;贴纸&quot;&gt;&lt;/a&gt;贴纸&lt;/h2&gt;&lt;p&gt;Pics2Mov - 视频加贴纸&lt;/p&gt;
+&lt;h2 id=&quot;视频编辑&quot;&gt;&lt;a href=&quot;#视频编辑&quot; class=&quot;headerlink&quot; title=&quot;视频编辑&quot;&gt;&lt;/a&gt;视频编辑&lt;/h2&gt;&lt;p&gt;iMovie / Videoshop / ALIVE&lt;/p&gt;
+&lt;p&gt;Funimate 视频编辑器 - 加特效&lt;/p&gt;
+&lt;p&gt;Action Movie FX - 动作特效&lt;/p&gt;
+&lt;p&gt;裁剪视频 - 裁剪视频&lt;/p&gt;
+&lt;p&gt;鬼畜输入法 - 用过的人都懂的&lt;/p&gt;
+&lt;h2 id=&quot;细节处理&quot;&gt;&lt;a href=&quot;#细节处理&quot; class=&quot;headerlink&quot; title=&quot;细节处理&quot;&gt;&lt;/a&gt;细节处理&lt;/h2&gt;&lt;p&gt;Crop on the Fly - 还有其公司的另外三个应用&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;笔记类&quot;&gt;&lt;a href=&quot;#笔记类&quot; class=&quot;headerlink&quot; title=&quot;笔记类&quot;&gt;&lt;/a&gt;笔记类&lt;/h1&gt;&lt;h2 id=&quot;笔记&quot;&gt;&lt;a href=&quot;#笔记&quot; class=&quot;headerlink&quot; title=&quot;笔记&quot;&gt;&lt;/a&gt;笔记&lt;/h2&gt;&lt;p&gt;OneNote - 15G空间，容量推荐，全平台通用&lt;/p&gt;
+&lt;p&gt;有道云笔记 - 3G左右，同步较快，全平台通用&lt;/p&gt;
+&lt;p&gt;印象笔记 - 普通版比较坑，全平台通用&lt;/p&gt;
+&lt;p&gt;Matcha 3 - 笔记本+轻量级印象笔记客户端&lt;/p&gt;
+&lt;p&gt;Paper - 文献管理&lt;/p&gt;
+&lt;h2 id=&quot;手写笔记&quot;&gt;&lt;a href=&quot;#手写笔记&quot; class=&quot;headerlink&quot; title=&quot;手写笔记&quot;&gt;&lt;/a&gt;手写笔记&lt;/h2&gt;&lt;p&gt;Notability - 手写笔记&lt;/p&gt;
+&lt;p&gt;绘图笔记本&lt;/p&gt;
+&lt;h2 id=&quot;绘画&quot;&gt;&lt;a href=&quot;#绘画&quot; class=&quot;headerlink&quot; title=&quot;绘画&quot;&gt;&lt;/a&gt;绘画&lt;/h2&gt;&lt;p&gt;素描 Tayasui Sketches+&lt;/p&gt;
+&lt;p&gt;Paper53&lt;/p&gt;
+&lt;p&gt;Zen Sketch&lt;/p&gt;
+&lt;h2 id=&quot;日记&quot;&gt;&lt;a href=&quot;#日记&quot; class=&quot;headerlink&quot; title=&quot;日记&quot;&gt;&lt;/a&gt;日记&lt;/h2&gt;&lt;p&gt;Day One&lt;/p&gt;
+&lt;p&gt;DayGram - 一日一句记录生活&lt;/p&gt;
+&lt;h2 id=&quot;文章&quot;&gt;&lt;a href=&quot;#文章&quot; class=&quot;headerlink&quot; title=&quot;文章&quot;&gt;&lt;/a&gt;文章&lt;/h2&gt;&lt;p&gt;Ulysses - 全平台通用&lt;/p&gt;
+&lt;p&gt;WeicoNote - 轻量级图文编辑&lt;/p&gt;
+&lt;p&gt;Zine - 支持微信公众号文章&lt;/p&gt;
+&lt;h2 id=&quot;阅读&quot;&gt;&lt;a href=&quot;#阅读&quot; class=&quot;headerlink&quot; title=&quot;阅读&quot;&gt;&lt;/a&gt;阅读&lt;/h2&gt;&lt;p&gt;Kindle - Mobi格式（只看Mobi格式可用MOBI Reader代替）&lt;/p&gt;
+&lt;p&gt;Reader /熊猫看书&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;图片类&quot;&gt;&lt;a href=&quot;#图片类&quot; class=&quot;headerlink&quot; title=&quot;图片类&quot;&gt;&lt;/a&gt;图片类&lt;/h1&gt;&lt;h2 id=&quot;滤镜-美化&quot;&gt;&lt;a href=&quot;#滤镜-美化&quot; class=&quot;headerlink&quot; title=&quot;滤镜 美化&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+      <category term="技巧" scheme="http://henrydong.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS App整理 - 效率类</title>
     <link href="http://henrydong.com/2016/03/15/iOS-App%E6%95%B4%E7%90%86/"/>
     <id>http://henrydong.com/2016/03/15/iOS-App整理/</id>
     <published>2016-03-15T13:31:42.000Z</published>
-    <updated>2016-03-15T13:38:49.000Z</updated>
+    <updated>2016-03-15T13:46:31.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;效率类&quot;&gt;&lt;a href=&quot;#效率类&quot; class=&quot;headerlink&quot; title=&quot;效率类&quot;&gt;&lt;/a&gt;效率类&lt;/h1&gt;&lt;h2 id=&quot;文件处理，稍后读&quot;&gt;&lt;a href=&quot;#文件处理，稍后读&quot; class=&quot;headerlink&quot; title=&quot;文件处理，稍后读&quot;&gt;&lt;/a&gt;文件处理，稍后读&lt;/h2&gt;&lt;p&gt;常用应用 - Office，Apple三件套，WPS&lt;/p&gt;
 &lt;p&gt;邮箱应用 - Spark，邮箱大师，Outlook，CloudMagic&lt;/p&gt;
@@ -79,6 +159,13 @@
 &lt;h2 id=&quot;扫描&quot;&gt;&lt;a href=&quot;#扫描&quot; class=&quot;headerlink&quot; title=&quot;扫描&quot;&gt;&lt;/a&gt;扫描&lt;/h2&gt;&lt;p&gt;Scant - 颜值高，OCR速度较慢&lt;/p&gt;
 &lt;p&gt;Scanner Pro - 只能扫描，不能OCR&lt;/p&gt;
 &lt;p&gt;扫描全能王 - OCR极快，高级版需要订阅&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;隐私类&quot;&gt;&lt;a href=&quot;#隐私类&quot; class=&quot;headerlink&quot; title=&quot;隐私类&quot;&gt;&lt;/a&gt;隐私类&lt;/h1&gt;&lt;h2 id=&quot;密码&quot;&gt;&lt;a href=&quot;#密码&quot; class=&quot;headerlink&quot; title=&quot;密码&quot;&gt;&lt;/a&gt;密码&lt;/h2&gt;&lt;p&gt;1Password - 最优秀的密码管理软件，全平台通用&lt;/p&gt;
+&lt;p&gt;oneSafe - 全平台通用&lt;/p&gt;
+&lt;h2 id=&quot;照片等隐私保护&quot;&gt;&lt;a href=&quot;#照片等隐私保护&quot; class=&quot;headerlink&quot; title=&quot;照片等隐私保护&quot;&gt;&lt;/a&gt;照片等隐私保护&lt;/h2&gt;&lt;p&gt;Provault - 进入拍照，隐私照片&lt;/p&gt;
+&lt;p&gt;Black SMS - 秘密信息&lt;/p&gt;
+&lt;h2 id=&quot;情侣类：&quot;&gt;&lt;a href=&quot;#情侣类：&quot; class=&quot;headerlink&quot; title=&quot;情侣类：&quot;&gt;&lt;/a&gt;情侣类：&lt;/h2&gt;&lt;p&gt;Loving U&lt;/p&gt;
+&lt;p&gt;Between&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&quot;以上&quot;&gt;&lt;a href=&quot;#以上&quot; class=&quot;headerlink&quot; title=&quot;以上&quot;&gt;&lt;/a&gt;以上&lt;/h3&gt;</content>
     
@@ -1496,62 +1583,6 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
     
     
       <category term="技巧" scheme="http://henrydong.com/tags/%E6%8A%80%E5%B7%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>橘色</title>
-    <link href="http://henrydong.com/2015/12/20/%E6%A9%98%E8%89%B2/"/>
-    <id>http://henrydong.com/2015/12/20/橘色/</id>
-    <published>2015-12-20T04:16:39.000Z</published>
-    <updated>2016-02-11T04:36:36.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;在今年圣丹斯电影节上大放异彩的电影《橘色》（Tangerine）于7月10日登陆美国院线。《橘色》在圣丹斯电影节的一众劲敌中强力突围，堪称黑马。影片讲述了在好莱坞不那么光鲜的角落里工作的变性工作者的生活，人物性格冷酷、有趣、不愿受制于人。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/juse1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;关注这部电影主要是因为它全程用 iPhone5s 拍摄而成，因为我本身也很喜欢摄影，而且并没有什么闲钱去买高端的摄影器械，而且以往也都是用 iPhone 或是单反相机来拍摄(废机器请不要学我)，所以想来学习一下导演的低成本拍摄方法，运用软件来优化，后期制作等。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;拍摄器械与细节在此网站可查阅：&lt;br&gt;&lt;a href=&quot;http://www.theverge.com/2015/1/28/7925023/sundance-film-festival-2015-tangerine-iphone-5s&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;How one of the best films at Sundance was shot using an iPhone 5S&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;懒得翻译我就挑重点，有兴趣可以自己戳开看。&lt;/p&gt;
-&lt;p&gt;设备：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;iPhone 5s（拍摄时一共三只手机，即3机位）&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Steadicam（稳定器 － 最便宜的amazon上搜索结果71.99美刀）&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“手机太轻、太小了，所以无论你的手有多么稳，都难免会晃动，这可不好。”贝克说，“所以需要一台摄影机稳定器来稳定画面。”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Moondog Lab变形适配器镜头（膨胀为宽屏再后期缩放）现在已有6和6s的镜头。这些镜头只是原型产品，由Moondog Labs开发。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;贝克表示，正是得益于这些镜头，才最终呈现出了电影银幕上的效果。“说实话，如果没有这些镜头，这部影片根本拍不成。”他说，“有了它，才真正有了电影的效果。”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;使用应用：Filmic Pro（文章内写8美刀，现在已经涨到人民币68元），这是一款专为iPhone摄影打造的程序。它能提供 4 倍缩放与完整控制功能、焦距与曝光、帧率与白平衡。 此外，FiLMiC Pro还有各种专业工具，例如音频仪、光暗分布图与长宽比叠加。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/juse3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;宽屏设置为：2:35:1。&lt;/p&gt;
-&lt;h3 id=&quot;电影的灵感来源&quot;&gt;&lt;a href=&quot;#电影的灵感来源&quot; class=&quot;headerlink&quot; title=&quot;电影的灵感来源&quot;&gt;&lt;/a&gt;电影的灵感来源&lt;/h3&gt;&lt;p&gt;《橘色》幕后那不同寻常的创作流程并不仅限于它的镜头。贝克家住圣塔莫妮卡林荫大道附近的一个破败的街区，那里的名声向来不好。但不远处的一家甜甜圈店却令他格外着迷。“那是一处喧嚣的所在，吃甜甜圈时总会出点事情。”他说，“所以我希望拍摄一部有关‘甜甜圈时刻’的影片。”&lt;/p&gt;
-&lt;p&gt;于是，他与创作搭档克里斯·柏格奇(Chris Bergoch)一起来到了附近的LGBT（同性恋、双性恋及变性人）中心，他们在那里见到了米亚·泰勒(Mya Taylor)。米亚是个很有抱负的歌手兼演员，她又把贝克和柏格奇介绍给了自己的室友奇奇·吉塔妠·罗德里格斯(Kiki Kitana Rodriguez)。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/juse2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;这两位女性开始讲述这个街区周围的各种故事。“大家都喜欢打听戏剧性的故事，尤其是电影人。”泰勒说。期间，她们恰好提到了附近的一件事情：一位变性女听说自己的男朋友与另一个女孩（在《橘色》中，他们将天生就是女性的人称作“真鱼”）有染后怒不可遏，决定报复那个女孩。于是，贝克和柏格奇找到了灵感，最终一同创作出了《橘色》的剧本。&lt;/p&gt;
-&lt;p&gt;这部用iPhone拍摄的圣丹斯参展影片就这样诞生了：它的出现完全出人意料，它为我们展现了一个不为人知的世界，而它所呈现的故事则是传统大型制片公司根本不会触碰的角落。&lt;/p&gt;
-&lt;p&gt;当然，《橘色》并不能称得上完美。它最后三分之一的内容推进得过于缓慢，而在“甜甜圈时刻”掀起的高潮也远没有达到预想的效果。&lt;/p&gt;
-&lt;p&gt;但在这样一个充满成熟的故事片和坦率的纪录片的电影节上，它的确算得上是一个小小的奇迹：只用一部550美元的手机，就在大银幕上呈现出一部宽屏电影。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;在今年圣丹斯电影节上大放异彩的电影《橘色》（Tangerine）于7月10日登陆美国院线。《橘色》在圣丹斯电影节的一众劲敌中强力突围，堪称黑马。影片讲述了在好莱坞不那么光鲜的角落里工作的变性工作者的生活，人物性格冷酷、有趣、不愿受制于人。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/juse1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;关注这部电影主要是因为它全程用 iPhone5s 拍摄而成，因为我本身也很喜欢摄影，而且并没有什么闲钱去买高端的摄影器械，而且以往也都是用 iPhone 或是单反相机来拍摄(废机器请不要学我)，所以想来学习一下导演的低成本拍摄方法，运用软件来优化，后期制作等。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="闲谈" scheme="http://henrydong.com/tags/%E9%97%B2%E8%B0%88/"/>
     
   </entry>
   
