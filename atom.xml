@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://henrydong.com/"/>
-  <updated>2016-03-15T13:53:04.000Z</updated>
+  <updated>2016-03-19T01:29:36.000Z</updated>
   <id>http://henrydong.com/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>有关计步神器App的实现</title>
+    <link href="http://henrydong.com/2016/03/19/%E6%9C%89%E5%85%B3%E8%AE%A1%E6%AD%A5%E7%A5%9E%E5%99%A8App%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://henrydong.com/2016/03/19/有关计步神器App的实现/</id>
+    <published>2016-03-19T01:14:35.000Z</published>
+    <updated>2016-03-19T01:29:36.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;昨天刚刚开始用微信运动，对于狗哥等不霸占封面不罢休的行为表示非常不满，所以大清早起来写了一款应用程序，来发泄心中的愤懑，开个玩笑，仅供娱乐。&quot;&gt;&lt;a href=&quot;#昨天刚刚开始用微信运动，对于狗哥等不霸占封面不罢休的行为表示非常不满，所以大清早起来写了一款应用程序，来发泄心中的愤懑，开个玩笑，仅供娱乐。&quot; class=&quot;headerlink&quot; title=&quot;昨天刚刚开始用微信运动，对于狗哥等不霸占封面不罢休的行为表示非常不满，所以大清早起来写了一款应用程序，来发泄心中的愤懑，开个玩笑，仅供娱乐。&quot;&gt;&lt;/a&gt;昨天刚刚开始用微信运动，对于狗哥等不霸占封面不罢休的行为表示非常不满，所以大清早起来写了一款应用程序，来发泄心中的愤懑，开个玩笑，仅供娱乐。&lt;/h3&gt;&lt;p&gt;本示例程序运用 HealthKit 开发，原理是伪造步数，写入苹果自带的健康应用，再让微信读取，实现曲线救国。&lt;/p&gt;
+&lt;h4 id=&quot;最终的效果图如下：&quot;&gt;&lt;a href=&quot;#最终的效果图如下：&quot; class=&quot;headerlink&quot; title=&quot;最终的效果图如下：&quot;&gt;&lt;/a&gt;最终的效果图如下：&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/%E8%AE%A1%E6%AD%A5%E5%99%A8.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;1-HealthKit的实现&quot;&gt;&lt;a href=&quot;#1-HealthKit的实现&quot; class=&quot;headerlink&quot; title=&quot;1. HealthKit的实现&quot;&gt;&lt;/a&gt;1. HealthKit的实现&lt;/h4&gt;&lt;p&gt;打开 HealthKit Capabilities ，才能在iOS的健康app中添加数据或者读取信息: &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/bmiddle/8cd0eb7fgw1ev93f59ef8j20k003h74j.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;接下来写一个 HealthManager 类用来处理所有项目中涉及到和 HealthKit 相关的东西。Let healthKitStore:HKHealthStore= HKHealthStore() 由于苹果的隐私政策，先申请权限，这个变量的调用方法可以获取健康信息和读取信息。&lt;/p&gt;
+&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 申请权限&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;func authorizeHealthKit(&lt;span class=&quot;string&quot;&gt;completion:&lt;/span&gt;((&lt;span class=&quot;string&quot;&gt;success:&lt;/span&gt;Bool, &lt;span class=&quot;string&quot;&gt;error:&lt;/span&gt;NSError!) -&amp;gt; Void)!)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#123;  &lt;span class=&quot;comment&quot;&gt;//1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       let &lt;span class=&quot;string&quot;&gt;healthKitTypesToWrite:&lt;/span&gt; Set = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierStepCount),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;//2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; !HKHealthStore.isHealthDataAvailable() &amp;#123;             &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       let error = NSError(&lt;span class=&quot;string&quot;&gt;domain:&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;&quot;com.hihex.healthkit&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;code:&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;userInfo:&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;string&quot;&gt;NSLocalizedDescriptionKey:&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;&quot;HealthKit isnot available in this Device&quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; completion != nil &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;               completion(&lt;span class=&quot;string&quot;&gt;success:&lt;/span&gt;&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;error:&lt;/span&gt;error)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &amp;#125;             &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &lt;span class=&quot;comment&quot;&gt;//3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       healthKitStore.requestAuthorizationToShareTypes(healthKitTypesToWrite,&lt;span class=&quot;string&quot;&gt;readTypes:&lt;/span&gt; nil) &amp;#123; (success, error) -&amp;gt; Void &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; completion != nil &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;               completion(&lt;span class=&quot;string&quot;&gt;success:&lt;/span&gt;success,&lt;span class=&quot;string&quot;&gt;error:&lt;/span&gt;error)             &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;写上需要申请的权限集合，因为 app 内读取自己写入的数据不需要读取的权限所以就不申请读取的权限。&lt;br&gt;检查设备是否能获取到健康的信息，因为有些机型如 iPad 等并不能支持 HealthKit 。&lt;br&gt;申请权限，因为传入的是一个块你可以根据处理的结果进行 UI 上的交互。&lt;br&gt;HealthKit支持的活动的类型有70多种，可以在 HKWorkoutActivityType 里查看，有兴趣可以自己看看。&lt;/p&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/%E8%AE%A1%E6%AD%A5%E5%99%A82.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后就是保存运动样本，读取运动样本和UI设计了。&lt;/p&gt;
+&lt;p&gt;我已经把安装包上传到网络，下载地址：&lt;br&gt;&lt;a href=&quot;https://www.pgyer.com/HGXq&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;计步器&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;当然做人要诚实，我又默默地把步数改了回去。&lt;/p&gt;
+&lt;p&gt;祝大家玩得开心。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;以上&quot;&gt;&lt;a href=&quot;#以上&quot; class=&quot;headerlink&quot; title=&quot;以上&quot;&gt;&lt;/a&gt;以上&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;昨天刚刚开始用微信运动，对于狗哥等不霸占封面不罢休的行为表示非常不满，所以大清早起来写了一款应用程序，来发泄心中的愤懑，开个玩笑，仅供娱乐。&quot;&gt;&lt;a href=&quot;#昨天刚刚开始用微信运动，对于狗哥等不霸占封面不罢休的行为表示非常不满，所以大清早起来写了一款应用程序，来发泄心中的愤懑，开个玩笑，仅供娱乐。&quot; class=&quot;headerlink&quot; title=&quot;昨天刚刚开始用微信运动，对于狗哥等不霸占封面不罢休的行为表示非常不满，所以大清早起来写了一款应用程序，来发泄心中的愤懑，开个玩笑，仅供娱乐。&quot;&gt;&lt;/a&gt;昨天刚刚开始用微信运动，对于狗哥等不霸占封面不罢休的行为表示非常不满，所以大清早起来写了一款应用程序，来发泄心中的愤懑，开个玩笑，仅供娱乐。&lt;/h3&gt;&lt;p&gt;本示例程序运用 HealthKit 开发，原理是伪造步数，写入苹果自带的健康应用，再让微信读取，实现曲线救国。&lt;/p&gt;
+&lt;h4 id=&quot;最终的效果图如下：&quot;&gt;&lt;a href=&quot;#最终的效果图如下：&quot; class=&quot;headerlink&quot; title=&quot;最终的效果图如下：&quot;&gt;&lt;/a&gt;最终的效果图如下：&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/%E8%AE%A1%E6%AD%A5%E5%99%A8.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://henrydong.com/tags/iOS/"/>
+    
+      <category term="技巧" scheme="http://henrydong.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS App 整理 - 多媒体类</title>
@@ -1538,57 +1576,6 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
     
     
       <category term="iOS" scheme="http://henrydong.com/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Surge 技巧(一)：bypass-tun调试</title>
-    <link href="http://henrydong.com/2015/12/20/Surge-bypass-tun%E8%B0%83%E8%AF%95/"/>
-    <id>http://henrydong.com/2015/12/20/Surge-bypass-tun调试/</id>
-    <published>2015-12-20T12:40:27.000Z</published>
-    <updated>2016-02-20T13:01:39.000Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;Surge 是基于 iOS 9 的新特性 Network Extension 开发的一款网络调试工具，工作原理是使用 Packet Tunnel Provider 给系统套上一个代理，Surge 有两个主要组件：Surge 代理服务器和 Surge TUN 接口。程序运行之后，Surge 会将自身设置为默认的 HTTP/HTTPS 代理服务器来处理所有的 HTTP/HTTPS 流量。针对一些不服从系统代理设置（如 Mail.app ）的应用程序 ，将由 Surge 的 TUN 接口来进行处理。&lt;/p&gt;
-&lt;p&gt;Surge 会接管全局的（几乎）所有通信，所以所有网络方面的电量消耗都会被算在 Surge 头上，实际上 Surge 的运行功耗很少，使用中也不会感到 Surge 对电量有明显影响。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;详细介绍可参见-Surge-新手使用指南。&quot;&gt;&lt;a href=&quot;#详细介绍可参见-Surge-新手使用指南。&quot; class=&quot;headerlink&quot; title=&quot;详细介绍可参见 Surge 新手使用指南。&quot;&gt;&lt;/a&gt;详细介绍可参见 &lt;a href=&quot;https://medium.com/@scomper/surge-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-a1533c10e80b#.67ktys44j&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Surge 新手使用指南&lt;/a&gt;。&lt;/h4&gt;&lt;h3 id=&quot;本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。&quot;&gt;&lt;a href=&quot;#本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。&quot; class=&quot;headerlink&quot; title=&quot;本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。&quot;&gt;&lt;/a&gt;本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。&lt;/h3&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;下载我所提供的 &lt;a href=&quot;https://qingjie.me/surge/debug.conf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;配置文件&lt;/a&gt;，仅供调试。&lt;/p&gt;
-&lt;p&gt; 说明此文件仅供调试，只具备REJECT规则；&lt;/p&gt;
-&lt;p&gt; &lt;img src=&quot;https://qingjie.me/usr/uploads/2015/12/2668007067.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;开启爱奇艺，随便选择视频进入，只需广告出来，当然如果广告很好看你可以选择看完。&lt;/p&gt;
-&lt;p&gt; &lt;img src=&quot;https://qingjie.me/usr/uploads/2015/12/3225590711.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;切换至Surge分析选项，选择第一个“最近请求”。&lt;/p&gt;
-&lt;p&gt; &lt;img src=&quot;https://qingjie.me/usr/uploads/2015/12/3624994205.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;找出ip&lt;/p&gt;
-&lt;p&gt; &lt;img src=&quot;https://qingjie.me/usr/uploads/2015/12/2518071017.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;处理方式选择 REJECT&lt;/p&gt;
-&lt;p&gt; &lt;img src=&quot;https://qingjie.me/usr/uploads/2015/12/525560741.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;进入爱奇艺，此时广告已经过滤。&lt;/p&gt;
-&lt;p&gt; &lt;img src=&quot;https://qingjie.me/usr/uploads/2015/12/3024616734.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h3 id=&quot;以上&quot;&gt;&lt;a href=&quot;#以上&quot; class=&quot;headerlink&quot; title=&quot;以上&quot;&gt;&lt;/a&gt;以上&lt;/h3&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Surge 是基于 iOS 9 的新特性 Network Extension 开发的一款网络调试工具，工作原理是使用 Packet Tunnel Provider 给系统套上一个代理，Surge 有两个主要组件：Surge 代理服务器和 Surge TUN 接口。程序运行之后，Surge 会将自身设置为默认的 HTTP/HTTPS 代理服务器来处理所有的 HTTP/HTTPS 流量。针对一些不服从系统代理设置（如 Mail.app ）的应用程序 ，将由 Surge 的 TUN 接口来进行处理。&lt;/p&gt;
-&lt;p&gt;Surge 会接管全局的（几乎）所有通信，所以所有网络方面的电量消耗都会被算在 Surge 头上，实际上 Surge 的运行功耗很少，使用中也不会感到 Surge 对电量有明显影响。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;详细介绍可参见-Surge-新手使用指南。&quot;&gt;&lt;a href=&quot;#详细介绍可参见-Surge-新手使用指南。&quot; class=&quot;headerlink&quot; title=&quot;详细介绍可参见 Surge 新手使用指南。&quot;&gt;&lt;/a&gt;详细介绍可参见 &lt;a href=&quot;https://medium.com/@scomper/surge-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-a1533c10e80b#.67ktys44j&quot;&gt;Surge 新手使用指南&lt;/a&gt;。&lt;/h4&gt;&lt;h3 id=&quot;本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。&quot;&gt;&lt;a href=&quot;#本文主要测试爱奇艺客户端在-Surge-作用下的广告屏蔽作用。&quot; class=&quot;headerlink&quot; title=&quot;本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。&quot;&gt;&lt;/a&gt;本文主要测试爱奇艺客户端在 Surge 作用下的广告屏蔽作用。&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="技巧" scheme="http://henrydong.com/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
