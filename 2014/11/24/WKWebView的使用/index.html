@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>WKWebView的使用 | Henry Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
+  <meta name="description" content="在WWDC 2014中，苹果推出了最新的 iOS8 系统，其中也伴随着很多控件的更新与升级。其中全新的WebKit库让人很是兴奋。本文也将讲解到WebKit中更新的WKWebView控件的新特性与使用方法，它很好的解决了UIWebView存在的内存、加载速度等诸多问题。
+
+WKWebView新特性在性能、稳定性、功能方面有很大提升（最直观的体现就是加载网页是占用的内存，模拟器加载百度与开源中国网站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WKWebView的使用">
+<meta property="og:url" content="http://henrydong.com/2014/11/24/WKWebView的使用/index.html">
+<meta property="og:site_name" content="Henry Blog">
+<meta property="og:description" content="在WWDC 2014中，苹果推出了最新的 iOS8 系统，其中也伴随着很多控件的更新与升级。其中全新的WebKit库让人很是兴奋。本文也将讲解到WebKit中更新的WKWebView控件的新特性与使用方法，它很好的解决了UIWebView存在的内存、加载速度等诸多问题。
+
+WKWebView新特性在性能、稳定性、功能方面有很大提升（最直观的体现就是加载网页是占用的内存，模拟器加载百度与开源中国网站">
+<meta property="og:updated_time" content="2016-03-24T11:45:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WKWebView的使用">
+<meta name="twitter:description" content="在WWDC 2014中，苹果推出了最新的 iOS8 系统，其中也伴随着很多控件的更新与升级。其中全新的WebKit库让人很是兴奋。本文也将讲解到WebKit中更新的WKWebView控件的新特性与使用方法，它很好的解决了UIWebView存在的内存、加载速度等诸多问题。
+
+WKWebView新特性在性能、稳定性、功能方面有很大提升（最直观的体现就是加载网页是占用的内存，模拟器加载百度与开源中国网站">
+  
+    <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xq720.com1.z0.glb.clouddn.com/0762093864174.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Henry Dong</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">瀚林同学。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/guestbook">留言板</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hanlindong" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="http://henrydong.com/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/dong-han-lin-68" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="mailto:henrydong.chn@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/OSX/" style="font-size: 15px;">OSX</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/娱乐/" style="font-size: 10px;">娱乐</a> <a href="/tags/技巧/" style="font-size: 17.5px;">技巧</a> <a href="/tags/效率/" style="font-size: 12.5px;">效率</a> <a href="/tags/生物/" style="font-size: 10px;">生物</a> <a href="/tags/福利/" style="font-size: 10px;">福利</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/闲谈/" style="font-size: 10px;">闲谈</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">北京化工大学12级生物工程在读。此为博客一枚。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Henry Dong</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xq720.com1.z0.glb.clouddn.com/0762093864174.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Henry Dong</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">瀚林同学。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/guestbook">留言板</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/hanlindong" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="http://henrydong.com/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/dong-han-lin-68" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="mailto:henrydong.chn@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-WKWebView的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/24/WKWebView的使用/" class="article-date">
+  	<time datetime="2014-11-24T11:24:36.000Z" itemprop="datePublished">2014-11-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WKWebView的使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>在WWDC 2014中，苹果推出了最新的 iOS8 系统，其中也伴随着很多控件的更新与升级。其中全新的WebKit库让人很是兴奋。本文也将讲解到WebKit中更新的WKWebView控件的新特性与使用方法，它很好的解决了UIWebView存在的内存、加载速度等诸多问题。</p>
+</blockquote>
+<h3 id="WKWebView新特性"><a href="#WKWebView新特性" class="headerlink" title="WKWebView新特性"></a>WKWebView新特性</h3><p>在性能、稳定性、功能方面有很大提升（最直观的体现就是加载网页是占用的内存，模拟器加载百度与开源中国网站时，WKWebView占用23M，而UIWebView占用85M）。</p>
+<p>允许JavaScript的Nitro库加载并使用（UIWebView中限制）。</p>
+<p>支持了更多的HTML5特性。</p>
+<p>高达60fps的滚动刷新率以及内置手势。</p>
+<p>将UIWebViewDelegate与UIWebView重构成了14类与3个协议。<br><a id="more"></a></p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><h4 id="1-首先需要引入WebKit库"><a href="#1-首先需要引入WebKit库" class="headerlink" title="1.首先需要引入WebKit库:"></a>1.首先需要引入WebKit库:</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;WebKit/WebKit.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="2-初始化方法分为以下两种"><a href="#2-初始化方法分为以下两种" class="headerlink" title="2.初始化方法分为以下两种:"></a>2.初始化方法分为以下两种:</h4><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 默认初始化</span><br><span class="line"><span class="pp">- <span class="params">(instancetype)</span>initWithFrame:<span class="params">(<span class="variable">CGRect</span>)</span>frame;</span><br><span class="line"></span><br><span class="line">// 根据对webview的相关配置，进行初始化</span><br><span class="line">- <span class="params">(instancetype)</span>initWithFrame:<span class="params">(<span class="variable">CGRect</span>)</span>frame configuration:<span class="params">(<span class="variable">WKWebViewConfiguration</span> *)</span>configuration NS_DESIGNATED_INITIALIZER;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-加载网页与HTML代码的方式与UIWebView相同"><a href="#3-加载网页与HTML代码的方式与UIWebView相同" class="headerlink" title="3.加载网页与HTML代码的方式与UIWebView相同:"></a>3.加载网页与HTML代码的方式与UIWebView相同:</h4><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="name">WKWebView</span> *<span class="atom">webView</span> = [[<span class="name">WKWebView</span> <span class="atom">alloc</span>] <span class="atom">initWithFrame</span>:<span class="atom">self</span>.<span class="atom">view</span>.<span class="atom">bounds</span>];</span><br><span class="line">[<span class="atom">webView</span> <span class="atom">loadRequest</span>:[<span class="name">NSURLRequest</span> <span class="atom">requestWithURL</span>:[<span class="name">NSURL</span> <span class="name">URLWithString</span>:@<span class="string">"http://www.baidu.com"</span>]]];</span><br><span class="line">[<span class="atom">self</span>.<span class="atom">view</span> <span class="atom">addSubview</span>:<span class="atom">webView</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="WKWebView的代理方法"><a href="#WKWebView的代理方法" class="headerlink" title="WKWebView的代理方法"></a>WKWebView的代理方法</h3><h4 id="1-WKNavigationDelegate"><a href="#1-WKNavigationDelegate" class="headerlink" title="1.WKNavigationDelegate"></a>1.WKNavigationDelegate</h4><h5 id="该代理提供的方法，可以用来追踪加载过程（页面开始加载、加载完成、加载失败）、决定是否执行跳转。"><a href="#该代理提供的方法，可以用来追踪加载过程（页面开始加载、加载完成、加载失败）、决定是否执行跳转。" class="headerlink" title="该代理提供的方法，可以用来追踪加载过程（页面开始加载、加载完成、加载失败）、决定是否执行跳转。"></a>该代理提供的方法，可以用来追踪加载过程（页面开始加载、加载完成、加载失败）、决定是否执行跳转。</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 页面开始加载时调用</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">webView:</span>(WKWebView *)webView <span class="string">didStartProvisionalNavigation:</span>(WKNavigation *)navigation &#123; </span><br><span class="line"> 	<span class="comment">// 类似UIWebView的 -webViewDidStartLoad:  </span></span><br><span class="line">    NSLog(@<span class="string">"didStartProvisionalNavigation"</span>);  </span><br><span class="line">    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 当内容开始返回时调用</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">webView:</span>(WKWebView *)webView <span class="string">didCommitNavigation:</span>(WKNavigation *)navigation;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面加载完成之后调用</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">webView:</span>(WKWebView *)webView <span class="string">didFinishNavigation:</span>(WKNavigation *)navigation &#123; </span><br><span class="line">	<span class="comment">// 类似 UIWebView 的 －webViewDidFinishLoad:  </span></span><br><span class="line">    NSLog(@<span class="string">"didFinishNavigation"</span>);  </span><br><span class="line">    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面加载失败时调用</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">webView:</span>(WKWebView *)webView <span class="string">didFailProvisionalNavigation:</span>(WKNavigation *)navigation;</span><br></pre></td></tr></table></figure>
+<h5 id="页面跳转的代理方法有三种，分为（收到跳转与决定是否跳转两种）"><a href="#页面跳转的代理方法有三种，分为（收到跳转与决定是否跳转两种）" class="headerlink" title="页面跳转的代理方法有三种，分为（收到跳转与决定是否跳转两种）"></a>页面跳转的代理方法有三种，分为（收到跳转与决定是否跳转两种）</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接收到服务器跳转请求之后调用</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">webView:</span>(WKWebView *)webView <span class="string">didReceiveServerRedirectForProvisionalNavigation:</span>(WKNavigation *)navigation;</span><br><span class="line">- </span><br><span class="line"><span class="comment">// 在收到响应后，决定是否跳转，类似 UIWebView - webView: shouldStartLoadWithRequest: navigationType:  </span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">webView:</span>(WKWebView *)webView <span class="string">decidePolicyForNavigationResponse:</span>(WKNavigationResponse *)navigationResponse <span class="string">decisionHandler:</span>(<span class="typename">void</span> (^)(WKNavigationResponsePolicy))decisionHandler;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在发送请求之前，决定是否跳转</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">webView:</span>(WKWebView *)webView <span class="string">decidePolicyForNavigationAction:</span>(WKNavigationAction *)navigationAction <span class="string">decisionHandler:</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-WKUIDelegate"><a href="#2-WKUIDelegate" class="headerlink" title="2.WKUIDelegate"></a>2.WKUIDelegate</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个新的WebView</span></span><br><span class="line">- (WKWebView *)<span class="string">webView:</span>(WKWebView *)webView <span class="string">createWebViewWithConfiguration:</span>(WKWebViewConfiguration *)configuration <span class="string">forNavigationAction:</span>(WKNavigationAction *)navigationAction <span class="string">windowFeatures:</span>(WKWindowFeatures *)windowFeatures&#123;</span><br><span class="line">     <span class="comment">// 接口的作用是打开新窗口委托  </span></span><br><span class="line">     [self <span class="string">createNewWebViewWithURL:</span>webView.URL.absoluteString <span class="string">config:</span>configuration];  </span><br><span class="line">	 <span class="keyword">return</span> currentSubView.webView;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>剩下三个代理方法全都是与界面弹出提示框相关的，针对于web界面的三种提示框（警告框、确认框、输入框）分别对应三种代理方法。下面只举了警告框的例子。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  web界面中有弹出警告框时调用</span><br><span class="line"> *</span><br><span class="line"> *  <span class="doctag">@param</span> webView           实现该代理的webview</span><br><span class="line"> *  <span class="doctag">@param</span> message           警告框中的内容</span><br><span class="line"> *  <span class="doctag">@param</span> frame             主窗口</span><br><span class="line"> *  <span class="doctag">@param</span> completionHandler 警告框消失调用</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">webView:</span>(WKWebView *)webView <span class="string">runJavaScriptAlertPanelWithMessage:</span>(NSString *)message <span class="string">initiatedByFrame:</span>(<span class="typename">void</span> (^)())completionHandler&#123;    </span><br><span class="line"> 	<span class="comment">// js 里面的alert实现，如果不实现，网页的alert函数无效  </span></span><br><span class="line">    UIAlertController *alertController = [UIAlertController <span class="string">alertControllerWithTitle:</span>message  </span><br><span class="line"><span class="label">                                                                             message:</span>nil  </span><br><span class="line"><span class="label">                                                                      preferredStyle:</span>UIAlertControllerStyleAlert];  </span><br><span class="line">    [alertController <span class="string">addAction:</span>[UIAlertAction <span class="string">actionWithTitle:</span>@<span class="string">"确定"</span>  </span><br><span class="line"><span class="label">                                                        style:</span>UIAlertActionStyleCancel  </span><br><span class="line"><span class="label">                                                      handler:</span>^(UIAlertAction *action) &#123;  </span><br><span class="line">                                                          completionHandler();  </span><br><span class="line">                                                      &#125;]];  </span><br><span class="line">      </span><br><span class="line">    [self <span class="string">presentViewController:</span>alertController <span class="string">animated:</span>YES <span class="string">completion:</span>^&#123;&#125;];  </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">webView:</span>(WKWebView *)webView <span class="string">runJavaScriptTextInputPanelWithPrompt:</span>(NSString *)prompt <span class="string">defaultText:</span>(NSString *)defaultText <span class="string">initiatedByFrame:</span>(WKFrameInfo *)frame <span class="string">completionHandler:</span>(<span class="typename">void</span> (^)(NSString *))completionHandler &#123;  </span><br><span class="line">    completionHandler(@<span class="string">"Client Not handler"</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-WKScriptMessageHandler"><a href="#3-WKScriptMessageHandler" class="headerlink" title="3.WKScriptMessageHandler"></a>3.WKScriptMessageHandler</h4><p>这个协议中包含一个必须实现的方法，这个方法是提高App与web端交互的关键，它可以直接将接收到的JS脚本转为OC或Swift对象。（当然，在UIWebView也可以通过“曲线救国”的方式与web进行交互，著名的Cordova框架就是这种机制）</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从web界面中接收到一个脚本时调用</span></span><br><span class="line">- (<span class="typename">void</span>)<span class="string">userContentController:</span>(WKUserContentController *)userContentController <span class="string">didReceiveScriptMessage:</span>(WKScriptMessage *)message;</span><br></pre></td></tr></table></figure>
+<h3 id="WKWebView加载JS"><a href="#WKWebView加载JS" class="headerlink" title="WKWebView加载JS"></a>WKWebView加载JS</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 图片缩放的js代码</span></span><br><span class="line">NSString *js = @<span class="string">"var count = document.images.length;for (var i = 0; i &lt; count; i++) &#123;var image = document.images[i];image.style.width=320;&#125;;window.alert('找到' + count + '张图');"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据JS字符串初始化WKUserScript对象</span></span><br><span class="line">WKUserScript *script = [[WKUserScript alloc] <span class="string">initWithSource:</span>js <span class="string">injectionTime:</span>WKUserScriptInjectionTimeAtDocumentEnd <span class="string">forMainFrameOnly:</span>YES];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据生成的WKUserScript对象，初始化WKWebViewConfiguration</span></span><br><span class="line">WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];</span><br><span class="line">[config.userContentController <span class="string">addUserScript:</span>script];</span><br><span class="line">_webView = [[WKWebView alloc] <span class="string">initWithFrame:</span>self.view.bounds <span class="string">configuration:</span>config];</span><br><span class="line">[_webView <span class="string">loadHTMLString:</span>@<span class="string">"&lt;head&gt;&lt;/head&gt;&lt;img src='http://www.nsu.edu.cn/v/2014v3/img/background/3.jpg' /&gt;"</span><span class="string">baseURL:</span>nil];</span><br><span class="line">[self.view <span class="string">addSubview:</span>_webView];</span><br></pre></td></tr></table></figure>
+<h3 id="WKWebView-执行脚本方法"><a href="#WKWebView-执行脚本方法" class="headerlink" title="WKWebView 执行脚本方法"></a>WKWebView 执行脚本方法</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)evaluateJavaScript:(<span class="built_in">NSString</span> *)javaScriptString completionHandler:(<span class="keyword">void</span> (^)(<span class="keyword">id</span>, <span class="built_in">NSError</span> *))completionHandler;</span><br></pre></td></tr></table></figure>
+<p>completionHandler 拥有两个参数，一个是返回错误，一个可以返回执行脚本后的返回值。</p>
+<h3 id="WKWebView-的Cookie问题"><a href="#WKWebView-的Cookie问题" class="headerlink" title="WKWebView 的Cookie问题"></a>WKWebView 的Cookie问题</h3><p>UIWebView 中会自动保存Cookie，如果登录了一次，下次再次进入的时候，会记住登录状态。</p>
+<p>而在WKWebView中，并不会这样，WKWebView在初始化的时候有一个方法:</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="pp">- <span class="params">(instancetype)</span>initWithFrame:<span class="params">(<span class="variable">CGRect</span>)</span>frame configuration:<span class="params">(<span class="variable">WKWebViewConfiguration</span> *)</span>configuration</span></span><br></pre></td></tr></table></figure>
+<p>通过这个方法，设置 configuration 让WKWebView知道登录状态，configuration 可以通过已有的Cookie进行设置，也可以通过保存上一次的configuration进行设置。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">WKWebView * webView = <span class="comment">/*set up your webView*/</span>  </span><br><span class="line">NSMutableURLRequest * request = [NSMutableURLRequest <span class="string">requestWithURL:</span>[NSURL <span class="string">URLWithString:</span>@<span class="string">"http://example.com/index.html"</span>]];  </span><br><span class="line">[request <span class="string">addValue:</span>@<span class="string">"TeskCookieKey1=TeskCookieValue1;TeskCookieKey2=TeskCookieValue2;"</span> <span class="string">forHTTPHeaderField:</span>@<span class="string">"Cookie"</span>];  </span><br><span class="line"><span class="comment">// use stringWithFormat: in the above line to inject your values programmatically  </span></span><br><span class="line">[webView <span class="string">loadRequest:</span>request];</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">WKUserContentController* userContentController = WKUserContentController.<span class="keyword">new</span>;  </span><br><span class="line">WKUserScript * cookieScript = [[WKUserScript alloc]   </span><br><span class="line"><span class="label">    initWithSource:</span> @<span class="string">"document.cookie = 'TeskCookieKey1=TeskCookieValue1';document.cookie = 'TeskCookieKey2=TeskCookieValue2';"</span>  </span><br><span class="line"><span class="label">    injectionTime:</span>WKUserScriptInjectionTimeAtDocumentStart <span class="string">forMainFrameOnly:</span>NO];  </span><br><span class="line"><span class="comment">// again, use stringWithFormat: in the above line to inject your values programmatically  </span></span><br><span class="line">[userContentController <span class="string">addUserScript:</span>cookieScript];  </span><br><span class="line">WKWebViewConfiguration* webViewConfig = WKWebViewConfiguration.<span class="keyword">new</span>;  </span><br><span class="line">webViewConfig.userContentController = userContentController;  </span><br><span class="line">WKWebView * webView = [[WKWebView alloc] <span class="string">initWithFrame:</span>CGRectMake(<span class="comment">/*set your values*/</span>) <span class="string">configuration:</span>webViewConfig];</span><br></pre></td></tr></table></figure>
+<h3 id="关于JS的加载或WebView的其他使用技巧，可查看一下文章："><a href="#关于JS的加载或WebView的其他使用技巧，可查看一下文章：" class="headerlink" title="关于JS的加载或WebView的其他使用技巧，可查看一下文章："></a>关于JS的加载或WebView的其他使用技巧，可查看一下文章：</h3><p><a href="http://www.brighttj.com/ios/ios-user-safari-debug-webview.html" target="_blank" rel="external">使用safari对webview进行调试</a></p>
+<p><a href="http://www.brighttj.com/ios/ios-webview-load-html-image-adaptive.html" target="_blank" rel="external">WebView加载HTML图片大小自适应与文章自动换行</a></p>
+<hr>
+<h3 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h3>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/01/18/iBeacon技术/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          iBeacons技术
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/11/22/RunningMan主题音乐/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Running Man 角色音乐</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="WKWebView的使用" data-title="WKWebView的使用" data-url="http://henrydong.com/2014/11/24/WKWebView的使用/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"henrydong"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Henry Dong
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Henry
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
