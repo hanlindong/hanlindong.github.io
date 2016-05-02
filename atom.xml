@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://henrydong.com/"/>
-  <updated>2016-05-02T06:27:41.000Z</updated>
+  <updated>2016-05-02T06:28:35.000Z</updated>
   <id>http://henrydong.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>OSX 中的 QuickLook 文件预览</title>
+    <title>OS X 中的 Quick Look 文件预览</title>
     <link href="http://henrydong.com/2016/05/02/QuickLook%E6%96%87%E4%BB%B6%E9%A2%84%E8%A7%88/"/>
     <id>http://henrydong.com/2016/05/02/QuickLook文件预览/</id>
     <published>2016-05-02T06:16:08.000Z</published>
-    <updated>2016-05-02T06:27:41.000Z</updated>
+    <updated>2016-05-02T06:28:35.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;QuickLook（快速预览）首次出现在 Mac OS X 10.5 中，这个功能让用户可以在不打开相应的软件的情况下，按下空格键即可快速预览文件内容，这个 Mac OS X 特性，因为它的简单和高效使得这个功能被使用很广泛。&lt;/p&gt;
