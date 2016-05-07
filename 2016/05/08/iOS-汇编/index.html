@@ -4,47 +4,22 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>运用UIKit Dynamics实现小球碰撞效果 | Henry Blog</title>
+  <title>iOS main函数汇编 | Henry Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="http://henrydong.com/img/favicon.ico" media="screen" />
-  <meta name="description" content="先来看一下效果
-
-我们先来分析一下需要哪些行为。
-
-首先要创建五个小球，为各个小球添加手势。
-
-然后初始化UIDynamicBehavior，设置锚点(蓝色小方块即为锚点)、重力、碰撞行为、碰撞参数等。 
-
-为小球添加UIDynamicBehavior。">
+  <meta name="description" content="本文初步涉及汇编相关：0x2730:  pushl  $0  （ 将出错码入栈）当异常发生时，如果控制单元没有自动地把一个硬件错误代码插入到栈中，相应的汇编语言片段会包含一条pushl $0指令，在栈中垫上一个空值,如果错误码已经被压入堆栈,则没有这条指令。然后，把异常处理函数的地址压进栈中；函数的名字由异常处理程序名与do_前缀组成 
+0x2732:  movl   %esp, %ebp栈指址（">
 <meta property="og:type" content="article">
-<meta property="og:title" content="运用UIKit Dynamics实现小球碰撞效果">
-<meta property="og:url" content="http://henrydong.com/2016/01/18/运用UIKit-Dynamics实现小球碰撞效果/index.html">
+<meta property="og:title" content="iOS main函数汇编">
+<meta property="og:url" content="http://henrydong.com/2016/05/08/iOS-汇编/index.html">
 <meta property="og:site_name" content="Henry Blog">
-<meta property="og:description" content="先来看一下效果
-
-我们先来分析一下需要哪些行为。
-
-首先要创建五个小球，为各个小球添加手势。
-
-然后初始化UIDynamicBehavior，设置锚点(蓝色小方块即为锚点)、重力、碰撞行为、碰撞参数等。 
-
-为小球添加UIDynamicBehavior。">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/1.gif">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic1.png">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic2.png">
-<meta property="og:image" content="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic3.png">
-<meta property="og:updated_time" content="2016-01-18T00:40:05.000Z">
+<meta property="og:description" content="本文初步涉及汇编相关：0x2730:  pushl  $0  （ 将出错码入栈）当异常发生时，如果控制单元没有自动地把一个硬件错误代码插入到栈中，相应的汇编语言片段会包含一条pushl $0指令，在栈中垫上一个空值,如果错误码已经被压入堆栈,则没有这条指令。然后，把异常处理函数的地址压进栈中；函数的名字由异常处理程序名与do_前缀组成 
+0x2732:  movl   %esp, %ebp栈指址（">
+<meta property="og:updated_time" content="2016-05-07T16:52:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="运用UIKit Dynamics实现小球碰撞效果">
-<meta name="twitter:description" content="先来看一下效果
-
-我们先来分析一下需要哪些行为。
-
-首先要创建五个小球，为各个小球添加手势。
-
-然后初始化UIDynamicBehavior，设置锚点(蓝色小方块即为锚点)、重力、碰撞行为、碰撞参数等。 
-
-为小球添加UIDynamicBehavior。">
+<meta name="twitter:title" content="iOS main函数汇编">
+<meta name="twitter:description" content="本文初步涉及汇编相关：0x2730:  pushl  $0  （ 将出错码入栈）当异常发生时，如果控制单元没有自动地把一个硬件错误代码插入到栈中，相应的汇编语言片段会包含一条pushl $0指令，在栈中垫上一个空值,如果错误码已经被压入堆栈,则没有这条指令。然后，把异常处理函数的地址压进栈中；函数的名字由异常处理程序名与do_前缀组成 
+0x2732:  movl   %esp, %ebp栈指址（">
   
     <link rel="alternative" href="/atom.xml" title="Henry Blog" type="application/atom+xml">
   
@@ -213,11 +188,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-运用UIKit-Dynamics实现小球碰撞效果" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOS-汇编" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/18/运用UIKit-Dynamics实现小球碰撞效果/" class="article-date">
-  	<time datetime="2016-01-18T00:22:30.000Z" itemprop="datePublished">2016-01-18</time>
+      <a href="/2016/05/08/iOS-汇编/" class="article-date">
+  	<time datetime="2016-05-07T16:49:56.000Z" itemprop="datePublished">2016-05-08</time>
 </a>
     </div>
   
@@ -230,7 +205,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      运用UIKit Dynamics实现小球碰撞效果
+      iOS main函数汇编
     </h1>
   
 
@@ -250,24 +225,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="先来看一下效果"><a href="#先来看一下效果" class="headerlink" title="先来看一下效果"></a>先来看一下效果</h3><p><img src="http://7xq720.com1.z0.glb.clouddn.com/1.gif" alt=""></p>
-<ul>
-<li><p>我们先来分析一下需要哪些行为。</p>
-</li>
-<li><p>首先要创建五个小球，为各个小球添加手势。</p>
-</li>
-<li><p>然后初始化UIDynamicBehavior，设置锚点(蓝色小方块即为锚点)、重力、碰撞行为、碰撞参数等。 </p>
-</li>
-<li><p>为小球添加UIDynamicBehavior。</p>
-</li>
-</ul>
+        <h3 id="本文初步涉及汇编相关："><a href="#本文初步涉及汇编相关：" class="headerlink" title="本文初步涉及汇编相关："></a>本文初步涉及汇编相关：</h3><h4 id="0x2730-pushl-0-（-将出错码入栈）"><a href="#0x2730-pushl-0-（-将出错码入栈）" class="headerlink" title="0x2730:  pushl  $0  （ 将出错码入栈）"></a>0x2730:  pushl  $0  （ 将出错码入栈）</h4><p>当异常发生时，如果控制单元没有自动地把一个硬件错误代码插入到栈中，相应的汇编语言片段会包含一条pushl $0指令，在栈中垫上一个空值,如果错误码已经被压入堆栈,则没有这条指令。然后，把异常处理函数的地址压进栈中；函数的名字由异常处理程序名与do_前缀组成 </p>
+<h4 id="0x2732-movl-esp-ebp"><a href="#0x2732-movl-esp-ebp" class="headerlink" title="0x2732:  movl   %esp, %ebp"></a>0x2732:  movl   %esp, %ebp</h4><p>栈指址（低地址）%esp栈顶值赋给栈基址（高地址）%ebp栈底，设置 main函数的栈基址 </p>
+<h4 id="0x2734-andl-16-esp"><a href="#0x2734-andl-16-esp" class="headerlink" title="0x2734:  andl   $-16, %esp"></a>0x2734:  andl   $-16, %esp</h4><p>等价于 andl $0xfffffff0,%esp,也就是说把%esp内的最后4位给抹掉，强制让%esp的值是16的倍数，GCC默认的堆栈是16字节对齐的，为了加快CPU的访问效率 </p>
 <a id="more"></a>
-<h3 id="创建五个小球，位置等省略掉。"><a href="#创建五个小球，位置等省略掉。" class="headerlink" title="创建五个小球，位置等省略掉。"></a>创建五个小球，位置等省略掉。</h3><h4 id="添加手势"><a href="#添加手势" class="headerlink" title="添加手势"></a>添加手势</h4><p><code>UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleBallBearingPan:)];</code>       </p>
-<p><img src="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic1.png" alt=""></p>
-<h4 id="创建行为"><a href="#创建行为" class="headerlink" title="创建行为"></a>创建行为</h4><p><img src="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic2.png" alt=""></p>
-<h4 id="行为方法"><a href="#行为方法" class="headerlink" title="行为方法"></a>行为方法</h4><p><img src="http://7xq720.com1.z0.glb.clouddn.com/UIDynamic3.png" alt=""></p>
-<hr>
-<h3 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h3>
+<h4 id="0x2737-subl-16-esp"><a href="#0x2737-subl-16-esp" class="headerlink" title="0x2737:  subl   $16, %esp"></a>0x2737:  subl   $16, %esp</h4><p>%esp栈顶向下移动16个字节，给临时变量留出来 </p>
+<h4 id="0x273a-movl-4-ebp-ebx"><a href="#0x273a-movl-4-ebp-ebx" class="headerlink" title="0x273a:  movl   4(%ebp), %ebx"></a>0x273a:  movl   4(%ebp), %ebx</h4><p>保存旧的栈基址,4(%ebp)等于 : (%ebp +4) ,%ebp + 4<br>表示一个地址值，加上括号表示存储在该地址上的内容 </p>
+<h4 id="0x273d-movl-ebx-esp"><a href="#0x273d-movl-ebx-esp" class="headerlink" title="0x273d:  movl   %ebx, (%esp)"></a>0x273d:  movl   %ebx, (%esp)</h4><p>复制对齐的指针 ,把%ebx的值写到栈顶，但不会使栈指针值发生变化 </p>
+<h4 id="0x2740-leal-8-ebp-ecx"><a href="#0x2740-leal-8-ebp-ecx" class="headerlink" title="0x2740:  leal   8(%ebp), %ecx"></a>0x2740:  leal   8(%ebp), %ecx</h4><p>局部变量的地址直到程序运行才能被识别,必须用leal指令寻址。但leal的效率相对movl xxx要低得多  ,传送%ebp+8的地址写到%ecx寄存器 </p>
+<h4 id="0x2743-movl-ecx-4-esp"><a href="#0x2743-movl-ecx-4-esp" class="headerlink" title="0x2743:  movl   %ecx, 4(%esp)"></a>0x2743:  movl   %ecx, 4(%esp)</h4><p>把%ecx的值写到%esp+4 </p>
+<h4 id="0x2747-addl-1-ebx"><a href="#0x2747-addl-1-ebx" class="headerlink" title="0x2747:  addl   $1, %ebx"></a>0x2747:  addl   $1, %ebx</h4><p>%ebx＋1 </p>
+<h4 id="0x274a-shll-2-ebx"><a href="#0x274a-shll-2-ebx" class="headerlink" title="0x274a:  shll   $2, %ebx"></a>0x274a:  shll   $2, %ebx</h4><p>%ebx 左移2位 </p>
+<h4 id="0x274d-addl-ecx-ebx"><a href="#0x274d-addl-ecx-ebx" class="headerlink" title="0x274d:  addl   %ecx, %ebx"></a>0x274d:  addl   %ecx, %ebx</h4><p>%ebx＋ %ecx </p>
+<h4 id="0x274f-movl-ebx-8-esp"><a href="#0x274f-movl-ebx-8-esp" class="headerlink" title="0x274f:  movl   %ebx, 8(%esp)"></a>0x274f:  movl   %ebx, 8(%esp)</h4><p>把%ebx值写到％esp＋8 </p>
+<h4 id="0x2753-movl-ebx-eax"><a href="#0x2753-movl-ebx-eax" class="headerlink" title="0x2753:  movl   (%ebx), %eax"></a>0x2753:  movl   (%ebx), %eax</h4><p>把%ebx值写到%eax寄存器 </p>
+<h4 id="0x2755-addl-4-ebx"><a href="#0x2755-addl-4-ebx" class="headerlink" title="0x2755:  addl   $4, %ebx"></a>0x2755:  addl   $4, %ebx</h4><p>%ebx＋4 </p>
+<h4 id="0x2758-testl-eax-eax"><a href="#0x2758-testl-eax-eax" class="headerlink" title="0x2758:  testl  %eax, %eax"></a>0x2758:  testl  %eax, %eax</h4><p>testl的执行会影响状态寄存器。%eax &amp; %eax<br>如果al不为0,则testb %eax , %eax，标志位NZ为1 </p>
+<h4 id="0x275a-jne-0x2753-start-35"><a href="#0x275a-jne-0x2753-start-35" class="headerlink" title="0x275a:  jne    0x2753                    ; start + 35"></a>0x275a:  jne    0x2753                    ; start + 35</h4><p>jne不等于时转移 </p>
+<h4 id="0x275c-movl-ebx-12-esp"><a href="#0x275c-movl-ebx-12-esp" class="headerlink" title="0x275c:  movl   %ebx, 12(%esp)"></a>0x275c:  movl   %ebx, 12(%esp)</h4><p>把％ebx值写到%esp＋12 </p>
+<h4 id="0x2760-calll-0x27b0-main-at-main-m-14"><a href="#0x2760-calll-0x27b0-main-at-main-m-14" class="headerlink" title="0x2760:  calll  0x27b0                    ; main at main.m:14"></a>0x2760:  calll  0x27b0                    ; main at main.m:14</h4><p>calll 将当前的IP压栈后，转到标号处执行指令<br>调用0x27b0标示的程序 </p>
+<h4 id="0x2765-movl-eax-esp"><a href="#0x2765-movl-eax-esp" class="headerlink" title="0x2765:  movl   %eax, (%esp)"></a>0x2765:  movl   %eax, (%esp)</h4><p>把％eax值写到%esp </p>
+<h4 id="0x2768-calll-0xb2db6-symbol-stub-for-exit"><a href="#0x2768-calll-0xb2db6-symbol-stub-for-exit" class="headerlink" title="0x2768:  calll  0xb2db6; symbol stub for: exit"></a>0x2768:  calll  0xb2db6; symbol stub for: exit</h4><p>调用0xb2db6标示的程序 </p>
+<h4 id="0x276d-hlt"><a href="#0x276d-hlt" class="headerlink" title="0x276d:  hlt"></a>0x276d:  hlt</h4><p>cpu暂停，等到有复位信号或中断信号输入再运行 </p>
+<h4 id="0x276e-nop"><a href="#0x276e-nop" class="headerlink" title="0x276e:  nop"></a>0x276e:  nop</h4><p>空指令，就是让cpu等待一个周期，可能等待外设输入<br>0x276f:  nop  </p>
+
       
     </div>
     
@@ -276,18 +257,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/18/提取酵母DNA/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          提取酵母DNA
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/17/OS-X-Automator与快捷键配合实现高效工作流/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">OS X Automator与快捷键配合实现高效工作流</div>
+    <a href="/2016/05/02/QuickLook文件预览/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OS X 中的 Quick Look 文件预览</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -322,7 +294,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="运用UIKit-Dynamics实现小球碰撞效果" data-title="运用UIKit Dynamics实现小球碰撞效果" data-url="http://henrydong.com/2016/01/18/运用UIKit-Dynamics实现小球碰撞效果/"></div>
+	<div class="ds-thread" data-thread-key="iOS-汇编" data-title="iOS main函数汇编" data-url="http://henrydong.com/2016/05/08/iOS-汇编/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

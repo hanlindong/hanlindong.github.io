@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://henrydong.com/"/>
-  <updated>2016-05-02T06:28:35.000Z</updated>
+  <updated>2016-05-07T16:52:14.000Z</updated>
   <id>http://henrydong.com/</id>
   
   <author>
@@ -14,6 +14,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS main函数汇编</title>
+    <link href="http://henrydong.com/2016/05/08/iOS-%E6%B1%87%E7%BC%96/"/>
+    <id>http://henrydong.com/2016/05/08/iOS-汇编/</id>
+    <published>2016-05-07T16:49:56.000Z</published>
+    <updated>2016-05-07T16:52:14.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;本文初步涉及汇编相关：&quot;&gt;&lt;a href=&quot;#本文初步涉及汇编相关：&quot; class=&quot;headerlink&quot; title=&quot;本文初步涉及汇编相关：&quot;&gt;&lt;/a&gt;本文初步涉及汇编相关：&lt;/h3&gt;&lt;h4 id=&quot;0x2730-pushl-0-（-将出错码入栈）&quot;&gt;&lt;a href=&quot;#0x2730-pushl-0-（-将出错码入栈）&quot; class=&quot;headerlink&quot; title=&quot;0x2730:  pushl  $0  （ 将出错码入栈）&quot;&gt;&lt;/a&gt;0x2730:  pushl  $0  （ 将出错码入栈）&lt;/h4&gt;&lt;p&gt;当异常发生时，如果控制单元没有自动地把一个硬件错误代码插入到栈中，相应的汇编语言片段会包含一条pushl $0指令，在栈中垫上一个空值,如果错误码已经被压入堆栈,则没有这条指令。然后，把异常处理函数的地址压进栈中；函数的名字由异常处理程序名与do_前缀组成 &lt;/p&gt;
+&lt;h4 id=&quot;0x2732-movl-esp-ebp&quot;&gt;&lt;a href=&quot;#0x2732-movl-esp-ebp&quot; class=&quot;headerlink&quot; title=&quot;0x2732:  movl   %esp, %ebp&quot;&gt;&lt;/a&gt;0x2732:  movl   %esp, %ebp&lt;/h4&gt;&lt;p&gt;栈指址（低地址）%esp栈顶值赋给栈基址（高地址）%ebp栈底，设置 main函数的栈基址 &lt;/p&gt;
+&lt;h4 id=&quot;0x2734-andl-16-esp&quot;&gt;&lt;a href=&quot;#0x2734-andl-16-esp&quot; class=&quot;headerlink&quot; title=&quot;0x2734:  andl   $-16, %esp&quot;&gt;&lt;/a&gt;0x2734:  andl   $-16, %esp&lt;/h4&gt;&lt;p&gt;等价于 andl $0xfffffff0,%esp,也就是说把%esp内的最后4位给抹掉，强制让%esp的值是16的倍数，GCC默认的堆栈是16字节对齐的，为了加快CPU的访问效率 &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;0x2737-subl-16-esp&quot;&gt;&lt;a href=&quot;#0x2737-subl-16-esp&quot; class=&quot;headerlink&quot; title=&quot;0x2737:  subl   $16, %esp&quot;&gt;&lt;/a&gt;0x2737:  subl   $16, %esp&lt;/h4&gt;&lt;p&gt;%esp栈顶向下移动16个字节，给临时变量留出来 &lt;/p&gt;
+&lt;h4 id=&quot;0x273a-movl-4-ebp-ebx&quot;&gt;&lt;a href=&quot;#0x273a-movl-4-ebp-ebx&quot; class=&quot;headerlink&quot; title=&quot;0x273a:  movl   4(%ebp), %ebx&quot;&gt;&lt;/a&gt;0x273a:  movl   4(%ebp), %ebx&lt;/h4&gt;&lt;p&gt;保存旧的栈基址,4(%ebp)等于 : (%ebp +4) ,%ebp + 4&lt;br&gt;表示一个地址值，加上括号表示存储在该地址上的内容 &lt;/p&gt;
+&lt;h4 id=&quot;0x273d-movl-ebx-esp&quot;&gt;&lt;a href=&quot;#0x273d-movl-ebx-esp&quot; class=&quot;headerlink&quot; title=&quot;0x273d:  movl   %ebx, (%esp)&quot;&gt;&lt;/a&gt;0x273d:  movl   %ebx, (%esp)&lt;/h4&gt;&lt;p&gt;复制对齐的指针 ,把%ebx的值写到栈顶，但不会使栈指针值发生变化 &lt;/p&gt;
+&lt;h4 id=&quot;0x2740-leal-8-ebp-ecx&quot;&gt;&lt;a href=&quot;#0x2740-leal-8-ebp-ecx&quot; class=&quot;headerlink&quot; title=&quot;0x2740:  leal   8(%ebp), %ecx&quot;&gt;&lt;/a&gt;0x2740:  leal   8(%ebp), %ecx&lt;/h4&gt;&lt;p&gt;局部变量的地址直到程序运行才能被识别,必须用leal指令寻址。但leal的效率相对movl xxx要低得多  ,传送%ebp+8的地址写到%ecx寄存器 &lt;/p&gt;
+&lt;h4 id=&quot;0x2743-movl-ecx-4-esp&quot;&gt;&lt;a href=&quot;#0x2743-movl-ecx-4-esp&quot; class=&quot;headerlink&quot; title=&quot;0x2743:  movl   %ecx, 4(%esp)&quot;&gt;&lt;/a&gt;0x2743:  movl   %ecx, 4(%esp)&lt;/h4&gt;&lt;p&gt;把%ecx的值写到%esp+4 &lt;/p&gt;
+&lt;h4 id=&quot;0x2747-addl-1-ebx&quot;&gt;&lt;a href=&quot;#0x2747-addl-1-ebx&quot; class=&quot;headerlink&quot; title=&quot;0x2747:  addl   $1, %ebx&quot;&gt;&lt;/a&gt;0x2747:  addl   $1, %ebx&lt;/h4&gt;&lt;p&gt;%ebx＋1 &lt;/p&gt;
+&lt;h4 id=&quot;0x274a-shll-2-ebx&quot;&gt;&lt;a href=&quot;#0x274a-shll-2-ebx&quot; class=&quot;headerlink&quot; title=&quot;0x274a:  shll   $2, %ebx&quot;&gt;&lt;/a&gt;0x274a:  shll   $2, %ebx&lt;/h4&gt;&lt;p&gt;%ebx 左移2位 &lt;/p&gt;
+&lt;h4 id=&quot;0x274d-addl-ecx-ebx&quot;&gt;&lt;a href=&quot;#0x274d-addl-ecx-ebx&quot; class=&quot;headerlink&quot; title=&quot;0x274d:  addl   %ecx, %ebx&quot;&gt;&lt;/a&gt;0x274d:  addl   %ecx, %ebx&lt;/h4&gt;&lt;p&gt;%ebx＋ %ecx &lt;/p&gt;
+&lt;h4 id=&quot;0x274f-movl-ebx-8-esp&quot;&gt;&lt;a href=&quot;#0x274f-movl-ebx-8-esp&quot; class=&quot;headerlink&quot; title=&quot;0x274f:  movl   %ebx, 8(%esp)&quot;&gt;&lt;/a&gt;0x274f:  movl   %ebx, 8(%esp)&lt;/h4&gt;&lt;p&gt;把%ebx值写到％esp＋8 &lt;/p&gt;
+&lt;h4 id=&quot;0x2753-movl-ebx-eax&quot;&gt;&lt;a href=&quot;#0x2753-movl-ebx-eax&quot; class=&quot;headerlink&quot; title=&quot;0x2753:  movl   (%ebx), %eax&quot;&gt;&lt;/a&gt;0x2753:  movl   (%ebx), %eax&lt;/h4&gt;&lt;p&gt;把%ebx值写到%eax寄存器 &lt;/p&gt;
+&lt;h4 id=&quot;0x2755-addl-4-ebx&quot;&gt;&lt;a href=&quot;#0x2755-addl-4-ebx&quot; class=&quot;headerlink&quot; title=&quot;0x2755:  addl   $4, %ebx&quot;&gt;&lt;/a&gt;0x2755:  addl   $4, %ebx&lt;/h4&gt;&lt;p&gt;%ebx＋4 &lt;/p&gt;
+&lt;h4 id=&quot;0x2758-testl-eax-eax&quot;&gt;&lt;a href=&quot;#0x2758-testl-eax-eax&quot; class=&quot;headerlink&quot; title=&quot;0x2758:  testl  %eax, %eax&quot;&gt;&lt;/a&gt;0x2758:  testl  %eax, %eax&lt;/h4&gt;&lt;p&gt;testl的执行会影响状态寄存器。%eax &amp;amp; %eax&lt;br&gt;如果al不为0,则testb %eax , %eax，标志位NZ为1 &lt;/p&gt;
+&lt;h4 id=&quot;0x275a-jne-0x2753-start-35&quot;&gt;&lt;a href=&quot;#0x275a-jne-0x2753-start-35&quot; class=&quot;headerlink&quot; title=&quot;0x275a:  jne    0x2753                    ; start + 35&quot;&gt;&lt;/a&gt;0x275a:  jne    0x2753                    ; start + 35&lt;/h4&gt;&lt;p&gt;jne不等于时转移 &lt;/p&gt;
+&lt;h4 id=&quot;0x275c-movl-ebx-12-esp&quot;&gt;&lt;a href=&quot;#0x275c-movl-ebx-12-esp&quot; class=&quot;headerlink&quot; title=&quot;0x275c:  movl   %ebx, 12(%esp)&quot;&gt;&lt;/a&gt;0x275c:  movl   %ebx, 12(%esp)&lt;/h4&gt;&lt;p&gt;把％ebx值写到%esp＋12 &lt;/p&gt;
+&lt;h4 id=&quot;0x2760-calll-0x27b0-main-at-main-m-14&quot;&gt;&lt;a href=&quot;#0x2760-calll-0x27b0-main-at-main-m-14&quot; class=&quot;headerlink&quot; title=&quot;0x2760:  calll  0x27b0                    ; main at main.m:14&quot;&gt;&lt;/a&gt;0x2760:  calll  0x27b0                    ; main at main.m:14&lt;/h4&gt;&lt;p&gt;calll 将当前的IP压栈后，转到标号处执行指令&lt;br&gt;调用0x27b0标示的程序 &lt;/p&gt;
+&lt;h4 id=&quot;0x2765-movl-eax-esp&quot;&gt;&lt;a href=&quot;#0x2765-movl-eax-esp&quot; class=&quot;headerlink&quot; title=&quot;0x2765:  movl   %eax, (%esp)&quot;&gt;&lt;/a&gt;0x2765:  movl   %eax, (%esp)&lt;/h4&gt;&lt;p&gt;把％eax值写到%esp &lt;/p&gt;
+&lt;h4 id=&quot;0x2768-calll-0xb2db6-symbol-stub-for-exit&quot;&gt;&lt;a href=&quot;#0x2768-calll-0xb2db6-symbol-stub-for-exit&quot; class=&quot;headerlink&quot; title=&quot;0x2768:  calll  0xb2db6; symbol stub for: exit&quot;&gt;&lt;/a&gt;0x2768:  calll  0xb2db6; symbol stub for: exit&lt;/h4&gt;&lt;p&gt;调用0xb2db6标示的程序 &lt;/p&gt;
+&lt;h4 id=&quot;0x276d-hlt&quot;&gt;&lt;a href=&quot;#0x276d-hlt&quot; class=&quot;headerlink&quot; title=&quot;0x276d:  hlt&quot;&gt;&lt;/a&gt;0x276d:  hlt&lt;/h4&gt;&lt;p&gt;cpu暂停，等到有复位信号或中断信号输入再运行 &lt;/p&gt;
+&lt;h4 id=&quot;0x276e-nop&quot;&gt;&lt;a href=&quot;#0x276e-nop&quot; class=&quot;headerlink&quot; title=&quot;0x276e:  nop&quot;&gt;&lt;/a&gt;0x276e:  nop&lt;/h4&gt;&lt;p&gt;空指令，就是让cpu等待一个周期，可能等待外设输入&lt;br&gt;0x276f:  nop  &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;本文初步涉及汇编相关：&quot;&gt;&lt;a href=&quot;#本文初步涉及汇编相关：&quot; class=&quot;headerlink&quot; title=&quot;本文初步涉及汇编相关：&quot;&gt;&lt;/a&gt;本文初步涉及汇编相关：&lt;/h3&gt;&lt;h4 id=&quot;0x2730-pushl-0-（-将出错码入栈）&quot;&gt;&lt;a href=&quot;#0x2730-pushl-0-（-将出错码入栈）&quot; class=&quot;headerlink&quot; title=&quot;0x2730:  pushl  $0  （ 将出错码入栈）&quot;&gt;&lt;/a&gt;0x2730:  pushl  $0  （ 将出错码入栈）&lt;/h4&gt;&lt;p&gt;当异常发生时，如果控制单元没有自动地把一个硬件错误代码插入到栈中，相应的汇编语言片段会包含一条pushl $0指令，在栈中垫上一个空值,如果错误码已经被压入堆栈,则没有这条指令。然后，把异常处理函数的地址压进栈中；函数的名字由异常处理程序名与do_前缀组成 &lt;/p&gt;
+&lt;h4 id=&quot;0x2732-movl-esp-ebp&quot;&gt;&lt;a href=&quot;#0x2732-movl-esp-ebp&quot; class=&quot;headerlink&quot; title=&quot;0x2732:  movl   %esp, %ebp&quot;&gt;&lt;/a&gt;0x2732:  movl   %esp, %ebp&lt;/h4&gt;&lt;p&gt;栈指址（低地址）%esp栈顶值赋给栈基址（高地址）%ebp栈底，设置 main函数的栈基址 &lt;/p&gt;
+&lt;h4 id=&quot;0x2734-andl-16-esp&quot;&gt;&lt;a href=&quot;#0x2734-andl-16-esp&quot; class=&quot;headerlink&quot; title=&quot;0x2734:  andl   $-16, %esp&quot;&gt;&lt;/a&gt;0x2734:  andl   $-16, %esp&lt;/h4&gt;&lt;p&gt;等价于 andl $0xfffffff0,%esp,也就是说把%esp内的最后4位给抹掉，强制让%esp的值是16的倍数，GCC默认的堆栈是16字节对齐的，为了加快CPU的访问效率 &lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://henrydong.com/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>OS X 中的 Quick Look 文件预览</title>
@@ -1337,249 +1382,6 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
     
     
       <category term="技巧" scheme="http://henrydong.com/tags/%E6%8A%80%E5%B7%A7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一些知名App用到的第三方库汇总</title>
-    <link href="http://henrydong.com/2016/01/17/%E4%B8%80%E4%BA%9B%E7%9F%A5%E5%90%8DApp%E7%94%A8%E5%88%B0%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E6%B1%87%E6%80%BB/"/>
-    <id>http://henrydong.com/2016/01/17/一些知名App用到的第三方库汇总/</id>
-    <published>2016-01-16T23:51:48.000Z</published>
-    <updated>2016-01-17T02:19:47.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;看到几个喜欢的App里面都有一个专门的页面列出了App中用到的相关的第三方开源库，以此来表示对开源社区和作者的敬意，同时也可以让对该App实现方式感兴趣的同学可以学下到相应地实现方法。于是顺手就整合了下按照App把开源库列了出来，方便日后查看，同时也向这几个App的作者表达下敬意。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;1、Overcast&lt;br&gt;Overcast 是大名鼎鼎的 Instapaper 的开发者 Marco Arment 制作的第三方 Podcast 客户端 。&lt;/p&gt;
-&lt;p&gt;FMDB&lt;/p&gt;
-&lt;p&gt;TPCircularBuffer&lt;/p&gt;
-&lt;p&gt;FastButton&lt;/p&gt;
-&lt;p&gt;1Password extension&lt;/p&gt;
-&lt;p&gt;FCModel&lt;/p&gt;
-&lt;p&gt;CompactConstraint&lt;/p&gt;
-&lt;p&gt;FCUtilities&lt;/p&gt;
-&lt;p&gt;2、格志&lt;br&gt;格志是一款风格清新，采用九宫格日记的方式，提出问题，你来回答，填充格子来完成高质量的日记的App，而且很不错的是这个团队是在厦门哈！同时，他们也开源了他们自己所用的一些代码库，下面罗列的以SI开头的就是格志开源的第三方库。具体可以看这里Sumi Interactive&lt;/p&gt;
-&lt;p&gt;AFNetworking&lt;/p&gt;
-&lt;p&gt;AVOSCloud&lt;/p&gt;
-&lt;p&gt;CocoaLumberjack&lt;/p&gt;
-&lt;p&gt;DAAppsViewController&lt;/p&gt;
-&lt;p&gt;DAAppsViewController效果图&lt;br&gt;DateTools&lt;/p&gt;
-&lt;p&gt;DateTools说明图&lt;br&gt;DDiCloudSync&lt;/p&gt;
-&lt;p&gt;Dropbox-iOS-SDK&lt;/p&gt;
-&lt;p&gt;EDSunriseSet&lt;/p&gt;
-&lt;p&gt;Ensembles&lt;/p&gt;
-&lt;p&gt;FlurrySDK&lt;/p&gt;
-&lt;p&gt;LXReorderableCollectionViewFlowLayout&lt;/p&gt;
-&lt;p&gt;LXReorderableCollectionViewFlowLayout效果图&lt;br&gt;MagicalRecord&lt;/p&gt;
-&lt;p&gt;Masonry&lt;/p&gt;
-&lt;p&gt;moves-ios-sdk&lt;/p&gt;
-&lt;p&gt;MRProgress&lt;/p&gt;
-&lt;p&gt;MTMigration&lt;/p&gt;
-&lt;p&gt;PDKeychainBindingsController&lt;/p&gt;
-&lt;p&gt;PermKit&lt;/p&gt;
-&lt;p&gt;POViewFrameBuilder&lt;/p&gt;
-&lt;p&gt;ReactiveCocoa&lt;/p&gt;
-&lt;p&gt;Shimmer&lt;/p&gt;
-&lt;p&gt;SIActionSheet&lt;/p&gt;
-&lt;p&gt;SIAlertView&lt;/p&gt;
-&lt;p&gt;SIAlertView效果图&lt;br&gt;SIEvernoteSDK&lt;/p&gt;
-&lt;p&gt;SIPopover&lt;/p&gt;
-&lt;p&gt;SISecondaryWindowRootViewController&lt;/p&gt;
-&lt;p&gt;SIToastView&lt;/p&gt;
-&lt;p&gt;SSKeychain&lt;/p&gt;
-&lt;p&gt;SSZipArchive&lt;/p&gt;
-&lt;p&gt;StaticDataTableViewController&lt;/p&gt;
-&lt;p&gt;TMCache&lt;/p&gt;
-&lt;p&gt;UbiquityStoreManager&lt;/p&gt;
-&lt;p&gt;UIImage-Resize&lt;/p&gt;
-&lt;p&gt;UIView+Shake&lt;/p&gt;
-&lt;p&gt;UIView+Shake效果图&lt;br&gt;Underscore.m&lt;/p&gt;
-&lt;p&gt;uservoice-iphone-sdk&lt;/p&gt;
-&lt;p&gt;VTAcknowledgementsViewController&lt;/p&gt;
-&lt;p&gt;VTAcknowledgementsViewController效果图&lt;br&gt;3、Paper&lt;br&gt;著名的Paper应用绝对的高大上，里面有很多闻所未闻、见所未见的东西，我想要不是特地去看这些东西的话，这辈子我应该是不会碰到这些。这里先推荐一篇之前看到的出自txx’s blog的博文里面有详细的记录了Facebook Paper使用的第三方库。然后看到随着Paper的更新又添加了蛮多的第三方库，所以我在这里又重新列举了一遍，可以说大开眼界啊！&lt;/p&gt;
-&lt;p&gt;Paper用的开源库可以分为两部分，一部分是他们自己实现的随后开源的，另一部分是他们用别人开源的。&lt;/p&gt;
-&lt;p&gt;（1）Paper自己实现的开源库及相关的延伸库：&lt;br&gt;pop ：Paper里面各种炫酷的动画实现引擎，所有的效果都在App中，去下一个Paper吧！别被惊艳的动画吓到了！需要美区账号&lt;/p&gt;
-&lt;p&gt;KVOController：一个简单安全的KVO工具&lt;/p&gt;
-&lt;p&gt;Shimmer：酷炫的Label的效果，可以用于加载等等待提示&lt;/p&gt;
-&lt;p&gt;Shimmer效果图&lt;br&gt;AsyncDisplayKit：这个库能让你通过将图像解码、布局以及渲染操作放在后台线程，从而带来超级响应的用户界面，也就是说不再会因界面卡顿而阻断用户交互&lt;/p&gt;
-&lt;p&gt;AsyncDisplayKit原理图&lt;br&gt;Tweaks：小幅调试 UI&lt;/p&gt;
-&lt;p&gt;Tweaks效果图&lt;br&gt;AGGeometryKit-POP：基于pop的动画库&lt;/p&gt;
-&lt;p&gt;AGGeometryKit-POP效果图&lt;br&gt;popping：pop的Demo项目&lt;/p&gt;
-&lt;p&gt;poping效果图&lt;br&gt;FastAnimationWithPOP：基于pop的动画库&lt;/p&gt;
-&lt;p&gt;FastAnimationWithPop效果图&lt;br&gt;（2）Paper引用的第三方开源库：&lt;br&gt;ACE&lt;/p&gt;
-&lt;p&gt;AFNetworking&lt;/p&gt;
-&lt;p&gt;amdefine&lt;/p&gt;
-&lt;p&gt;apache-cordova&lt;/p&gt;
-&lt;p&gt;Apache Thrift&lt;/p&gt;
-&lt;p&gt;Appirater&lt;/p&gt;
-&lt;p&gt;Reachability&lt;/p&gt;
-&lt;p&gt;AQGridView&lt;/p&gt;
-&lt;p&gt;art&lt;/p&gt;
-&lt;p&gt;asn1&lt;/p&gt;
-&lt;p&gt;assert-plus&lt;/p&gt;
-&lt;p&gt;async&lt;/p&gt;
-&lt;p&gt;aws-sign2&lt;/p&gt;
-&lt;p&gt;base62&lt;/p&gt;
-&lt;p&gt;base64-js&lt;/p&gt;
-&lt;p&gt;bindings&lt;/p&gt;
-&lt;p&gt;bitvect&lt;/p&gt;
-&lt;p&gt;boom&lt;/p&gt;
-&lt;p&gt;Boost&lt;/p&gt;
-&lt;p&gt;boostoniphone&lt;/p&gt;
-&lt;p&gt;bops&lt;/p&gt;
-&lt;p&gt;Breadcrumb&lt;/p&gt;
-&lt;p&gt;breakpad&lt;/p&gt;
-&lt;p&gt;browser-builtins&lt;/p&gt;
-&lt;p&gt;bsdiff&lt;/p&gt;
-&lt;p&gt;buffer-crc32&lt;/p&gt;
-&lt;p&gt;bytes&lt;/p&gt;
-&lt;p&gt;c-ares&lt;/p&gt;
-&lt;p&gt;Chromium&lt;/p&gt;
-&lt;p&gt;cli-table&lt;/p&gt;
-&lt;p&gt;cli&lt;/p&gt;
-&lt;p&gt;CocoaHTTPServer&lt;/p&gt;
-&lt;p&gt;CocoaLumberjack&lt;/p&gt;
-&lt;p&gt;coffee-script&lt;/p&gt;
-&lt;p&gt;colors&lt;/p&gt;
-&lt;p&gt;combined-stream&lt;/p&gt;
-&lt;p&gt;commander&lt;/p&gt;
-&lt;p&gt;concat-stream&lt;/p&gt;
-&lt;p&gt;connect&lt;/p&gt;
-&lt;p&gt;console-browserify&lt;/p&gt;
-&lt;p&gt;constants-browserify&lt;/p&gt;
-&lt;p&gt;contextify&lt;/p&gt;
-&lt;p&gt;convert-source-map&lt;/p&gt;
-&lt;p&gt;cookie-signature&lt;/p&gt;
-&lt;p&gt;cookie&lt;/p&gt;
-&lt;p&gt;core-util-is&lt;/p&gt;
-&lt;p&gt;CoreTextHyperlinkView&lt;/p&gt;
-&lt;p&gt;cover&lt;/p&gt;
-&lt;p&gt;cryptiles&lt;/p&gt;
-&lt;p&gt;crypto-browserify&lt;/p&gt;
-&lt;p&gt;cssom&lt;/p&gt;
-&lt;p&gt;cssstyle&lt;/p&gt;
-&lt;p&gt;ctype&lt;/p&gt;
-&lt;p&gt;d3&lt;/p&gt;
-&lt;p&gt;date-now&lt;/p&gt;
-&lt;p&gt;DCRoundSwitch&lt;/p&gt;
-&lt;p&gt;debug&lt;/p&gt;
-&lt;p&gt;delayed-stream&lt;/p&gt;
-&lt;p&gt;diff&lt;/p&gt;
-&lt;p&gt;domelementtype&lt;/p&gt;
-&lt;p&gt;domhandler&lt;/p&gt;
-&lt;p&gt;domutils&lt;/p&gt;
-&lt;p&gt;DraggableCollectionView&lt;/p&gt;
-&lt;p&gt;DTCoreText&lt;/p&gt;
-&lt;p&gt;EGODatabase&lt;/p&gt;
-&lt;p&gt;EGOTableViewPullRefresh&lt;/p&gt;
-&lt;p&gt;entities&lt;/p&gt;
-&lt;p&gt;es5-shim&lt;/p&gt;
-&lt;p&gt;esprima-fb&lt;/p&gt;
-&lt;p&gt;exit&lt;/p&gt;
-&lt;p&gt;expat C语言的XMLj解析器&lt;/p&gt;
-&lt;p&gt;FFT by Mark Oleson 快速傅里叶变换&lt;/p&gt;
-&lt;p&gt;FFT by Takuya Ooura  WWDC2010 accelerate guide提到的最快的FFT&lt;/p&gt;
-&lt;p&gt;fileapi&lt;/p&gt;
-&lt;p&gt;FLAnimatedImage&lt;/p&gt;
-&lt;p&gt;forever-agent&lt;/p&gt;
-&lt;p&gt;form-data&lt;/p&gt;
-&lt;p&gt;formidable&lt;/p&gt;
-&lt;p&gt;fresh&lt;/p&gt;
-&lt;p&gt;gflags&lt;/p&gt;
-&lt;p&gt;gh-kit Utilities and categories for Objective-C&lt;/p&gt;
-&lt;p&gt;gh-unit&lt;/p&gt;
-&lt;p&gt;OpenGL Mathematics（GLM）&lt;/p&gt;
-&lt;p&gt;glob&lt;/p&gt;
-&lt;p&gt;google-glog&lt;/p&gt;
-&lt;p&gt;Google Toolbox for Mac  Google Mac/iOS 代码集合&lt;/p&gt;
-&lt;p&gt;google-web-toolkit&lt;/p&gt;
-&lt;p&gt;gtest  google c++ test&lt;/p&gt;
-&lt;p&gt;GPUImage&lt;/p&gt;
-&lt;p&gt;graceful-fs&lt;/p&gt;
-&lt;p&gt;gtest  google c++ test&lt;/p&gt;
-&lt;p&gt;gyp  GYP can Generate Your Projects&lt;/p&gt;
-&lt;p&gt;IEEE 754r Half Precision floating point …  浮点格式&lt;/p&gt;
-&lt;p&gt;harmonize&lt;/p&gt;
-&lt;p&gt;hawk&lt;/p&gt;
-&lt;p&gt;hoek&lt;/p&gt;
-&lt;p&gt;HPGrowingTextView&lt;/p&gt;
-&lt;p&gt;htmlparser2&lt;/p&gt;
-&lt;p&gt;http-parser&lt;/p&gt;
-&lt;p&gt;http-signature&lt;/p&gt;
-&lt;p&gt;InAppSettingsKit&lt;/p&gt;
-&lt;p&gt;inherits&lt;/p&gt;
-&lt;p&gt;ioctocat&lt;/p&gt;
-&lt;p&gt;iOS5-cookbook&lt;/p&gt;
-&lt;p&gt;isarray&lt;/p&gt;
-&lt;p&gt;iso-8601-parser-unparser  Cocoa class to convert dates to and from ISO-8601-formatted strings&lt;/p&gt;
-&lt;p&gt;jasmine-only&lt;/p&gt;
-&lt;p&gt;jqueryjs&lt;/p&gt;
-&lt;p&gt;jsdom&lt;/p&gt;
-&lt;p&gt;jshint&lt;/p&gt;
-&lt;p&gt;json-stringify-safe&lt;/p&gt;
-&lt;p&gt;JSONKit&lt;/p&gt;
-&lt;p&gt;jsonparse&lt;/p&gt;
-&lt;p&gt;JSONStream&lt;/p&gt;
-&lt;p&gt;jsr305&lt;/p&gt;
-&lt;p&gt;leveldb key-value型数据库&lt;/p&gt;
-&lt;p&gt;LibComponentLogging-Core  logging library&lt;/p&gt;
-&lt;p&gt;LibComponentLogging-NSLog  logging library&lt;/p&gt;
-&lt;p&gt;libevent&lt;/p&gt;
-&lt;p&gt;libjingle Google Talk Voice and P2P Interoperability Library&lt;/p&gt;
-&lt;p&gt;libjpeg-turbo jpeg加速编码解码库&lt;/p&gt;
-&lt;p&gt;libjpeg jpeg库&lt;/p&gt;
-&lt;p&gt;libPhoneNumber-iOS 标准化电话号码库&lt;/p&gt;
-&lt;p&gt;libPhoneNumber google的电话号码处理库&lt;/p&gt;
-&lt;p&gt;libsrtp 开源的SRTP(Secure Real-time Transport Protocol)&lt;/p&gt;
-&lt;p&gt;libvpx 开源的VP8编解码器 &lt;/p&gt;
-&lt;p&gt;libyuv 实现各种YUV，RGB色彩之间的转换、旋转、缩放&lt;/p&gt;
-&lt;p&gt;llvm&lt;/p&gt;
-&lt;p&gt;node-localStorage&lt;/p&gt;
-&lt;p&gt;lru-cache&lt;/p&gt;
-&lt;p&gt;MAZeroingWeakRef 智能指针 &lt;/p&gt;
-&lt;p&gt;MBProgressHUD&lt;/p&gt;
-&lt;p&gt;mdns&lt;/p&gt;
-&lt;p&gt;methods&lt;/p&gt;
-&lt;p&gt;mime&lt;/p&gt;
-&lt;p&gt;minimatch&lt;/p&gt;
-&lt;p&gt;minimist&lt;/p&gt;
-&lt;p&gt;minizip&lt;/p&gt;
-&lt;p&gt;mixpanel-iPhone&lt;/p&gt;
-&lt;p&gt;mkdirp&lt;/p&gt;
-&lt;p&gt;mosquitto：   一个实现了MQTT3.1协议的代理服务器&lt;/p&gt;
-&lt;p&gt;MessagePack Objective C Implement：   MessagePack OC 实现&lt;/p&gt;
-&lt;p&gt;MessagePack：  一个类似于JSON的东西&lt;/p&gt;
-&lt;p&gt;msinttypes：用vs编译c99项目所缺失的头文件&lt;/p&gt;
-&lt;p&gt;nan&lt;/p&gt;
-&lt;p&gt;OpenCV Tutorials&lt;/p&gt;
-&lt;p&gt;nimbus&lt;/p&gt;
-&lt;p&gt;NJKWebViewProgress：没有用私有API的WebView进度条&lt;/p&gt;
-&lt;p&gt;node-find-files&lt;/p&gt;
-&lt;p&gt;node-terminal&lt;/p&gt;
-&lt;p&gt;node-uuid&lt;/p&gt;
-&lt;p&gt;Node core&lt;/p&gt;
-&lt;p&gt;nwmatcher&lt;/p&gt;
-&lt;p&gt;oauth-sign&lt;/p&gt;
-&lt;p&gt;oauthcore&lt;/p&gt;
-&lt;p&gt;unmodified objc4&lt;/p&gt;
-&lt;p&gt;ObjQREncoder：二维码生成&lt;/p&gt;
-&lt;p&gt;OCHamcrest&lt;/p&gt;
-&lt;p&gt;OCMock&lt;/p&gt;
-&lt;p&gt;OCPDFGen：iOS HTML to PDF&lt;/p&gt;
-&lt;p&gt;OmniGroup OmniUI：OmniGroup的一个组件 &lt;/p&gt;
-&lt;p&gt;OpenCV&lt;/p&gt;
-&lt;p&gt;OpenSSL&lt;/p&gt;
-&lt;p&gt;OpenUDID&lt;/p&gt;
-&lt;p&gt;optimist &lt;/p&gt;
-&lt;p&gt;options&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;看到几个喜欢的App里面都有一个专门的页面列出了App中用到的相关的第三方开源库，以此来表示对开源社区和作者的敬意，同时也可以让对该App实现方式感兴趣的同学可以学下到相应地实现方法。于是顺手就整合了下按照App把开源库列了出来，方便日后查看，同时也向这几个App的作者表达下敬意。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="iOS" scheme="http://henrydong.com/tags/iOS/"/>
     
   </entry>
   

@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/OSX/" style="font-size: 16.67px;">OSX</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/娱乐/" style="font-size: 10px;">娱乐</a> <a href="/tags/技巧/" style="font-size: 20px;">技巧</a> <a href="/tags/效率/" style="font-size: 13.33px;">效率</a> <a href="/tags/生物/" style="font-size: 10px;">生物</a> <a href="/tags/福利/" style="font-size: 10px;">福利</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/闲谈/" style="font-size: 10px;">闲谈</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+						<a href="/tags/OSX/" style="font-size: 15px;">OSX</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/娱乐/" style="font-size: 10px;">娱乐</a> <a href="/tags/技巧/" style="font-size: 17.5px;">技巧</a> <a href="/tags/效率/" style="font-size: 12.5px;">效率</a> <a href="/tags/生物/" style="font-size: 10px;">生物</a> <a href="/tags/福利/" style="font-size: 10px;">福利</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/闲谈/" style="font-size: 10px;">闲谈</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
 					</div>
 				</section>
 				
@@ -185,6 +185,68 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-iOS-汇编" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/08/iOS-汇编/" class="article-date">
+  	<time datetime="2016-05-07T16:49:56.000Z" itemprop="datePublished">2016-05-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/08/iOS-汇编/">iOS main函数汇编</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="本文初步涉及汇编相关："><a href="#本文初步涉及汇编相关：" class="headerlink" title="本文初步涉及汇编相关："></a>本文初步涉及汇编相关：</h3><h4 id="0x2730-pushl-0-（-将出错码入栈）"><a href="#0x2730-pushl-0-（-将出错码入栈）" class="headerlink" title="0x2730:  pushl  $0  （ 将出错码入栈）"></a>0x2730:  pushl  $0  （ 将出错码入栈）</h4><p>当异常发生时，如果控制单元没有自动地把一个硬件错误代码插入到栈中，相应的汇编语言片段会包含一条pushl $0指令，在栈中垫上一个空值,如果错误码已经被压入堆栈,则没有这条指令。然后，把异常处理函数的地址压进栈中；函数的名字由异常处理程序名与do_前缀组成 </p>
+<h4 id="0x2732-movl-esp-ebp"><a href="#0x2732-movl-esp-ebp" class="headerlink" title="0x2732:  movl   %esp, %ebp"></a>0x2732:  movl   %esp, %ebp</h4><p>栈指址（低地址）%esp栈顶值赋给栈基址（高地址）%ebp栈底，设置 main函数的栈基址 </p>
+<h4 id="0x2734-andl-16-esp"><a href="#0x2734-andl-16-esp" class="headerlink" title="0x2734:  andl   $-16, %esp"></a>0x2734:  andl   $-16, %esp</h4><p>等价于 andl $0xfffffff0,%esp,也就是说把%esp内的最后4位给抹掉，强制让%esp的值是16的倍数，GCC默认的堆栈是16字节对齐的，为了加快CPU的访问效率 </p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/08/iOS-汇编/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-QuickLook文件预览" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -746,77 +808,6 @@
         <p class="article-more-link">
           <a  href="/2016/02/07/效率工具TextExpander的安装及使用/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-有关BTT" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/06/有关BTT/" class="article-date">
-  	<time datetime="2016-02-06T02:27:47.000Z" itemprop="datePublished">2016-02-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/06/有关BTT/">有关BTT</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今日花了6美元购入了 <a href="https://www.boastr.net/" target="_blank" rel="external">BetterTouchTool</a> 的 License，表达对作者无偿更新五六年的感谢，虽然我只用了不到两年，不过此神器令我对 Mac 上的软件大开眼界，从而步入『效率流』一去不返。</p>
-<p>去年年中我曾经在简书发表过一篇文章专门介绍 BTT 的基本用法，网址如下：<a href="http://www.jianshu.com/p/4447344fc531" target="_blank" rel="external">Mac精品软件之手势终极设置方法BetterTouchTool</a>，有兴趣的可以一看。</p>
-<p>作者维护五年，不再免费后，看购买指南的时候才发现居然有 iOS 端的BTT，支持 iPhone iPad 全平台。</p>
-<ul>
-<li><p>而且已经内购 iOS 端的用户可以免费获得 Mac 端的 License。</p>
-</li>
-<li><p>以前捐赠过 BTT 的用户也可以免费获得 Mac 端的 License。</p>
-</li>
-<li><p>购买过 BetterSnapTool 的用户也可以免费获得 Mac 端的 License。</p>
-</li>
-</ul>
-<p>惊喜的是，iOS 端的 BTT 连接到已付费的 Mac 端，内购自动解锁。</p>
-<p>业界良心。</p>
-<p>支持正版，其实并不会花掉我们多少钱。</p>
-<p>而且很省心。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技巧/">技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>
