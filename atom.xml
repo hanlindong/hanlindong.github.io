@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://henrydong.com/"/>
-  <updated>2016-06-09T05:58:21.000Z</updated>
+  <updated>2016-06-09T06:07:18.000Z</updated>
   <id>http://henrydong.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://henrydong.com/2016/06/09/Kindle-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/"/>
     <id>http://henrydong.com/2016/06/09/Kindle-使用技巧总结/</id>
     <published>2016-06-09T05:14:26.000Z</published>
-    <updated>2016-06-09T05:58:21.000Z</updated>
+    <updated>2016-06-09T06:07:18.000Z</updated>
     
     <content type="html">&lt;h4 id=&quot;自从大二那年入手-KPW2-以来，Kindle-成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了-Kindle-Oasis，才发觉硬件对于电子书来讲还是比较重要的。&quot;&gt;&lt;a href=&quot;#自从大二那年入手-KPW2-以来，Kindle-成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了-Kindle-Oasis，才发觉硬件对于电子书来讲还是比较重要的。&quot; class=&quot;headerlink&quot; title=&quot;自从大二那年入手 KPW2 以来，Kindle 成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了 Kindle Oasis，才发觉硬件对于电子书来讲还是比较重要的。&quot;&gt;&lt;/a&gt;自从大二那年入手 KPW2 以来，Kindle 成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了 Kindle Oasis，才发觉硬件对于电子书来讲还是比较重要的。&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/IMG_8911.JPG&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 &lt;p&gt;当然，在此只介绍技巧，不谈硬件。&lt;/p&gt;
@@ -38,7 +38,7 @@
 &lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/screenshot_2016_06_09T12_30_44%2B0800.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;1-Calibre-–-一站式电子书解决方案&quot;&gt;&lt;a href=&quot;#1-Calibre-–-一站式电子书解决方案&quot; class=&quot;headerlink&quot; title=&quot;1. Calibre – 一站式电子书解决方案&quot;&gt;&lt;/a&gt;1. Calibre – 一站式电子书解决方案&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://kindlefere.com/wp-content/uploads/2014/07/calibre.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Calibre，是一个免费的开源的“一站式”的电子书解决方案，它可以全面满足你的电子书需求。Calibre 是免费的，源代码开放，拥有跨平台的设计。它是一个完整的电子图书馆，包括图书管理，格式转换，将材料转换为电子书，以及电子书阅读器同步功能、整合进电子图书阅读器。当然它也内置了一个 ePub 格式电子书编辑工具以满足修改电子书的需要。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://status.calibre-ebook.com/dist/win64&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Windows 64位版&lt;/a&gt; |&lt;br&gt;&lt;a href=&quot;http://status.calibre-ebook.com/dist/osx32&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mac OS X 版&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://status.calibre-ebook.com/dist/win64&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Windows 64位版&lt;/a&gt; | &lt;a href=&quot;http://status.calibre-ebook.com/dist/osx32&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mac OS X 版&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;2-Clippings-–-强大的剪贴管理工具&quot;&gt;&lt;a href=&quot;#2-Clippings-–-强大的剪贴管理工具&quot; class=&quot;headerlink&quot; title=&quot;2. Clippings – 强大的剪贴管理工具&quot;&gt;&lt;/a&gt;2. Clippings – 强大的剪贴管理工具&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://kindlefere.com/wp-content/uploads/2014/07/clippings.jpg&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Clippings，它的前身是“clippingsconverter”，一款强大的剪贴管理工具，可以将Kindle中“我的剪贴”即“My Clippings.txt”文档上传到它的服务器上，并进行合理的格式化，分门别类的展示出来，更易于管理和阅读。还能分享到Evernote，导出Word、PDF、Excel等格式文档。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://kindlefere.com/wp-content/uploads/2014/07/clippings1.jpg&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
