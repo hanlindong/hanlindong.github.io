@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://henrydong.com/"/>
-  <updated>2016-06-09T05:14:08.000Z</updated>
+  <updated>2016-06-09T05:58:21.000Z</updated>
   <id>http://henrydong.com/</id>
   
   <author>
@@ -14,6 +14,99 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kindle 使用技巧总结</title>
+    <link href="http://henrydong.com/2016/06/09/Kindle-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/"/>
+    <id>http://henrydong.com/2016/06/09/Kindle-使用技巧总结/</id>
+    <published>2016-06-09T05:14:26.000Z</published>
+    <updated>2016-06-09T05:58:21.000Z</updated>
+    
+    <content type="html">&lt;h4 id=&quot;自从大二那年入手-KPW2-以来，Kindle-成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了-Kindle-Oasis，才发觉硬件对于电子书来讲还是比较重要的。&quot;&gt;&lt;a href=&quot;#自从大二那年入手-KPW2-以来，Kindle-成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了-Kindle-Oasis，才发觉硬件对于电子书来讲还是比较重要的。&quot; class=&quot;headerlink&quot; title=&quot;自从大二那年入手 KPW2 以来，Kindle 成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了 Kindle Oasis，才发觉硬件对于电子书来讲还是比较重要的。&quot;&gt;&lt;/a&gt;自从大二那年入手 KPW2 以来，Kindle 成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了 Kindle Oasis，才发觉硬件对于电子书来讲还是比较重要的。&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/IMG_8911.JPG&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当然，在此只介绍技巧，不谈硬件。&lt;/p&gt;
+&lt;p&gt;Kindle 生态体系不复杂，但是全平台通用，我们可以随时随地将阅读进度同步至 Mac，iPhone，iPad 等设备中，可以体验到无缝连接阅读的快感。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-09%2012.39.45.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;一、书源&quot;&gt;&lt;a href=&quot;#一、书源&quot; class=&quot;headerlink&quot; title=&quot;一、书源&quot;&gt;&lt;/a&gt;一、书源&lt;/h3&gt;&lt;p&gt;作为阅读工具，没有内容是不行的，所以这块放在第一块来讲。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先我们可以在 Amazon 的官方商城购买书籍，这也是我比较推荐的一点，一本书不过几块钱，却能带来最良好的阅读体验，且可加强知识产权意识，当然，这也是最简单易行的一种方法。&lt;/li&gt;
+&lt;li&gt;在各个 Kindle 社区，百度，Google，新浪微盘等资源聚集地搜索资源，Kindle 支持Mobi，TXT，PDF，Azw3等格式的文件，但不支持 epub 格式的文件，不过可以进行曲线救国，我在 &lt;a href=&quot;http://henrydong.com/2016/06/09/Kindle-%E6%8E%A8%E9%80%81-epub-%E6%A0%BC%E5%BC%8F%E7%94%B5%E5%AD%90%E4%B9%A6/&quot;&gt;Kindle 推送 epub 格式电子书&lt;/a&gt; 一文中有详细介绍。&lt;/li&gt;
+&lt;li&gt;微信公众号，推荐 kindle10000 这个公众号，国内有一个做的比较好的书本推送的公众平台 kindle10000，只要第一次绑定了 Kindle 的推送邮箱账号之后，在微信里输入书名，找到书籍后点击推送到 Kindle，则可以将书籍推送出去，非常便利。如果你喜欢看 RSS，可以用用 ReadCola 或 dogear 服务，将 RSS 订阅文章更新每日投送到 Kindle。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/IMG_8909.JPG&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;二、格式&quot;&gt;&lt;a href=&quot;#二、格式&quot; class=&quot;headerlink&quot; title=&quot;二、格式&quot;&gt;&lt;/a&gt;二、格式&lt;/h3&gt;&lt;p&gt;这里介绍与 Kindle 电子书相关的工具软件。它们可以帮助我们解决在日常使用电子书时所可能遇到的问题，比如 kindle 管理工具、kindle 转换工具、kindle 电子书制作工具、kindle 推送工具等，可以实现管理电子书、推送电子书、转换电子书格式、重排 PDF 文档、优化我的剪贴等各式各样的功能。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/screenshot_2016_06_09T12_30_44%2B0800.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-Calibre-–-一站式电子书解决方案&quot;&gt;&lt;a href=&quot;#1-Calibre-–-一站式电子书解决方案&quot; class=&quot;headerlink&quot; title=&quot;1. Calibre – 一站式电子书解决方案&quot;&gt;&lt;/a&gt;1. Calibre – 一站式电子书解决方案&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://kindlefere.com/wp-content/uploads/2014/07/calibre.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Calibre，是一个免费的开源的“一站式”的电子书解决方案，它可以全面满足你的电子书需求。Calibre 是免费的，源代码开放，拥有跨平台的设计。它是一个完整的电子图书馆，包括图书管理，格式转换，将材料转换为电子书，以及电子书阅读器同步功能、整合进电子图书阅读器。当然它也内置了一个 ePub 格式电子书编辑工具以满足修改电子书的需要。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://status.calibre-ebook.com/dist/win64&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Windows 64位版&lt;/a&gt; |&lt;br&gt;&lt;a href=&quot;http://status.calibre-ebook.com/dist/osx32&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mac OS X 版&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2-Clippings-–-强大的剪贴管理工具&quot;&gt;&lt;a href=&quot;#2-Clippings-–-强大的剪贴管理工具&quot; class=&quot;headerlink&quot; title=&quot;2. Clippings – 强大的剪贴管理工具&quot;&gt;&lt;/a&gt;2. Clippings – 强大的剪贴管理工具&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://kindlefere.com/wp-content/uploads/2014/07/clippings.jpg&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Clippings，它的前身是“clippingsconverter”，一款强大的剪贴管理工具，可以将Kindle中“我的剪贴”即“My Clippings.txt”文档上传到它的服务器上，并进行合理的格式化，分门别类的展示出来，更易于管理和阅读。还能分享到Evernote，导出Word、PDF、Excel等格式文档。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://kindlefere.com/wp-content/uploads/2014/07/clippings1.jpg&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;h5 id=&quot;（1）在Kindle中找到“我的剪贴”，&quot;&gt;&lt;a href=&quot;#（1）在Kindle中找到“我的剪贴”，&quot; class=&quot;headerlink&quot; title=&quot;（1）在Kindle中找到“我的剪贴”，&quot;&gt;&lt;/a&gt;（1）在Kindle中找到“我的剪贴”，&lt;/h5&gt;&lt;p&gt;用 USB 线连接你的 Kindle，待“计算机”或“我的电脑”里出现Kindle的盘符后，双击打开，进入“documents”文件夹，找到一个名为“My Clippings.txt”的文本文档，把他复制到你的桌面（当然你可以复制到任何位置，比如专门新建一个文件夹，养成按时备份这个文件的习惯，为了保证不造成内容重复，你可以再备份好该文件后，将 Kindle 驱动器里面那个删掉）&lt;/p&gt;
+&lt;h5 id=&quot;（2）注册-Clippings&quot;&gt;&lt;a href=&quot;#（2）注册-Clippings&quot; class=&quot;headerlink&quot; title=&quot;（2）注册 Clippings&quot;&gt;&lt;/a&gt;（2）&lt;a href=&quot;https://my.clippings.io/#/signup&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;注册 Clippings&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;点击上面的网址，在页面中填写用户名、邮箱、密码等基本资料，然后提交，Clippings 会发给你一封验证邮件，打开你刚刚填写的那个邮箱，邮件内容中有一句英文：Please click here to verify your email address and start using your account，点击这段英文中的“here”即可验证成功，正式获得 Clippings 账号。&lt;/p&gt;
+&lt;h5 id=&quot;（3）开始导入“我的剪贴”到Clippings&quot;&gt;&lt;a href=&quot;#（3）开始导入“我的剪贴”到Clippings&quot; class=&quot;headerlink&quot; title=&quot;（3）开始导入“我的剪贴”到Clippings&quot;&gt;&lt;/a&gt;（3）开始导入“我的剪贴”到Clippings&lt;/h5&gt;&lt;p&gt;用你注册的账号登录。点击右上方的 “IMPORT” 按钮，在弹出的页面中，点击右下角的 “Click to upload” 按钮，再弹出的对话框中选择你刚才从 Kindle 复制出来的 “My Clippings.txt” 文本文档，耐心等待直到完成导入（时间长短视你的文档大小而定，如果你导入的文档有重复内容，Clippings 不会导入并会再最后给出提示）。&lt;/p&gt;
+&lt;h5 id=&quot;（4）开始体验&quot;&gt;&lt;a href=&quot;#（4）开始体验&quot; class=&quot;headerlink&quot; title=&quot;（4）开始体验&quot;&gt;&lt;/a&gt;（4）开始体验&lt;/h5&gt;&lt;p&gt;&lt;img src=&quot;http://kindlefere.com/wp-content/uploads/2014/07/clippings2.jpg&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;网站的界面很简洁，左侧一列是分类：包括剪贴所属的书名、剪贴导入时间及 Tags 标签。右上角是操作菜单，可以对剪贴列表进行各种操作，如：Sort（排序）可以按照书名、作者、类型等排序；Filter（过滤）可以选择过滤要显示的剪贴类型（包括：书签、剪贴、标注、注释）；Export（导出）可以将这些剪贴内容导出为 Excel、PDF、 Txt 或 Word 文档格式，还能传到 Evernote（不支持中文的印象笔记）和Kindle中。&lt;/p&gt;
+&lt;h4 id=&quot;3-Kindle-Textbook-Creator-–-亚马逊官方电子书制作工具&quot;&gt;&lt;a href=&quot;#3-Kindle-Textbook-Creator-–-亚马逊官方电子书制作工具&quot; class=&quot;headerlink&quot; title=&quot;3. Kindle Textbook Creator – 亚马逊官方电子书制作工具&quot;&gt;&lt;/a&gt;3. Kindle Textbook Creator – 亚马逊官方电子书制作工具&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://kindlefere.com/wp-content/uploads/2014/07/Kindle_Textbook_Creator.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Kindle Textbook Creator 是 Amazon 近日宣布他们即将开始一个新的项目，目的是帮助教育机构和作者给学生制作电子书。目前仅支持英文，功能很少。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://authoring-tools.s3.amazonaws.com/KindleTextbookCreatorInstaller.exe&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Windows 版（支持 Win7 及 Win8）&lt;/a&gt; | &lt;a href=&quot;http://authoring-tools.s3.amazonaws.com/KindleTextbookCreatorInstaller.pkg&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mac OS X 版（支持 10.9 及更新版本）&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;4-K2pdfopt-–-强大的桌面用-PDF-重排工具&quot;&gt;&lt;a href=&quot;#4-K2pdfopt-–-强大的桌面用-PDF-重排工具&quot; class=&quot;headerlink&quot; title=&quot;4. K2pdfopt – 强大的桌面用 PDF 重排工具&quot;&gt;&lt;/a&gt;4. K2pdfopt – 强大的桌面用 PDF 重排工具&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://kindlefere.com/wp-content/uploads/2014/07/k2pdfopt.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;用 Kindle 阅读 PDF 一直以来都遭到小伙伴们的无限吐槽，在那 Kindle 还能越狱的时代，我们有 Koreader 之类优秀的 Kindle 第三方插件实现 PDF 文档的实时重排，但是随着 Kindle 固件版本升级的频率加快，越狱已经跟不上进度了，所以 Koreader 等第三方插件也失去了着力点。好在现在有了 K2pdfopt，这是一款可以直接在桌面环境下运行的软件，桌面系统比 Kindle 的性能强劲，在重排 PDF 的时候更快速，也从根本上脱离了越狱的限制。&lt;/p&gt;
+&lt;p&gt;K2pdfopt 是一个开源软件。可以优化 PDF/DJVU 文件以适配移动阅读设备（比如 Kindle）以及智能手机。它能很好的处理有多栏内容的 PDF/DJVU 文件以及重排甚至是扫描版 PDF 文件的文本。它也能被当作一个标准的 PDF 操作工具，如复制、裁切、调整尺寸、ORC识别。它能生成原生或位图形式的 PDF，带有可选的 OCR 层。支持 Windows、Mac OS X、Linux 系统，其中 Windows 系统集成了一个带界面的版本。&lt;/p&gt;
+&lt;h5 id=&quot;（1）K2pdfopt-的重排效果&quot;&gt;&lt;a href=&quot;#（1）K2pdfopt-的重排效果&quot; class=&quot;headerlink&quot; title=&quot;（1）K2pdfopt 的重排效果&quot;&gt;&lt;/a&gt;（1）K2pdfopt 的重排效果&lt;/h5&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-09%2013.43.54.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;h5 id=&quot;（2）下载软件-K2pdfopt&quot;&gt;&lt;a href=&quot;#（2）下载软件-K2pdfopt&quot; class=&quot;headerlink&quot; title=&quot;（2）下载软件 K2pdfopt&quot;&gt;&lt;/a&gt;（2）下载软件 K2pdfopt&lt;/h5&gt;&lt;p&gt;K2pdfopt 支持 Windows、Mac OS X、Linux 系统，请下载适用于自己系统的版本：&lt;a href=&quot;http://www.willus.com/k2pdfopt/download/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;软件下载页面&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;5-GitBook-–-制作-Kindle-电子书更简单&quot;&gt;&lt;a href=&quot;#5-GitBook-–-制作-Kindle-电子书更简单&quot; class=&quot;headerlink&quot; title=&quot;5. GitBook – 制作 Kindle 电子书更简单&quot;&gt;&lt;/a&gt;5. GitBook – 制作 Kindle 电子书更简单&lt;/h4&gt;&lt;p&gt;GitBook 是一项致力于文档编制、数码写作和出版的新型、简单的解决方案。它不仅提供了简单且强大的电子书创建工具 GitBook，同时还提供了在线电子书制作平台服务 GitBook.com。&lt;/p&gt;
+&lt;p&gt;GitBook 是一款基于 Node.js 开发的开源的工具，可以直接在本地创建电子书项目。GitBook.com 是一个在线创建、发布和管理电子书的服务平台。两者都是免费的。你可以利用它们使用 MarkDown 编写电子书内容，然后生成 PDF、ePub、mobi 格式的电子书，或生成一个静态站点发布到网络上。&lt;/p&gt;
+&lt;p&gt;如果你用过 Git 的话应该对 Github 不陌生，GitBook 中有一个“Git”，说明它也可以用 Git 进行版本控制。需要说明的是，虽然 GitBook 和 GitHub 如此相像，但仍然是两个独立的项目，非从属关系。&lt;/p&gt;
+&lt;p&gt;以上是 GitBook 的简单介绍。即便你不懂什么是 Git 也没关系，只需要明白使用 GitBook 可以制作适用于 Kindle 阅读的 mobi 格式电子书即可。&lt;/p&gt;
+&lt;p&gt;可视化工具：&lt;a href=&quot;https://www.gitbook.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.gitbook.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;命令行工具：&lt;a href=&quot;https://github.com/GitbookIO/gitbook&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/GitbookIO/gitbook&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;三、推送&quot;&gt;&lt;a href=&quot;#三、推送&quot; class=&quot;headerlink&quot; title=&quot;三、推送&quot;&gt;&lt;/a&gt;三、推送&lt;/h3&gt;&lt;h4 id=&quot;1-Readability：定时或立即把长文推送到-Kindle&quot;&gt;&lt;a href=&quot;#1-Readability：定时或立即把长文推送到-Kindle&quot; class=&quot;headerlink&quot; title=&quot;1. Readability：定时或立即把长文推送到 Kindle&quot;&gt;&lt;/a&gt;1. Readability：定时或立即把长文推送到 Kindle&lt;/h4&gt;&lt;p&gt;Readability 是一款免费的阅读服务平台。你可以通过它使用的 Chrome 插件、手机或平板 APP 或快捷标签等方式把你想要“稍后阅读”的文章保存下来。这并不新鲜，但对于 Kindler 来说，最实用的莫过于它所支持的“推送到 Kindle”功能，你可以把当前浏览的文章立即推送到 Kindle 中阅读，也可以设置定时推送，按照每周或每天的频率，把你存储下来的文章集结成册按时推送到你的 Kindle 中阅读。&lt;/p&gt;
+&lt;h5 id=&quot;（1）注册帐号&quot;&gt;&lt;a href=&quot;#（1）注册帐号&quot; class=&quot;headerlink&quot; title=&quot;（1）注册帐号&quot;&gt;&lt;/a&gt;（1）注册帐号&lt;/h5&gt;&lt;p&gt;首先需要注册一枚 Readability 账号。访问 &lt;a href=&quot;readability.com&quot;&gt;readability.com&lt;/a&gt;，点击【Sign UP】按钮，简单地填写一下用户名、邮箱和密码即可注册一枚账号。注册完毕后网站会自动登录帐号。&lt;/p&gt;
+&lt;h5 id=&quot;（2）设置推送&quot;&gt;&lt;a href=&quot;#（2）设置推送&quot; class=&quot;headerlink&quot; title=&quot;（2）设置推送&quot;&gt;&lt;/a&gt;（2）设置推送&lt;/h5&gt;&lt;p&gt;Kindle 设置页面：&lt;a href=&quot;https://www.readability.com/settings/kindle&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.readability.com/settings/kindle&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;首先按照其提示，把“kindle@readability.com”这个邮箱添加到你的亚马逊账户中的&lt;a href=&quot;https://www.amazon.cn/mn/dcw/myx.html/ref=kinw_myk_redirect#/home/settings/payment&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;“已认可的发件人电子邮箱列表”&lt;/a&gt;中。然后再按照下列提示在当前页面进行相关设置：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Kindle email address：在这里填写你的 Kindle 接收邮箱，一般中亚的为“xxx@kindle.cn”，如果不知道接收邮箱，可以进入你的亚马逊账户中的“管理我的内容和设备”，在标签“我的设备”中选中你的 Kindle 设备，在页面下方即可找到和其相对应的接收邮箱地址；&lt;/li&gt;
+&lt;li&gt;When an article is sent to your Kindle, should it be Archived?：选择文章被推送后是否存档。Readability 的“Reading List”有“列表 (Read list)”、“喜欢 (Favorites)”和“存档 (Archives)”三种类型，如果选择“Yes, archive it”这一项，则“列表”中的文章被推送后将会自动存放到“存档”中。&lt;/li&gt;
+&lt;li&gt;Daily digests：定时推送。点选“Digests on”即可开启定时推送到 Kindle 功能。在“When should we send digests?”中选择要推送的时间点，以及时区（中国大陆可选择“(GMT+0800) Asia/Shanghai”），可以定时把“Reading List”中最新的 20 篇文章推送到 Kindle 阅读器中。&lt;/li&gt;
+&lt;li&gt;One-time digest：立即推送。如果你不喜欢定时推送功能，点击这里的【Send a digest now】按钮，就可以立刻把“Reading List”中最新的 20 篇文章推送到 Kindle 阅读器中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;（3）安装插件&quot;&gt;&lt;a href=&quot;#（3）安装插件&quot; class=&quot;headerlink&quot; title=&quot;（3）安装插件&quot;&gt;&lt;/a&gt;（3）安装插件&lt;/h5&gt;&lt;p&gt;使用 Chrome 打开下面的链接，点击【Install Now】按钮添加 Readability 插件：&lt;/p&gt;
+&lt;p&gt;Chrome 浏览器插件：&lt;a href=&quot;https://www.readability.com/addons&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.readability.com/addons&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;注意，安装 Chrome 插件需要翻墙，推荐 Lantern（蓝灯）：&lt;a href=&quot;https://s3.amazonaws.com/lantern/lantern-installer-beta.exe&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Windows&lt;/a&gt; ｜ &lt;a href=&quot;https://s3.amazonaws.com/lantern/lantern-installer-beta.dmg&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mac&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;当然，如果你不使用 Chrome 也没关系。Readability 还提供了“Read Now”、“Read Later”、“Send to Kindle”三个“快捷标签”实现和插件相同的功能，它支持 Chrome、Firefox、Safari、Opera、IE9+ 等主流浏览器。打开下面的链接，把相应的功能标签拖放到浏览器“标签栏”上即可：&lt;/p&gt;
+&lt;p&gt;Readability 快捷标签：&lt;a href=&quot;https://www.readability.com/bookmarklets&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.readability.com/bookmarklets&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&quot;（4）推送文章&quot;&gt;&lt;a href=&quot;#（4）推送文章&quot; class=&quot;headerlink&quot; title=&quot;（4）推送文章&quot;&gt;&lt;/a&gt;（4）推送文章&lt;/h5&gt;&lt;p&gt;当你用 Chrome 浏览到你感兴趣的文章，点击浏览器右上角的“小沙发图标”即可弹出如下所示菜单：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://kindlefere.com/wp-content/uploads/2016/02/Readability_1.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;可以看到“Read Now”、“Read Later”和“Send to Kindle”三个菜单项它们的意义如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Read Now：立即阅读。此功能可以优化当前页面的阅读体验，去除网页中除正文内容外的如广告、导航、侧边等无关元素，将页面调整为最佳阅读状态，方便现时在浏览器中阅读。&lt;/li&gt;
+&lt;li&gt;Read Later：稍后阅读。此功能会像“立即阅读”所能看到效果一样，把当前文章内容优化后存储到你的 Readability 账号下的 Reading List 中，以备稍后的阅读或推送。&lt;/li&gt;
+&lt;li&gt;Send to Kindle：立即推送到 Kindle。此功能会把当前页面内容优化后立即推送到你的 Kindle 中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通过这三个功能，你可以灵活处理你所浏览器到的长篇文章，如果你当前时间比较紧迫，则可以通过“Read Later”功能把文章存储到 Reading List 中，设置的定时推送功能会把这个列表中的文章按时推送到你的 Kindle 中。如果你当前时间较为空闲，则可以通过“Send to Kindle”功能，把这篇长文章立即推送到 Kindle 中，以避免让眼睛长时间面对电脑屏幕。&lt;/p&gt;
+&lt;h4 id=&quot;2-KindleEar：推送-RSS-订阅到-Kindle&quot;&gt;&lt;a href=&quot;#2-KindleEar：推送-RSS-订阅到-Kindle&quot; class=&quot;headerlink&quot; title=&quot;2. KindleEar：推送 RSS 订阅到 Kindle&quot;&gt;&lt;/a&gt;2. KindleEar：推送 RSS 订阅到 Kindle&lt;/h4&gt;&lt;p&gt;KindleEar 是一个开源的 Python 程序，由网友 cdhigh 发起，目前托管于 Github。Kindleear 一个可以运行在 Google Developer Console 上的 Kindle 个人 RSS 推送服务器，能够生成排版精美的杂志模式的 MOBI 文件，并按照设置定时自动推送至你的 kindle。如果你有一定的 Python 和前端基础，还可以自定义排版，生成你需要的最完美的 MOBI 文件。目前的功能有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;支持类似 Calibre 的 recipe 格式的自定义 RSS 收集，需要有一点点 Python 基础。&lt;/li&gt;
+&lt;li&gt;自定义 RSS，不需要 Python 基础，直接输入 RSS 链接和标题即可自动推送。&lt;/li&gt;
+&lt;li&gt;多账号管理，也就是支持多 kindle。&lt;/li&gt;
+&lt;li&gt;带图的杂志格式 MOBI。&lt;/li&gt;
+&lt;li&gt;自动每天定时推送。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;自从大二那年入手-KPW2-以来，Kindle-成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了-Kindle-Oasis，才发觉硬件对于电子书来讲还是比较重要的。&quot;&gt;&lt;a href=&quot;#自从大二那年入手-KPW2-以来，Kindle-成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了-Kindle-Oasis，才发觉硬件对于电子书来讲还是比较重要的。&quot; class=&quot;headerlink&quot; title=&quot;自从大二那年入手 KPW2 以来，Kindle 成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了 Kindle Oasis，才发觉硬件对于电子书来讲还是比较重要的。&quot;&gt;&lt;/a&gt;自从大二那年入手 KPW2 以来，Kindle 成为我电子产品中不可分割的一部分，近三年来一直用它阅读大量的书籍，直到上月换了 Kindle Oasis，才发觉硬件对于电子书来讲还是比较重要的。&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/IMG_8911.JPG&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当然，在此只介绍技巧，不谈硬件。&lt;/p&gt;
+&lt;p&gt;Kindle 生态体系不复杂，但是全平台通用，我们可以随时随地将阅读进度同步至 Mac，iPhone，iPad 等设备中，可以体验到无缝连接阅读的快感。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Kindle" scheme="http://henrydong.com/tags/Kindle/"/>
+    
+  </entry>
   
   <entry>
     <title>Kindle 推送 epub 格式电子书</title>
@@ -1183,53 +1276,6 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
     
     
       <category term="生物" scheme="http://henrydong.com/tags/%E7%94%9F%E7%89%A9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>运用UIKit Dynamics实现小球碰撞效果</title>
-    <link href="http://henrydong.com/2016/01/18/%E8%BF%90%E7%94%A8UIKit-Dynamics%E5%AE%9E%E7%8E%B0%E5%B0%8F%E7%90%83%E7%A2%B0%E6%92%9E%E6%95%88%E6%9E%9C/"/>
-    <id>http://henrydong.com/2016/01/18/运用UIKit-Dynamics实现小球碰撞效果/</id>
-    <published>2016-01-18T00:22:30.000Z</published>
-    <updated>2016-01-18T00:40:05.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;先来看一下效果&quot;&gt;&lt;a href=&quot;#先来看一下效果&quot; class=&quot;headerlink&quot; title=&quot;先来看一下效果&quot;&gt;&lt;/a&gt;先来看一下效果&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/1.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;我们先来分析一下需要哪些行为。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;首先要创建五个小球，为各个小球添加手势。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;然后初始化UIDynamicBehavior，设置锚点(蓝色小方块即为锚点)、重力、碰撞行为、碰撞参数等。 &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;为小球添加UIDynamicBehavior。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;创建五个小球，位置等省略掉。&quot;&gt;&lt;a href=&quot;#创建五个小球，位置等省略掉。&quot; class=&quot;headerlink&quot; title=&quot;创建五个小球，位置等省略掉。&quot;&gt;&lt;/a&gt;创建五个小球，位置等省略掉。&lt;/h3&gt;&lt;h4 id=&quot;添加手势&quot;&gt;&lt;a href=&quot;#添加手势&quot; class=&quot;headerlink&quot; title=&quot;添加手势&quot;&gt;&lt;/a&gt;添加手势&lt;/h4&gt;&lt;p&gt;&lt;code&gt;UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleBallBearingPan:)];&lt;/code&gt;       &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/UIDynamic1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;创建行为&quot;&gt;&lt;a href=&quot;#创建行为&quot; class=&quot;headerlink&quot; title=&quot;创建行为&quot;&gt;&lt;/a&gt;创建行为&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/UIDynamic2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;行为方法&quot;&gt;&lt;a href=&quot;#行为方法&quot; class=&quot;headerlink&quot; title=&quot;行为方法&quot;&gt;&lt;/a&gt;行为方法&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/UIDynamic3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&quot;以上&quot;&gt;&lt;a href=&quot;#以上&quot; class=&quot;headerlink&quot; title=&quot;以上&quot;&gt;&lt;/a&gt;以上&lt;/h3&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;先来看一下效果&quot;&gt;&lt;a href=&quot;#先来看一下效果&quot; class=&quot;headerlink&quot; title=&quot;先来看一下效果&quot;&gt;&lt;/a&gt;先来看一下效果&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/1.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;我们先来分析一下需要哪些行为。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;首先要创建五个小球，为各个小球添加手势。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;然后初始化UIDynamicBehavior，设置锚点(蓝色小方块即为锚点)、重力、碰撞行为、碰撞参数等。 &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;为小球添加UIDynamicBehavior。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="iOS" scheme="http://henrydong.com/tags/iOS/"/>
     
   </entry>
   
