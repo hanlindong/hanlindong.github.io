@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://henrydong.com/"/>
-  <updated>2016-06-07T02:28:07.000Z</updated>
+  <updated>2016-06-09T05:12:26.000Z</updated>
   <id>http://henrydong.com/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kindle 推送 epub 格式电子书</title>
+    <link href="http://henrydong.com/2016/06/09/Kindle-%E6%8E%A8%E9%80%81-epub-%E6%A0%BC%E5%BC%8F%E7%94%B5%E5%AD%90%E4%B9%A6/"/>
+    <id>http://henrydong.com/2016/06/09/Kindle-推送-epub-格式电子书/</id>
+    <published>2016-06-09T05:09:36.000Z</published>
+    <updated>2016-06-09T05:12:26.000Z</updated>
+    
+    <content type="html">&lt;h4 id=&quot;使用亚马逊-Kindle-个人文档服务的小伙伴都知道，用邮箱推送电子书的时候，支持的文件类型不包括-epub-格式，如果想要推送这种格式，需要先使用-Calibre-或-KindleGen-等转换软件将其转换成-mobi-格式才行。那遇到没装软件或者只有手机在手的时候怎么办？有没有更便捷的方法？&quot;&gt;&lt;a href=&quot;#使用亚马逊-Kindle-个人文档服务的小伙伴都知道，用邮箱推送电子书的时候，支持的文件类型不包括-epub-格式，如果想要推送这种格式，需要先使用-Calibre-或-KindleGen-等转换软件将其转换成-mobi-格式才行。那遇到没装软件或者只有手机在手的时候怎么办？有没有更便捷的方法？&quot; class=&quot;headerlink&quot; title=&quot;使用亚马逊 Kindle 个人文档服务的小伙伴都知道，用邮箱推送电子书的时候，支持的文件类型不包括 epub 格式，如果想要推送这种格式，需要先使用 Calibre 或 KindleGen 等转换软件将其转换成 mobi 格式才行。那遇到没装软件或者只有手机在手的时候怎么办？有没有更便捷的方法？&quot;&gt;&lt;/a&gt;使用亚马逊 Kindle 个人文档服务的小伙伴都知道，用邮箱推送电子书的时候，支持的文件类型不包括 epub 格式，如果想要推送这种格式，需要先使用 Calibre 或 KindleGen 等转换软件将其转换成 mobi 格式才行。那遇到没装软件或者只有手机在手的时候怎么办？有没有更便捷的方法？&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;EPUB（Electronic Publication 的缩写，电子出版）是一种电子图书标准。在维基百科中有这样一条定义：EPub 文件内部使用了 XHTML 或 DTBook 来展现文字、并以 zip 压缩格式来包裹文件内容。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;也就是说，epub 格式其实也是一种 zip 压缩包。为证明这一点，我们可以把 epub 电子书的后缀名 .epub 改成 .zip，用压缩软件解压后，就可以看到里面熟悉的电子书源文件。&lt;/p&gt;
+&lt;p&gt;亚马逊的 Kindle 个人文档服务是支持推送 zip 压缩包的。只需要把 epub 电子书的后缀名更改为 .zip，再以邮箱附件的形式将其推送到亚马逊服务器就可以。&lt;/p&gt;
+&lt;p&gt;比如你要推送“乔布斯传.epub”这本电子书，只需要将其改为“乔布斯传.zip”，这样亚马逊的个人文档服务器就会自动把 zip 压缩包内的电子书源文件转换为 Kindle 格式。&lt;/p&gt;
+&lt;p&gt;因为 epub 格式的源文件符合亚马逊的 KF8 标准，所以亚马逊的个人文档服务器会将推送的压缩包内容转换成 azw3 格式。当然也因此有一个小缺憾，服务器只给 mobi7 标准的电子书显示封面，而 kf8 标准的则不能正常显示封面。&lt;/p&gt;
+&lt;h4 id=&quot;注意：如果将-ePub-文件的后缀名改成-zip-后无法成功推送，请先用解压软件解压一下看是否能正常解压。如果不能的话请将后缀名改成-rar-再解压，将解压后的文件重新打包成-zip-文件再进行推送。&quot;&gt;&lt;a href=&quot;#注意：如果将-ePub-文件的后缀名改成-zip-后无法成功推送，请先用解压软件解压一下看是否能正常解压。如果不能的话请将后缀名改成-rar-再解压，将解压后的文件重新打包成-zip-文件再进行推送。&quot; class=&quot;headerlink&quot; title=&quot;注意：如果将 ePub 文件的后缀名改成 .zip 后无法成功推送，请先用解压软件解压一下看是否能正常解压。如果不能的话请将后缀名改成 .rar 再解压，将解压后的文件重新打包成 zip 文件再进行推送。&quot;&gt;&lt;/a&gt;注意：如果将 ePub 文件的后缀名改成 .zip 后无法成功推送，请先用解压软件解压一下看是否能正常解压。如果不能的话请将后缀名改成 .rar 再解压，将解压后的文件重新打包成 zip 文件再进行推送。&lt;/h4&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;使用亚马逊-Kindle-个人文档服务的小伙伴都知道，用邮箱推送电子书的时候，支持的文件类型不包括-epub-格式，如果想要推送这种格式，需要先使用-Calibre-或-KindleGen-等转换软件将其转换成-mobi-格式才行。那遇到没装软件或者只有手机在手的时候怎么办？有没有更便捷的方法？&quot;&gt;&lt;a href=&quot;#使用亚马逊-Kindle-个人文档服务的小伙伴都知道，用邮箱推送电子书的时候，支持的文件类型不包括-epub-格式，如果想要推送这种格式，需要先使用-Calibre-或-KindleGen-等转换软件将其转换成-mobi-格式才行。那遇到没装软件或者只有手机在手的时候怎么办？有没有更便捷的方法？&quot; class=&quot;headerlink&quot; title=&quot;使用亚马逊 Kindle 个人文档服务的小伙伴都知道，用邮箱推送电子书的时候，支持的文件类型不包括 epub 格式，如果想要推送这种格式，需要先使用 Calibre 或 KindleGen 等转换软件将其转换成 mobi 格式才行。那遇到没装软件或者只有手机在手的时候怎么办？有没有更便捷的方法？&quot;&gt;&lt;/a&gt;使用亚马逊 Kindle 个人文档服务的小伙伴都知道，用邮箱推送电子书的时候，支持的文件类型不包括 epub 格式，如果想要推送这种格式，需要先使用 Calibre 或 KindleGen 等转换软件将其转换成 mobi 格式才行。那遇到没装软件或者只有手机在手的时候怎么办？有没有更便捷的方法？&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;EPUB（Electronic Publication 的缩写，电子出版）是一种电子图书标准。在维基百科中有这样一条定义：EPub 文件内部使用了 XHTML 或 DTBook 来展现文字、并以 zip 压缩格式来包裹文件内容。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Kindle" scheme="http://henrydong.com/tags/Kindle/"/>
+    
+  </entry>
   
   <entry>
     <title>写在 2016.6.7</title>
@@ -1200,72 +1230,6 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
     
     
       <category term="iOS" scheme="http://henrydong.com/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OS X Automator与快捷键配合实现高效工作流</title>
-    <link href="http://henrydong.com/2016/01/17/OS-X-Automator%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%85%8D%E5%90%88%E5%AE%9E%E7%8E%B0%E9%AB%98%E6%95%88%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
-    <id>http://henrydong.com/2016/01/17/OS-X-Automator与快捷键配合实现高效工作流/</id>
-    <published>2016-01-17T14:09:44.000Z</published>
-    <updated>2016-01-17T23:38:55.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;接上文：『基于Node-js的Github-Pages博客系统』&quot;&gt;&lt;a href=&quot;#接上文：『基于Node-js的Github-Pages博客系统』&quot; class=&quot;headerlink&quot; title=&quot;接上文：『基于Node-js的Github-Pages博客系统』&quot;&gt;&lt;/a&gt;接上文：『基于Node-js的Github-Pages博客系统』&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;上文介绍了个人博客的搭建，这篇文章我们来谈一谈关于 OS X 下自带应用程序「Automator」配合「终端」及剪切板工具「CopyLess」的使用来实现高效工作流。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;同步到个人博客的步骤较为繁琐，我们先来看一下：&quot;&gt;&lt;a href=&quot;#同步到个人博客的步骤较为繁琐，我们先来看一下：&quot; class=&quot;headerlink&quot; title=&quot;同步到个人博客的步骤较为繁琐，我们先来看一下：&quot;&gt;&lt;/a&gt;同步到个人博客的步骤较为繁琐，我们先来看一下：&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;开启终端&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;输入 cd /Users/  &lt;strong&gt;YourName&lt;/strong&gt;  /Documents/hexo&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;输入 hexo g&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;输入 hexo d&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;每次都输入这么多十分让人头疼，接下来我们进行简化。&quot;&gt;&lt;a href=&quot;#每次都输入这么多十分让人头疼，接下来我们进行简化。&quot; class=&quot;headerlink&quot; title=&quot;每次都输入这么多十分让人头疼，接下来我们进行简化。&quot;&gt;&lt;/a&gt;每次都输入这么多十分让人头疼，接下来我们进行简化。&lt;/h4&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;Automator：&quot;&gt;&lt;a href=&quot;#Automator：&quot; class=&quot;headerlink&quot; title=&quot;Automator：&quot;&gt;&lt;/a&gt;Automator：&lt;/h2&gt;&lt;h4 id=&quot;1、打开自带的Automator（可以用右上角Spotlight搜索找到）&quot;&gt;&lt;a href=&quot;#1、打开自带的Automator（可以用右上角Spotlight搜索找到）&quot; class=&quot;headerlink&quot; title=&quot;1、打开自带的Automator（可以用右上角Spotlight搜索找到）&quot;&gt;&lt;/a&gt;1、打开自带的Automator（可以用右上角Spotlight搜索找到）&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;2、在创建界面选择“服务”&quot;&gt;&lt;a href=&quot;#2、在创建界面选择“服务”&quot; class=&quot;headerlink&quot; title=&quot;2、在创建界面选择“服务”&quot;&gt;&lt;/a&gt;2、在创建界面选择“服务”&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;3、如图：&quot;&gt;&lt;a href=&quot;#3、如图：&quot; class=&quot;headerlink&quot; title=&quot;3、如图：&quot;&gt;&lt;/a&gt;3、如图：&lt;/h4&gt;&lt;p&gt;左侧列表中，找到：操作——资源库——实用工具——开启应用程序&lt;/p&gt;
-&lt;p&gt;右侧选择“没有输入”&lt;/p&gt;
-&lt;p&gt;最后双击“开启应用程序”&lt;br&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;在新出现的界面里选择需要的应用程序，这里选择了“终端”（如果列表中没有，可以在列表最下方的“其他”找到你的所有软件）&lt;br&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/4.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;4、按-Command-Shift-Option-S-随便起个你能记得住的名字。这里起名“开启终端”&quot;&gt;&lt;a href=&quot;#4、按-Command-Shift-Option-S-随便起个你能记得住的名字。这里起名“开启终端”&quot; class=&quot;headerlink&quot; title=&quot;4、按 Command+Shift+Option+S   随便起个你能记得住的名字。这里起名“开启终端”&quot;&gt;&lt;/a&gt;4、按 Command+Shift+Option+S   随便起个你能记得住的名字。这里起名“开启终端”&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;系统偏好设置-键盘-快捷键-服务&quot;&gt;&lt;a href=&quot;#系统偏好设置-键盘-快捷键-服务&quot; class=&quot;headerlink&quot; title=&quot;系统偏好设置 - 键盘 - 快捷键 - 服务&quot;&gt;&lt;/a&gt;系统偏好设置 - 键盘 - 快捷键 - 服务&lt;/h2&gt;&lt;h4 id=&quot;1、找到刚才起名的“开启终端”&quot;&gt;&lt;a href=&quot;#1、找到刚才起名的“开启终端”&quot; class=&quot;headerlink&quot; title=&quot;1、找到刚才起名的“开启终端”&quot;&gt;&lt;/a&gt;1、找到刚才起名的“开启终端”&lt;/h4&gt;&lt;h4 id=&quot;2、在这里把前面的对号选中，然后后面自行设置快捷键。&quot;&gt;&lt;a href=&quot;#2、在这里把前面的对号选中，然后后面自行设置快捷键。&quot; class=&quot;headerlink&quot; title=&quot;2、在这里把前面的对号选中，然后后面自行设置快捷键。&quot;&gt;&lt;/a&gt;2、在这里把前面的对号选中，然后后面自行设置快捷键。&lt;/h4&gt;&lt;p&gt;请尽量设置三个以上键位的快捷键，并且避免与常用快捷键重复（与其他快捷键重复会导致设置无效，请重新设置）。这里使用了 &lt;strong&gt;Command+Option+0&lt;/strong&gt; ，之后即可通过此快捷键开启终端。&lt;br&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/6.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;开启CopyLess快捷键&quot;&gt;&lt;a href=&quot;#开启CopyLess快捷键&quot; class=&quot;headerlink&quot; title=&quot;开启CopyLess快捷键&quot;&gt;&lt;/a&gt;开启CopyLess快捷键&lt;/h2&gt;&lt;h4 id=&quot;1、下载CopyLess软件，AppIcon如图：&quot;&gt;&lt;a href=&quot;#1、下载CopyLess软件，AppIcon如图：&quot; class=&quot;headerlink&quot; title=&quot;1、下载CopyLess软件，AppIcon如图：&quot;&gt;&lt;/a&gt;1、下载CopyLess软件，AppIcon如图：&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/7.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;拷贝:&lt;/p&gt;
-&lt;h5 id=&quot;cd-Users-YourName-Documents-hexo&quot;&gt;&lt;a href=&quot;#cd-Users-YourName-Documents-hexo&quot; class=&quot;headerlink&quot; title=&quot;cd /Users/  YourName  /Documents/hexo&quot;&gt;&lt;/a&gt;cd /Users/  &lt;strong&gt;YourName&lt;/strong&gt;  /Documents/hexo&lt;/h5&gt;&lt;h5 id=&quot;hexo-g&quot;&gt;&lt;a href=&quot;#hexo-g&quot; class=&quot;headerlink&quot; title=&quot;hexo g&quot;&gt;&lt;/a&gt;hexo g&lt;/h5&gt;&lt;h5 id=&quot;hexo-d&quot;&gt;&lt;a href=&quot;#hexo-d&quot; class=&quot;headerlink&quot; title=&quot;hexo d&quot;&gt;&lt;/a&gt;hexo d&lt;/h5&gt;&lt;/blockquote&gt;
-&lt;h4 id=&quot;2、打开CopyLess，最上方即你所拷贝的文字，点击右方将其固定：&quot;&gt;&lt;a href=&quot;#2、打开CopyLess，最上方即你所拷贝的文字，点击右方将其固定：&quot; class=&quot;headerlink&quot; title=&quot;2、打开CopyLess，最上方即你所拷贝的文字，点击右方将其固定：&quot;&gt;&lt;/a&gt;2、打开CopyLess，最上方即你所拷贝的文字，点击右方将其固定：&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/8.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;3、打开Favorites，复制的文字的快捷键为Control-Option-Command-1。&quot;&gt;&lt;a href=&quot;#3、打开Favorites，复制的文字的快捷键为Control-Option-Command-1。&quot; class=&quot;headerlink&quot; title=&quot;3、打开Favorites，复制的文字的快捷键为Control+Option+Command+1。&quot;&gt;&lt;/a&gt;3、打开Favorites，复制的文字的快捷键为Control+Option+Command+1。&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/9.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;现在可以用快捷键开启终端并直接同步文章至你的博客&quot;&gt;&lt;a href=&quot;#现在可以用快捷键开启终端并直接同步文章至你的博客&quot; class=&quot;headerlink&quot; title=&quot;现在可以用快捷键开启终端并直接同步文章至你的博客&quot;&gt;&lt;/a&gt;现在可以用快捷键开启终端并直接同步文章至你的博客&lt;/h2&gt;&lt;h4 id=&quot;仅需两步：&quot;&gt;&lt;a href=&quot;#仅需两步：&quot; class=&quot;headerlink&quot; title=&quot;仅需两步：&quot;&gt;&lt;/a&gt;仅需两步：&lt;/h4&gt;&lt;h3 id=&quot;1-Command-Option-0&quot;&gt;&lt;a href=&quot;#1-Command-Option-0&quot; class=&quot;headerlink&quot; title=&quot;1.Command+Option+0&quot;&gt;&lt;/a&gt;1.Command+Option+0&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/10.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2-Control-Option-Command-1&quot;&gt;&lt;a href=&quot;#2-Control-Option-Command-1&quot; class=&quot;headerlink&quot; title=&quot;2.Control+Option+Command+1&quot;&gt;&lt;/a&gt;2.Control+Option+Command+1&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://7xq720.com1.z0.glb.clouddn.com/11.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&quot;以上&quot;&gt;&lt;a href=&quot;#以上&quot; class=&quot;headerlink&quot; title=&quot;以上&quot;&gt;&lt;/a&gt;以上&lt;/h3&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;接上文：『基于Node-js的Github-Pages博客系统』&quot;&gt;&lt;a href=&quot;#接上文：『基于Node-js的Github-Pages博客系统』&quot; class=&quot;headerlink&quot; title=&quot;接上文：『基于Node-js的Github-Pages博客系统』&quot;&gt;&lt;/a&gt;接上文：『基于Node-js的Github-Pages博客系统』&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;上文介绍了个人博客的搭建，这篇文章我们来谈一谈关于 OS X 下自带应用程序「Automator」配合「终端」及剪切板工具「CopyLess」的使用来实现高效工作流。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;同步到个人博客的步骤较为繁琐，我们先来看一下：&quot;&gt;&lt;a href=&quot;#同步到个人博客的步骤较为繁琐，我们先来看一下：&quot; class=&quot;headerlink&quot; title=&quot;同步到个人博客的步骤较为繁琐，我们先来看一下：&quot;&gt;&lt;/a&gt;同步到个人博客的步骤较为繁琐，我们先来看一下：&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;开启终端&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;输入 cd /Users/  &lt;strong&gt;YourName&lt;/strong&gt;  /Documents/hexo&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;输入 hexo g&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;输入 hexo d&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;每次都输入这么多十分让人头疼，接下来我们进行简化。&quot;&gt;&lt;a href=&quot;#每次都输入这么多十分让人头疼，接下来我们进行简化。&quot; class=&quot;headerlink&quot; title=&quot;每次都输入这么多十分让人头疼，接下来我们进行简化。&quot;&gt;&lt;/a&gt;每次都输入这么多十分让人头疼，接下来我们进行简化。&lt;/h4&gt;
-    
-    </summary>
-    
-    
-      <category term="OSX" scheme="http://henrydong.com/tags/OSX/"/>
-    
-      <category term="效率" scheme="http://henrydong.com/tags/%E6%95%88%E7%8E%87/"/>
     
   </entry>
   
