@@ -2,7 +2,7 @@
     // banner开始i
     var bannerHtml='';
     $.ajax({
-        type: "post",
+        type: "get",
         dataType: "json",
         url: 'http://henrydong.com/weixin/css/resource.json',
         success: function (data) {
@@ -55,7 +55,7 @@
 function ajaxMethord(number){
     var titleInner='';
     $.ajax({
-        type: "post",
+        type: "get",
         dataType: "json",
         url: 'http://henrydong.com/weixin/css/titleSource-'+number+'.json',
         success: function (data) {
