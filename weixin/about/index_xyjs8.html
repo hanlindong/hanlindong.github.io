@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>尚德机构</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="format-detection" content="email=no" />
+	<link href="css/base.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+	    <script src="js/swipeslide.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://lp.sunlands.com/js/portalJs/message.js"></script> 
+	<script type="text/javascript" src="js/messagee.js"></script> 
+       	<script type="text/javascript">
+		$(function () {
+			var url = this.location.href;
+			$("form #field3").each(function (n) {
+				$("form #field3").get(n).value = url;
+			})
+		}) 
+	</script> 
+</head>
+<body style="background:#fff;text-align: center;padding-bottom:4rem;">
+<img src="images/xyjs.png" style="display: block;width:94%;margin:0 auto;margin-top:8%;">
+<!-- <h1 class="zdbt">【北京大学】</h1> -->
+<!-- <p>（最后一年招生）</p> -->
+
+<div class="btqx">
+   <p>π学院</p>
+   <span>School Profiles</span>
+   <div class="qxdiv"></div>
+</div>
+<b class="xxj">&or;</b>
+<img src="images/xuexiao8_1.jpg" style="display: block;width:96%;margin:0 auto;margin-top:1rem;">
+<p class="zhengwen">π学院下设自考商务管理、金融管理、金融学专业，MBA及基金从业资格证等专业的培训，学员覆盖全国多个省市。</p>
+<div class="btqx">
+   <p>关于我们</p>
+   <span>Professional Introduction</span>
+   <div class="qxdiv"></div>
+</div>
+<b class="xxj">&or;</b>
+<img src="images/zy.png" style="display: block;width:96%;margin:0 auto;margin-top:1rem;">
+<!-- <h1 class="zdbt1">教学过程</h1> -->
+<p class="zhengwen">π学院的老师们秉承以人为本的教学理念，致力于给学员提供专业的学习指导和暖心的考学关怀。</p>
+<p class="zhengwen">每一个人都如圆周率π一样——有无限的可能，我们希望让学员获得学历的同时，也收获丰富的专业知识。</p>
+<a  class="yxbnt">更多院校详情</a>
+
+<div class="tc">
+	<div class="tc_content">
+	    <a class="close"></a>
+		<img src="images/tc_top.png">
+	    <form name="messageForm" method="post" action="/message.action" id="messageForm1">
+		  <p>您希望什么时间客服电话回馈：<br /></p>
+			<input type="hidden" value="" name="msg.field1" class="enterinput" id="field1" /> 
+		    <input type="hidden" value="" name="msg.field2" class="enterinput" id="field2" /> 
+		    <input type="hidden" value="" name="msg.field3" class="enterinput" id="field3" /> 
+		    <input type="hidden" value="注册成功" name="msg.name" class="enterinput" id="name" /> 
+		    <input type="hidden" name="msg.remark" class="enterinput" id="remark" value="夏静" /> 
+		    <input type="hidden" value="" name="msg.email" id="email" /> 
+		    <input type="hidden" value="上海校" name="msg.school_code" id="schoolCode" /> 
+		    <input type="hidden" value="自考" name="msg.project_code" /> 
+		    <input type="hidden" value="夏静" name="msg.message_type" /> 
+		    <input type="hidden" name="msg.field3" id="field3" value="" /> 
+		    <input type="hidden" value="http://i.sunlands.com/portal-war/message.action" id="msgUrl" /> 
+			<label style="margin-left:0.2rem;"><input name="" type="radio" value="" />08:00--12:00 </label>
+			<label style="margin-left:1.5rem;"><input name="" type="radio" value="" />12:00--16:00 </label><br>
+			<label ><input name="" type="radio" value="" />16:00--20:00 </label>
+			<label style="margin-left:1.5rem;"><input name="" type="radio" value="" />20:00--24:00 </label>
+			<input type="tel" class="tel_input" placeholder="您的电话" name="msg.phone"/>
+			<input name="" class="button" type="button" value="提交" onclick="tuiguang_message_open('messageForm1',callback,98,35)" />
+		</form>
+	</div>
+</div> 
+
+
+<script language="javascript" type="text/javascript">
+	$(".yxbnt").click(function(){
+		$(".tc").css("display","block")
+	});
+	$(".close").click(function(){
+		$(".tc").css("display","none")
+	});
+</script>
+
+<script type="text/javascript">
+	function callback1(msg) {
+	//alert("恭喜您，信息已提交成功1！");
+	$(".tc4").css("display","block");
+	//追加短信,可以删除掉,如果要追加留言必须带上参数:&callback="+回调函数如:testBack可以为别的随便名称,但必须跟下面的名称一样
+	$.ajax({
+	url: encodeURI(encodeURI("http://w.sunlands.com/tuiguang/ajax_tuiguang_message.htm?tel=" + msg.phone + "&name=" + msg.name
+	+ "&messageId=" + msg.messageId + "&schoolId=" + msg.schoolId + "&callback=" + testBack)),
+ 	type: "get",
+	dataType: "jsonp",
+	jsonp: testBack,//回调函名称必须有,和参数&callback="的值一样的
+	success: function (data) { }
+ 	});
+    }
+    //和追加留言一起的回调函数,和参数&callback="的值一样的
+    function testBack(msg) {
+	//可以为空
+    }
+</script>
+<script type="text/javascript">
+	function callback(msg) {
+	alert("恭喜您，信息已提交成功！");
+	//追加短信,可以删除掉,如果要追加留言必须带上参数:&callback="+回调函数如:testBack可以为别的随便名称,但必须跟下面的名称一样
+	$.ajax({
+	url: encodeURI(encodeURI("http://w.sunlands.com/tuiguang/ajax_tuiguang_message.htm?tel=" + msg.phone + "&name=" + msg.name
+	+ "&messageId=" + msg.messageId + "&schoolId=" + msg.schoolId + "&callback=" + testBack)),
+ 	type: "get",
+	dataType: "jsonp",
+	jsonp: testBack,//回调函名称必须有,和参数&callback="的值一样的
+	success: function (data) { }
+ 	});
+    }
+    //和追加留言一起的回调函数,和参数&callback="的值一样的
+    function testBack(msg) {
+	//可以为空
+    }
+</script>
+
+
+<script language="javascript" type="text/javascript">
+NTKF_PARAM = {
+  siteid:"kf_9740",                            //公司ID   固定,
+  settingid:"kf_9740_603221197",             //子站点id    
+  erpparam:"settingid:kf_9740_603221197"  
+} 
+</script>
+
+<script type="text/javascript" src="http://dl.ntalker.com/js/xn6/ntkfstat.js?siteid=kf_9740" charset="utf-8"></script>
+
+
+</body>
+</html>

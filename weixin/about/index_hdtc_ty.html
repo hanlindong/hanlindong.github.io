@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>尚德机构</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="format-detection" content="email=no" />
+	<link href="css/base.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="js/messagee.js"></script>   
+	<script type="text/javascript">
+		$(function () {
+			var url = this.location.href;
+			$("form #field3").each(function (n) {
+				$("form #field3").get(n).value = url;
+			})
+		}) 
+	</script>   
+</head>
+<body style="background:#fff;">
+<img src="images/school_bt.jpg" style="display: block;width:100%;margin:0 auto;">
+<img src="images/ty.png" style="display: block;width:70%;margin:3rem auto 0;">
+<p style="font-size:1rem;margin:-0.5rem auto 3rem;text-align:center;">活动时间：2017年8月1日-8月20日</p>
+
+<div class="hd-content">
+<h2>优惠券预约单</h2>	
+ <form name="messageForm" method="post" action="/message.action" id="messageForm">
+		    <input type="hidden" value="" name="msg.field1" class="enterinput" id="field1" /> 
+		    <input type="hidden" value="" name="msg.field2" class="enterinput" id="field2" /> 
+		    <input type="hidden" value="" name="msg.field3" class="enterinput" id="field3" /> 
+		    <input type="hidden" value="注册成功" name="msg.name" class="enterinput" id="name" /> 
+		    <input type="hidden" name="msg.remark" class="enterinput" id="remark" value="夏静" /> 
+		    <input type="hidden" value="" name="msg.email" id="email" /> 
+		    <input type="hidden" value="上海校" name="msg.school_code" id="schoolCode" /> 
+		    <input type="hidden" value="自考" name="msg.project_code" /> 
+		    <input type="hidden" value="夏静" name="msg.message_type" /> 
+		    <input type="hidden" name="msg.field3" id="field3" value="" /> 
+		    <input type="hidden" value="http://i.sunlands.com/portal-war/message.action" id="msgUrl" /> 
+		   <input onBlur="if (this.value=='')this.value='您的姓名'" value="您的姓名" onFocus="this.value=''" name="msg.name" type="text" id="ndzyyxa" class="input_1"  />
+		   <div class="xlcs">
+			 <select>
+				<option>学历</option>
+				<option>初中</option>
+				<option>高中</option>
+				<option>大专</option>				
+			  </select>
+
+			 <select>
+				<option>城市</option>
+				<option>北京</option>
+				<option>上海</option>    
+			  </select>
+		   </div>
+		   <input  onBlur="if (this.value=='')this.value='请输入你的电话'" value="请输入你的电话" onFocus="this.value=''"  type="tel" name="msg.phone" >
+		   <input type="button" id="bnt" value="提交信息" onclick="tuiguang_message_openn('messageForm',callback1,98,35)">
+ </form>
+</div>
+
+
+<div class="tc2">
+	<div class="tcc_content">
+	    <a class="close1"></a>
+		<img src="images/ly1.png">
+	    <h1>使用代码：0323166783</h1>
+		<span></span>
+		<p>注：此代金卷只可在尚德机构使用，并只能换相等金额学费。</p>		
+		<p>代金卷的最终解释权 归尚德机构所有。</p>			
+	</div>
+</div> 
+
+<script language="javascript" type="text/javascript">
+	//$("#bnt").click(function(){});
+	$(".close1").click(function(){
+		$(".tc2").css("display","none")
+	});
+</script>
+<script type="text/javascript">
+	function callback1(msg) {
+	//alert("恭喜您，信息已提交成功！");
+	$(".tc2").css("display","block")
+	//追加短信,可以删除掉,如果要追加留言必须带上参数:&callback="+回调函数如:testBack可以为别的随便名称,但必须跟下面的名称一样
+	$.ajax({
+	url: encodeURI(encodeURI("http://w.sunlands.com/tuiguang/ajax_tuiguang_message.htm?tel=" + msg.phone + "&name=" + msg.name
+	+ "&messageId=" + msg.messageId + "&schoolId=" + msg.schoolId + "&callback=" + testBack)),
+ 	type: "get",
+	dataType: "jsonp",
+	jsonp: testBack,//回调函名称必须有,和参数&callback="的值一样的
+	success: function (data) { }
+ 	});
+    }
+    //和追加留言一起的回调函数,和参数&callback="的值一样的
+    function testBack(msg) {
+	//可以为空
+    }
+</script>
+<script language="javascript" type="text/javascript">
+NTKF_PARAM = {
+  siteid:"kf_9740",                            //公司ID   固定,
+  settingid:"kf_9740_603221197",             //子站点id    
+  erpparam:"settingid:kf_9740_603221197"  
+} 
+</script>
+
+<script type="text/javascript" src="http://dl.ntalker.com/js/xn6/ntkfstat.js?siteid=kf_9740" charset="utf-8"></script>
+
+
+</body>
+</html>
