@@ -1,0 +1,181 @@
+
+	html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video ,button{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{text-decoration: none;color:#333;}
+
+body{background: #f0f0f0;
+		width: 100%;
+		background-size: 66px auto;
+		color:#333;
+		overflow-x: hidden;
+		font-family: "微软雅黑"
+	}
+html, body {
+        position: relative;
+        height: 100%;
+    }
+.bigbox {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: block;
+	    -webkit-box-pack: initial;
+	    -ms-flex-pack: initial;
+	    -webkit-justify-content: initial;
+	    justify-content: initial;
+	    -webkit-box-align: initial;
+	    -ms-flex-align: initial;
+	    -webkit-align-items: initial; 
+	    align-items: initial; 
+    }
+
+.btn{text-align: center;padding-top: 0.3rem;}
+.box_school .btn{padding-top: 0.1rem;}
+.btn button{color: #fff;border-radius: 0.4rem;display: block;padding: 0;margin: 0.2rem auto 0;}
+.btn button.blue,
+.btn button.bai{height: 0.85rem;font-size: 0.4rem;width: 4.44rem;background:#2781ea;box-shadow: 0px 3px 10px #8c8c8c;}
+.btn button.blue_s{height: 0.78rem;font-size: 0.36rem;width: 5.5rem;background:#2781ea;}
+.btn button.bai{background:#fff;box-shadow: 0px 5px 10px #185289;color: #2781ea;font-weight: bold;}
+.time_end{color: #555;font-size: 0.24rem;padding-top: 0.15rem}
+.t_b{color: #fff;}
+.fl{float: left;}
+.fr{float: right;}
+
+.none{display: none;}
+
+.bottom{background: #2078de;width:100%;height:1.4rem; color: #fff;font-size: 0.3rem;text-align: center;line-height: 0.48rem;margin-top: 0.9rem;position: absolute;bottom: 0}
+.bottom p{padding-top: 0.25rem;}
+
+
+.page1{text-align: center;}
+.page1 .top{display: block;height: 3.2rem;background: #2781ea url(../image/bg_top.png) no-repeat;overflow: hidden;background-size: 100%;}
+.page1 .top .logo{width: 1.05rem;height: 0.8rem;background: url(../image/logo.png) no-repeat;background-size: 100%;margin: 0.18rem auto 0.15rem;}
+.page1 .top h1{font-size: 0.70rem;line-height: 0.82rem;color: #fff;padding-bottom: 0.25rem;margin: 0 0.9rem;-webkit-text-stroke: 1px #fff;letter-spacing:2px;}
+.page1 h2{font-size: 0.36rem;line-height: 1.0rem;}
+.page1 h2 span{display: inline-block;background: #333;width: 0.08rem;height: 0.08rem;margin:0 0.3rem 0.08rem;}
+.page1 .gonggao h2{font-size: 0.36rem;line-height: 1.0rem;}
+.page1 .gonggao{width: 5.55rem;height:3.2rem;margin: 0 auto;box-shadow: 0px 0px 40px #d5d5d5;border-radius: 0.2rem;}
+.page1 .gonggao h2{color: #207cd4;font-weight: bold;}
+.page1 .gonggao p{font-size: 0.28rem;line-height: 0.44rem;}
+
+.page2 .title2{height: 2.2rem;background: #2781ea;overflow: hidden;}
+.page2 .title2 .br_w{width: 6.36rem;height: 1.1rem;border: 1px solid #fff;position: relative;color: #fff;margin: 0.75rem auto 0}
+.page2 .title2 .br_w h1{position: absolute;font-size: 0.48rem;background: #2781ea;top: -0.3rem;left: 0.3rem}
+.page2 .title2 .br_w p{margin: 0.5rem auto 0;font-size: 0.3rem}
+.page2 .title2 .br_w p span{display: inline-block;width: 0.4rem;}
+.page2 h2{font-size: 0.4rem;line-height: 0.6rem;color: #1b6ec7;padding: 0.6rem 0}
+.page2 .icon_list{width: 6.9rem;overflow: hidden;margin: 0 auto}
+.page2 .icon_list li{float: left;width: 33%;height:1.62rem;text-align: center;padding-bottom: 0.3rem}
+.page2 .icon_list p{width: 1.0rem;height: 1.0rem;margin: 0 auto;border-radius: 0.6rem;}
+.page2 .icon_list p.icon1{background: #ffac17 url(../image/icon1.png) no-repeat center ;background-size: 0.52rem auto}
+.page2 .icon_list p.icon2{background: #3d9ee1 url(../image/icon2.png) no-repeat 0.20rem 0.25rem;background-size: 0.52rem auto}
+.page2 .icon_list p.icon3{background: #f16563 url(../image/icon3.png) no-repeat center ;background-size: 0.52rem auto}
+.page2 .icon_list p.icon4{background: #15c1bb url(../image/icon4.png) no-repeat center ;background-size: 0.52rem auto}
+.page2 .icon_list p.icon5{background: #61be08 url(../image/icon5.png) no-repeat center ;background-size: 0.52rem auto}
+.page2 .icon_list p.icon6{background: #fab120 url(../image/icon6.png) no-repeat center ;background-size: 0.52rem auto}
+.page2 .icon_list b{display: block;line-height: 0.7rem;font-size: 0.32rem;}
+
+.box_school{}
+.box_school h1{line-height: 0.88rem;padding-top: 0.18rem;font-size: 0.4rem;font-weight: bold;color: #fff;text-shadow:0px 1px 1px #212121;}
+.box_school .title_school{height: 1.5rem;padding-top:0.2rem;background: #2078de;position: relative;margin-top: 1.07rem;}
+.box_school .title_school .icon_hg{width: 1.75rem;height: 1.07rem;background: url(../image/hg_blue.png) no-repeat;background-size:100%;position: absolute;top: -1.00rem;left: 2.80rem;line-height: 1.6rem;overflow: hidden;color: #fff}
+.box_school .title_school h2{line-height: 0.62rem;color: #fff;}
+.box_school .img_school {width: 3.65rem;height: 3.65rem;margin: 0.25rem auto 0.2rem;border-radius: 1.87rem;background: #fff;padding: 0.1rem}
+.box_school .img_school img{display:block; width: 3.65rem;height: 3.65rem;border-radius: 1.82rem;}
+.box_school .title_school .line{height: 0.04rem;background:linear-gradient(to left, #2078de 0%,#fff 50%,#2078de 100%);width: 6.5rem;margin: 0 auto }
+.box_school .text{font-size: 0.3rem;line-height: 0.48rem;color: #000;}
+.bg_grey .img_school{background: #8ab6e9;}
+.bg_blue{background: #2781ea url(../image/bg_xx.jpg) no-repeat center bottom;background-size:100%;}
+.bg_grey{background: #f5f5f5 url(../image/bg_xx_b.jpg) no-repeat center bottom;background-size:100%;}
+
+.bg_more{background:url(../image/bg_more.jpg) no-repeat;background-size:100%;overflow: hidden;position: relative;}
+.bg_more .title3 h1{height: 1rem;background: rgba(0,0,0,0.3);color: #fff;font-weight: bold;font-size: 0.48rem;line-height: 1rem;margin-top: 0.6rem}
+.bg_more .rotate{width:5.2rem;overflow: hidden;transform: rotate(45deg);position: absolute;top: 3.0rem;left: 1.15rem;}
+.bg_more .rotate li{float: left;width: 1.64rem;height: 1.64rem;background: #fff;margin: 0.04rem;}
+.bg_more .rotate li.no_bg{background: 0;border: 0.02rem solid #fff;width: 1.6rem;height: 1.6rem;}
+.bg_more .rotate li p{transform: rotate(-45deg);margin: 0.45rem 0 0 -0.1rem;font-size: 0.30rem;font-weight: bold;line-height: 0.36rem;}
+.bg_more .rotate li div{width: 0.82rem;height: 0.82rem;transform: rotate(-45deg);margin: 0.40rem auto;}
+.bg_more .rotate li .icon7{background: url(../image/icon7.png) no-repeat;background-size:100%;}
+.bg_more .rotate li .icon8{background: url(../image/icon8.png) no-repeat;background-size:100%;}
+.bg_more .rotate li .icon9{background: url(../image/icon9.png) no-repeat;background-size:100%;}
+.bg_more .btn{position: absolute;bottom: 0.5rem;left: 1.5rem;}
+.title{height: 1.8rem;background: #2078de;line-height: 1.8rem;font-size: 0.48rem;font-weight: bold;text-align: center;color: #fff;overflow: hidden;}
+.title .br{border:0.04rem solid #fff;line-height: 1.34rem;width: 6.86rem;margin: 0.20rem auto 0}
+
+.kstx{border: 0.04rem dashed #2078de;width: 5.8rem;border-radius: 0.2rem;margin: 0.6rem auto 0}
+.kstx h2{line-height:1rem;font-size: 0.44rem; font-weight: bold;border-bottom: 0.02rem solid #d0d0d0;margin: 0 0.6rem}
+.kstx h2 b{border-bottom: 0.03rem solid  #2078de;display: block;margin:0 1.5rem -0.02rem;width: 1.8rem}
+.kstx p{padding-top:0.3rem;font-size: 0.3rem;line-height: 0.48rem }
+.kstx p b{display: block;font-size: 0.36rem;font-weight: bold;}
+.kstx p.bg{width: 5rem;height: 1.22rem;background: #f5f5f5;text-align: center;margin: 0.5rem auto 0.3rem;padding-top: 0.2rem;}
+.text_box{width: 5.55rem;margin: 0.6rem auto 0;box-shadow: 0px 0px 40px #d5d5d5;border-radius: 0.2rem;font-size: 0.3rem;padding-bottom: 0.3rem}
+.text_box p{padding: 0.3rem 0.35rem 0rem;text-align: left;text-indent: 0.6rem;line-height: 0.42rem}
+
+.title1{line-height: 2.0rem;font-size: 0.52rem;text-align: center;font-weight: bold;width: 100%;overflow: hidden;
+}
+.title1 p{float: left;padding-right: 0.35rem;padding-left: 0.8rem}
+.title1 span{float: left;width: 3.58rem;height: 1rem;border: 0.04rem solid #2078de;line-height: 1rem;margin-top:0.45rem}
+
+.advantage{overflow: hidden;width: 6.9rem;margin: 0 auto;background: url(../image/bg_b.jpg) no-repeat;background-size:100%;height: 5.26rem}
+.youhui{overflow: hidden;width: 6.9rem;margin:0.35rem auto 0;background: #eeeeee;}
+.youhui p{line-height: 1.2rem;}
+.youhui div{width: 100%;overflow: hidden;}
+.youhui div button{float: left;width: 50%;background: #2078de;height: 0.7rem}
+.youhui div button.yellow{background: #f3c31b}
+
+
+
+
+
+
+
+
+
+
