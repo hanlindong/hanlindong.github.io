@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 7.5 + 'px';
+                // 等价于html.style.fontSize = windowWidth / 640 * 100 + 'px';
+            }, false);
+        })();
+    </script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/index.css">
+<script>
+        var siteId = 6012508     //用自己的站点ID替换111111
+    </script>
+    <script src="http://ggtf.sunland.org.cn/statistics/sunlandsLog.js"></script>
+
+</head>
+<body>
+  <script src="http://ggtf.sunland.org.cn/statistics/interactive.js"></script>
+<!-- banner -->
+<div class="swiper-container swiper-nav">
+    <div class="swiper-wrapper" id="banner">
+        <!--<div class="swiper-slide">Slide 1</div>-->
+    </div>
+    <!-- Add Pagination -->
+</div>
+<!--banner结束-->
+<!--tab开始-->
+<ul class="tabs">
+    <li class="active">
+        tab1
+    </li>
+    <li>
+        tab2
+    </li>
+    <li>
+        tab3
+    </li>
+    <li>
+        tab4
+    </li>
+</ul>
+<div class="swiper-container swiper-tab-Page">
+    <div class="swiper-wrapper swiper-title">
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+    </div>
+</div>
+<!--tab结束-->
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    interactive.init('xiaoneng');
+</script>
+
+</body>
+</html>
