@@ -19,8 +19,17 @@
 			})
 		}) 
 	</script>   
+    <script>
+        /*  页面框架参数，请勿删除，并用自己的站点ID替换111111  */
+        var siteId = 603221197
+    </script> 
+  <!--下方是页面框架js，请勿删除--> 
+  <script src="http://ggtf.sunland.org.cn/statistics/sunlandsLog.js"></script>   
 </head>
 <body style="background:#fff;">
+
+<!--下方是页面框架js，请勿删除！！--> 
+  <script src="http://ggtf.sunland.org.cn/statistics/interactive.js"></script> 
 <img src="images/school_bt.jpg" style="display: block;width:100%;margin:0 auto;">
 <img src="images/school_youh.png" style="display: block;width:100%;margin:3rem auto 0;">
 <p style="font-size:1rem;margin:-0.5rem auto 3rem;text-align:center;">活动时间：2017年8月1日-8月20日</p>
@@ -28,17 +37,7 @@
 <div class="hd-content">
 <h2>优惠券预约单</h2>	
  <form name="messageForm" method="post" action="/message.action" id="messageForm">
-		    <input type="hidden" value="" name="msg.field1" class="enterinput" id="field1" /> 
-		    <input type="hidden" value="" name="msg.field2" class="enterinput" id="field2" /> 
-		    <input type="hidden" value="" name="msg.field3" class="enterinput" id="field3" /> 
-		    <input type="hidden" value="注册成功" name="msg.name" class="enterinput" id="name" /> 
-		    <input type="hidden" name="msg.remark" class="enterinput" id="remark" value="夏静" /> 
-		    <input type="hidden" value="" name="msg.email" id="email" /> 
-		    <input type="hidden" value="上海校" name="msg.school_code" id="schoolCode" /> 
-		    <input type="hidden" value="自考" name="msg.project_code" /> 
-		    <input type="hidden" value="夏静" name="msg.message_type" /> 
-		    <input type="hidden" name="msg.field3" id="field3" value="" /> 
-		    <input type="hidden" value="http://i.sunlands.com/portal-war/message.action" id="msgUrl" /> 
+		    
 		   <input onBlur="if (this.value=='')this.value='您的姓名'" value="您的姓名" onFocus="this.value=''" name="msg.name" type="text" id="ndzyyxa" class="input_1"  />
 		   <div class="xlcs">
 			 <select>
@@ -54,8 +53,8 @@
 				<option>上海</option>    
 			  </select>
 		   </div>
-		   <input  onBlur="if (this.value=='')this.value='请输入你的电话'" value="请输入你的电话" onFocus="this.value=''"  type="tel" name="msg.phone" >
-		   <input type="button" id="bnt" value="提交信息" onclick="tuiguang_message_openn('messageForm',callback1,98,35)">
+		   <input class="tel2"  onBlur="if (this.value=='')this.value='请输入你的电话'" value="请输入你的电话" onFocus="this.value=''"  type="tel" name="msg.phone" >
+		   <input type="button" id="bnt" value="提交信息" class="but2">
  </form>
 </div>
 
@@ -77,7 +76,7 @@
 		$(".tc2").css("display","none")
 	});
 </script>
-<script type="text/javascript">
+<!--<script type="text/javascript">
 	function callback1(msg) {
 	//alert("恭喜您，信息已提交成功！");
 	$(".tc2").css("display","block")
@@ -95,16 +94,62 @@
     function testBack(msg) {
 	//可以为空
     }
-</script>
-<script language="javascript" type="text/javascript">
-NTKF_PARAM = {
-  siteid:"kf_9740",                            //公司ID   固定,
-  settingid:"kf_9740_603221197",             //子站点id    
-  erpparam:"settingid:kf_9740_603221197"  
-} 
-</script>
+</script>-->
+ <!--留言js开始-->
+<script>
+			interactive.init('xiaoneng')
+			
+			<!---->
+			$(".but2").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel2").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })   
+			 <!
+			 
+			 $(".but22").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel22").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })      
+			 
+			 
+			  $(".but222").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel222").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })      
+			 
+			 
+			   $(".but2222").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel2222").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })      
+			 
+		</script>
+<!--弹出框js结束--> 
 
-<script type="text/javascript" src="http://dl.ntalker.com/js/xn6/ntkfstat.js?siteid=kf_9740" charset="utf-8"></script>
 
 
 </body>

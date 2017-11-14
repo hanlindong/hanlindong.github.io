@@ -20,9 +20,18 @@
 				$("form #field3").get(n).value = url;
 			})
 		}) 
-	</script> 
+	</script>
+    <script>
+        /*  页面框架参数，请勿删除，并用自己的站点ID替换111111  */
+        var siteId = 603221197
+    </script> 
+  <!--下方是页面框架js，请勿删除--> 
+  <!-- <script src="http://ggtf.sunland.org.cn/statistics/sunlandsLog.js"></script>    -->
 </head>
 <body style="background:#fff;text-align: center;padding-bottom:4rem;">
+
+<!--下方是页面框架js，请勿删除！！--> 
+  <!-- <script src="http://ggtf.sunland.org.cn/statistics/interactive.js"></script>  -->
 <img src="images/xyjs.png" style="display: block;width:94%;margin:0 auto;margin-top:8%;">
 <!-- <h1 class="zdbt">【北京大学】</h1> -->
 <!-- <p>（最后一年招生）</p> -->
@@ -45,7 +54,7 @@
 <p class="zhengwen">芝士学院的老师们朝气蓬勃，致力于不断优化课程内容，为学员提供“专业、高效、生动、有趣”的课程和服务。</p>
 <p class="zhengwen">在教学中，课堂氛围轻松活跃，讲课内容直击考试，将历年真题融合到知识点中，做到秉轴持钧。</p>
 <p class="zhengwen">“芝士，改变命运！”</p>
-<a  class="yxbnt">更多院校详情</a>
+<a  class="yxbnt" href="http://www.sunnycareer.com/198/BJ/mb/ehGSME/index.html" target="_blank">更多院校详情</a>
 
 <div class="tc">
 	<div class="tc_content">
@@ -53,36 +62,26 @@
 		<img src="images/tc_top.png">
 	    <form name="messageForm" method="post" action="/message.action" id="messageForm1">
 		  <p>您希望什么时间客服电话回馈：<br /></p>
-			<input type="hidden" value="" name="msg.field1" class="enterinput" id="field1" /> 
-		    <input type="hidden" value="" name="msg.field2" class="enterinput" id="field2" /> 
-		    <input type="hidden" value="" name="msg.field3" class="enterinput" id="field3" /> 
-		    <input type="hidden" value="注册成功" name="msg.name" class="enterinput" id="name" /> 
-		    <input type="hidden" name="msg.remark" class="enterinput" id="remark" value="夏静" /> 
-		    <input type="hidden" value="" name="msg.email" id="email" /> 
-		    <input type="hidden" value="上海校" name="msg.school_code" id="schoolCode" /> 
-		    <input type="hidden" value="自考" name="msg.project_code" /> 
-		    <input type="hidden" value="夏静" name="msg.message_type" /> 
-		    <input type="hidden" name="msg.field3" id="field3" value="" /> 
-		    <input type="hidden" value="http://i.sunlands.com/portal-war/message.action" id="msgUrl" /> 
+			
 			<label style="margin-left:0.2rem;"><input name="" type="radio" value="" />08:00--12:00 </label>
 			<label style="margin-left:1.5rem;"><input name="" type="radio" value="" />12:00--16:00 </label><br>
 			<label ><input name="" type="radio" value="" />16:00--20:00 </label>
 			<label style="margin-left:1.5rem;"><input name="" type="radio" value="" />20:00--24:00 </label>
-			<input type="tel" class="tel_input" placeholder="您的电话" name="msg.phone"/>
-			<input name="" class="button" type="button" value="提交" onclick="tuiguang_message_open('messageForm1',callback,98,35)" />
+			<input type="tel" class="tel_input tel2" placeholder="您的电话" name="msg.phone"/>
+			<input name="" class="button but2" type="button" value="提交" />
 		</form>
 	</div>
 </div> 
 
 
-<script language="javascript" type="text/javascript">
-	$(".yxbnt").click(function(){
-		$(".tc").css("display","block")
-	});
-	$(".close").click(function(){
-		$(".tc").css("display","none")
-	});
-</script>
+<!-- <script language="javascript" type="text/javascript"> -->
+	<!-- $(".yxbnt").click(function(){ -->
+		<!-- $(".tc").css("display","block") -->
+	<!-- }); -->
+	<!-- $(".close").click(function(){ -->
+		<!-- $(".tc").css("display","none") -->
+	<!-- }); -->
+<!-- </script> -->
 
 <script type="text/javascript">
 	function callback1(msg) {
@@ -123,15 +122,60 @@
 </script>
 
 
-<script language="javascript" type="text/javascript">
-NTKF_PARAM = {
-  siteid:"kf_9740",                            //公司ID   固定,
-  settingid:"kf_9740_603221197",             //子站点id    
-  erpparam:"settingid:kf_9740_603221197"  
-} 
-</script>
-
-<script type="text/javascript" src="http://dl.ntalker.com/js/xn6/ntkfstat.js?siteid=kf_9740" charset="utf-8"></script>
+   <!--留言js开始-->
+<script>
+			interactive.init('xiaoneng')
+			
+			<!---->
+			$(".but2").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel2").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })   
+			 <!
+			 
+			 $(".but22").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel22").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })      
+			 
+			 
+			  $(".but222").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel222").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })      
+			 
+			 
+			   $(".but2222").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel2222").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })      
+			 
+		</script>
+<!--弹出框js结束--> 
 
 
 </body>
