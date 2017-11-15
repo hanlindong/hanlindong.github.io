@@ -9,7 +9,7 @@
             json = eval(data.resource);
             for(var i=0; i<json.length; i++)
             {
-                bannerHtml+='<div class="swiper-slide"><img class="banner_img" src='+json[i].image+'><p class="subtitle">'+json[i].subtitle+'</p></div>'
+                bannerHtml+='<div class="swiper-slide"><a href='+json[i].link+'><img class="banner_img" src='+json[i].image+'><p class="subtitle">'+json[i].subtitle+'</p></a></div>'
             }
             $('#banner').html(bannerHtml);
             $('.swiper-nav').append('<div class="swiper-pagination swiper-page"></div>');
