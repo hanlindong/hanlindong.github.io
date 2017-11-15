@@ -2,15 +2,18 @@
   "resource":[
     {
       "image": "http://oz79w3awk.bkt.clouddn.com/b1.jpg",
-      "subtitle": ""
+      "subtitle": "",
+      "link":"http://www.91ld.cn/dhl/wx/d21/bej/index.html"
     },
     {
     "image":"http://oz79w3awk.bkt.clouddn.com/b-2.jpg",
-    "subtitle":""
+    "subtitle":"",
+    "link":"http://www.91ld.cn/dhl/wx/d21/bej/index.html"
     },
     {
     "image":"http://oz79w3awk.bkt.clouddn.com/b-3.jpg",
-    "subtitle":""
+    "subtitle":"",
+    "link":"http://www.91ld.cn/dhl/wx/d21/bej/index.html"
     }
   ]
 }
