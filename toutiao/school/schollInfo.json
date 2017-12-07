@@ -1,0 +1,1896 @@
+{
+  "menu": [
+    {
+      "school": "北京分校",
+      "city": [
+        {
+          "mall": "东直门店",
+          "place": "北京市朝阳区东直门东方银座写字楼5层5M",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/东直门1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/东直门2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/东直门3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "西直门店",
+          "place": "北京市西城区高粱桥路6号西环广场A座15A1",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/西直门1.jpg",
+              "640x192"
+            ],
+            [
+              "images/schoolPlace/西直门2.jpg",
+              "640x282"
+            ],
+            [
+              "images/schoolPlace/西直门3.jpg",
+              "592x296"
+            ]
+          ]
+        },
+        {
+          "mall": "中关村店",
+          "place": "北京市海淀区中关村大街新中关购物中心B座1707",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/中关村1.jpg",
+              "640x189"
+            ],
+            [
+              "images/schoolPlace/中关村2.jpg",
+              "640x309"
+            ],
+            [
+              "images/schoolPlace/中关村3.jpg",
+              "1280x960"
+            ]
+          ]
+        },
+        {
+          "mall": "国贸店",
+          "place": "朝阳区东三环中路建外soho东区A座1707",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/国贸1.jpg",
+              "640x217"
+            ],
+            [
+              "images/schoolPlace/国贸2.jpg",
+              "640x338"
+            ],
+            [
+              "images/schoolPlace/国贸3.jpg",
+              "1050x160"
+            ]
+          ]
+        },
+        {
+          "mall": "公主坟店",
+          "place": "北京市海淀区复兴路甲23号城乡华懋10层1009",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/公主坟1.jpg",
+              "1350x498"
+            ],
+            [
+              "images/schoolPlace/公主坟2.jpg",
+              "640x242"
+            ],
+            [
+              "images/schoolPlace/公主坟3.jpg",
+              "381x318"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "山西分校",
+      "city": [
+        {
+          "mall": "太原店",
+          "place": "山西省太原市杏花岭区府西街9号王府商务大厦A座15i",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/太原1.jpg",
+              "640x195"
+            ],
+            [
+              "images/schoolPlace/太原2.jpg",
+              "640x215"
+            ],
+            [
+              "images/schoolPlace/太原3.jpg",
+              "635x400"
+            ]
+          ]
+        },
+        {
+          "mall": "大同店",
+          "place": "山西省大同市城区魏都大道富临宝城B座8层808室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/大同1.jpg",
+              "640x185"
+            ],
+            [
+              "images/schoolPlace/大同2.jpg",
+              "640x225"
+            ],
+            [
+              "images/schoolPlace/大同3.jpg",
+              "1350x444"
+            ]
+          ]
+        },
+        {
+          "mall": "运城店",
+          "place": "山西省运城市盐湖区人民南路147号环球财富大厦10层1007室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/运城1.jpg",
+              "640x475"
+            ],
+            [
+              "images/schoolPlace/运城2.jpg",
+              "640x245"
+            ],
+            [
+              "images/schoolPlace/运城3.jpg",
+              "381x321"
+            ]
+          ]
+        },
+        {
+          "mall": "临汾店",
+          "place": "山西省临汾市尧都区平阳南街31号腾亿写字楼6层610.612室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/临汾1.jpg",
+              "640x360"
+            ],
+            [
+              "images/schoolPlace/临汾2.jpg",
+              "640x258"
+            ],
+            [
+              "images/schoolPlace/临汾3.jpg",
+              "1350x600"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "陕西分校",
+      "city": [
+        {
+          "mall": "西安店",
+          "place": "陕西省西安市碑林区南稍门十字路口西北角中贸广场15号楼1单元2607",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/西安1.jpg",
+              "640x176"
+            ],
+            [
+              "images/schoolPlace/西安2.jpg",
+              "640x292"
+            ],
+            [
+              "images/schoolPlace/西安3.jpg",
+              "687x299"
+            ]
+          ]
+        },
+        {
+          "mall": "咸阳店",
+          "place": "陕西省咸阳市渭城区人民中路东银大厦15层11524室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/咸阳1.jpg",
+              "640x480"
+            ],
+            [
+              "images/schoolPlace/咸阳2.jpg",
+              "640x260"
+            ],
+            [
+              "images/schoolPlace/咸阳3.jpg",
+              "600x333"
+            ]
+          ]
+        },
+        {
+          "mall": "渭南店",
+          "place": "陕西省渭南市临渭区东风大街与金水路交叉口西北角北欧青年城北楼3层330室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/渭南1.jpg",
+              "640x480"
+            ],
+            [
+              "images/schoolPlace/渭南2.jpg",
+              "640x255"
+            ],
+            [
+              "images/schoolPlace/渭南3.jpg",
+              "553x364"
+            ]
+          ]
+        },
+        {
+          "mall": "榆林店",
+          "place": "陕西省榆林市榆阳区长城南路中段凯信世纪写字楼9层9-A1",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/榆林1.jpg",
+              "640x401"
+            ],
+            [
+              "images/schoolPlace/榆林2.jpg",
+              "640x247"
+            ],
+            [
+              "images/schoolPlace/榆林3.jpg",
+              "660x400"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "河北分校",
+      "city": [
+        {
+          "mall": "石家庄店",
+          "place": "河北省石家庄市中山东路勒泰中心A座1512室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/石家庄1.jpg",
+              "640x480"
+            ],
+            [
+              "images/schoolPlace/石家庄2.jpg",
+              "640x324"
+            ],
+            [
+              "images/schoolPlace/石家庄3.jpg",
+              "485x553"
+            ]
+          ]
+        },
+        {
+          "mall": "保定店",
+          "place": "河北省保定市朝阳南大街1号第一座茂业中心12层1204室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/保定1.jpg",
+              "640x250"
+            ],
+            [
+              "images/schoolPlace/保定2.jpg",
+              "640x249"
+            ],
+            [
+              "images/schoolPlace/保定3.jpg",
+              "470x285"
+            ]
+          ]
+        },
+        {
+          "mall": "邯郸店",
+          "place": "河北省邯郸市丛台区人民东路嘉华大厦（行政服务中心旁）10层1002室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/邯郸1.jpg",
+              "640x361"
+            ],
+            [
+              "images/schoolPlace/邯郸2.jpg",
+              "640x223"
+            ],
+            [
+              "images/schoolPlace/邯郸3.jpg",
+              "640x427"
+            ]
+          ]
+        },
+        {
+          "mall": "唐山店",
+          "place": "河北省唐山市路南区万达广场B座2105室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/唐山1.jpg",
+              "640x241"
+            ],
+            [
+              "images/schoolPlace/唐山2.jpg",
+              "640x278"
+            ],
+            [
+              "images/schoolPlace/唐山3.jpg",
+              "554x399"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "河南分校",
+      "city": [
+        {
+          "mall": "洛阳店",
+          "place": "河南省洛阳市西工区凯旋西路30号君临商务大厦904室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/洛阳1.jpg",
+              "640x260"
+            ],
+            [
+              "images/schoolPlace/洛阳2.jpg",
+              "640x260"
+            ],
+            [
+              "images/schoolPlace/洛阳3.jpg",
+              "592x296"
+            ]
+          ]
+        },
+        {
+          "mall": "南阳店",
+          "place": "河南省南阳市卧龙区新华路与工业路交叉口新华城市广场兴达国际写字楼7层701室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/南阳1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/南阳2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/南阳3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "新乡店",
+          "place": "河南省新乡市卫滨区平原路76号普利A座23层2315室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/新乡1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/新乡2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/新乡3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "郑州店",
+          "place": "河南省郑州市（曼哈顿广场）未来路金水路交叉口东北角升龙大厦11号楼609室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/郑州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/郑州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/郑州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "周口店",
+          "place": "周口市川汇区界牌街与七一中路交叉口向东35米路北万顺达百货1期9层B008室（万顺达百货楼上）",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/周口1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/周口2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/周口3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "甘肃分校",
+      "city": [
+        {
+          "mall": "兰州店",
+          "place": "甘肃省兰州市城关区东方红广场1号国芳商务写字楼13层1302室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/兰州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/兰州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/兰州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "乌鲁木齐店",
+          "place": "新疆乌鲁木齐市天山区红山路16号世纪金花时代广场C座8层M室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/乌鲁木齐1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/乌鲁木齐2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/乌鲁木齐3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "银川店",
+          "place": "宁夏回族自治区银川市兴庆区银川国际贸易中心C栋5层509室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/银川1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/银川2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/银川3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "西宁店",
+          "place": "青海省西宁市城西区西大街42号三田世纪广场写字楼（王府井百货楼上）11层1109室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/西宁1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/西宁2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/西宁3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "天津分校",
+      "city": [
+        {
+          "mall": "天津店",
+          "place": "天津市河西区下瓦房恒华大厦4-A427",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/天津1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/天津2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/天津3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "吉林分校",
+      "city": [
+        {
+          "mall": "长春店",
+          "place": "吉林省长春市朝阳区西安大路488号新世纪鸿源广场二号宫寓22层2208",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/长春1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/长春2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/长春3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "黑龙江分校",
+      "city": [
+        {
+          "mall": "哈尔滨店",
+          "place": "黑龙江省哈尔滨市道里区东七道街20号哈威广场99号公馆3层1号",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/哈尔滨1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/哈尔滨2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/哈尔滨3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "辽宁分校",
+      "city": [
+        {
+          "mall": "沈阳店",
+          "place": "辽宁省沈阳市大东区津桥路7-1号天润广场7号楼25层1-25-3",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/沈阳1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/沈阳2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/沈阳3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "大连店",
+          "place": "辽宁省大连市沙河口区黄河路677号天兴罗斯福国际大厦2702室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/大连1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/大连2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/大连3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "山东分校",
+      "city": [
+        {
+          "mall": "青岛店",
+          "place": "山东省青岛市市南区香港中路10号颐和国际A座804室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/青岛1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/青岛2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/青岛3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "济南店",
+          "place": "山东省济南市市中区万达广场D座（广发大厦）1702室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/济南1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/济南2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/济南3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "潍坊店",
+          "place": "山东省潍坊市万达广场写字楼A座1510、1511室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/潍坊1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/潍坊2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/潍坊3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "烟台店",
+          "place": "山东省烟台市芝罘区南大街213号市长大厦1011室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/烟台1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/烟台2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/烟台3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "四川分校",
+      "city": [
+        {
+          "mall": "成都锦江店",
+          "place": "四川省成都市锦江区人民南路二段18号川信大厦13楼1-3室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/锦江1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/锦江2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/锦江3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "重庆分校",
+      "city": [
+        {
+          "mall": "重庆店",
+          "place": "重庆市江北区观音桥未来国际31-2室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/重庆1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/重庆2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/重庆3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "湖南分校",
+      "city": [
+        {
+          "mall": "长沙店",
+          "place": "湖南省长沙市芙蓉区五一大道766号中天广场行政公馆5层5030",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/长沙1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/长沙2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/长沙3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "江西分校",
+      "city": [
+        {
+          "mall": "南昌店",
+          "place": "南昌市西湖区广场南路205号恒茂国际华城16栋B座2010室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/南昌1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/南昌2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/南昌3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "湖北分校",
+      "city": [
+        {
+          "mall": "武汉店",
+          "place": "武汉市江汉区中山大道818号平安大厦3211室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/武汉1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/武汉2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/武汉3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "襄阳店",
+          "place": "襄阳市樊城区解放路开放广场B栋1607室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/襄阳1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/襄阳2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/襄阳3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "安徽分校",
+      "city": [
+        {
+          "mall": "合肥店",
+          "place": "安徽省合肥市庐阳区淮河路266号香港广场1幢1210室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/合肥1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/合肥2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/合肥3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "芜湖店",
+          "place": "安徽省芜湖市北京西路与九华中路交叉口伟星时代金融中心12F1208",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/芜湖1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/芜湖2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/芜湖3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "江苏分校",
+      "city": [
+        {
+          "mall": "南京店",
+          "place": "江苏省南京市秦淮区中山南路49号商茂世纪广场24A6",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/南京1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/南京2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/南京3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "常州店",
+          "place": "江苏省常州市钟楼区延陵西路123号吾悦国际广场B座10楼1011室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/常州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/常州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/常州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "苏州店",
+          "place": "江苏省苏州市平江区干将东路666号和基广场317室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/苏州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/苏州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/苏州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "徐州店",
+          "place": "徐州市云龙区和平路64号帝都大厦1506",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/徐州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/徐州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/徐州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "南通店",
+          "place": "江苏省南通市人民中路185号德明旺角2栋109室底层",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/南通1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/南通2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/南通3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "无锡店",
+          "place": "江苏省无锡市崇安区中山路531号红豆国际广场1710室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/无锡1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/无锡2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/无锡3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "连云港店",
+          "place": "江苏省连云港市海州区苏宁广场2号楼1702室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/连云港1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/连云港2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/连云港3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "昆山店",
+          "place": "江苏省昆山市玉山镇前进西路296号中茵世贸广场写字楼6层610室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/昆山1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/昆山2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/昆山3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "盐城店",
+          "place": "江苏省盐城市亭湖区人民中路188号飞驰国际10层1018.1019室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/盐城1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/盐城2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/盐城3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "扬州店",
+          "place": "江苏省扬州市邗江区文昌西路56号公元国际大厦7层708室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/扬州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/扬州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/扬州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "淮安店",
+          "place": "江苏省淮安市清河区淮海东路142号新亚国际大厦2123.2125室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/淮安1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/淮安2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/淮安3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "泰州店",
+          "place": "泰州市海陵区济川东路与海陵南路交叉口万达广场写字楼5层504室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/泰州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/泰州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/泰州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "镇江店",
+          "place": "江苏省镇江市京口区中山东路189号诚和大厦11层1102室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/镇江1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/镇江2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/镇江3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "宿迁店",
+          "place": "江苏省宿迁市宿城区西湖路328号城宇大厦A902.A906",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/宿迁1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/宿迁2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/宿迁3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "浙江分校",
+      "city": [
+        {
+          "mall": "杭州店",
+          "place": "杭州市下城区庆春路136号广利大厦705室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/杭州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/杭州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/杭州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "绍兴店",
+          "place": "浙江省绍兴市胜利东路17号凯盛国际大厦7楼703室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/绍兴1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/绍兴2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/绍兴3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "金华店",
+          "place": "浙江省金华市新华街168号 金茂大厦13楼12A-E ",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/金华1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/金华2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/金华3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "义乌店",
+          "place": "浙江省义乌市稠州北路800金福源国际生活城A区1607",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/义乌1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/义乌2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/义乌3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "台州店",
+          "place": "台州市方远大厦商务楼 2001",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/台州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/台州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/台州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "温州店",
+          "place": "温州市鹿城区华盟商务广场12楼1208室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/温州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/温州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/温州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "宁波店",
+          "place": "宁波市海曙区中山东路181号中农信大厦23楼A03",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/宁波1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/宁波2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/宁波3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "嘉兴店",
+          "place": "浙江省嘉兴市南湖区中山东路205号嘉华广场403",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/嘉兴1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/嘉兴2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/嘉兴3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "广西分校",
+      "city": [
+        {
+          "mall": "南宁店",
+          "place": "南宁市青秀区金湖路63号金源CBD现代城2116、2118室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/南宁1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/南宁2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/南宁3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "云南分校",
+      "city": [
+        {
+          "mall": "昆明店",
+          "place": "昆明市盘龙区环城东路与白龙路交界处金平果国际商务大厦1107室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/昆明1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/昆明2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/昆明3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "贵州分校",
+      "city": [
+        {
+          "mall": "贵阳店",
+          "place": "贵州省贵阳市南明区花果园国际金融街2号32层3204、3205室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/贵阳1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/贵阳2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/贵阳3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "海南分校",
+      "city": [
+        {
+          "mall": "海口店",
+          "place": "贵州省贵阳市南明区花果园国际金融街2号32层3204、3205室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/海口1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/海口2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/海口3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "福建分校",
+      "city": [
+        {
+          "mall": "福州店",
+          "place": "福建省福州市鼓楼区五一北路1号力宝天马广场1207",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/福州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/福州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/福州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "厦门店",
+          "place": "福建省厦门市思明区湖滨东路华龙大厦1907",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/厦门1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/厦门2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/厦门3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "泉州店",
+          "place": "福建省泉州市丰泽区富华商厦9F",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/泉州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/泉州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/泉州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "漳州店",
+          "place": "福建省漳州市芗城区南昌中路31号丽园君悦写字楼12层1203",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/漳州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/漳州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/漳州3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "school": "广东分校",
+      "city": [
+        {
+          "mall": "天河店",
+          "place": "广州市天河区天河路490号壬丰大厦1001室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/天河1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/天河2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/天河3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "广州番禺店",
+          "place": "广州市番禺市桥富华路35号华南大厦601室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/番禺1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/番禺2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/番禺3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "广州海珠店",
+          "place": "广州市海珠区江南大道南362号达镖国际中心1303室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/海珠1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/海珠2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/海珠3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "广州越秀店",
+          "place": "浙江省义乌市稠州北路800金福源国际生活城A区1607",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/越秀1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/越秀2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/越秀3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "深圳地王店",
+          "place": "广东省深圳市罗湖区深南东路5002号地王大厦1802室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/地王1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/地王2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/地王3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "深圳车公庙店",
+          "place": "广东省深圳市车公庙深南大道6013号中国有色大厦8层",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/车公庙1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/车公庙2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/车公庙3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "深圳南山店",
+          "place": "广东省深圳市南山区海德二道245华彩新天地1层",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/南山1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/南山2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/南山3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "深圳宝安店",
+          "place": "深圳市宝安区创业一路1004号宏发中心大厦 17A楼17A30",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/宝安1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/宝安2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/宝安3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "深圳龙华店",
+          "place": "广东省深圳市龙华新区美丽AAA大厦12楼1203A",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/龙华1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/龙华2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/龙华3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "深圳龙岗店",
+          "place": "广东省深圳市龙岗区龙岗大道荣群大厦9楼903",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/龙岗1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/龙岗2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/龙岗3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "东莞店",
+          "place": "广东省东莞市南城区体育路口鸿禧中心B1112",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/东莞1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/东莞2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/东莞3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "汕头店",
+          "place": "广东省汕头市时代广场龙光世纪大厦东区504",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/汕头1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/汕头2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/汕头3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "惠州店",
+          "place": "广东省惠州市惠城区新岸路1号世贸中心16G",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/惠州1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/惠州2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/惠州3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "茂名店",
+          "place": "广东省茂名市光华南路183号摩根时代大厦B座2109",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/茂名1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/茂名2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/茂名3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "湛江店",
+          "place": "广东省湛江市人民大道南53号国贸大厦B座3栋7A06",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/湛江1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/湛江2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/湛江3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "禅城店",
+          "place": "佛山市禅城区祖庙路33号百花（副楼）国际商业中心801室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/禅城1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/禅城2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/禅城3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "顺德店",
+          "place": "佛山市顺德区大良镇清晖路154号联丰商务大厦806室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/顺德1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/顺德2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/顺德3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "中山店",
+          "place": "中山市石岐区兴中道5号颐和中心815室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/中山1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/中山2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/中山3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "江门店",
+          "place": "江门市蓬江区迎宾大道中131号中信银行大厦1603室",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/江门1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/江门2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/江门3.jpg",
+              "381x465"
+            ]
+          ]
+        },
+        {
+          "mall": "珠海店",
+          "place": "南路1030号香湾电脑城楼上（瀚高大厦1806室）",
+          "time": "7:00-22:00",
+          "imgPlace": [
+            [
+              "images/schoolPlace/珠海1.jpg",
+              "640x167"
+            ],
+            [
+              "images/schoolPlace/珠海2.jpg",
+              "640x299"
+            ],
+            [
+              "images/schoolPlace/珠海3.jpg",
+              "381x465"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

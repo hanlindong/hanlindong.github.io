@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>尚德机构</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="format-detection" content="email=no" />
+	<link href="css/base.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <!--<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>-->
+    <script src="js/swipeslide.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://lp.sunlands.com/js/portalJs/message.js"></script> 
+	<script type="text/javascript" src="js/messagee.js"></script> 
+	<script type="text/javascript">
+		$(function () {
+			var url = this.location.href;
+			$("form #field3").each(function (n) {
+				$("form #field3").get(n).value = url;
+			})
+		}) 
+	</script> 
+    <script type="text/javascript" language="javascript">
+  	 /*------判断radio是否有选中，获取选中的值--------*/
+     $(function(){
+          $("#btnSubmit").click(function(){
+             var valone=$('input:radio[name="xueli"]:checked').val();
+             if(valone==null){
+                 alert("请把问题答完!");
+                 return false;
+             }
+             else{
+                 var anw1=valone;
+             }
+             var valtwo= $('input:radio[name="time"]:checked').val();
+             if(valtwo==null){
+                 alert("请把问题答完!");
+                 return false;
+             }
+             else{
+                 var anw2=valtwo;
+             }    
+			 var valthree=$('input:radio[name="age"]:checked').val();
+             if(valthree==null){
+                 alert("请把问题答完!");
+                 return false;
+             }
+             else{
+                 var anw3=valthree;
+             }
+             var valfour= $('input:radio[name="why"]:checked').val();
+             if(valfour==null){
+                 alert("请把问题答完!");
+                 return false;
+             }
+             else{
+                 var anw4=valfour;
+             }    
+			 var valfive=$('input:radio[name="tool"]:checked').val();
+             if(valfive==null){
+                 alert("请把问题答完!");
+                 return false;
+             }
+             else{
+                 var anw5=valfive;
+             }  
+             
+			 /*计算分数总和*/
+		     var totle=parseInt(anw1)+parseInt(anw2)+parseInt(anw3)+parseInt(anw4)+parseInt(anw5);
+			 
+			 /*比较分数范围*/
+			 if(totle>=5 && totle<=7){
+                 $(".jis").html("北京大学"+"<br>"+"人力资源管理");
+				 //$(".tc4").css("display","block");
+				 tuiguang_message_open('messageForm',callback1,98,35);
+                 
+             }
+			 if(totle>=8 && totle<=10){
+                  $(".jis").html("中国人民大学"+"<br>"+"商务管理");
+				// $(".tc4").css("display","block");
+				 tuiguang_message_open('messageForm',callback1,98,35);
+                 
+             }
+			 if(totle>=11 && totle<=13){
+                  $(".jis").html("清华大学"+"<br>"+"工商管理");
+				 //$(".tc4").css("display","block");
+				 tuiguang_message_open('messageForm',callback1,98,35);
+                 
+             }
+			 if(totle>=14 && totle<=16){
+                  $(".jis").html("复旦大学"+"<br>"+"汉语言文学");
+				 //$(".tc4").css("display","block");
+				 tuiguang_message_open('messageForm',callback1,98,35);
+                 
+             }
+			 if(totle>=17 && totle<=19){
+                  $(".jis").html("南京大学"+"<br>"+"机械工程");
+				 //$(".tc4").css("display","block");
+				 tuiguang_message_open('messageForm',callback1,98,35);
+                 
+             }
+			 if(totle>=20 && totle<=23){
+                  $(".jis").html("南开大学"+"<br>"+"美术");
+				 //$(".tc4").css("display","block");
+				 tuiguang_message_open('messageForm',callback1,98,35);
+                 
+             }
+
+		  });
+      
+	 
+	 
+	 
+	 });
+ </script>
+ 
+ <script>
+        /*  页面框架参数，请勿删除，并用自己的站点ID替换111111  */
+        var siteId = 603221197
+    </script> 
+  <!--下方是页面框架js，请勿删除--> 
+  <!-- <script src="http://ggtf.sunland.org.cn/statistics/sunlandsLog.js"></script>    -->
+</head>
+<body>
+
+<!--下方是页面框架js，请勿删除！！--> 
+  <!-- <script src="http://ggtf.sunland.org.cn/statistics/interactive.js"></script>  -->
+	<div class="banner">
+		<ul>	
+            <li>
+			    <a href="http://www.sunnycareer.com/198/BJ/mb/ehGSME/index.html" target="_blank"><img src="images/banner1.jpg"/></a>
+			</li>
+            <li >
+				<a href="http://www.sunnycareer.com/198/BJ/mb/ehGSME/index.html" target="_blank"><img src="images/banner2.jpg" /></a>
+			</li>
+            <li  >
+				<a href="http://www.sunnycareer.com/198/BJ/mb/ehGSME/index.html" target="_blank"><img src="images/banner3.jpg" /></a>
+			</li>
+			</ul>
+            <div class="btn">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div> 
+	</div>
+	<script>
+	$(".banner").swipeSlide({
+		continuousScroll:true,
+		speed : 3000,
+		// axisX:false,
+		transitionType : 'cubic-bezier(0.22, 0.69, 0.72, 0.88)',
+		callback : function(i){
+		$('.btn').children().eq(i).addClass('special').siblings().removeClass('special');
+		}
+		})
+    </script>
+	<ul class="nav">
+		<li>
+			<img src="images/icon1.png">
+			<p>尚德介绍</p>
+		</li>
+		<li>
+			<img src="images/icon2.png">
+			<p>八大学院</p>
+		</li>
+		<li>
+			<img src="images/icon3.png">
+			<p>学历定制</p>
+		</li>
+		<li  >
+		<a href="http://m.sunlands.com/16/BJ/mb/abnzTq/index.html" target="_blank" style="color:#333">
+			<img src="images/icon4.png">
+			<p>在线咨询</p></a>
+		</li>
+	</ul>
+	<div class="contentg">
+		<div class="content_box box1" style="display:block;background:#fff;text-align: center;padding-bottom:4rem;">
+<a href='images/video.mp4' target='_blank'><img src="images/zy.png" style="display: block;width:96%;margin:0 auto;margin:0.5rem auto;"></a>
+
+		<!-- <img src="images/xyjs.png" style="display: block;width:94%;margin:0 auto;margin-top:8%;"> -->
+<p class="zhengwen">当走在繁华的街头，或穿梭在人流如织的地铁中，人们往往对一块块写有“学习是一种信仰”的广告牌并不感到陌生，但对于广告的发布者——尚德机构，很多人却并不了解。</p>
+<p class="zhengwen">其实，这个创立于2003年的培训机构，正是凭借着一种执着信仰和追求，才能在短短时间里创造出了很多行业的奇迹；
+曾经在美国投资了苹果这样伟大公司的著名投资机构——经纬创投，早在2011年就看好尚德机构并为此“下了注”；现如今，尚德机构的业务已覆盖全国多个城市。2014年6月尚德机构以“壮士断臂”的决心，彻底转型互联网。</p>
+
+<!-- <p class="zhengwen" >是信仰，让尚德机构走到了今天；同样，它也在用的信仰的力量回馈社会、造福学员。在尚德机构培养的学员中，很多人因此改变了命运，还有一些人成为了精英或是行业内的佼佼者。  -->
+<!-- 尚德机构成立于2003年，在公司初创的头5年里，尚德机构砥砺前行，不断扩大业务范围，慢慢形成了包括职业资格证书培训、学历培训和IT培训在内的三大主营业务。</p> -->
+
+<!-- <h1 class="zdbt">【北京大学】</h1><p>（最后一年招生）</p> -->
+<div class="btqx">
+   <p>回首过去</p>
+   <span>School Profiles</span></br>
+   
+   <div class="qxdiv"></div>
+</div>
+<h1 class="zdbt" style="font-size:1.6rem">【尚德机构走过了这样一条发展轨迹】</h1>
+<b class="xxj">&or;</b>
+<img src="images/p1_1.jpg" style="display: block;width:96%;margin:0 auto;margin-top:1rem;">
+
+
+<h1 class="zdbt1">2003年</h1>
+<p class="zhengwen">尚德机构由物业管理培训起家</p>
+<h1 class="zdbt1">2008年</h1>
+<p class="zhengwen">在在线教育还未像现在这样为人们所熟知的时候，一向志在潮头、敢为人先的尚德机构就敏锐地预感到：互联网大潮势不可挡，于是便早早进行互联网转型的布局，并先后孵化了以线上录播为主的第一代互联网产品——“嗨学网”，以及与各大平台对接的、以直播模式为主的第二代互联网产品——“对啊网”，此外又尝试了免费、题库等多种模式，尝试利用技术的手段，努力打破时间和地域的限制，给学员带来更大的便利和实惠。</p>
+<h1 class="zdbt1">2014年6月</h1>
+<p class="zhengwen">在找到在线直播这一互联网教学模式的基础上，尚德机构全面向互联网转型，打造国内优秀的在线职业培训直播平台。
+在此基础上，尚德机构进行了很多有益的探索和尝试：通过互联网这一技术平台，尚德机构重塑了师生关系，老师们不仅只是讲课，他们更像产品经理，为学生提供贴心的教学服务和体验；而事实也证明了这样做的效果:学员热情度非常高，考试通过率超过传统面授时期。</p>
+<p class="zhengwen">尚德机构还利用技术优势进行学员大数据的挖掘，学员在线学习的行为成为机构进行针对性服务、个性化服务的“导航仪”——通过这些努力，尚德机构收获了比其他机构、甚至比自己过去更高的学员满意度和考试通过率。</p>
+<img src="images/p1_2.jpg" style="display: block;width:96%;margin:0 auto;margin-top:1rem;">
+<p class="zhengwen">从国内职业和学历培训领域的“航母”，到成功转型为互联网培训机构，并建立起国内优秀的职业培训在线直播平台，成为领先的互联网教育公司。尚德机构之所以有这么大的勇气和决心，是因为尚德机构一直致力于改变<span style="color:red">“以培训者为中心”</span>的传统模式，并建立基于互联网基础之上、真正的“以学习者为中心”的培训模式。</p>
+<p class="zhengwen">尚德机构鼓励尚德人与学员们在漫漫人生航行中找寻正确的方向，强调通过激发学习者的学习动机和运用新技术的手段，致力于为学员提供快乐、轻松、有价值的学习体验；以此提高学员的职场竞争力，助力学员的全面发展。</p>
+
+<a  class="yxbnt" href="http://www.sunnycareer.com/198/BJ/mb/ehGSME/index.html" target="_blank">更多院校详情</a>
+
+<div class="tc">
+	<div class="tc_content">
+	    <a class="close"></a>
+		<img src="images/tc_top.png">
+	    <form name="messageForm" method="post" action="/message.action" id="messageForm1">
+		  <p>您希望什么时间客服电话回馈：<br /></p>
+			<label style="margin-left:0.2rem;"><input name="" type="radio" value="" />08:00--12:00 </label>
+			<label style="margin-left:1.5rem;"><input name="" type="radio" value="" />12:00--16:00 </label><br>
+			<label ><input name="" type="radio" value="" />16:00--20:00 </label>
+			<label style="margin-left:1.5rem;"><input name="" type="radio" value="" />20:00--24:00 </label>
+			<input type="tel" class="tel_input tel222" placeholder="您的电话" name="msg.phone"/>
+			<input name="" class="button but222" type="button" value="提交"   />
+		</form>
+	</div>
+</div> 
+
+
+<!-- <script language="javascript" type="text/javascript"> -->
+	<!-- $(".yxbnt").click(function(){ -->
+		<!-- $(".tc").css("display","block") -->
+	<!-- }); -->
+	<!-- $(".close").click(function(){ -->
+		<!-- $(".tc").css("display","none") -->
+	<!-- }); -->
+<!-- </script> -->
+		</div>
+		<div class="content_box box2">
+			<ul style="margin-top:4%;">
+				<li><a href="index_xyjs1.html" >狐逻财经学院</a></li>
+				<li style="width:1.5rem;"></li>
+				<li><a href="index_xyjs2.html">自变量学院</a></li>
+			</ul>
+			<div style="height:1rem;width:100%;"></div>
+			<ul>
+				<li><a href="index_xyjs3.html">芝士学院</a></li>
+				<li style="width:1.5rem;"></li>
+				<li><a href="index_xyjs4.html">格致学院</a></li>
+			</ul>
+			<ul>
+				<li><a href="index_xyjs5.html">皓博学院</a></li>
+				<li style="width:1.5rem;"></li>
+				<li><a href="index_xyjs6.html">泰罗学院</a></li>
+			</ul>
+			<ul>
+				<li><a href="index_xyjs7.html">睿博学院</a></li>
+				<li style="width:1.5rem;"></li>
+				<li><a href="index_xyjs8.html">π学院</a></li>
+			</ul>
+		</div>
+		<div style="clear:both"></div>
+		<div class="content_box box3">
+          <form name="messageForm" method="post" action="/message.action" id="messageForm">
+
+				<p>1.您目前的学历层次：<br /></p>
+				<label><input name="xueli" type="radio" value="1" />小学及以下 </label>
+				<label><input name="xueli" type="radio" value="2" />初中 </label>
+				<label><input name="xueli" type="radio" value="3" />高中 </label>
+				<label><input name="xueli" type="radio" value="4" />中专 </label>
+				<label><input name="xueli" type="radio" value="5" />大专 </label>
+				<p>2.您能接受的拿证时长：<br /></p>
+				<label><input name="time" type="radio" value="1" />1年以内，越快越好 </label>
+				<label><input name="time" type="radio" value="2" />1年到2年 </label>
+				<label><input name="time" type="radio" value="3" />2年到3年 </label>
+				<label><input name="time" type="radio" value="4" />3年及以上 </label>
+				
+				<p>3.您的年龄段：<br /></p>
+				<label><input name="age" type="radio" value="1" />18-23岁 </label>
+				<label><input name="age" type="radio" value="2" />23-30岁 </label>
+				<label><input name="age" type="radio" value="3" />35-40岁 </label>
+				<label><input name="age" type="radio" value="4" />其他 </label>
+				
+				<p>4.您为什么考本科：<br /></p>
+				<label><input name="why" type="radio" value="1" />找工作 </label>
+				<label><input name="why" type="radio" value="2" />考公务员 </label>
+				<label><input name="why" type="radio" value="3" />办工作居住证 </label>
+				<label><input name="why" type="radio" value="4" />考证书评职称 </label>
+				<label><input name="why" type="radio" value="5" />其他 </label>
+				
+				<p>5.您更偏向于哪种取证方式：<br /></p>
+				<label><input name="tool" type="radio" value="1" />全程无忧 </label>
+				<label><input name="tool" type="radio" value="2" />在家自学 </label>
+				<label><input name="tool" type="radio" value="3" />学校听课 </label>
+				<label><input name="tool" type="radio" value="4" />辅导教学 </label>
+				<label><input name="tool" type="radio" value="5" />其他 </label>
+				
+				<div style="text-align: center;margin-top:1.5rem;">
+				<input name="msg.phone" class="tel_input tel2222" type="tel" placeholder="输入电话号码" />
+				<!-- <input name="" class="button but2222" id="btnSubmit" type="button" value="提交查看适合你的专业院校"/> -->
+				<div class="button"><a href="http://m.sunlands.com/16/BJ/mb/abnzTq/index.html" target="_blank"   >提交查看适合你的专业院校</a><div>
+				</div>
+			</form>
+			
+		</div>
+		<div class="content_box"></div> 
+		<div style="clear: both;"></div>
+	</div>                  
+    
+	<!-- <ul> -->
+		<!-- <li style="float:left;width:46%;margin-left:1.2rem"><a  href="index_hdtc_7.html"  ><img src="images/7z.png" style="width:100%;"></a></li> -->
+		<!-- <li style="float:left;width:46%"><a  href="index_hdtc_ty.html"  ><img  src="images/ty.png" style="width:100%;"></a></li> -->
+	<!-- </ul> -->
+	
+<div class="tc">
+	<div class="tc_content">
+	    <a class="close"></a>
+		<img src="images/tc_top.png">
+	    <form name="messageForm" method="post" action="/message.action" id="messageForm1">
+		  <p>您希望什么时间客服电话回馈：<br /></p>
+			<label style="margin-left:0.2rem;"><input name="" type="radio" value="" />08:00--12:00 </label>
+			<label style="margin-left:1.5rem;"><input name="" type="radio" value="" />12:00--16:00 </label><br>
+			<label ><input name="" type="radio" value="" />16:00--20:00 </label>
+			<label style="margin-left:1.5rem;"><input name="" type="radio" value="" />20:00--24:00 </label>
+			<input type="tel" class="tel_input tel2" placeholder="您的电话" name="msg.phone"/>
+			<input name="" class="button but2" type="button" value="提交"   />
+		</form>
+	</div>
+</div> 
+ 
+<div class="tc3">
+	<div class="ttc_content">
+	    <a class="close2"></a>
+		<img src="images/tc_top.png">
+	    <form name="messageForm" method="post" action="/message.action" id="messageForm2">
+		    
+		    <textarea  rows="6" cols="33" placeholder="请留言你想咨询的问题…"></textarea>
+			<input name="msg.phone" class="tel_input tel22" type="tel" placeholder="您的电话" />
+			<input name="" class="button but22" type="button" value="提交" onclick="tuiguang_message_open('messageForm2',callback,98,35)" />
+		</form>
+	</div>
+</div> 
+<div class="tc4">
+	<div class="tc_contentt">
+	    <img src="images/close4.png" class="close4">
+		<img src="images/tc4icon.png" class="wangg">
+		<h1>恭喜你</h1>
+		<span></span>
+		<p>根据您的测试结果最适合您的专业院校是</p>
+		<h2 class="jis"></h2>
+	</div>
+</div> 
+
+ <script>
+	 $(".nav li").click(function(){
+ 			var index=$(this).index(); 
+ 			$(".content_box").eq(index).show().siblings().hide();
+ 				});
+			
+</script>
+<script language="javascript" type="text/javascript">
+	
+ 		$(".nav li").eq(0).click(function(){
+			$(this).css({"border-bottom":"1px solid #64a6fd","color":"#64a6fd"}).siblings().css({"border":"none","color":"#333333"});
+		});
+	   
+	    $(".nav li").eq(1).click(function(){
+			$(this).css({"border-bottom":"1px solid #42c5d3","color":"#42c5d3"}).siblings().css({"border":"none","color":"#333333"});
+		});
+	
+	    $(".nav li").eq(2).click(function(){
+			$(this).css({"border-bottom":"1px solid #4d68dd","color":"#4d68dd"}).siblings().css({"border":"none","color":"#333333"});
+		});
+	    
+	    $(".nav li").eq(3).click(function(){
+			$(this).css({"border-bottom":"1px solid #db5698","color":"#db5698"}).siblings().css({"border":"none","color":"#333333"});
+		});
+	    
+						
+</script>
+
+<script language="javascript" type="text/javascript">
+	<!-- $(".banner").click(function(){ -->
+		<!-- $(".tc").css("display","block") -->
+	<!-- }); -->
+	$(".close").click(function(){
+		$(".tc").css("display","none")
+	});
+	
+	$(".box1 p").click(function(){
+		$(".tc3").css("display","block")
+	});
+	$(".close2").click(function(){
+		$(".tc3").css("display","none")
+	});
+	$(".close4").click(function(){
+		$(".tc4").css("display","none")
+	});
+</script>
+<script type="text/javascript">
+	function callback1(msg) {
+	//alert("恭喜您，信息已提交成功1！");
+	$(".tc4").css("display","block");
+	//追加短信,可以删除掉,如果要追加留言必须带上参数:&callback="+回调函数如:testBack可以为别的随便名称,但必须跟下面的名称一样
+	$.ajax({
+	url: encodeURI(encodeURI("http://w.sunlands.com/tuiguang/ajax_tuiguang_message.htm?tel=" + msg.phone + "&name=" + msg.name
+	+ "&messageId=" + msg.messageId + "&schoolId=" + msg.schoolId + "&callback=" + testBack)),
+ 	type: "get",
+	dataType: "jsonp",
+	jsonp: testBack,//回调函名称必须有,和参数&callback="的值一样的
+	success: function (data) { }
+ 	});
+    }
+    //和追加留言一起的回调函数,和参数&callback="的值一样的
+    function testBack(msg) {
+	//可以为空
+    }
+</script>
+<!--<script type="text/javascript">
+	function callback(msg) {
+	alert("恭喜您，信息已提交成功！");
+	//追加短信,可以删除掉,如果要追加留言必须带上参数:&callback="+回调函数如:testBack可以为别的随便名称,但必须跟下面的名称一样
+	$.ajax({
+	url: encodeURI(encodeURI("http://w.sunlands.com/tuiguang/ajax_tuiguang_message.htm?tel=" + msg.phone + "&name=" + msg.name
+	+ "&messageId=" + msg.messageId + "&schoolId=" + msg.schoolId + "&callback=" + testBack)),
+ 	type: "get",
+	dataType: "jsonp",
+	jsonp: testBack,//回调函名称必须有,和参数&callback="的值一样的
+	success: function (data) { }
+ 	});
+    }
+    //和追加留言一起的回调函数,和参数&callback="的值一样的
+    function testBack(msg) {
+	//可以为空
+    }
+</script>-->
+
+   <!--留言js开始-->
+<script>
+			interactive.init('xiaoneng')
+			
+			<!---->
+			$(".but2").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel2").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })   
+			 <!
+			 
+			 $(".but22").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel22").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })      
+			 
+			 
+			  $(".but222").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel222").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })      
+			 
+			 
+			   $(".but2222").click(function(e){   //用留言发起按钮的ID替换more
+			var stPhone = $(".tel2222").val();
+			//if逻辑
+			if(stPhone  ==  '')
+				alert('请输入正确手机号');
+			else{ 
+				alert('提交成功');
+				interactive.submitMsg(e,'stPhone',stPhone,'留言发起')
+				}
+             })      
+			 
+		</script>
+<!--弹出框js结束--> 
+
+    <script>
+    interactive.init('xiaoneng')
+    $('.xiaoneng').click(function(e){    //用小能发起按钮的ID替换more
+        interactive. openNtkf(e)
+    })
+</script>
+
+</body>
+</html>
