@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>尚德机构</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/d.css">
+<link rel="stylesheet" type="text/css" href="css/stylehjs_xm.css"/>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/swipeslide.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jQueryRotate.js"></script>
+<script type="text/javascript" src="js/script.js"></script> 
+<script type="text/javascript">
+    (function (win) {
+        var width = document.documentElement.clientWidth;
+        document.documentElement.style.fontSize = width / 7.5 + 'px';
+    })(window);
+</script>
+<script>
+    var siteId = 111111     //用自己的站点ID替换111111
+</script>
+
+
+
+<body>
+
+<script src="http://ggtf.sunland.org.cn/statistics/interactive.js"></script>
+<header>
+	<p>活动</p>
+</header>
+<img src="images/hd_01.jpg" style="display:block;width:100%;border:0;">
+<div class="hdnr">
+	<span>如果能够重新选择，你想成为谁?</span>
+	<span>是继续疲于日夜，还是不跟随不妥协？</span>
+	<span>获取本科学历最佳时间是几年前的高考，</span>
+	<span>其次是现在。</span>
+	<div>
+		<h1><span>尚德机构&nbsp;&nbsp;让情怀落地</span></h1>
+		<p>2017.11.25-2017.12.25</p>
+		<p>活动期间每天送出<b>500张</b>代金券</p>
+		<p>手快有，手慢无！</p>
+	</div>
+</div>
+<div class="hdzp">
+	<div class="rotate_wrap">
+		<img class="bg_img rotate_origin" id="i_bg" src="images/zpbg.png">
+		<img class="cont_img rotate_origin1" id="i_cont" src="images/zpzz.png">
+	</div>
+</div>
+<a class="bntwarp"><img src="images/hd_04.jpg"  id="i_btn"></a>
+<div class="hdxx">
+	<div id="scroll_question">
+		<ul>
+			<li>155****6950抢到了1000元优惠券</li>
+			<li>189****2836抢到了1000元优惠券</li>
+			<li>186****6011抢到了2000元优惠券</li>
+			<li>155****6950抢到了1000元优惠券</li>
+			<li>189****2836抢到了1000元优惠券</li>
+			<li>186****6011抢到了2000元优惠券</li>
+			<li>155****6950抢到了1000元优惠券</li>
+			<li>189****2836抢到了1000元优惠券</li>
+			<li>186****6011抢到了2000元优惠券</li>
+			<li>155****6950抢到了1000元优惠券</li>
+			<li>189****2836抢到了1000元优惠券</li>
+			<li>186****6011抢到了2000元优惠券</li>
+			<li>155****6950抢到了1000元优惠券</li>
+			<li>189****2836抢到了1000元优惠券</li>
+			<li>186****6011抢到了2000元优惠券</li>
+		</ul>
+		<ul>
+			<li>155****6950抢到了1000元优惠券</li>
+			<li>189****2836抢到了1000元优惠券</li>
+			<li>186****6011抢到了2000元优惠券</li>
+			<li>155****6950抢到了1000元优惠券</li>
+			<li>189****2836抢到了1000元优惠券</li>
+			<li>186****6011抢到了2000元优惠券</li>
+			<li>155****6950抢到了1000元优惠券</li>
+			<li>189****2836抢到了1000元优惠券</li>
+			<li>186****6011抢到了2000元优惠券</li>
+			<li>155****6950抢到了1000元优惠券</li>
+			<li>189****2836抢到了1000元优惠券</li>
+			<li>186****6011抢到了2000元优惠券</li>
+			<li>155****6950抢到了1000元优惠券</li>
+			<li>189****2836抢到了1000元优惠券</li>
+			<li>186****6011抢到了2000元优惠券</li>
+		</ul>
+	</div>
+</div>
+<div class="hbtc">
+	<div class="hb_con">
+		<div class="hbbg">
+			<h1></h1>
+			<p>获得<span></span>元代金券</p>
+		</div>
+		<a class="hbbnt">
+			<img src="images/hbbnt.png">
+		</a>
+	</div>
+</div>
+<script language="javascript">
+			var box = document.getElementById("scroll_question"),
+				can = true;
+			box.innerHTML += box.innerHTML;
+			box.onmouseover = function() { can = false };
+			box.onmouseout = function() { can = true };
+			new function() {
+				var stop = box.scrollTop % 47 == 0 && !can;
+				if(!stop) box.scrollTop == parseInt(box.scrollHeight / 2) ? box.scrollTop = 0 : box.scrollTop++;
+				setTimeout(arguments.callee, box.scrollTop % 47 ? 10 : 1000);
+			};
+</script>  
+<script type="text/javascript">
+		// 转盘样式，a：旋转角度，p：概率（1代表100%），t：需要显示的其它信息（文案or分享）
+		var result_angle = [{a:0,p:0.1,t:'免单券'},{a:90,p:0.1,t:'2000'},{a:180,p:0.1,t:'500'},{a:270,p:0.3,t:'1000'}];
+		var rotate = {
+			rotate_angle : 0, //起始位置为0
+			flag_click : true, //转盘转动过程中不可再次触发
+			calculate_result:function(type,during_time){//type:0,箭头转动,1,背景转动;during_time:持续时间(s)
+				var self = this;
+				type = type || 0; // 默认为箭头转动
+				during_time = during_time || 1; // 默认为1s
+
+				var rand_num = Math.ceil(Math.random() * 100); // 用来判断的随机数，1-100
+
+				var result_index; // 最终要旋转到哪一块，对应result_angle的下标
+				var start_pos = end_pos = 0; // 判断的角度值起始位置和结束位置
+
+				for(var i in result_angle){
+					start_pos = end_pos + 1; // 区块的起始值
+					end_pos = end_pos + 100 * result_angle[i].p; // 区块的结束值
+
+					if(rand_num >= start_pos && rand_num <= end_pos){ // 如果随机数落在当前区块，那么获取到最终要旋转到哪一块
+						result_index = i;
+						break;
+					}
+				}
+
+				var rand_circle = Math.ceil(Math.random() * 8) + 1; // 附加多转几圈，2-3
+
+				self.flag_click = false; // 旋转结束前，不允许再次触发
+				if(type == 1){ // 转动盘子
+					self.rotate_angle =  self.rotate_angle - rand_circle * 360 - result_angle[result_index].a - self.rotate_angle % 360;
+					$('#i_bg').css({
+						'transform': 'rotate('+self.rotate_angle+'deg)',
+						'-ms-transform': 'rotate('+self.rotate_angle+'deg)',
+						'-webkit-transform': 'rotate('+self.rotate_angle+'deg)',
+						'-moz-transform': 'rotate('+self.rotate_angle+'deg)',
+						'-o-transform': 'rotate('+self.rotate_angle+'deg)',
+						'transition': 'transform ease-out '+during_time+'s',
+						'-moz-transition': '-moz-transform ease-out '+during_time+'s',
+						'-webkit-transition': '-webkit-transform ease-out '+during_time+'s',
+						'-o-transition': '-o-transform ease-out '+during_time+'s'
+					});
+				}else{ // 转动指针
+					self.rotate_angle = self.rotate_angle + rand_circle * 360 + result_angle[result_index].a - self.rotate_angle % 360;
+					$('#i_cont').css({
+						'transform': 'rotate('+self.rotate_angle+'deg)',
+						'-ms-transform': 'rotate('+self.rotate_angle+'deg)',
+						'-webkit-transform': 'rotate('+self.rotate_angle+'deg)',
+						'-moz-transform': 'rotate('+self.rotate_angle+'deg)',
+						'-o-transform': 'rotate('+self.rotate_angle+'deg)',
+						'transition': 'transform ease-out '+during_time+'s',
+						'-moz-transition': '-moz-transform ease-out '+during_time+'s',
+						'-webkit-transition': '-webkit-transform ease-out '+during_time+'s',
+						'-o-transition': '-o-transform ease-out '+during_time+'s'
+					});
+				}
+				// 旋转结束后，允许再次触发
+				setTimeout(function(){ 
+					self.flag_click = false;
+					// 告诉结果
+					$('.hbtc').find('h1').html(result_angle[result_index].t)
+					$('.hbtc').find('span').html(result_angle[result_index].t)
+					$('.hbtc').show();
+				},during_time*1000);
+			}
+		}
+		$(document).ready(function(){
+		
+			$('#i_btn').click(function(){
+				if(rotate.flag_click){ // 旋转结束前，不允许再次触发
+					rotate.calculate_result(1,1);
+				}else{
+					alert("您已抽过奖")
+				}
+			});
+					
+
+		});
+	  $('.hbtc').click(function(){
+		 $(this).hide(); 
+	  })
+	</script>
+
+
+</body>
+</html>
