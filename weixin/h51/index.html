@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>尚德机构</title>
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                var html = document.documentElement;
+                var windowWidth = html.clientWidth;
+                html.style.fontSize = windowWidth / 7.5 + 'px';
+                // 等价于html.style.fontSize = windowWidth / 640 * 100 + 'px';
+            }, false);
+        })();
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script>
+        var siteId = 111111     //用自己的站点ID替换111111
+    </script>
+    <script src="http://ggtf.sunland.org.cn/statistics/sunlandsLog.js"></script>
+</head>
+<body>
+<script src="http://ggtf.sunland.org.cn/statistics/interactive.js"></script>
+<!--页面代码开始-->
+
+
+<!--part1 开始-->
+
+<section class="part01">
+    <div class="top"></div>
+    <div class="title"></div>
+    <div class="main_top"></div>
+    <div class="main_bottom">
+        <input type="text" placeholder="请输入您的名字" class="name">
+        <br>
+        <select name="old" id="oldSelect">
+            <option value="" hidden>请选择您的段位</option>
+            <option value="80">80后</option>
+            <option value="90">90后</option>
+        </select>
+    </div>
+    <div class="main_btn"></div>
+    <div class="logo"></div>
+</section>
+
+<!--part2 开始-->
+<section class="part02">
+    <img src="" alt="" id="base">
+    <div class="longtap"></div>
+    <div class="clickme">
+        <a href="https://mp.weixin.qq.com/s/zu5_8MH6WUeGXE8aTNz-6g"><img src="images/9.png" alt=""></a>
+    </div>
+</section>
+
+<div class="cd-cover-layer"></div>
+<div class="cd-loading-bar"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    interactive.init('xiaoneng');
+    $('.xiaoneng').click(function (e) {    //用小能发起按钮的ID替换more
+        interactive.openNtkf(e)
+    });
+</script>
+<script src="js/main.js"></script>
+<!--页面代码结束-->
+</body>
+</html>

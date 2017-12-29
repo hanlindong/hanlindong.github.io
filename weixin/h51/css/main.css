@@ -1,0 +1,376 @@
+html, body {
+    position: relative;
+    background-color: #ffd85a;
+    font-family: '微软雅黑';
+    width: 100%;
+    height: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    margin: 0 !important;
+}
+
+a {
+    list-style: none;
+}
+
+section {
+    position: relative;
+}
+
+.part01 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #ffd85a;
+}
+
+.part01 img {
+    width: 100%;
+}
+
+.part01 p {
+    font-size: .3rem;
+    color: #ffffff;
+    position: absolute;
+    top: 8.7rem;
+    left: 36%;
+}
+
+.top {
+    width: 7.5rem;
+    height: 1.69rem;
+    background: url("../images/2.png") no-repeat center center;
+    background-size: contain;
+}
+
+.title {
+    width: 5.48rem;
+    height: .77rem;
+    background: url("../images/3.png") no-repeat center center;
+    background-size: contain;
+    margin: 0.2rem auto;
+}
+
+.main_top {
+    width: 6.2rem;
+    height: 4.8rem;
+    background: url("../images/6.png") no-repeat center center;
+    background-size: contain;
+    margin: 0 auto;
+}
+
+.main_bottom {
+    width: 6.2rem;
+    height: 3.14rem;
+    background: url("../images/7.png") no-repeat center center;
+    background-size: contain;
+    margin: 0 auto;
+    position: relative;
+}
+
+.name {
+    width: 4rem;
+    height: .6rem;
+    font-size: .28rem;
+    font-family: 'simsun';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: transparent;
+    background-color: transparent;
+    outline: none;
+    text-align: left;
+    color: #222222;
+    text-indent: 3.7em;
+}
+
+.name::-webkit-input-placeholder {
+    color: #222222;
+    opacity: 1;
+}
+
+#oldSelect {
+    width: 4rem;
+    height: .6rem;
+    font-size: .28rem;
+    font-family: 'simsun';
+    position: absolute;
+    top: 0.85rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: transparent;
+    background-color: transparent;
+    outline: none;
+    text-align: center;
+    text-indent: 3.7em;
+    color: #222222;
+}
+
+.main_btn {
+    width: 7.1rem;
+    height: 1.41rem;
+    background: url("../images/4.png") no-repeat center center;
+    background-size: contain;
+    margin: 0 auto;
+    position: relative;
+    margin-top: -1.4rem;
+}
+
+.logo {
+    width: 1.77rem;
+    height: .44rem;
+    background: url("../images/5.png") no-repeat center center;
+    background-size: contain;
+    margin: 0 auto;
+    position: relative;
+    margin-top: .4rem;
+}
+
+.cd-cover-layer {
+    /* layer that covers the content when the animation is triggered */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    opacity: 0;
+    visibility: hidden;
+    background-color: #4089a6;
+    -webkit-transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
+    -o-transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
+    transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
+}
+
+.page-is-changing .cd-cover-layer {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+    -o-transition: opacity 0.3s 0s, visibility 0s 0s;
+    transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+
+.cd-loading-bar {
+    /* this is the loding bar - visible while switching from one page to the following one */
+    position: fixed;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    height: 2px;
+    width: 90%;
+    background-color: #4089a6;
+    visibility: hidden;
+    -webkit-transition: visibility 0s 0.4s, -webkit-transform 0.4s 0s ease-in;
+    transition: visibility 0s 0.4s, -webkit-transform 0.4s 0s ease-in;
+    -o-transition: visibility 0s 0.4s, transform 0.4s 0s ease-in;
+    transition: visibility 0s 0.4s, transform 0.4s 0s ease-in;
+    transition: visibility 0s 0.4s, transform 0.4s 0s ease-in, -webkit-transform 0.4s 0s ease-in;
+    /* Force Hardware Acceleration */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.cd-loading-bar::before {
+    /* this is the progress bar inside the loading bar */
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #283040;
+    /* Force Hardware Acceleration */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: left center;
+    -ms-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.page-is-changing .cd-loading-bar {
+    visibility: visible;
+    -webkit-transform: translateX(-50%) translateY(-50%) scaleX(0.3);
+    -ms-transform: translateX(-50%) translateY(-50%) scaleX(0.3);
+    transform: translateX(-50%) translateY(-50%) scaleX(0.3);
+    -webkit-transition: visibility 0s 0.3s, -webkit-transform 0.4s 0.4s;
+    transition: visibility 0s 0.3s, -webkit-transform 0.4s 0.4s;
+    -o-transition: visibility 0s 0.3s, transform 0.4s 0.4s;
+    transition: visibility 0s 0.3s, transform 0.4s 0.4s;
+    transition: visibility 0s 0.3s, transform 0.4s 0.4s, -webkit-transform 0.4s 0.4s;
+}
+
+.page-is-changing .cd-loading-bar::before {
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transition: -webkit-transform 0.8s 0.8s ease-in;
+    transition: -webkit-transform 0.8s 0.8s ease-in;
+    -o-transition: transform 0.8s 0.8s ease-in;
+    transition: transform 0.8s 0.8s ease-in;
+    transition: transform 0.8s 0.8s ease-in, -webkit-transform 0.8s 0.8s ease-in;
+}
+
+body::after, body::before {
+    content: '';
+    height: 50vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    background-color: #fff;
+    z-index: 1;
+    /* Force Hardware Acceleration */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition: -webkit-transform 0.4s 0.4s;
+    transition: -webkit-transform 0.4s 0.4s;
+    -o-transition: transform 0.4s 0.4s;
+    transition: transform 0.4s 0.4s;
+    transition: transform 0.4s 0.4s, -webkit-transform 0.4s 0.4s;
+}
+
+body::before {
+    font-family: 'simsun';
+    content: ' ';
+    background: #fff url("../images/timg.gif") no-repeat center bottom;
+    font-size: .36rem;
+    /*text-align: center;*/
+    /*line-height: 30;*/
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    line-height: 3;
+    top: 0;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+body::after {
+    bottom: 0;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+}
+
+body.page-is-changing::after, body.page-is-changing::before {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition: -webkit-transform 0.4s 0s;
+    transition: -webkit-transform 0.4s 0s;
+    -o-transition: transform 0.4s 0s;
+    transition: transform 0.4s 0s;
+    transition: transform 0.4s 0s, -webkit-transform 0.4s 0s;
+}
+
+/*part02 开始*/
+.part02 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /*background-color: #ffd85a;*/
+    display: none;
+}
+
+#base {
+    width: 7.5rem;
+}
+
+.longtap {
+    width: 3.99rem;
+    height: .45rem;
+    position: absolute;
+    top: 0.3rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: url("../images/1.png") no-repeat center center;
+    background-size: contain;
+}
+
+.clickme {
+    width: 2.04rem;
+    height: 1.11rem;
+    position: absolute;
+    top:10.6rem;
+    left:0.3rem;
+    -webkit-animation: breath 1.5s ease infinite;
+    animation: breath 1.5s ease infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+}
+@-webkit-keyframes breath {
+    from{
+        -webkit-transform:scale(1,1);
+        transform:scale(1,1);
+    }
+    75%{
+        -webkit-transform:scale(1.2,1.2);
+        transform:scale(1.2,1.2);
+    }
+    to{
+        -webkit-transform:scale(1.2,1.2);
+        transform:scale(1.2,1.2);
+    }
+}
+@keyframes breath {
+    from{
+        -webkit-transform:scale(1,1);
+        transform:scale(1,1);
+    }
+    75%{
+        -webkit-transform:scale(1.2,1.2);
+        transform:scale(1.2,1.2);
+    }
+    to{
+        -webkit-transform:scale(1.2,1.2);
+        transform:scale(1.2,1.2);
+    }
+}
+.clickme img {
+    width: 100%;
+}
