@@ -666,8 +666,10 @@ window.onload = function () {
 
         var canvas = document.createElement('canvas');
         var $wjb = $(canvas);
-        var canvasHeight = window.innerHeight;
-        var canvasWidth = window.innerWidth;
+        // var canvasHeight = window.innerHeight;
+        // var canvasWidth = window.innerWidth;
+        var canvasHeight = window.screen.height;
+        var canvasWidth = window.screen.width;
         // alert(height2+'+'+width2)
         $wjb.attr('width', canvasWidth * 2);
         $wjb.attr('height', canvasHeight * 2);
@@ -730,15 +732,18 @@ window.onload = function () {
                 context.restore();
             }, {"x": 10, "y": 180, "width": title_width, "height":title_height });
 
+
+            //keywords   开始
+            preImage(keywords_url, function (x, y, width, height) {
+                context.save();
+                // context.rotate(10*Math.PI/180);
+                context.drawImage(this, x * changeScale, y * changeScale, width * changeScale, height * changeScale);
+                context.restore();
+            }, {"x": (750 - keywords_width) / 2, "y": 310, "width": keywords_width, "height": keywords_height});
+
         }, {"x": 684 - animal_width, "y": 1206 - 293 - animal_height, "width": animal_width, "height": animal_height});
 
-        //keywords   开始
-        preImage(keywords_url, function (x, y, width, height) {
-            context.save();
-            // context.rotate(10*Math.PI/180);
-            context.drawImage(this, x * changeScale, y * changeScale, width * changeScale, height * changeScale);
-            context.restore();
-        }, {"x": (750 - keywords_width) / 2, "y": 310, "width": keywords_width, "height": keywords_height});
+
 
 
 
